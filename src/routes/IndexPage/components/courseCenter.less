@@ -1,0 +1,86 @@
+/*
+* 课程中心
+*/
+@import "../../../themes/index";
+.courseCenter{
+  border-bottom: 6px solid @red;
+  :global {
+    .ant-radio-group-large .ant-radio-button-wrapper {
+      height: 44px;
+      line-height: 44px;
+      width: 169px;
+      text-align: center;
+    }
+    .ant-radio-button-wrapper-checked {
+      background: @red;
+      border-color: @red;
+      color: @white;
+    }
+  }
+  .courseList {
+    min-height: 440px;
+    margin-top: 20px;
+    ul{
+      .clearFix;
+      li {
+        .pull-left;
+        margin-left: 10px;
+        min-height: 200px;
+        width: 200px;
+        margin-bottom: 10px;
+        position: relative;
+        .desc {
+          margin-top: 10px;
+          p {
+            .clearFix;
+            line-height: 23px;
+            max-width: 190px;
+            .ellipsis;
+            color: @text-gray*3;
+            .teacher {
+              .pull-left;
+            }
+            .red {
+              .pull-right;
+              color: @red;
+            }
+          }
+          a{
+            font-size: 16px;
+            color: #003333;
+            &:hover {
+              color: @blue;
+            }
+          }
+        }
+        .hotCourse {
+          position: absolute;
+          left: 10px;
+          top: 100px;
+          color: @white;
+          font-size: 12px;
+          .bg{
+            width: 66px;
+            height: 20px;
+            background-color: #000;
+            .opacity(0.4);
+          }
+          .content{
+            position: absolute;
+            top:3px;
+            left: 5px;
+          }
+          img{
+            position: relative;
+            top: -1px;
+          }
+        }
+        a {
+          img {
+            .wh(200px,127px);
+          }
+        }
+      }
+    }
+  }
+}

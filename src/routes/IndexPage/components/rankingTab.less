@@ -1,0 +1,53 @@
+/**
+ * 排行榜
+ */
+@import "../../../themes/index";
+
+.rankingTab {
+  margin:20px 0 0 20px;
+  :global {
+    .ant-tabs-nav {
+      width: 100%;
+    }
+    .ant-tabs-nav .ant-tabs-tab {
+      margin-right: 0;
+      width: 33%;
+      text-align: center;
+    }
+  }
+  .rankingContent {
+    text-align: center;
+    .title {
+      .clearFix;
+      width: auto;
+      height: 48px;
+      line-height: 48px;
+      background-color: #f8f8f8;
+      .rank1,
+      .rank2,
+      .rank3{
+        width: 33.3%;
+        .pull-left;
+      }
+    }
+    .rankingList {
+      .clearFix;
+      .list1,
+      .list2,
+      .list3{
+        .pull-left;
+        width: 33.3%;
+        height: 44px;
+        line-height: 44px;
+        .ellipsis;
+      }
+      .list1 {
+        span{
+          display: inline-block;
+          width: 100%;
+          height: 44px;
+        }
+      }
+    }
+  }
+}

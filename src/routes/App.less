@@ -1,0 +1,45 @@
+
+@import "../themes/index";
+.normal {
+  .header {
+    text-align: center;
+  }
+  :global{
+    .ant-breadcrumb {
+      padding: 8px 15px;
+      //background: @gray-f3;
+    }
+    .searchText{
+      margin: 20px 40px;
+    }
+    .table{
+      width: 100%;
+      border-collapse: collapse;
+      th,tr,td{
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid @gray-ddd;
+      }
+      th{
+        background-color: lighten(@gray-ddd,8%);
+      }
+      .listDate{
+        text-align: center;
+      }
+      .arrow{
+        margin: 0 10px;
+      }
+      .tableName{
+        vertical-align: middle;
+        display: inline-block;
+        width: 460px;
+        .ellipsis;
+      }
+    }
+    .pagination{
+      margin: 10px 20px;
+    }
+  }
+}
+

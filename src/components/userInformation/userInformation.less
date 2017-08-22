@@ -1,0 +1,61 @@
+/**
+ * 个人信息
+ */
+@import "../../themes/index";
+.userInformation{
+  margin-top: 15px;
+  .userContent{
+    border:1px solid @gray-eee;
+    .red{
+      color: @red;
+    }
+    ul{
+      li {
+        .clearFix;
+        color: @text-gray;
+        height: 40px;
+        line-height: 40px;
+        margin:0 auto;
+        border-bottom: 1px solid @gray-eee;
+        width: 80%;
+        .list1,.list2{
+          display: inline-block;
+          width: 50%;
+        }
+        .item1 {
+          .pull-left;
+        }
+        .item2 {
+          .pull-right;
+          text-align: right;
+          a{
+            color: @text-gray*2;
+            &:hover{
+              color: @text-gray;
+            }
+          }
+        }
+      }
+      .lastChild{
+        border-bottom: 0;
+        a{
+          font-size: 12px;
+          color: @text-gray*2;
+        }
+        .item2{
+          a{
+            color: @red;
+          }
+        }
+      }
+      .exit{
+        text-align: center;
+        :global{
+          .ant-btn{
+            padding: 0 23px;
+          }
+        }
+      }
+    }
+  }
+}

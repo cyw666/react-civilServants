@@ -1,0 +1,65 @@
+@import "../../../themes/index.less";
+.newsInfor {
+  width:100%;
+  .borderNews {
+    border: 1px solid @gray-eee;
+    margin-left: 11px;
+    height: 482px;
+    .tabContent {
+      .top {
+        height: 123px;
+        background-color: @gray-f3;
+        .title {
+          text-align: center;
+          display: inline-block;
+          .wh(100%,56px);
+          padding: 0 20px;
+          line-height: 56px;
+          font-size: 16px;
+          font-weight: 600;
+          .ellipsis;
+        }
+        .description {
+          line-height: 25px;
+          font-size: 16px;
+          padding: 0 20px;
+          color: @text-gray*2;
+        }
+      }
+      .bottom {
+        li {
+          .wh(100%,36px);
+          line-height: 36px;
+        }
+        span{
+          .pull-left;
+        }
+        .arrow {
+          margin: 0 20px;
+        }
+        .name {
+          width: 70%;
+          padding: 0 10px;
+          .ellipsis;
+        }
+        .time {
+          margin-right: 20px;
+          color: @text-color*3;
+          .pull-right;
+        }
+      }
+    }
+    :global {
+      .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+        padding: 9px 27px;
+      }
+      .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
+        height: 44px;
+      }
+      .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+        border-top: 3px solid @red;
+        padding: 7px 27px 10px;
+      }
+    }
+  }
+}

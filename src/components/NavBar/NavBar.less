@@ -1,0 +1,25 @@
+@import "../../themes/index.less";
+.navBar {
+  text-align: center;
+  background: #db1011;
+  .navTabs{
+    li{
+      float: left;
+      a{
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        width: 170px;
+        height: 42px;
+        line-height: 42px;
+        &:hover{
+          background: lighten(@red, 5%);
+        }
+      }
+      .active{
+        background: lighten(@red, 5%);
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+/**
+ * 实时数据
+ */
+@import "../../../themes/index.less";
+
+.realTimeData {
+  margin-top: 10px;
+  .realTimeList {
+    padding: 0 8px;
+    .clearFix;
+    ul {
+      .pull-left;
+      .wh(142px, 100px);
+      text-align: center;
+      background-color: lighten(@gray-eee, 3%);
+      color: @blue2; //#2371ff;
+      li {
+        width: 100%;
+        height: 80px;
+        margin-top: 10px;
+        border-right: 1px solid darken(@gray-ddd, 2%);
+        .count {
+          padding-top: 19px;
+          font-size: 17px;
+        }
+        &.lastLi {
+          border: none;
+        }
+        div {
+          margin-top: 10px;
+          img {
+            vertical-align: sub;
+          }
+          span {
+            display: inline-block;
+            margin-left: 10px;
+            height: 30px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
