@@ -1,0 +1,35 @@
+/**
+ * 班级园地（模块）
+ */
+@import "../../../themes/index";
+.tmTrainingClass{
+  margin-top: 20px;
+  padding-left: 10px;
+  .classList{
+    border:1px solid @gray-eee;
+    :global{
+      .ant-tabs-bar{
+        margin-bottom: 2px;
+      }
+    }
+    .title{
+      width: 100%;
+      font-weight: bold;
+      color: @text-gray*2;
+      border-bottom: 1px dashed @gray-ccc;
+      background-color: @gray-f3;
+    }
+    .tabList{
+      border-bottom: 1px dashed @gray-ccc;
+      &:hover{
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+      }
+      :global {
+        .ant-btn{
+          width: 88px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

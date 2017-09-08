@@ -29,9 +29,17 @@ export default modelExtend(model, {
         Url: "",
       },
     },
-    favorite: false
   },
-  reducers: {}
+  reducers: {
+    changeFavoriteId(state, { payload }){
+      return {
+        ...state,
+        noticeDetailData: {
+          Model: {...state.noticeDetailData.Model,...payload},
+        },
+      }
+    }
+  }
   ,
   effects: {
     *getNoticeDetail({payload}, {call, put}){
@@ -45,13 +53,22 @@ export default modelExtend(model, {
     },
     *favoriteAdd({payload}, {call, put}){
       let data = yield call(favoriteAdd, payload);
-      yield put({
-        type: 'updateState',
-        payload: {
-          favorite: data,
-        }
-      });
-    }
+      if(data.Type===1){
+        alert(data.Message);
+        yield put({type: 'changeFavoriteId', payload: {FavoriteId: data.Value}});
+      }else {
+        alert('收藏失败！');
+      }
+    },
+    *favoriteDelete({payload}, {call, put}){
+      let data = yield call(favoriteDelete, payload);
+      if(data.Type===1){
+        alert(data.Message);
+        yield put({type: 'changeFavoriteId', payload: {FavoriteId: 0}});
+      }else {
+        alert('取消收藏失败！');
+      }
+    },
   }
   ,
   subscriptions: {

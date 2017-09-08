@@ -1,0 +1,79 @@
+/**
+ * 个人中心课程列表
+ */
+@import "../../../themes/index";
+
+.tmMyCenter {
+  margin-top: 15px;
+  padding-left: 10px;
+  .courseBorder {
+    border: 1px solid @gray-eee;
+  }
+  .noData {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5em;
+    padding: 20px;
+  }
+  :global {
+    .ant-tabs-bar {
+      margin-bottom: 2px;
+    }
+    .ant-progress-text {
+      font-size: 10px;
+      margin-left: 5px;
+    }
+    .ant-pagination {
+      display: block;
+      text-align: center;
+      padding: 10px;
+    }
+  }
+  .title {
+    width: 100%;
+    font-weight: bold;
+    color: @text-gray*2;
+    border-bottom: 1px dashed @gray-ccc;
+    background-color: @gray-f3;
+  }
+  .tabList {
+    border-bottom: 1px dashed @gray-ccc;
+    &:hover {
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    }
+    :global {
+      .ant-btn {
+        width: 88px;
+        padding: 0;
+      }
+    }
+  }
+  .notesModal {
+  }
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  th, tr, td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid @gray-ddd;
+  }
+  th {
+    background-color: lighten(@gray-ddd, 8%);
+  }
+  .seaNoteName{
+    width: 20%;
+  }
+  .seaNote{
+    width: 80%;
+    a{
+      padding: 0px 15px;
+    }
+    .seaNoteItemName{
+      .ellipsis;
+      width: 65%;
+    }
+  }
+}

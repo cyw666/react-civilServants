@@ -1,5 +1,5 @@
 /**
- * Created by admin on 2017/8/7.
+ * header
  */
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -74,6 +74,6 @@ Header.propTypes = {
   addFavorite: PropTypes.func.isRequired,
   setHome: PropTypes.func.isRequired,
   inputChange: PropTypes.func.isRequired,
-  data: PropTypes.object
-};
+  data:PropTypes.object
+}
 export default Header;

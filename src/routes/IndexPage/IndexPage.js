@@ -6,7 +6,6 @@ import {UserLogin, NoticeAnnouncement, NewsInfor, CourseCenter ,GuideEntry,Speci
 import styles from './IndexPage.less';
 import bannerCenter from '../../assets/bannerCenter.png'
 const IndexPage = ({indexPage, dispatch, loading}) => {
-  // debugger
   /*登陆*/
   let {token} = indexPage;
   let loginLoading = false;
@@ -69,11 +68,11 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
         payload: {rows: 6, categoryId}
       });
     },
-    addClass: (Id)=>{
+    addClass: (id)=>{
       if(indexPage.isLoginIn){
         dispatch({
           type: 'indexPage/joinClass',
-          payload: {Id}
+          payload: {id}
         });
       }else {
         alert('请登录！');

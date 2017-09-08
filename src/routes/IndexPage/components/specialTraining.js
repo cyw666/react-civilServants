@@ -4,7 +4,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import {Spin} from 'antd';
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {Link} from 'dva/router'

@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import {Spin, Carousel} from 'antd';
 import {Link} from 'dva/router'
 import styles from './noticeAnnouncement.less';

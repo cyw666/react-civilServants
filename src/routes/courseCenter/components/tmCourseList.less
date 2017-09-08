@@ -1,0 +1,113 @@
+/**
+ * 课程列表
+ */
+@import "../../../themes/index";
+.tmCourseList{
+  .courseBorder{
+    border:1px solid @gray-eee;
+    .sortCourse{
+      .clearFix;
+      margin-bottom: 15px;
+      .tag{
+        .pull-left;
+        margin-left: 25px;
+        &>span{
+          display: inline-block;
+          padding: 2px 15px;
+        }
+      }
+      .titleBar{
+        .pull-left;
+        &>span{
+          margin: 0 15px;
+        }
+      }
+    }
+  }
+  margin-top: 20px;
+  padding-left: 10px;
+  :global{
+    .ant-checkbox-group-item {
+      display: block;
+      height: 95px;
+      border-top: 1px solid @gray-eee;
+      .ant-checkbox{
+        top:33px;
+        left: 5px;
+      }
+    }
+    .ant-checkbox-wrapper:not(:last-child){
+      margin-right: 0;
+    }
+    .ant-col-24{
+      padding: 20px 0;
+      border-top:1px solid @gray-eee;
+      .ant-checkbox-wrapper{
+        .pull-left;
+        margin: 0 9px;
+        height: 28px;
+        line-height: 28px;
+      }
+      .ant-btn{
+        .pull-left;
+        margin: 0 15px;
+      }
+      .ant-pagination {
+        .pull-left;
+      }
+    }
+    .table{
+      tr{
+        border-top: 1px solid @gray-eee;
+        td{
+          text-align: left;
+          border-top:none;
+        }
+      }
+    }
+  }
+  .courseContent{
+    .courseImgs{
+      width: 15%;
+      :global{
+        .comImg{
+          .wh(110px,74px);
+        }
+      }
+    }
+    .desc{
+      width: 60%;
+      p{
+        height: 26px;
+        line-height: 26px;
+        font-size: 12px;
+        color: @text-gray;
+        &.title{
+          font-size: 14px;
+          color: @text-gray;
+        }
+        &>span{
+          width: 100px;
+          display: inline-block;
+          text-align: left;
+        }
+      }
+
+    }
+    .playRight{
+      width: 25%;
+      p{
+        &.time{
+          margin-bottom: 10px;
+          font-size: 12px;
+          color: @text-gray*3;
+        }
+        &.play{
+        }
+        height: 30px;
+        line-height: 30px;
+        text-align: right;
+      }
+    }
+  }
+}

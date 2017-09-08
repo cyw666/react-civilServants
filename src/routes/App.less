@@ -7,7 +7,10 @@
   :global{
     .ant-breadcrumb {
       padding: 8px 15px;
-      //background: @gray-f3;
+      background: @gray-f3;
+    }
+    .ant-row {
+      text-align: center;
     }
     .searchText{
       margin: 20px 40px;
@@ -39,6 +42,49 @@
     }
     .pagination{
       margin: 10px 20px;
+    }
+    .list{
+      display: block;
+      width: 100%;
+      line-height: 37px;
+      padding-left: 10px;
+      padding-right: 10px;
+      .ellipsis;
+    }
+    /*排行榜*/
+    .rankHeader{
+      background-color: lighten(@gray-f3,2%);
+      .headerList{
+        display: inline-block;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 10px;
+        .ellipsis;
+      }
+    }
+    .rankContent{
+      .contentList{
+        display: inline-block;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 10px;
+        .ellipsis;
+      }
+    }
+    .rankBg{
+      background-color: lighten(@gray-f3,2%);
+    }
+    /*排行前三背景*/
+    .rankFirstBg {
+      background: url("../assets/rankOne.png") center no-repeat;
+    }
+    .rankSecondBg {
+      background: url("../assets/rankTwo.png") center no-repeat;
+    }
+    .rankThirdBg {
+      background: url("../assets/rankThree.png") center no-repeat;
     }
   }
 }

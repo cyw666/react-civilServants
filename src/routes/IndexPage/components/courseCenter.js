@@ -9,6 +9,7 @@ import {Radio , Spin} from 'antd';
 import {Link} from 'dva/router'
 import styles from './courseCenter.less';
 import hotIcon from '../../../assets/hotIcon.png'
+import notCourse from '../../../assets/notCourse.png'
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 class CourseCenter extends React.Component{
@@ -41,7 +42,7 @@ class CourseCenter extends React.Component{
       return (
         <li key={index}>
           <Link to="courseDetail" title={item.Name} target="_blank">
-            <Img src={baseImgPath+'/'+item.Img} alt=""/>
+            <Img src={baseImgPath+'/'+item.Img} alt="" errSrc={notCourse}/>
           </Link>
           {
             index < 2

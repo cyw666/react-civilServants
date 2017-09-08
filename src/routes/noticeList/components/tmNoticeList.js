@@ -3,15 +3,14 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import cs from 'classnames'
 import styles from './tmNoticeList.less'
 import { Link } from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Arrow from '../../../assets/arrow.png'
-import {Button,Breadcrumb,Icon,Input,Pagination } from 'antd';
+import {Breadcrumb,Icon,Input,Pagination ,Spin} from 'antd';
 import {dateFilter} from '../../../utils/index'
 const Search = Input.Search;
-const TmNoticeList = ({noticeListData,searchNotice}) => {
+const TmNoticeList = ({noticeListData,searchNotice,loading}) => {
   // debugger
   const {ListData,Count,Page,Rows,search} = noticeListData;
   const noticeList = ListData.map((item,index)=>{
@@ -39,20 +38,22 @@ const TmNoticeList = ({noticeListData,searchNotice}) => {
           />
         </div>
         <div>
-          <table className="table">
-            <thead>
+          <Spin spinning={loading}>
+            <table className="table">
+              <thead>
               <tr>
                 <th className="titleName">文章名称</th>
                 <th className="titleDate">发布日期</th>
               </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
               {noticeList}
-            </tbody>
-          </table>
-          <div className="pagination">
-            <Pagination showQuickJumper showTotal={total => `共 ${total} 条`} current={Page} total={Count} pageSize={Rows} onChange={(pageNumber)=>{searchNotice({page:pageNumber, search})}} />
-          </div>
+              </tbody>
+            </table>
+            <div className="pagination">
+              <Pagination showQuickJumper showTotal={total => `共 ${total} 条`} current={Page} total={Count} pageSize={Rows} onChange={(pageNumber)=>{searchNotice({page:pageNumber, search})}} />
+            </div>
+          </Spin>
         </div>
       </div>
     </div>
@@ -62,6 +63,7 @@ const TmNoticeList = ({noticeListData,searchNotice}) => {
 
 TmNoticeList.propTypes = {
   noticeListData:PropTypes.object,
-  searchNotice:PropTypes.func
+  searchNotice:PropTypes.func,
+  loading:PropTypes.bool,
 };
 export default TmNoticeList;

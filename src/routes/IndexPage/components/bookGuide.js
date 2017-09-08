@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import cs from 'classnames';
 import {Spin} from 'antd';
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Img from '../../../components/Img/Img'
@@ -34,13 +33,13 @@ const BookGuide = ({loading,bookListData}) => {
   return (
     <div className={styles.bookGuide}>
       <GeneralHead showIcon={true} title="电子书" url="library"></GeneralHead>
-      {/*<Spin spinning={loading}>
-       </Spin>*/}
-      <div className={styles.bookList}>
-        <ul>
-          {bookList}
-        </ul>
-      </div>
+      <Spin spinning={loading}>
+        <div className={styles.bookList}>
+          <ul>
+            {bookList}
+          </ul>
+        </div>
+       </Spin>
     </div>
   );
 };

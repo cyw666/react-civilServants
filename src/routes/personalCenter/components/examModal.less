@@ -1,0 +1,35 @@
+/**
+ * 考试modal
+ */
+@import "../../../themes/index";
+
+.notesModal {
+
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  th, tr, td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid @gray-ddd;
+  }
+  th {
+    background-color: lighten(@gray-ddd, 8%);
+  }
+  .seaNoteName{
+    width: 20%;
+  }
+  .seaNote{
+    width: 80%;
+    a{
+      padding: 0px 15px;
+    }
+    .seaNoteItemName{
+      .ellipsis;
+      width: 65%;
+    }
+  }
+}

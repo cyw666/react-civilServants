@@ -6,13 +6,13 @@ import styles from './noticeList.less';
 import UserInformation from '../../components/userInformation/userInformation'
 import TmNoticeList from './components/tmNoticeList'
 
-const NoticeList = ({noticeList, dispatch, loading}) => {
+const NoticeList = ({app,noticeList, dispatch, loading}) => {
   const userInforProps = {
-    information: noticeList.userInformation,
+    information: app.userInformation,
     loginOut: ()=>{
-      dispatch({type: 'noticeList/loginOut', payload: noticeList.token});
+      dispatch({type: 'app/loginOut', payload: noticeList.token});
     },
-    loading: loading.effects['noticeList/getUserInformation']
+    loading: loading.effects['app/getUserInformation']
   }
   const noticeListProps = {
     noticeListData: noticeList.noticeListData,
@@ -21,7 +21,8 @@ const NoticeList = ({noticeList, dispatch, loading}) => {
         type:'noticeList/getNoticeList',
         payload: params
       });
-    }
+    },
+    loading:loading.effects['noticeList/getNoticeList']
   }
   return (
     <div className={styles.noticeList}>
@@ -37,9 +38,10 @@ const NoticeList = ({noticeList, dispatch, loading}) => {
   );
 };
 NoticeList.propTypes = {
+  app: PropTypes.object.isRequired,
   noticeList: PropTypes.object.isRequired,
   dispatch: PropTypes.func,
   loading: PropTypes.object
 };
 
-export default connect(({noticeList, loading}) => ({noticeList, loading}))(NoticeList);
+export default connect(({app,noticeList, loading}) => ({app,noticeList, loading}))(NoticeList);

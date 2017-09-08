@@ -13,15 +13,14 @@ img {
   border: 0px;
   -ms-interpolation-mode: bicubic;
 }
-
-/*::-webkit-scrollbar-thumb {
-  background-color: #e6e6e6;
+a{
+  &:active{
+    text-decoration: none;
+  }
+  &:focus{
+    text-decoration: none;
+  }
 }
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}*/
 
 //定义全局变量
 @dark-half: #494949;
@@ -40,9 +39,10 @@ img {
 @red: #db1011;
 @text-gray: #333;
 @orang: #ff9842;
+@gray-ccc: #ccc;
+@gray-ddd: #ddd;
 @gray-eee: #eee;
 @gray-f3: lighten(@gray-eee, 2%);
-@gray-ddd: #ddd;
 // 边框圆角
 .border-radius (@radius: 3px) {
   border-radius: @radius;
