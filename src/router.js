@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router, Route} from 'dva/router';
 import App from './routes/App';
-import {authorization,keepOnline} from './services/main';
+import {authorization, keepOnline} from './services/main';
 /*注册model*/
 const registerModel = (app, model) => {
   if (!(app._models.filter(m => m.namespace === model.namespace).length === 1)) {
@@ -9,8 +9,8 @@ const registerModel = (app, model) => {
   }
 }
 /*设置title*/
-const setTitle = (title,cb) => {
-  document.title=title;
+const setTitle = (title, cb) => {
+  document.title = title;
   cb();
 }
 function RouterConfig({history, app}) {
@@ -18,12 +18,12 @@ function RouterConfig({history, app}) {
     {
       path: '/',
       component: App,
-      onChange (prevState,nextState, replace, cb) {
-        if(nextState.location.pathname==="/indexPage"){
+      onChange (prevState, nextState, replace, cb) {
+        if (nextState.location.pathname === "/indexPage") {
           cb();
-        }else {
-          authorization().then((data)=>{
-            if(!data.isauth) {
+        } else {
+          authorization().then((data) => {
+            if (!data.isauth) {
               if (data.Type == 3) {
                 alert("在其他设备上已经登录");
                 replace('/indexPage');
@@ -51,7 +51,7 @@ function RouterConfig({history, app}) {
                 alert('请登录！');
                 replace('/indexPage');
               }
-    
+              
             }
             cb();
           }).catch(error => {
@@ -62,7 +62,7 @@ function RouterConfig({history, app}) {
       onEnter (nextState, replace, cb) {
         //保持在线
         setInterval(function () {
-          keepOnline().then((data)=>{
+          keepOnline().then((data) => {
             cb();
           }).catch(error => {
             cb(error);
@@ -86,7 +86,7 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("干部教育网络学院-基准3.0",cb);
+            setTitle("干部教育网络学院-基准3.0", cb);
           },
         },
         {
@@ -98,7 +98,7 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("通知公告",cb);
+            setTitle("通知公告", cb);
           },
         },
         {
@@ -110,7 +110,7 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("通知内容",cb);
+            setTitle("通知内容", cb);
           },
         },
         {
@@ -122,7 +122,7 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("班级园地",cb);
+            setTitle("班级园地", cb);
           },
         },
         {
@@ -134,7 +134,7 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("课程中心",cb);
+            setTitle("课程中心", cb);
           },
         },
         {
@@ -146,7 +146,7 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("个人中心",cb);
+            setTitle("个人中心", cb);
           }
         },
         {
@@ -158,8 +158,44 @@ function RouterConfig({history, app}) {
             })
           },
           onEnter (nextState, replace, cb) {
-            setTitle("在线考试",cb);
+            setTitle("在线考试", cb);
           }
+        },
+        {
+          path: 'article',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/article'))
+              cb(null, require('./routes/article/article'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("文章", cb);
+          }
+        },
+        {
+          path: 'articleDetail(/:id)',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/articleDetail'))
+              cb(null, require('./routes/articleDetail/articleDetail'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("文章详情", cb);
+          },
+        },
+        {
+          path: 'courseDetail',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/courseDetail'))
+              cb(null, require('./routes/courseDetail/courseDetail'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("课程详情", cb);
+          },
         },
         {
           path: '*',

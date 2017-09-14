@@ -10,20 +10,21 @@ import TmNoticeDetail from './components/tmNoticeDetail'
 
 const NoticeDetail = ({noticeDetail, dispatch, loading}) => {
   const noticeDetailProps = {
-    noticeDetailData:noticeDetail.noticeDetailData,
-    favoriteAdd:function (mainId,type,title,remark) {
+    noticeDetailData: noticeDetail.noticeDetailData,
+    favoriteAdd: function (mainId, type, title, remark) {
       dispatch({
-        type:'noticeDetail/favoriteAdd',
-        payload:{mainId,type,title,remark}
+        type: 'noticeDetail/favoriteAdd',
+        payload: {mainId, type, title, remark}
       })
     },
-    favoriteDelete:function (id) {
+    favoriteDelete: function (id) {
       dispatch({
-        type:'noticeDetail/favoriteDelete',
-        payload:{id}
+        type: 'noticeDetail/favoriteDelete',
+        payload: {id}
       })
     },
-    loading:loading.effects['noticeDetail/getNoticeDetail']
+    loading: loading.effects['noticeDetail/getNoticeDetail'],
+    breadcrumbItem: noticeDetail.breadcrumbItem,
   }
   return (
     <div className={styles.noticeDetail}>

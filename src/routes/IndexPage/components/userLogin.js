@@ -31,7 +31,7 @@ const UserLogin = ({
       }
     });
   }
-  let loginOut = (e) =>{
+  let loginOut = (e) => {
     e.preventDefault();
     pushOut();
   }
@@ -41,10 +41,10 @@ const UserLogin = ({
         <img className={styles.bannerText} src={bannerText} alt="banner"/>
       </div>
       <div className={styles.userLogin}>
-          <div className={styles.login}>
-            <Spin spinning={loading}>
+        <div className={styles.login}>
+          <Spin spinning={loading}>
             {
-              !userMessage.Model.Name?
+              !userMessage.Model.Name ?
                 <div className={styles.loginBefore}>
                   <h2 className={styles.title}>
                     用户登录
@@ -85,7 +85,7 @@ const UserLogin = ({
                 </div>
                 :
                 <div className={styles.loginSuccess}>
-                  <h2 className={cs([`${styles.title}`],[`${styles.titleInfo}`])}>
+                  <h2 className={cs([`${styles.title}`], [`${styles.titleInfo}`])}>
                     个人信息
                   </h2>
                   <ul className={styles.loginInfo}>
@@ -106,7 +106,8 @@ const UserLogin = ({
                       <Link>修改密码</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
                       <Link>修改信息</Link> &nbsp;|&nbsp;
                       {
-                        userMessage.UserType==='管理员'&&<span><a href="/admin" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入管理控制台</a></span>
+                        userMessage.UserType === '管理员' &&
+                        <span><a href="/admin" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入管理控制台</a></span>
                       }
                     </li>
                     <li className={styles.exit}>
@@ -115,8 +116,8 @@ const UserLogin = ({
                   </ul>
                 </div>
             }
-            </Spin>
-          </div>
+          </Spin>
+        </div>
       </div>
     </div>
   );

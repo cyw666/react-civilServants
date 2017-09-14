@@ -1,21 +1,20 @@
-import {blogroll,authorization} from '../services/main'
-import {loginLong,loginOut} from '../services/main'
+import {blogroll, authorization, loginLong, loginOut} from '../services/main'
 
 export default {
   namespace: 'app',
   state: {
-    searchText:'',
-    blogrollData:{
-      ListData:[]
+    searchText: '',
+    blogrollData: {
+      ListData: []
     },
-    isLoginIn:false,
-    userInformation:{
-      Model:{},
-      UserType:''
+    isLoginIn: false,
+    userInformation: {
+      Model: {},
+      UserType: ''
     },
   },
   reducers: {
-    updateState (state, { payload }) {
+    updateState (state, {payload}) {
       return {
         ...state,
         ...payload,
@@ -28,7 +27,7 @@ export default {
       yield put({
         type: 'updateState',
         payload: {
-          blogrollData:data.Data
+          blogrollData: data.Data
         }
       });
     },
@@ -53,7 +52,7 @@ export default {
       catch (error) {
         throw error;
       }
-    
+      
     },
   },
   subscriptions: {
@@ -62,5 +61,5 @@ export default {
       dispatch({type: 'getBlogroll'});
       dispatch({type: 'getUserInformation'});
     }
-},
+  },
 };

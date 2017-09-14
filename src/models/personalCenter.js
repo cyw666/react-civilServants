@@ -29,7 +29,7 @@ export default modelExtend(model, {
         FinishModel: []
       }
     },
-    activeKey:'Unfinish',
+    activeKey: 'Unfinish',
     myCourseParams: {
       page: 1,
       rows: 10,
@@ -60,7 +60,6 @@ export default modelExtend(model, {
       appointedTotal: 0,
       finishTotal: 0,
     },
-    
     studyPlanData: {
       BrowseScore: '',
       CourseId: '',
@@ -73,10 +72,9 @@ export default modelExtend(model, {
       Type: '',
     },
     showPlanModal: false,
-    
     showExamModal: false,
-    examListData:{
-      ListData:[]
+    examListData: {
+      ListData: []
     }
   },
   reducers: {
@@ -179,7 +177,7 @@ export default modelExtend(model, {
       yield put({
         type: 'updateState',
         payload: {
-          studyPlanData:data.Data,
+          studyPlanData: data.Data,
           courseName: data.Data.CourseName,
           courseId: data.Data.CourseId,
           showPlanModal: true,
@@ -191,7 +189,7 @@ export default modelExtend(model, {
       yield put({
         type: 'updateState',
         payload: {
-          studyPlanData:data.Data,
+          studyPlanData: data.Data,
           courseName: data.Data.CourseName,
           courseId: data.Data.CourseId,
           showPlanModal: true,
@@ -216,12 +214,10 @@ export default modelExtend(model, {
         }
       });
     },
-  
-  
   },
   subscriptions: {
     setup({dispatch, history}) {
       dispatch({type: 'getMyCourse', payload: {page: 1, rows: 5, courseType: 'All', title: ''}});
     }
-  },
+  }
 });

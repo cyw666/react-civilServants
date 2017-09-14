@@ -1,0 +1,74 @@
+/**
+ * 通知公告（模板）
+ */
+@import "../../../themes/index";
+.tmCourseDetail {
+  border: 1px solid @gray-ddd;
+  .title{
+    padding: 20px;
+    color: @text-gray*2;
+    font-weight: 600;
+    text-align: center;
+    font-size: 16px;
+  }
+  .courseContent {
+    margin-top: 20px;
+    .list1{
+      text-align: center;
+      width: 20%;
+    }
+    .list2{
+      width: 40%;
+      text-align: left;
+      :global{
+        .ant-progress-line{
+          width: 60%;
+        }
+      }
+    }
+    .list3{
+      text-align: center;
+      width: 20%;
+    }
+    .list4{
+      width: 20%;
+      text-align: left;
+    }
+    .list5{
+      width: 80%;
+      text-align: left;
+    }
+    .nodeTitle{
+      height: 35px;
+      line-height: 35px;
+      font-size: 16px;
+    }
+    td{
+      a.red{
+        color: #ff3839;
+        &:hover{
+          color: #f50001;
+        }
+      }
+    }
+    .NodeContent{
+      li{
+        height: 28px;
+        line-height: 28px;
+        .number{
+          color: @text-gray*3;
+        }
+        .name{
+          margin-left: 25px;
+        }
+        :global{
+          .anticon{
+            .pull-right;
+            margin-right: 65px;
+          }
+        }
+      }
+    }
+
+  }
+}

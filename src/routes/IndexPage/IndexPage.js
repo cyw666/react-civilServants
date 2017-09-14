@@ -2,7 +2,17 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import {UserLogin, NoticeAnnouncement, NewsInfor, CourseCenter ,GuideEntry,SpecialTraining,ClassGarden,RankingTab,BookGuide} from './components/index';
+import {
+  UserLogin,
+  NoticeAnnouncement,
+  NewsInfor,
+  CourseCenter,
+  GuideEntry,
+  SpecialTraining,
+  ClassGarden,
+  RankingTab,
+  BookGuide
+} from './components/index';
 import styles from './IndexPage.less';
 import bannerCenter from '../../assets/bannerCenter.png'
 const IndexPage = ({indexPage, dispatch, loading}) => {
@@ -62,29 +72,29 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
   let classGardenLoading = loading.effects['indexPage/getClassCategory'] || loading.effects['indexPage/getClassList'] ? true : false;
   const classGardenProps = {
     loading: classGardenLoading,
-    classChange: (categoryId)=>{
+    classChange: (categoryId) => {
       dispatch({
         type: 'indexPage/getClassList',
         payload: {rows: 6, categoryId}
       });
     },
-    addClass: (id)=>{
-      if(indexPage.isLoginIn){
+    addClass: (id) => {
+      if (indexPage.isLoginIn) {
         dispatch({
           type: 'indexPage/joinClass',
           payload: {id}
         });
-      }else {
+      } else {
         alert('请登录！');
       }
       
     },
-    classCategory:indexPage.classCategory,
-    classListData:indexPage.classListData,
-    activeClassId:indexPage.activeClassId
+    classCategory: indexPage.classCategory,
+    classListData: indexPage.classListData,
+    activeClassId: indexPage.activeClassId
   }
   /*排行榜*/
-  let rankLoading = loading.effects['indexPage/getGroupRank'] || loading.effects['indexPage/getRankUser'] || loading.effects['indexPage/getCourseClick']? true : false;
+  let rankLoading = loading.effects['indexPage/getGroupRank'] || loading.effects['indexPage/getRankUser'] || loading.effects['indexPage/getCourseClick'] ? true : false;
   const rankProps = {
     loading: rankLoading,
     groupRankData: indexPage.groupRankData,
@@ -106,18 +116,20 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
         <div className="grid_17">
           <CourseCenter {...courseProps}></CourseCenter>
           <ClassGarden {...classGardenProps}></ClassGarden>
-          <BookGuide loading={loading.effects['indexPage/getBookList']} bookListData={indexPage.bookListData}></BookGuide>
+          <BookGuide loading={loading.effects['indexPage/getBookList']}
+                     bookListData={indexPage.bookListData}></BookGuide>
         </div>
         <div className="grid_7">
           <GuideEntry></GuideEntry>
-          <SpecialTraining studySpecialData={indexPage.studySpecialData} loading={loading.effects['indexPage/getStudySpecial']}></SpecialTraining>
+          <SpecialTraining studySpecialData={indexPage.studySpecialData}
+                           loading={loading.effects['indexPage/getStudySpecial']}></SpecialTraining>
           <RankingTab {...rankProps}></RankingTab>
         </div>
       </div>
-      <div className={cs(["container_24"],[`${styles.bannerCenter}`])}>
+      <div className={cs(["container_24"], [`${styles.bannerCenter}`])}>
         <p><img src={bannerCenter} alt="学习贯彻十八届六中全会精神"/></p>
       </div>
-      
+    
     </div>
   );
 };

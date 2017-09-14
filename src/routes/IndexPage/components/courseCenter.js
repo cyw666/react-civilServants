@@ -3,27 +3,29 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Radio, Spin} from 'antd';
+import {Link} from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Img from '../../../components/Img/Img'
-import {Radio , Spin} from 'antd';
-import {Link} from 'dva/router'
 import styles from './courseCenter.less';
 import hotIcon from '../../../assets/hotIcon.png'
 import notCourse from '../../../assets/notCourse.png'
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-class CourseCenter extends React.Component{
-  constructor (props) {
+class CourseCenter extends React.Component {
+  constructor(props) {
     super(props)
     this.state = {
-      activeValue:props.courseCategory.ListData[0].Id||250
+      activeValue: props.courseCategory.ListData[0].Id || 250
     }
   }
+  
   handleSizeChange = (e) => {
-    this.setState({ activeValue: e.target.value });
+    this.setState({activeValue: e.target.value});
     this.props.activeChange(e.target.value);
   }
-  render () {
+  
+  render() {
     const activeValue = this.state.activeValue;
     let {
       loading,
@@ -33,16 +35,16 @@ class CourseCenter extends React.Component{
     let courseCenterData = courseListData['ListData'];
     let baseImgPath = courseListData['ImageCourse'];
     // debugger
-    let radioButtonList = courseCategory['ListData'].map((item,index)=>{
+    let radioButtonList = courseCategory['ListData'].map((item, index) => {
       return (
         <RadioButton value={item.Id} key={index}>{item.Name}</RadioButton>
       )
     });
-    let courseCenterList = courseCenterData.map((item,index)=>{
+    let courseCenterList = courseCenterData.map((item, index) => {
       return (
         <li key={index}>
           <Link to="courseDetail" title={item.Name} target="_blank">
-            <Img src={baseImgPath+'/'+item.Img} alt="" errSrc={notCourse}/>
+            <Img src={baseImgPath + '/' + item.Img} alt="" errSrc={notCourse}/>
           </Link>
           {
             index < 2
@@ -86,7 +88,8 @@ class CourseCenter extends React.Component{
       </div>
     )
   }
-};
+}
+;
 CourseCenter.propTypes = {
   loading: PropTypes.bool,
   courseListData: PropTypes.object,

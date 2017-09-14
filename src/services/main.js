@@ -27,7 +27,7 @@ export function authorization() {
 }
 /*登陆*/
 export function login(data) {
-  return fetch.post(api.LoginCode.url, { ...api.LoginCode.data, ...data});
+  return fetch.post(api.LoginCode.url, {...api.LoginCode.data, ...data});
 }
 /*用户信息1*/
 export function userMessage(data) {
@@ -44,6 +44,10 @@ export function leftNotice(data) {
 /*文章列表*/
 export function articleList(data) {
   return fetch.post(api.ArticleList.url, {...api.ArticleList.data, ...data});
+}
+/*文章分类*/
+export function articleCategory(data) {
+  return fetch.post(api.ArticleCategory.url, {...api.ArticleCategory.data, ...data});
 }
 /*实时数据*/
 export function leftRealTimeData(data) {
@@ -189,3 +193,20 @@ export function examList(data) {
 export function exam(data) {
   return fetch.post(api.Exam.url, {...api.Exam.data, ...data});
 }
+/*文章详情*/
+export function articleContent(data) {
+  return fetch.post(api.ArticleContent.url, {...api.ArticleContent.data, ...data});
+}
+/*课程详情*/
+export function courseContent(data) {
+  return fetch.post(api.CourseContent.url, {...api.CourseContent.data, ...data});
+}
+/*相关课程*/
+export function relatedCourse(data) {
+  return fetch.post(api.RelatedCourse.url, {...api.RelatedCourse.data, ...data});
+}
+/*课程评论*/
+export function courseComment(data) {
+  return fetch.post(api.CourseComment.url, {...api.CourseComment.data, ...data});
+}
+

@@ -46,7 +46,12 @@ module.exports = {
     /*文章列表*/
     ArticleList: {
       url: `${API}/Page/ArticleList`,
-      data: {page: 1, rows: 7, sort: 'Sort', order: 'desc', wordLimt: 20, categoryCode: '', categoryId: ''}
+      data: {page: 1, rows: 7, search: '', sort: 'Sort', order: 'desc', wordLimt: 20, categoryCode: '', categoryId: ''}
+    },
+    /*文章分类*/
+    ArticleCategory: {
+      url: `${API}/Page/ArticleCategory`,
+      data: {sort: 'sort', order: 'desc', titleNav: '文章分类'}
     },
     /*实时数据*/
     LeftRealTimeData: {
@@ -258,6 +263,26 @@ module.exports = {
     Exam: {
       url: `${API}/Exam/Exam`,
       data: {parameter1: ''}
+    },
+    /*文章详情*/
+    ArticleContent: {
+      url: `${API}/Page/ArticleContent`,
+      data: {id: ''}
+    },
+    /*课程详情*/
+    CourseContent: {
+      url: `${API}/Page/CourseContent`,
+      data: {id: '', titleNav: '课程详情'}
+    },
+    /*相关课程*/
+    RelatedCourse: {
+      url: `${API}/Guid/RelatedCourse`,
+      data: {page: 1, rows: 10, courseId: ''}
+    },
+    /*课程评论*/
+    CourseComment: {
+      url: `${API}/Page/CourseComment`,
+      data: {id: '', page: 1, rows: 10, sort: 'Id', order: 'Desc'}
     },
   }
 }

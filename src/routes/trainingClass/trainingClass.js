@@ -13,59 +13,62 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
   const classCategoryProps = {
     classCategory: trainingClass.classCategory,
     searchClass: (options) => {
-      let params = Object.assign({},{type:'just'},options);
+      let params = Object.assign({}, {type: 'just'}, options);
       dispatch({
-        type:'trainingClass/getClassList',
-        payload:params
+        type: 'trainingClass/getClassList',
+        payload: params
       })
     },
-    loading:loading.effects['trainingClass/getTrainingClassTypeList']
+    loading: loading.effects['trainingClass/getTrainingClassTypeList']
   }
   const tmTrainingClassProps = {
-    classListData:trainingClass.classListData,
-    classType:trainingClass.classType,
-    checkUserClass:(trainingId)=>{
+    classListData: trainingClass.classListData,
+    classType: trainingClass.classType,
+    checkUserClass: (trainingId) => {
       dispatch({
-        type:'trainingClass/checkUserClass',
-        payload:{trainingId}
+        type: 'trainingClass/checkUserClass',
+        payload: {trainingId}
       })
     },
-    joinClass:(id)=>{
+    joinClass: (id) => {
       dispatch({
-        type:'trainingClass/updateTrainingStudentup',
-        payload:{id}
+        type: 'trainingClass/updateTrainingStudentup',
+        payload: {id}
       })
       dispatch({
-        type:'trainingClass/getClassList',
-        payload:{rows: 10, type:trainingClass.classType}
-      })
-    },
-    delClass:(id)=>{
-      dispatch({
-        type:'trainingClass/updateTrainingStudentdown',
-        payload:{id}
-      })
-      dispatch({
-        type:'trainingClass/getClassList',
-        payload:{rows: 10, type:trainingClass.classType}
+        type: 'trainingClass/getClassList',
+        payload: {rows: 10, type: trainingClass.classType}
       })
     },
-    getClass:(type)=>{
+    delClass: (id) => {
       dispatch({
-        type:'trainingClass/getClassList',
-        payload:{rows: 10, type,categoryId:trainingClass.categoryId}
+        type: 'trainingClass/updateTrainingStudentdown',
+        payload: {id}
+      })
+      dispatch({
+        type: 'trainingClass/getClassList',
+        payload: {rows: 10, type: trainingClass.classType}
       })
     },
-    loading:loading.effects['trainingClass/getClassList']
+    getClass: (type) => {
+      dispatch({
+        type: 'trainingClass/getClassList',
+        payload: {rows: 10, type, categoryId: trainingClass.categoryId}
+      })
+    },
+    loading: loading.effects['trainingClass/getClassList']
   }
   return (
     <div className={styles.trainingClass}>
       <div className={cs(["container_24"])}>
         <div className="grid_6">
           <TrainingClassCategory {...classCategoryProps}></TrainingClassCategory>
-          <ClassModule classModuleData={trainingClass.classMyData} loading={loading.effects['trainingClass/classMy']}></ClassModule>
-          <ClassModule classModuleData={trainingClass.classActiveData} loading={loading.effects['trainingClass/classActive']}></ClassModule>
-          <ClassModule classModuleData={trainingClass.classRecentData} loading={loading.effects['trainingClass/classRecent']}></ClassModule>
+          <ClassModule classModuleData={trainingClass.classMyData}
+                       loading={loading.effects['trainingClass/classMy']}></ClassModule>
+          <ClassModule classModuleData={trainingClass.classActiveData}
+                       loading={loading.effects['trainingClass/classActive']}></ClassModule>
+          <ClassModule classModuleData={trainingClass.classRecentData}
+                       loading={loading.effects['trainingClass/classRecent']}></ClassModule>
         </div>
         <div className="grid_18">
           <TmTrainingClass {...tmTrainingClassProps}></TmTrainingClass>

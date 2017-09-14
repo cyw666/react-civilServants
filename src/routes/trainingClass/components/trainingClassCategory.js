@@ -3,9 +3,9 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Spin} from 'antd'
 import styles from './trainingClassCategory.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
-import {Spin} from 'antd';
 const TrainingClassCategory = ({classCategory, searchClass, loading}) => {
   const {ListData, TitleNav} = classCategory;
   const classCategoryList = ListData.map((item, index) => {

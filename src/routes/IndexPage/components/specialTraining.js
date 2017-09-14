@@ -5,24 +5,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Spin} from 'antd';
-import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {Link} from 'dva/router'
+import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Img from '../../../components/Img/Img'
 import styles from './specialTraining.less';
 
-const SpecialTraining = ({studySpecialData,loading}) => {
-  let {ListData,ImagePath} = studySpecialData;
-  // debugger
-  const specialList = ListData.map((item,index)=>{
+const SpecialTraining = ({studySpecialData, loading}) => {
+  let {ListData, ImagePath} = studySpecialData;
+  const specialList = ListData.map((item, index) => {
     return (
       <li key={index}>
         <p>
-          <Link to={item.Url}  target="_blank">
-            <Img src={ImagePath+'/'+item.Icon} alt={item.SeriesName}/>
+          <Link to={item.Url} target="_blank">
+            <Img src={ImagePath + '/' + item.Icon} alt={item.SeriesName}/>
           </Link>
         </p>
         <p className={styles.title} title={item.SeriesName}>
-          <Link to=""  target="_blank">{item.SeriesName}</Link>
+          <Link to="" target="_blank">{item.SeriesName}</Link>
         </p>
       </li>
     )

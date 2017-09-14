@@ -3,18 +3,19 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './classModule.less'
-import { Link } from 'dva/router'
+import {Link} from 'dva/router'
+import {Spin} from 'antd'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
-import {Spin} from 'antd';
-const ClassModule = ({classModuleData,loading}) => {
-  const {ListData,TitleNav,type} = classModuleData;
-  const classNameList = ListData.map((item,index)=>{
-    return(
-     <li key={index}>
-      <span className={styles.list1}><Link href={`classDetail/${item.Id}`} target="_blank">{item.Name}</Link></span>
-      <span className={styles.list2}>{item.CurrentUser}</span>
-     </li>
+import styles from './classModule.less'
+
+const ClassModule = ({classModuleData, loading}) => {
+  const {ListData, TitleNav, type} = classModuleData;
+  const classNameList = ListData.map((item, index) => {
+    return (
+      <li key={index}>
+        <span className={styles.list1}><Link href={`classDetail/${item.Id}`} target="_blank">{item.Name}</Link></span>
+        <span className={styles.list2}>{item.CurrentUser}</span>
+      </li>
     )
   });
   return (
@@ -35,7 +36,7 @@ const ClassModule = ({classModuleData,loading}) => {
 
 
 ClassModule.propTypes = {
-  classModuleData:PropTypes.object,
-  loading:PropTypes.bool,
+  classModuleData: PropTypes.object,
+  loading: PropTypes.bool,
 };
 export default ClassModule;

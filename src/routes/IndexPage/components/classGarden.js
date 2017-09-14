@@ -4,12 +4,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Spin, Tabs, Button} from 'antd';
-import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {Link} from 'dva/router'
+import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './classGarden.less';
 import {dateFilter, JudgeStatus} from '../../../utils/index'
 const TabPane = Tabs.TabPane;
-const ClassGarden = ({loading, classChange, classCategory, classListData, addClass,activeClassId}) => {
+const ClassGarden = ({loading, classChange, classCategory, classListData, addClass, activeClassId}) => {
   const tabPane = classCategory['ListData'].map((item, index) => {
     return (
       <TabPane tab={item.Name} key={item.Id}></TabPane>
@@ -23,7 +23,9 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
         <td>{item.Address}</td>
         <td>
           {
-            !item.ApplyStatus ? <Button type="primary" value={item.Id} onClick={()=>{addClass(item.Id)}}>点击报名</Button> :
+            !item.ApplyStatus ? <Button type="primary" value={item.Id} onClick={() => {
+                addClass(item.Id)
+              }}>点击报名</Button> :
               item.ApplyStatus === "Normal" ? <Button type="primary" disabled>{JudgeStatus(item.ApplyStatus)}</Button> :
                 <Button type="primary" disabled>{JudgeStatus(item.ApplyStatus)}</Button>
           }
@@ -35,7 +37,9 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
     <div className={styles.classGarden}>
       <GeneralHead showIcon={true} title="班级园地" url="trainingClass"></GeneralHead>
       <Spin spinning={loading}>
-        <Tabs activeKey={activeClassId} onChange={(key) => {classChange(key)}} type="card">
+        <Tabs activeKey={activeClassId} onChange={(key) => {
+          classChange(key)
+        }} type="card">
           {tabPane}
         </Tabs>
         <div className={styles.classContent}>

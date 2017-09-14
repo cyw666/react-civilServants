@@ -3,13 +3,13 @@
  */
 import modelExtend from 'dva-model-extend'
 import {model} from './common'
-import {routerRedux} from 'dva/router'
-import { createHistory } from 'history'
-const history = createHistory()
+// import {routerRedux} from 'dva/router'
+import {createHistory, useQueries} from 'history'
 import {
   examList,
   exam,
 } from '../services/main';
+const history = useQueries(createHistory)()
 
 export default modelExtend(model, {
   namespace: 'testCenter',
@@ -20,13 +20,19 @@ export default modelExtend(model, {
         FinishModel: []
       }
     },
-    examParams:{
+    examParams: {
       page: 1,
       rows: 5,
       examType: 'UnFinish',
       title: ''
     },
-    activeKey:'UnFinish'
+    activeKey: 'UnFinish',
+    pageConfig: {
+      current: 1,
+      pageSize: 15,
+      unFinishTotal: 0,
+      finishTotal: 0,
+    },
   },
   reducers: {
     updateExamParams(state, {payload}){
@@ -43,6 +49,12 @@ export default modelExtend(model, {
         type: 'updateState',
         payload: {
           examListData: data.Data,
+          pageConfig: {
+            current: data.Data.UnFinishPage || data.Data.FinishPage,
+            pageSize: data.Data.Rows,
+            unFinishTotal: data.Data.UnFinishCount,
+            finishTotal: data.Data.FinishCount,
+          },
         }
       });
       yield put({type: 'updateExamParams', payload});
@@ -53,8 +65,8 @@ export default modelExtend(model, {
         //Type存在，意味着不能考试
         alert(data.Message);
       } else {
-        history.createPath({pathname: '/exam', query: {id: payload.parameter1}});
-        // window.open(examHref)
+        let examHref = history.createPath({pathname: '/exam', query: {id: payload.parameter1}});
+        window.open(examHref)
       }
     },
     
@@ -63,5 +75,5 @@ export default modelExtend(model, {
     setup({dispatch, history}) {
       dispatch({type: 'getExamList', payload: {page: 1, rows: 5, examType: 'UnFinish', title: ''}});
     }
-  },
+  }
 });

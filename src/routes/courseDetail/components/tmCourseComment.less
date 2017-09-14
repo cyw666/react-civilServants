@@ -1,0 +1,50 @@
+/**
+ * 课程评论
+ */
+@import "../../../themes/index";
+.tmCourseComment{
+  border: 1px solid @gray-ddd;
+  border-top:none;
+  .commentTitle{
+    color: @text-gray;
+    background-color: @gray-f3;
+    border-color: @gray-ddd;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .commentBody{
+    padding: 0 15px 15px 15px;
+    tbody{
+      border-bottom: 1px solid @gray-ddd;
+      td{
+        vertical-align: middle;
+      }
+      .userImg{
+        width: 7%;
+        text-align: right;
+      }
+      .user{
+        width: 60%;
+        color: @text-gray*2;
+        font-weight: 600;
+      }
+      .time{
+        width: 20%;
+        color: @text-gray*3;
+      }
+      .comment{
+        width: 60%;
+        color: @text-gray;
+        padding-bottom: 25px;
+      }
+    }
+    :global{
+      .table{
+        td,tr{
+          border: none;
+        }
+      }
+    }
+  }
+}

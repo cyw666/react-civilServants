@@ -8,24 +8,25 @@ import {Link} from 'dva/router'
 import styles from './noticeAnnouncement.less';
 import Img from '../../../components/Img/Img'
 import {dateFilter} from '../../../utils/index'
-const NoticeAnnouncement = ({noticeData,loading}) => {
+const NoticeAnnouncement = ({noticeData, loading}) => {
   const baseImgPath = noticeData.Path;
-  let listNotice = noticeData['ListData'].map((list)=>{
+  let listNotice = noticeData['ListData'].map((list) => {
     return (
       <li key={list.Id}>
         <span className={styles.triangleRight}></span>
-        <Link to="" title={list.Name}>{list.Name}</Link>
-        <span className={styles.time}>{dateFilter(list.CreateDate,'yyyy-MM-dd')}</span>
+        <Link to={`noticeDetail/${list.Id}`} target='_blank' title={list.Name}>{list.Name}</Link>
+        <span className={styles.time}>{dateFilter(list.CreateDate, 'yyyy-MM-dd')}</span>
       </li>
     )
   });
   
-  let carouselList = noticeData['ListData'].map((item)=>{
+  let carouselList = noticeData['ListData'].map((item) => {
     return (
       <div key={item.Id}>
-        <Img src={baseImgPath+'/'+item.Img} alt={item.Name}/>
+        <Link to={`noticeDetail/${item.Id}`} target='_blank'><Img src={baseImgPath + '/' + item.Img}
+                                                                  alt={item.Name}/></Link>
         <p className={styles.title}>
-          <Link to="" title={item.Name}>{item.Name}</Link>
+          <Link to={`noticeDetail/${item.Id}`} title={item.Name}>{item.Name}</Link>
         </p>
       </div>
     )

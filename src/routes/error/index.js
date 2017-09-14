@@ -1,11 +1,11 @@
 import React from 'react'
-import { Icon } from 'antd'
+import {Icon} from 'antd'
 import styles from './index.less'
 
 const Error = () => (<div className="content-inner">
   <div className={styles.error}>
     <div className={styles.errorPosi}>
-      <Icon type="frown-o" />
+      <Icon type="frown-o"/>
       <h1>404 Not Found</h1>
     </div>
   </div>

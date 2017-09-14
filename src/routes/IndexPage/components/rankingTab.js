@@ -5,8 +5,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import {Spin, Tabs} from 'antd';
-import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {Link} from 'dva/router'
+import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './rankingTab.less';
 const TabPane = Tabs.TabPane;
 const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => {
@@ -15,7 +15,11 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
       <ul key={index} className={styles.rankingList}>
         <li className={styles.list1}>
           {
-            index < 3 ? <span className={cs({'rankFirstBg':index==0,'rankSecondBg':index==1,'rankThirdBg':index==2,})}></span> : <span>{index + 1}</span>
+            index < 3 ? <span className={cs({
+                'rankFirstBg': index == 0,
+                'rankSecondBg': index == 1,
+                'rankThirdBg': index == 2,
+              })}></span> : <span>{index + 1}</span>
           }
         </li>
         <li className={styles.list2} title='1'>{item.DepartmentName}</li>
@@ -28,7 +32,11 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
       <ul key={index} className={styles.rankingList}>
         <li className={styles.list1}>
           {
-            index < 3 ? <span className={cs({'rankFirstBg':index==0,'rankSecondBg':index==1,'rankThirdBg':index==2,})}></span> : <span>{index + 1}</span>
+            index < 3 ? <span className={cs({
+                'rankFirstBg': index == 0,
+                'rankSecondBg': index == 1,
+                'rankThirdBg': index == 2,
+              })}></span> : <span>{index + 1}</span>
           }
         </li>
         <li className={styles.list2} title='1'>{item.UserName}</li>
@@ -41,7 +49,11 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
       <ul key={index} className={styles.rankingList}>
         <li className={styles.list1}>
           {
-            index < 3 ? <span className={cs({'rankFirstBg':index==0,'rankSecondBg':index==1,'rankThirdBg':index==2,})}></span> : <span>{index + 1}</span>
+            index < 3 ? <span className={cs({
+                'rankFirstBg': index == 0,
+                'rankSecondBg': index == 1,
+                'rankThirdBg': index == 2,
+              })}></span> : <span>{index + 1}</span>
           }
         </li>
         <li className={styles.list2} title='1'><Link to="courseDetail" target="_blank">{item.Name}</Link></li>

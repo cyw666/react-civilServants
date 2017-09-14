@@ -119,7 +119,7 @@ const JudgeStatus = (status) => {
 };
 const delHtmlTag = (value) => {
   if (!value) return
-  var result = value.replace(/<[^>]+>|&nbsp;| /ig,"");//去掉所有的html标记
+  var result = value.replace(/<[^>]+>|&nbsp;| /ig, "");//去掉所有的html标记
   return result;
 };
 module.exports = {

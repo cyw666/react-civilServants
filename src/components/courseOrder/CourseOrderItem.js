@@ -7,19 +7,21 @@ class CourseOrderItem extends React.Component {
   constructor(props) {
     super(props);
   }
-  render () {
+  
+  render() {
     let t = this;
-    const {isActive,name,onOrderClick} = t.props;
+    const {isActive, name, onOrderClick} = t.props;
     return (
       <span className={styles.orderItem}>
         <a onClick={onOrderClick.bind(t)}> {name} &nbsp;
           {
-            isActive?<Icon type="caret-up" />:<Icon type="caret-down" />
+            isActive ? <Icon type="caret-up"/> : <Icon type="caret-down"/>
           }
         </a>
       </span>
     )
   }
+  
   componentWillMount() {
   }
   
@@ -44,8 +46,8 @@ class CourseOrderItem extends React.Component {
 }
 
 CourseOrderItem.propTypes = {
-  isActive:PropTypes.bool,
-  name:PropTypes.string,
-  onOrderClick:PropTypes.func,
+  isActive: PropTypes.bool,
+  name: PropTypes.string,
+  onOrderClick: PropTypes.func,
 }
 export default CourseOrderItem;

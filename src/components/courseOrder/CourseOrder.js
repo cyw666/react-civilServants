@@ -1,11 +1,10 @@
-
-import React, { Component, Children } from 'react';
+import React, {Component, Children} from 'react';
 import PropTypes from 'prop-types'
 import CourseOrderItem from './CourseOrderItem'
 class CourseOrder extends Component {
   constructor(props) {
     super(props);
-    const {activeKey,order,sort} = this.props;
+    const {activeKey, order, sort} = this.props;
     this.state = {
       activeKey: activeKey,
       sort: sort,
@@ -13,24 +12,25 @@ class CourseOrder extends Component {
     };
   }
   
-  onClickItem(key,or) {
+  onClickItem(key, or) {
     let activeKey = this.state.activeKey;
     activeKey = activeKey === key ? '' : key;
     if (!('activeKey' in this.props)) {
       this.setState({activeKey});
     }
-  
+    
     let order = this.state.order;
     order = or ? or : order;
     if (!('order' in this.props)) {
       this.setState({order});
     }
-  
+    
     let sort = key ? key : activeKey;
-  
-    this.props.onChange(activeKey,order,sort);
+    
+    this.props.onChange(activeKey, order, sort);
   }
-  getItems(){
+  
+  getItems() {
     const activeKey = this.state.activeKey;
     const newChildren = [];
     Children.forEach(this.props.children, (child, index) => {
@@ -38,19 +38,20 @@ class CourseOrder extends Component {
       // If there is no key provide, use the panel order as default key
       const key = child.key || String(index);
       // const {} = child.props;
-      let isActive = activeKey===key;
-      let order = isActive?'desc':'asc';
+      let isActive = activeKey === key;
+      let order = isActive ? 'desc' : 'asc';
       const props = {
         isActive,
-        name:child.props.name,
-        onOrderClick: () => this.onClickItem(key,order),
+        name: child.props.name,
+        onOrderClick: () => this.onClickItem(key, order),
       };
-    
+      
       newChildren.push(React.cloneElement(child, props));
     });
-  
+    
     return newChildren;
   }
+  
   render() {
     return (
       <div>
@@ -96,10 +97,11 @@ CourseOrder.propTypes = {
   activeKey: PropTypes.string,
   order: PropTypes.string,
   sort: PropTypes.string,
-  onChange:PropTypes.func,
+  onChange: PropTypes.func,
 }
 CourseOrder.defaultProps = {
-  onChange() {},
+  onChange() {
+  },
 };
 CourseOrder.Item = CourseOrderItem;
 export default CourseOrder;

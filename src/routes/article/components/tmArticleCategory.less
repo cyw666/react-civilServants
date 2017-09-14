@@ -1,0 +1,31 @@
+/**
+ * 考试列表
+ */
+@import "../../../themes/index";
+.tmArticleCategory{
+  margin-top: 15px;
+  padding-left: 10px;
+  .categoryContent{
+    border: 1px solid @gray-eee;
+    ul{
+      min-height: 100px;
+      padding: 20px 20px 0 20px;
+      .clearFix;
+      li{
+        .pull-left;
+        width: 50%;
+        margin-bottom: 20px;
+        text-align:center;
+        :global{
+          .ant-btn{
+            width: 100px;
+            height: 38px;
+            line-height: 38px;
+            padding: 0;
+          }
+        }
+
+      }
+    }
+  }
+}

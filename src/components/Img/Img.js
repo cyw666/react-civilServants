@@ -5,11 +5,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import errImg from '../../assets/notFound.jpeg'
 
-const Img = ({src,alt,errSrc}) => {
+const Img = ({src, alt, errSrc}) => {
   let errorLoad = (e) => {
-    e.target.src=errSrc||errImg;
+    e.target.src = errSrc || errImg;
   }
-  let loaded = ()=>{
+  let loaded = () => {
     // console.log('img loaded success!')
   }
   return (

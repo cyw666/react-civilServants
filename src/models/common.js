@@ -5,7 +5,7 @@ const model = {
     token: {},
   },
   reducers: {
-    updateState (state, { payload }) {
+    updateState (state, {payload}) {
       return {
         ...state,
         ...payload,
@@ -27,7 +27,7 @@ const model = {
     getToken({dispatch, history}) {
       dispatch({type: 'token'});
     }
-  },
+  }
 }
 
 

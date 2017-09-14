@@ -1,4 +1,3 @@
-
 /**
  * 实时数据
  */
@@ -11,8 +10,7 @@ import realTime2 from '../../../assets/realTime2.png'
 import realTime3 from '../../../assets/realTime3.png'
 import realTime4 from '../../../assets/realTime4.png'
 const RealTimeData = ({realData}) => {
-  // debugger
-  let {Model,loading} = realData;
+  let {Model, loading} = realData;
   return (
     <div className={styles.realTimeData}>
       <Spin spinning={loading}>

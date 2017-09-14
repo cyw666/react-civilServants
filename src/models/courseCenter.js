@@ -1,4 +1,3 @@
-
 /**
  * 课程中心
  */
@@ -15,13 +14,14 @@ import {
 export default modelExtend(model, {
   namespace: 'courseCenter',
   state: {
-    courseCategory:{
-      ListData:[],
-      TitleNav:'课程分类'
+    courseCategory: {
+      ListData: [],
+      TitleNav: '课程分类'
     },
-    baseImageCourse:'',
-    courseListData:[],
-    courseListParams:{
+    baseImageCourse: '',
+    courseListData: [],
+    channelName: "课程中心",
+    courseListParams: {
       page: 1,
       rows: 10,
       teacher: '',
@@ -32,16 +32,16 @@ export default modelExtend(model, {
       sort: 'sort',
       order: 'desc',
     },
-    courseOptions:[],
-    checkedList:[],
-    checkAll:false,
-    pageConfig:{
-      current:1,
-      pageSize:10,
-      total:0
+    courseOptions: [],
+    checkedList: [],
+    checkAll: false,
+    pageConfig: {
+      current: 1,
+      pageSize: 10,
+      total: 0
     },
-    courseRankData:{
-      ListData:[]
+    courseRankData: {
+      ListData: []
     }
   },
   reducers: {
@@ -58,31 +58,31 @@ export default modelExtend(model, {
       }
     },
     initCourseListData(state, {payload}){
-      let courseOptions = payload.map(item =>{
-        let option = { label: '', value: item.Id.toString(), disabled: item.Learning>=0?true:false }
+      let courseOptions = payload.map(item => {
+        let option = {label: '', value: item.Id.toString(), disabled: item.Learning >= 0 ? true : false}
         return option
       })
       return {
         ...state,
-        courseListData:payload,
+        courseListData: payload,
         courseOptions,
-        checkedList:[],
-        checkAll:false
+        checkedList: [],
+        checkAll: false
       }
     },
     updateCourseListData(state, {payload}){
-      let courseListData = state.courseListData.map(item =>{
-        return Object.assign({},item,{checked:payload})
+      let courseListData = state.courseListData.map(item => {
+        return Object.assign({}, item, {checked: payload})
       })
       return {
         ...state,
-          courseListData: courseListData
+        courseListData: courseListData
       }
     },
   },
   effects: {
     *getCourseCategory({payload}, {call, put}){
-      let data = yield call(courseCategory,payload);
+      let data = yield call(courseCategory, payload);
       yield put({
         type: 'updateState',
         payload: {
@@ -91,7 +91,7 @@ export default modelExtend(model, {
       });
     },
     *getCourseList({payload}, {call, put}){
-      let data = yield call(courseList,payload);
+      let data = yield call(courseList, payload);
       yield put({
         type: 'initCourseListData',
         payload: data.Data.ListData,
@@ -101,21 +101,22 @@ export default modelExtend(model, {
         type: 'updateState',
         payload: {
           pageConfig: {
-            current:data.Data.Page,
-            pageSize:data.Data.Rows,
-            total:data.Data.Count
+            current: data.Data.Page,
+            pageSize: data.Data.Rows,
+            total: data.Data.Count
           },
-          baseImageCourse:data.Data.ImageCourse
+          baseImageCourse: data.Data.ImageCourse,
+          channelName: data.Data.ChannelName || '课程中心',
         }
       });
     },
-    *addStudyCourse({payload}, {call, put,select}){
+    *addStudyCourse({payload}, {call, put, select}){
       if (payload !== '') {
-        let data = yield call(addStudyCourse,payload);
+        let data = yield call(addStudyCourse, payload);
         if (data.Type > 0) {
           alert(data.Message);
           let courseParams = yield select(state => state.courseCenter.courseListParams);
-          yield put({type:'getCourseList',payload:courseParams});
+          yield put({type: 'getCourseList', payload: courseParams});
         }
       } else {
         alert("您没有选择可添加的课程！");
@@ -123,20 +124,30 @@ export default modelExtend(model, {
       
     },
     *getCourseRank({payload}, {call, put}){
-      let data = yield call(courseClickRank,payload);
+      let data = yield call(courseClickRank, payload);
       yield put({
-        type:'updateState',
-        payload:{
-          courseRankData:data.Data
+        type: 'updateState',
+        payload: {
+          courseRankData: data.Data
         }
       });
     },
   },
   subscriptions: {
     setup({dispatch, history}) {
-      dispatch({type: 'getCourseCategory',payload: {page:'',rows:''}});
-      dispatch({type: 'getCourseList'});
-      dispatch({type: 'getCourseRank',payload:{page:1,rows:10}});
+      history.listen((location) => {
+        if (location.pathname = "/courseCenter") {
+          let channelId = location.query.channelId;
+          debugger
+          if (channelId) {
+            dispatch({type: 'getCourseList', payload: {channelId}});
+          } else {
+            dispatch({type: 'getCourseList'});
+          }
+        }
+      })
+      dispatch({type: 'getCourseCategory', payload: {page: '', rows: ''}});
+      dispatch({type: 'getCourseRank', payload: {page: 1, rows: 10}});
     }
-  },
+  }
 });

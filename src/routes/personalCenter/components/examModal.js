@@ -3,7 +3,6 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import cs from 'classnames'
 import {Link} from 'dva/router'
 import styles from './notesModal.less'
 import {Modal} from 'antd';

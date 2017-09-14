@@ -4,8 +4,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cs from 'classnames'
+import {Form, Button, Input, Modal} from 'antd'
 import styles from './notesModal.less'
-import {Form,Button, Input ,Modal } from 'antd';
 const FormItem = Form.Item;
 const {TextArea} = Input;
 const NotesModal = ({
@@ -44,14 +44,18 @@ const NotesModal = ({
       noteEditUpdate(values);
     })
   }
-  const notesList = noteListData.map((item,index)=>{
+  const notesList = noteListData.map((item, index) => {
     return (
       <tr key={index}>
         <td className={styles.seaNoteName}>笔记名称：</td>
         <td className={styles.seaNote}>
-          <span className={cs(['pull-left',`${styles.seaNoteItemName}`])} title={item.Name}>{item.Name}</span>
-          <a className="pull-right" onClick={()=>{delNote(item.Id)}}>删除</a>
-          <a className="pull-right" onClick={()=>{editNotes(item.Id)}}>编辑</a>
+          <span className={cs(['pull-left', `${styles.seaNoteItemName}`])} title={item.Name}>{item.Name}</span>
+          <a className="pull-right" onClick={() => {
+            delNote(item.Id)
+          }}>删除</a>
+          <a className="pull-right" onClick={() => {
+            editNotes(item.Id)
+          }}>编辑</a>
         </td>
       </tr>
     )
@@ -118,8 +122,12 @@ const NotesModal = ({
               <tr>
                 <td colSpan="2">
                   <div className="content_page">
-                    <span className="current">{courseNoteList.Page}</span><span>共 {Math.ceil(courseNoteList.Count / courseNoteList.Rows)}页,总记录 {courseNoteList.Count} 条</span>
-                    <Button onClick={() => {openNotesModal(notesCourseParams.courseId)}} type={'primary'} className="pull-right">添加笔记</Button>
+                    <span
+                      className="current">{courseNoteList.Page}</span><span>共 {Math.ceil(courseNoteList.Count / courseNoteList.Rows)}页,总记录 {courseNoteList.Count}
+                    条</span>
+                    <Button onClick={() => {
+                      openNotesModal(notesCourseParams.courseId)
+                    }} type={'primary'} className="pull-right">添加笔记</Button>
                   </div>
                 </td>
               </tr>

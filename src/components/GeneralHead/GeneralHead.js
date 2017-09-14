@@ -3,11 +3,11 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'dva/router'
 import styles from './GeneralHead.less'
 import headerLeftIcon from '../../assets/headerLeftIcon.png'
 import more from '../../assets/more.png'
-import { Link } from 'dva/router'
-const GeneralHead = ({showIcon,url,title="标题"}) => {
+const GeneralHead = ({showIcon, url, title = "标题"}) => {
   return (
     <div className={styles.generalHead}>
       <p className={styles.title}>
@@ -21,7 +21,7 @@ const GeneralHead = ({showIcon,url,title="标题"}) => {
           <Link to={url} target="_blank"><img src={more} alt="更多"/></Link>
         </p>
       }
-      
+    
     </div>
   )
 }

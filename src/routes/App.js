@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar/NavBar'
 import Footer from '../components/Footer/Footer'
 import styles from './App.less';
 
-function App({children, app, loading, dispatch, location, history}) {
+function App({children, app, dispatch}) {
   const addFavorite = () => {
     let url = window.location;
     let title = document.title;
@@ -53,7 +53,7 @@ function App({children, app, loading, dispatch, location, history}) {
     dispatch({
       type: 'app/updateState',
       payload: {
-        searchText:e.target.value
+        searchText: e.target.value
       }
     })
   }
@@ -62,7 +62,7 @@ function App({children, app, loading, dispatch, location, history}) {
     addFavorite,
     setHome,
     inputChange,
-    data:app
+    data: app
   }
   return (
     <div className={styles.normal}>

@@ -38,7 +38,7 @@ export default modelExtend(model, {
     },
     isEnterClass: false,
     classType: 'just',
-    categoryId:''
+    categoryId: ''
   },
   reducers: {
     updateClassMy(state, {payload}){
@@ -97,27 +97,30 @@ export default modelExtend(model, {
         type: 'updateState',
         payload: {
           classListData: data.Data,
-          classType:payload.type,
-          categoryId:payload.categoryId,
+          classType: payload.type,
+          categoryId: payload.categoryId,
         }
       });
     },
-    *checkUserClass({payload}, {call, put,select}){
+    *checkUserClass({payload}, {call, put, select}){
       const {trainingId} = payload;
       let data = yield call(checkUserClass, payload);
-      data.Type === 0 ? yield put({type: 'updateState', payload: {isEnterClass: false}}) : yield put({type: 'updateState', payload: {isEnterClass: true}});
+      data.Type === 0 ? yield put({
+          type: 'updateState',
+          payload: {isEnterClass: false}
+        }) : yield put({type: 'updateState', payload: {isEnterClass: true}});
       const isEnterClass = yield select(state => state.trainingClass.isEnterClass);
-      if(isEnterClass){
+      if (isEnterClass) {
         window.open(`/classDetail?id=${trainingId}`);
-      }else {
+      } else {
         alert('请先加入培训班！')
       }
       /*yield put(routerRedux.push({
-        pathname: '/classDetail',
-        query: {
-          id: trainingId,
-        },
-      }));*/
+       pathname: '/classDetail',
+       query: {
+       id: trainingId,
+       },
+       }));*/
     },
     *updateTrainingStudentup({payload}, {call, put}){
       let data = yield call(updateTrainingStudentup, payload);
@@ -136,5 +139,5 @@ export default modelExtend(model, {
       dispatch({type: 'classRecent'});
       dispatch({type: 'getClassList', payload: {rows: 10, type: 'just'}});
     }
-  },
+  }
 });

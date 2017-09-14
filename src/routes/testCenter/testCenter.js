@@ -22,7 +22,9 @@ const TestCenter = ({app, testCenter, dispatch, loading}) => {
       let params = Object.assign({}, testCenter.examParams, options)
       dispatch({type: 'testCenter/getExamList', payload: params})
       let activeKey = params.examType;
-      if(activeKey == 'All'){activeKey='UnFinish'}
+      if (activeKey == 'All') {
+        activeKey = 'UnFinish'
+      }
       dispatch({
         type: 'testCenter/updateState',
         payload: {activeKey}
@@ -36,7 +38,6 @@ const TestCenter = ({app, testCenter, dispatch, loading}) => {
       })
     },
     joinExam: (parameter1) => {
-      // console.log(examType)
       dispatch({
         type: 'testCenter/joinExam',
         payload: {parameter1}
@@ -44,6 +45,7 @@ const TestCenter = ({app, testCenter, dispatch, loading}) => {
     },
     loading: loading.effects['testCenter/getExamList'],
     activeKey: testCenter.activeKey,
+    pageConfig: testCenter.pageConfig,
   }
   return (
     <div className={styles.testCenter}>

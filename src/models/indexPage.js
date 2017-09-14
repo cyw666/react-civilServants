@@ -1,7 +1,6 @@
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
 import {model} from './common'
-
 import * as mainService from '../services/main';
 import {getCookie, setCookie, delCookie} from '../utils/index'
 
@@ -9,7 +8,7 @@ import {getCookie, setCookie, delCookie} from '../utils/index'
 export default modelExtend(model, {
   namespace: 'indexPage',
   state: {
-    isLoginIn:false,
+    isLoginIn: false,
     linkData: {},
     token: {},
     userMessage: {
@@ -27,20 +26,18 @@ export default modelExtend(model, {
     },
     newsData: {
       ListData: [
-        {Name:'',Description:''}
+        {Name: '', Description: ''}
       ]
     },
     realTimeData: {
-      Model :{
-        
-      }
+      Model: {}
     },
     courseListData: {
       ListData: []
     },
     courseCategory: {
       ListData: [
-        {Id:'',Name:''}
+        {Id: '', Name: ''}
       ]
     },
     studySpecialData: {
@@ -49,23 +46,22 @@ export default modelExtend(model, {
     classCategory: {
       ListData: [],
     },
-    activeClassId:'0',
-    classListData:{
+    activeClassId: '0',
+    classListData: {
       ListData: []
     },
-    groupRankData:{
+    groupRankData: {
       ListData: []
     },
-    rankUserData:{
+    rankUserData: {
       ListData: []
     },
-    courseClickData:{
+    courseClickData: {
       ListData: []
     },
-    bookListData :{
-      ListData:[]
+    bookListData: {
+      ListData: []
     }
-    
   },
   reducers: {
     save(state, {payload: list}){
@@ -212,8 +208,8 @@ export default modelExtend(model, {
     },
     *getCourseCategory({payload}, {call, put}){
       let data = yield call(mainService.courseCategory, payload);
-      let defaultId =data.Data.ListData[0].Id;
-      let courseList = yield call(mainService.courseList, {rows: 8 ,channelId:defaultId});
+      let defaultId = data.Data.ListData[0].Id;
+      let courseList = yield call(mainService.courseList, {rows: 8, channelId: defaultId});
       yield put({
         type: 'updateState',
         payload: {
@@ -233,13 +229,13 @@ export default modelExtend(model, {
     },
     *getClassCategory({payload}, {call, put}){
       let data = yield call(mainService.getTrainingClassTypeList, payload);
-      let defaultId =data.Data.ListData[0].Id;
-      let classList = yield call(mainService.getClassList, {rows: 6, categoryId:defaultId});
+      let defaultId = data.Data.ListData[0].Id;
+      let classList = yield call(mainService.getClassList, {rows: 6, categoryId: defaultId});
       yield put({
         type: 'updateState',
         payload: {
-          classCategory:data.Data,
-          activeClassId:defaultId,
+          classCategory: data.Data,
+          activeClassId: defaultId,
           classListData: classList.Data,
         }
       });
@@ -249,7 +245,7 @@ export default modelExtend(model, {
       yield put({
         type: 'updateState',
         payload: {
-          activeClassId:payload.categoryId,
+          activeClassId: payload.categoryId,
           classListData: data.Data
         }
       });
@@ -294,7 +290,7 @@ export default modelExtend(model, {
         }
       });
     },
-  
+    
   },
   subscriptions: {
     /*keyboardWatcher({dispatch}) {
@@ -318,7 +314,7 @@ export default modelExtend(model, {
       });
       dispatch({
         type: 'getNews',
-        payload: {rows: 6 ,categoryCode:'newsInformation'}
+        payload: {rows: 6, categoryCode: 'newsInformation'}
       });
       dispatch({
         type: 'getCourseCategory',
@@ -337,5 +333,5 @@ export default modelExtend(model, {
       dispatch({type: 'getCourseClick'});
       dispatch({type: 'getBookList'});
     }
-  },
+  }
 });

@@ -1,23 +1,27 @@
-
 /**
  * 课程排行模块
  */
 import React from 'react'
 import PropTypes from 'prop-types'
 import cs from 'classnames'
-import styles from './tmCourseRankingList.less'
 import {Link} from 'dva/router'
+import {Row, Col} from 'antd';
+import styles from './tmCourseRankingList.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
-import {Row,Col} from 'antd';
 
 const TmCourseRankingList = ({rankData}) => {
   
-  const rankContentList = rankData.ListData.map((item,index)=>{
+  const rankContentList = rankData.ListData.map((item, index) => {
     return (
-      <Row key={index} className={cs({'rankContent':true,'rankBg':index%2!==0})}>
+      <Row key={index} className={cs({'rankContent': true, 'rankBg': index % 2 !== 0})}>
         {
-          index<3?<Col span={6}><span className={cs({'contentList':true,'rankFirstBg':index===0,'rankSecondBg':index===1,'rankThirdBg':index===2})}></span></Col>:
-            <Col span={6}><span className="contentList">{index+1}</span></Col>
+          index < 3 ? <Col span={6}><span className={cs({
+              'contentList': true,
+              'rankFirstBg': index === 0,
+              'rankSecondBg': index === 1,
+              'rankThirdBg': index === 2
+            })}></span></Col> :
+            <Col span={6}><span className="contentList">{index + 1}</span></Col>
         }
         <Col span={12}><span className="contentList" title={item.Name}><Link to="courseDetail">{item.Name}</Link></span></Col>
         <Col span={6}><span className="contentList">{item.Total}</span></Col>
@@ -40,6 +44,6 @@ const TmCourseRankingList = ({rankData}) => {
 
 
 TmCourseRankingList.propTypes = {
-  rankData:PropTypes.object
+  rankData: PropTypes.object
 };
 export default TmCourseRankingList;

@@ -2,9 +2,8 @@
  * 快速入口
  */
 import React from 'react';
-import PropTypes from 'prop-types';
-import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {Link} from 'dva/router'
+import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './guideEntry.less';
 import entrance1 from '../../../assets/entrance1.png'
 import entrance2 from '../../../assets/entrance2.png'
@@ -42,8 +41,4 @@ const GuideEntry = () => {
     </div>
   );
 };
-GuideEntry.propTypes = {
-  
-};
-
 export default GuideEntry;

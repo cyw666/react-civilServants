@@ -6,41 +6,41 @@ import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import styles from './courseCenter.less';
-import {TmCourseCategory,TmCourseList,TmCourseRankingList} from './components/index'
-const CourseCenter = ({courseCenter, dispatch, loading, history}) => {
+import {TmCourseCategory, TmCourseList, TmCourseRankingList} from './components/index'
+const CourseCenter = ({courseCenter, dispatch}) => {
   const tmCourseCategoryProps = {
-    courseCategory:courseCenter.courseCategory,
-    searchCourse: (options)=>{
+    courseCategory: courseCenter.courseCategory,
+    searchCourse: (options) => {
       dispatch({
-        type:'courseCenter/getCourseList',
-        payload:options
+        type: 'courseCenter/getCourseList',
+        payload: options
       })
     }
   }
   
   const courseListPrpos = {
-    courseList:courseCenter.courseListData,
-    params:courseCenter.courseListParams,
-    baseImageCourse:courseCenter.baseImageCourse,
-    checkedList:courseCenter.checkedList,
-    checkAll:courseCenter.checkAll,
-    courseOptions:courseCenter.courseOptions,
-    onCheckAllChange:(e)=>{
-      let checkedAllList=[]
-      courseCenter.courseOptions.forEach((item)=>{
-        if(!item.disabled) {
+    courseList: courseCenter.courseListData,
+    baseImageCourse: courseCenter.baseImageCourse,
+    channelName: courseCenter.channelName,
+    checkedList: courseCenter.checkedList,
+    checkAll: courseCenter.checkAll,
+    courseOptions: courseCenter.courseOptions,
+    onCheckAllChange: (e) => {
+      let checkedAllList = []
+      courseCenter.courseOptions.forEach((item) => {
+        if (!item.disabled) {
           checkedAllList.push(item.value)
         }
       })
       dispatch({
         type: 'courseCenter/updateState',
         payload: {
-          checkedList:e.target.checked ? checkedAllList : [],
+          checkedList: e.target.checked ? checkedAllList : [],
           checkAll: e.target.checked,
         }
       })
     },
-    onCheckChange:(checkedList)=>{
+    onCheckChange: (checkedList) => {
       dispatch({
         type: 'courseCenter/updateState',
         payload: {
@@ -49,20 +49,20 @@ const CourseCenter = ({courseCenter, dispatch, loading, history}) => {
         }
       })
     },
-    pageConfig:courseCenter.pageConfig,
-    onSearchCourse:(options)=>{
-      let params = Object.assign({},courseCenter.courseListParams,options)
+    pageConfig: courseCenter.pageConfig,
+    onSearchCourse: (options) => {
+      let params = Object.assign({}, courseCenter.courseListParams, options)
       dispatch({
         type: 'courseCenter/getCourseList',
-        payload:params
+        payload: params
       })
     },
-    onAddStudyCourse:(checkedList)=>{
+    onAddStudyCourse: (checkedList) => {
       let params = checkedList.join(',');
       dispatch({
         type: 'courseCenter/addStudyCourse',
-        payload:{
-          checkValue:params
+        payload: {
+          checkValue: params
         }
       })
     },
