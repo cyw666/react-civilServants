@@ -16,12 +16,12 @@ const SpecialTraining = ({studySpecialData, loading}) => {
     return (
       <li key={index}>
         <p>
-          <Link to={item.Url} target="_blank">
+          <Link to={item.Url} target="_blank" rel="noopener noreferrer">
             <Img src={ImagePath + '/' + item.Icon} alt={item.SeriesName}/>
           </Link>
         </p>
         <p className={styles.title} title={item.SeriesName}>
-          <Link to="" target="_blank">{item.SeriesName}</Link>
+          <Link to="specialOne" target="_blank" rel="noopener noreferrer">{item.SeriesName}</Link>
         </p>
       </li>
     )

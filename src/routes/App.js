@@ -34,7 +34,6 @@ function App({children, app, dispatch}) {
   const setHome = (event) => {
     let url = window.location.href;
     try {
-      debugger
       event.target.style.behavior = 'url(#default#homepage)';
       event.target.setHomePage(url);
     } catch (e) {

@@ -23,6 +23,21 @@ module.exports = {
       url: `${API}/Page/LoginCode`,
       data: {}
     },
+    /*踢出*/
+    KickOut: {
+      url: `${API}/Page/KickOut`,
+      data: {kickUserId:''}
+    },
+    /*验证码登陆*/
+    Login: {
+      url: `${API}/Page/Login`,
+      data: {}
+    },
+    /*获取验证码*/
+    GetVerifyCode: {
+      url: `${API}/common/GetVerifyCode`,
+      data: {}
+    },
     /*获取token*/
     AntiForgeryToken: {
       url: `${API}/Page/AntiForgeryToken`,
@@ -283,6 +298,21 @@ module.exports = {
     CourseComment: {
       url: `${API}/Page/CourseComment`,
       data: {id: '', page: 1, rows: 10, sort: 'Id', order: 'Desc'}
+    },
+    /*获取单位*/
+    GetGroupList: {
+      url: `${API}/common/GetGroupList`,
+      data: {id: ''}
+    },
+    /*注册*/
+    Register: {
+      url: `${API}/Page/Register`,
+      data: {account: '', name: '', password: '', mobile: '', idcard: '', email: '', groupid: '', smgcode: ''}
+    },
+    /*发送验证码*/
+    SendMsg: {
+      url: `${API}/Page/SendMsg`,
+      data: {mobileNo: ''}
     },
   }
 }

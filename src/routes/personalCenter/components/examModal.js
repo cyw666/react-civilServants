@@ -18,7 +18,7 @@ const ExamModal = ({
         <td>{item.Name}</td>
         <td>{item.CreditHour}</td>
         <td>{item.TimeLimit}</td>
-        <td><Link to="exam">参加测试</Link></td>
+        <td><Link to="exam" target="_blank" rel="noopener noreferrer">参加测试</Link></td>
       </tr>
     )
     

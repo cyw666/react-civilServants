@@ -29,6 +29,18 @@ export function authorization() {
 export function login(data) {
   return fetch.post(api.LoginCode.url, {...api.LoginCode.data, ...data});
 }
+/*踢出*/
+export function kickOut(data) {
+  return fetch.post(api.KickOut.url, {...api.KickOut.data, ...data});
+}
+/*验证码登陆*/
+export function LoginCode(data) {
+  return fetch.post(api.Login.url, {...api.Login.data, ...data});
+}
+/*获取验证码*/
+export function getVerifyCode() {
+  return fetch.get(api.GetVerifyCode.url);
+}
 /*用户信息1*/
 export function userMessage(data) {
   return fetch.post(api.LoginShort.url, {...api.LoginShort.data, ...data});
@@ -208,5 +220,17 @@ export function relatedCourse(data) {
 /*课程评论*/
 export function courseComment(data) {
   return fetch.post(api.CourseComment.url, {...api.CourseComment.data, ...data});
+}
+/*获取单位*/
+export function getGroupList(data) {
+  return fetch.post(api.GetGroupList.url, {...api.GetGroupList.data, ...data});
+}
+/*注册*/
+export function register(data) {
+  return fetch.post(api.Register.url, {...api.Register.data, ...data});
+}
+/*发送验证码*/
+export function sendMsg(data) {
+  return fetch.post(api.SendMsg.url, {...api.SendMsg.data, ...data});
 }
 

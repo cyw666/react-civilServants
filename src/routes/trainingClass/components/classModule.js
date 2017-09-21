@@ -13,7 +13,7 @@ const ClassModule = ({classModuleData, loading}) => {
   const classNameList = ListData.map((item, index) => {
     return (
       <li key={index}>
-        <span className={styles.list1}><Link href={`classDetail/${item.Id}`} target="_blank">{item.Name}</Link></span>
+        <span className={styles.list1}><Link href={`classDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
         <span className={styles.list2}>{item.CurrentUser}</span>
       </li>
     )

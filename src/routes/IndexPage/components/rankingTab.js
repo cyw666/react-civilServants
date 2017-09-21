@@ -56,7 +56,11 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
               })}></span> : <span>{index + 1}</span>
           }
         </li>
-        <li className={styles.list2} title='1'><Link to="courseDetail" target="_blank">{item.Name}</Link></li>
+        <li className={styles.list2} title='1'>
+          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">
+            {item.Name}
+          </Link>
+        </li>
         <li className={styles.list3}>{item.Total}</li>
       </ul>
     )

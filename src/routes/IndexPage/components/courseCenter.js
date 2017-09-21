@@ -34,7 +34,6 @@ class CourseCenter extends React.Component {
     } = this.props;
     let courseCenterData = courseListData['ListData'];
     let baseImgPath = courseListData['ImageCourse'];
-    // debugger
     let radioButtonList = courseCategory['ListData'].map((item, index) => {
       return (
         <RadioButton value={item.Id} key={index}>{item.Name}</RadioButton>
@@ -43,7 +42,7 @@ class CourseCenter extends React.Component {
     let courseCenterList = courseCenterData.map((item, index) => {
       return (
         <li key={index}>
-          <Link to="courseDetail" title={item.Name} target="_blank">
+          <Link to={{pathname:'/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">
             <Img src={baseImgPath + '/' + item.Img} alt="" errSrc={notCourse}/>
           </Link>
           {
@@ -60,7 +59,7 @@ class CourseCenter extends React.Component {
           
           <div className={styles.desc}>
             <p>
-              <Link to="" title={item.Name} target="_blank">{item.Name}</Link>
+              <Link to={{pathname:'/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
             </p>
             <p>
               <span className={styles.teacher}>讲师：{item.Teacher}</span>

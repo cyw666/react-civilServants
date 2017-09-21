@@ -67,8 +67,7 @@ const TmCourseDetail = ({
                 <span>课程分类：</span>
               </td>
               <td className={styles.list2}>
-                <Link to={{pathname: 'courseCenter', query: {channelId: courseDetailData.ChannelId}}}
-                      target="_blank">{courseDetailData.ChannelName}</Link>
+                <Link to={{pathname: '/courseCenter', query: {channelId: courseDetailData.ChannelId}}} target="_blank" rel="noopener noreferrer">{courseDetailData.ChannelName}</Link>
               </td>
               <td className={styles.list3}>学员评论：</td>
               <td className={styles.list4}><span>已有<span>{courseDetailData.Count || 0}</span>条评论</span></td>
@@ -96,7 +95,7 @@ const TmCourseDetail = ({
               <td className={styles.list4}>
                 {
                   courseDetailData.BrowseScore >= 0 ?
-                    <Link to="play" target="_blank" className={styles.red}>
+                    <Link to="play" target="_blank" rel="noopener noreferrer" className={styles.red}>
                       <Icon type="play-circle"/> &nbsp;<span>点击播放</span>
                     </Link> :
                     <a onClick={() => {

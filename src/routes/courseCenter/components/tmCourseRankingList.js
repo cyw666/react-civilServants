@@ -23,7 +23,13 @@ const TmCourseRankingList = ({rankData}) => {
             })}></span></Col> :
             <Col span={6}><span className="contentList">{index + 1}</span></Col>
         }
-        <Col span={12}><span className="contentList" title={item.Name}><Link to="courseDetail">{item.Name}</Link></span></Col>
+        <Col span={12}>
+          <span className="contentList" title={item.Name}>
+            <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+              {item.Name}
+              </Link>
+          </span>
+        </Col>
         <Col span={6}><span className="contentList">{item.Total}</span></Col>
       </Row>
     )

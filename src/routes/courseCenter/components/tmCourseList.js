@@ -35,12 +35,12 @@ const TmCourseList = ({
     return (
       <tr key={index}>
         <td className={styles.courseImgs}>
-          <Link to={{pathname: 'courseDetail', query: {id: item.Id}}} target='_blank'>
+          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
             <Img src={baseImageCourse + '/' + item.Img} errSrc={notCourse} alt={item.Name}/>
           </Link>
         </td>
         <td className={styles.desc}>
-          <Link to={{pathname: 'courseDetail', query: {id: item.Id}}} target='_blank'>
+          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
             <p className={styles.title} title={item.Name}>{item.Name}</p>
           </Link>
           <p>
@@ -56,8 +56,13 @@ const TmCourseList = ({
         </td>
         <td className={styles.playRight}>
           <p className={styles.time}>上线日期：{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</p>
-          <p className={styles.play}><Button type={'primary'}><Link
-            to={{pathname: 'courseDetail', query: {id: item.Id}}} target='_blank'>点击播放</Link></Button></p>
+          <p className={styles.play}>
+            <Button type={'primary'}>
+              <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+                点击播放
+              </Link>
+            </Button>
+          </p>
         </td>
       </tr>
     )

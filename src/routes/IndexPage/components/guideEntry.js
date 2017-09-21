@@ -23,7 +23,7 @@ const GuideEntry = () => {
   let guideList = guideListData.map((item, index) => {
     return (
       <li key={index}>
-        <Link to={item.url} target="_blank" className={styles.professionals}>
+        <Link to={item.url} target="_blank" rel="noopener noreferrer" className={styles.professionals}>
           <img src={item.imgSrc} alt={item.title}/>
           <p>{item.title}</p>
         </Link>

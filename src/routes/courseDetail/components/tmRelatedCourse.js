@@ -9,23 +9,30 @@ import styles from './tmRelatedCourse.less'
 import Img from '../../../components/Img/Img'
 import notCourse from '../../../assets/notCourse.png'
 const TmRelatedCourse = ({courseData, loading}) => {
-  const relatedCourseList = courseData.CourseResult && courseData.CourseResult.map((item, index) => {
+  // debugger
+  const baseImg = courseData.ImageCourse;
+  const relatedCourseList = courseData.ListData && courseData.ListData.map((item, index) => {
       return (
         <li key={index}>
-          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank">
-            <Img src={item.Img} alt="相关课程" errSrc={notCourse}/>
+          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
+                rel="noopener noreferrer">
+            <Img src={`${baseImg}/${item.Img}`} alt="相关课程" errSrc={notCourse}/>
           </Link>
           <div className={styles.desc}>
             <p>
-              <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} title={item.Name}
-                    target="_blank">{item.Name}</Link>
+              <Link
+                to={{pathname: '/courseDetail', query: {id: item.Id}}}
+                title={item.Name}
+                target="_blank"
+                rel="noopener noreferrer">
+                {item.Name}
+              </Link>
             </p>
             <p><span>讲师：{item.Teacher}</span><span className="red">学分：{item.Credit}分</span></p>
             <p>时长：{item.Time}小时</p>
           </div>
         </li>
       )
-      
     })
   return (
     <div className={styles.tmRelatedCourse}>
@@ -33,7 +40,7 @@ const TmRelatedCourse = ({courseData, loading}) => {
       <Spin spinning={loading}>
         <ul>
           {
-            courseData.CourseResult.length > 0 ? relatedCourseList :
+            courseData.ListData.length > 0 ? relatedCourseList :
               <p className="noData">暂无相关课程</p>
           }
         </ul>

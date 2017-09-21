@@ -31,7 +31,9 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to="courseDetail">{item.Name}</Link></div>
+            <div className="list" title={item.Name}><Link to={{pathname: "/courseDetail", query: {id: item.Id}}}
+                                                          target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
+            </div>
           </Col>
           <Col span={4}>
             <div className="list"><Progress percent={item.BrowseScore} status="active"/></div>
@@ -91,7 +93,9 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to="courseDetail">{item.Name}</Link></div>
+            <div className="list" title={item.Name}><Link to={{pathname: "/courseDetail", query: {id: item.Id}}}
+                                                          target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
+            </div>
           </Col>
           <Col span={4}>
             <div className="list"><Progress percent={item.BrowseScore} status="active"/></div>
@@ -151,7 +155,9 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to="courseDetail">{item.Name}</Link></div>
+            <div className="list" title={item.Name}><Link to={{pathname: "/courseDetail", query: {id: item.Id}}}
+                                                          target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
+            </div>
           </Col>
           <Col span={4}>
             <div className="list"><Progress percent={item.BrowseScore} status="active"/></div>
@@ -207,6 +213,8 @@ const TmMyCenter = ({
       )
       
     })
+  
+  
   return (
     <div className={styles.tmMyCenter}>
       <GeneralHead showIcon={false} title={'个人中心'}></GeneralHead>
@@ -267,13 +275,28 @@ const TmMyCenter = ({
                 </Col>
               </Row>
               {unFinishList}
-              {!pageConfig.unFinishTotal && <h2 className={styles.noData}>暂无正在学习的课程！</h2>}
-              <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
-                          total={pageConfig.unFinishTotal} onChange={(page) => {
-                searchMyCourse({courseType: 'Unfinish', page, title: ''})
-              }} showTotal={(total) => {
-                return `共${total}条`
-              }}/>
+              {
+                pageConfig.unFinishTotal > 0 ?
+                  <Pagination
+                    showQuickJumper
+                    defaultCurrent={1}
+                    current={pageConfig.current}
+                    pageSize={pageConfig.pageSize}
+                    total={pageConfig.unFinishTotal}
+                    onChange={
+                      (page) => {
+                        searchMyCourse({courseType: 'Unfinish', page, title: ''})
+                      }
+                    }
+                    showTotal={
+                      (total) => {
+                        return `共${total}条`
+                      }
+                    }
+                  />
+                  :
+                  <h2 className={styles.noData}>暂无正在学习的课程！</h2>
+              }
             </TabPane>
             <TabPane tab={`指定到您的课程(${AppointedCount})`} key={'Appointed'}>
               <Row className={styles.title}>
@@ -306,13 +329,28 @@ const TmMyCenter = ({
                 </Col>
               </Row>
               {appointedList}
-              {!pageConfig.appointedTotal && <h2 className={styles.noData}>暂无指定到您的课程！</h2>}
-              <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
-                          total={pageConfig.appointedTotal} onChange={(page) => {
-                searchMyCourse({courseType: 'Appointed', page, title: ''})
-              }} showTotal={(total) => {
-                return `共${total}条`
-              }}/>
+              {
+                pageConfig.appointedTotal > 0 ?
+                  <Pagination
+                    showQuickJumper
+                    defaultCurrent={1}
+                    current={pageConfig.current}
+                    pageSize={pageConfig.pageSize}
+                    total={pageConfig.appointedTotal}
+                    onChange={
+                      (page) => {
+                        searchMyCourse({courseType: 'Appointed', page, title: ''})
+                      }
+                    }
+                    showTotal={
+                      (total) => {
+                        return `共${total}条`
+                      }
+                    }
+                  />
+                  :
+                  <h2 className={styles.noData}>暂无指定到您的课程！</h2>}
+            
             </TabPane>
             <TabPane tab={`已完成的课程(${FinishCount})`} key={'Finish'}>
               <Row className={styles.title}>
@@ -345,13 +383,28 @@ const TmMyCenter = ({
                 </Col>
               </Row>
               {finishList}
-              {!pageConfig.finishTotal && <h2 className={styles.noData}>暂无已完成的课程！</h2>}
-              <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
-                          total={pageConfig.finishTotal} onChange={(page) => {
-                searchMyCourse({courseType: 'Finish', page, title: ''})
-              }} showTotal={(total) => {
-                return `共${total}条`
-              }}/>
+              {
+                pageConfig.finishTotal > 0 ?
+                  <Pagination
+                    showQuickJumper
+                    defaultCurrent={1}
+                    current={pageConfig.current}
+                    pageSize={pageConfig.pageSize}
+                    total={pageConfig.finishTotal}
+                    onChange={
+                      (page) => {
+                        searchMyCourse({courseType: 'Finish', page, title: ''})
+                      }
+                    }
+                    showTotal={
+                      (total) => {
+                        return `共${total}条`
+                      }
+                    }
+                  />
+                  :
+                  <h2 className={styles.noData}>暂无已完成的课程！</h2>}
+            
             </TabPane>
           </Tabs>
         </Spin>

@@ -14,7 +14,9 @@ const NoticeAnnouncement = ({noticeData, loading}) => {
     return (
       <li key={list.Id}>
         <span className={styles.triangleRight}></span>
-        <Link to={`noticeDetail/${list.Id}`} target='_blank' title={list.Name}>{list.Name}</Link>
+        <Link to={`noticeDetail/${list.Id}`} target='_blank' title={list.Name} rel="noopener noreferrer">
+          {list.Name}
+        </Link>
         <span className={styles.time}>{dateFilter(list.CreateDate, 'yyyy-MM-dd')}</span>
       </li>
     )
@@ -23,10 +25,13 @@ const NoticeAnnouncement = ({noticeData, loading}) => {
   let carouselList = noticeData['ListData'].map((item) => {
     return (
       <div key={item.Id}>
-        <Link to={`noticeDetail/${item.Id}`} target='_blank'><Img src={baseImgPath + '/' + item.Img}
-                                                                  alt={item.Name}/></Link>
+        <Link to={`noticeDetail/${item.Id}`} target='_blank' rel="noopener noreferrer">
+          <Img src={baseImgPath + '/' + item.Img} alt={item.Name}/>
+        </Link>
         <p className={styles.title}>
-          <Link to={`noticeDetail/${item.Id}`} title={item.Name}>{item.Name}</Link>
+          <Link to={`noticeDetail/${item.Id}`} target='_blank' title={item.Name} rel="noopener noreferrer">
+            {item.Name}
+          </Link>
         </p>
       </div>
     )

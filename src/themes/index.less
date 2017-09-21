@@ -1,10 +1,5 @@
-@import "./default.less";
 @import "./layout.less";
 
-body {
-  height: 100%;
-  background-color: #fff;
-}
 
 img {
   color: transparent;
@@ -12,15 +7,6 @@ img {
   vertical-align: middle;
   border: 0px;
   -ms-interpolation-mode: bicubic;
-}
-
-a {
-  &:active {
-    text-decoration: none;
-  }
-  &:focus {
-    text-decoration: none;
-  }
 }
 
 //定义全局变量
@@ -159,6 +145,12 @@ a {
   }
   .rankThirdBg {
     background: url("../assets/rankThree.png") center no-repeat;
+  }
+  .agreement{
+    .ant-modal-title{
+      text-align: center;
+      font-size: 23px;
+    }
   }
 }
 

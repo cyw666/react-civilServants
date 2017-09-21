@@ -122,6 +122,16 @@ const delHtmlTag = (value) => {
   var result = value.replace(/<[^>]+>|&nbsp;| /ig, "");//去掉所有的html标记
   return result;
 };
+/**
+ * @param   {String}
+ * @return  {String}
+ */
+const queryURL = (name) => {
+  let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i')
+  let r = window.location.search.substr(1).match(reg)
+  if (r != null) return decodeURI(r[2])
+  return null
+}
 module.exports = {
   config,
   fetch,
@@ -135,4 +145,5 @@ module.exports = {
   wordLimit,
   JudgeStatus,
   delHtmlTag,
+  queryURL,
 }

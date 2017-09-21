@@ -28,11 +28,11 @@ const UserInformation = ({information, loginOut, loading}) => {
             </li>
             <li>
               <span className={styles.item1}>个人学习档案</span>
-              <span className={styles.item2}><a target="_blank">详细&gt;&gt;</a></span>
+              <span className={styles.item2}><a target="_blank" rel="noopener noreferrer">详细&gt;&gt;</a></span>
             </li>
             <li>
               <span className={styles.item1}>您有<span className={styles.red}> {Model.UnRead} </span>条新通知！</span>
-              <span className={styles.item2}><a >详细&gt;&gt;</a></span>
+              <span className={styles.item2}><a rel="noopener noreferrer">详细&gt;&gt;</a></span>
             </li>
             <li className={styles.lastChild}>
               <a >修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;

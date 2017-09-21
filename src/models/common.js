@@ -1,4 +1,7 @@
-// import modelExtend from 'dva-model-extend'
+
+/*
+* 公用model
+* */
 import {antiForgeryToken} from '../services/main';
 const model = {
   state: {

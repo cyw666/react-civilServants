@@ -27,14 +27,18 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
   const userProps = {
     indexPage,
     pushSubmit: (values) => {
-      dispatch({type: 'indexPage/login', payload: values});
-      dispatch({
-        type: 'indexPage/setUserCookie',
-        payload: values
-      });
+      const loginParams = Object.assign({}, values, token)
+      dispatch({type: 'indexPage/login', payload: loginParams});
+      dispatch({type:'updateState',payload:{loginValue:loginParams}})
     },
     pushOut: () => {
       dispatch({type: 'indexPage/loginOut', payload: token});
+    },
+    inputChange: () => {
+      dispatch({type: 'indexPage/updateState', payload: {showCode: true}})
+    },
+    changeVerifyCode: () => {
+      dispatch({type: 'indexPage/getVerifyCode'});
     },
     loading: loginLoading
   }

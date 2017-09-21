@@ -15,8 +15,12 @@ const TmNoticeList = ({noticeListData, inputSearch, loading, pageConfig, linkUrl
   const noticeList = ListData.map((item, index) => {
     return (
       <tr key={index}>
-        <td><img className="arrow" src={Arrow} alt="arrow"/><Link className="tableName" to={`${linkUrl}/${item.Id}`}
-                                                                  title={item.Name} target="_blank">{item.Name}</Link>
+        <td>
+          <img className="arrow" src={Arrow} alt="arrow"/>
+          <Link className="tableName" to={`${linkUrl}/${item.Id}`} title={item.Name} target="_blank"
+                rel="noopener noreferrer">
+            {item.Name}
+          </Link>
         </td>
         <td className="listDate">{dateFilter(item.CreateDate, 'yyyy-MM-dd hh:mm:ss')}</td>
       </tr>
@@ -54,10 +58,24 @@ const TmNoticeList = ({noticeListData, inputSearch, loading, pageConfig, linkUrl
               </tbody>
             </table>
             <div className="pagination">
-              <Pagination showQuickJumper showTotal={total => `共 ${total} 条`} current={pageConfig.current}
-                          total={pageConfig.total} pageSize={pageConfig.pageSize} onChange={(pageNumber) => {
-                inputSearch({page: pageNumber, search})
-              }}/>
+              {
+                pageConfig.total>0?
+                  <Pagination
+                    showQuickJumper
+                    showTotal={total => `共 ${total} 条`}
+                    current={pageConfig.current}
+                    total={pageConfig.total}
+                    pageSize={pageConfig.pageSize}
+                    onChange={
+                      (pageNumber) => {
+                        inputSearch({page: pageNumber, search})
+                      }
+                    }
+                  />
+                  :
+                  <p className="noData">暂无通知</p>
+              }
+              
             </div>
           </Spin>
         </div>

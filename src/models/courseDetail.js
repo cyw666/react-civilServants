@@ -48,7 +48,7 @@ export default modelExtend(model, {
       ListData: []
     },
     relatedCourse: {
-      CourseResult: []
+      ListData: []
     },
     pageConfig: {
       current: 1,

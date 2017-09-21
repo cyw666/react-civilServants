@@ -10,15 +10,15 @@ import more from '../../assets/more.png'
 const GeneralHead = ({showIcon, url, title = "标题"}) => {
   return (
     <div className={styles.generalHead}>
-      <p className={styles.title}>
+      <p className={styles.headerImg}>
         <img src={headerLeftIcon} alt="图标"/>
-        {title}
       </p>
+      <p className={styles.title}>{title}</p>
       {
         showIcon
         &&
         <p className={styles.more}>
-          <Link to={url} target="_blank"><img src={more} alt="更多"/></Link>
+          <Link to={url} target="_blank" rel="noopener noreferrer"><img src={more} alt="更多"/></Link>
         </p>
       }
     

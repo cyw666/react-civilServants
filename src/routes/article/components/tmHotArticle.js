@@ -16,16 +16,18 @@ const TmHotArticle = ({
     return (
       <Row key={index} className={cs({'rankContent': true, 'rankBg': index % 2 !== 0})}>
         {
-          index < 3 ? <Col span={5}><span className={cs({
-              'contentList': true,
-              'rankFirstBg': index === 0,
-              'rankSecondBg': index === 1,
-              'rankThirdBg': index === 2
-            })}></span></Col> :
+          index < 3 ?
+            <Col span={5}>
+              <span className={cs({'contentList': true, 'rankFirstBg': index === 0, 'rankSecondBg': index === 1, 'rankThirdBg': index === 2})}></span>
+            </Col>
+            :
             <Col span={5}><span className="contentList">{index + 1}</span></Col>
         }
-        <Col span={19}><span className="contentList" title={item.Name}><Link to={`articleDetail/${item.Id}`}
-                                                                             target="_blank">{item.Name}</Link></span></Col>
+        <Col span={19}>
+          <span className="contentList" title={item.Name}>
+            <Link to={`articleDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
+          </span>
+        </Col>
       </Row>
     )
   })

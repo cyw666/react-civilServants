@@ -19,12 +19,12 @@
     top: 0;
     left: 70%;
     .login {
-      padding: 20px;
+      padding: 20px 20px 0 20px;
       border-radius: 5px;
       width: 280px;
-      height: 360px;
+      min-height: 360px;
       background-color: @white;
-      margin-top: 35px;
+      margin-top: 20px;
       .title {
         height: 44px;
         font-size: 18px;
@@ -35,12 +35,14 @@
       }
       .loginBefore{
         :global {
-          .login-form-button {
+          .login-form-login {
             width: 100%;
-            margin-top: 15px;
+            margin-top: 10px;
           }
-          .ant-form-item {
-
+          .login-form-register {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 15px;
           }
           .login-form-forgot {
             float: right;

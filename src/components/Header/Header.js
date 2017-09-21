@@ -23,7 +23,10 @@ const Header = ({addFavorite, setHome, inputChange, data}) => {
             <a> 在线留言</a> |
             <a onClick={setHome}> 设为首页</a> |
             <a> 联系我们</a>
-            <span className={styles.phone}><img src={phoneImg} alt="电话"/>0571-28990788</span>
+            <span className={styles.phone}>
+              <img src={phoneImg} alt="电话"/>
+              <span>0571-28990788</span>
+            </span>
           </p>
         </div>
       </div>
@@ -47,7 +50,7 @@ const Header = ({addFavorite, setHome, inputChange, data}) => {
                 onChange={inputChange}
                 size="large"
               />
-              <Button><Link to={`/Products/${data.searchText}`} target="_blank">搜索</Link></Button>
+              <Button><Link to={`/Products/${data.searchText}`} target="_blank" rel="noopener noreferrer">搜索</Link></Button>
             </div>
           </li>
           <li className="grid_7 clearFix">

@@ -138,7 +138,6 @@ export default modelExtend(model, {
       history.listen((location) => {
         if (location.pathname = "/courseCenter") {
           let channelId = location.query.channelId;
-          debugger
           if (channelId) {
             dispatch({type: 'getCourseList', payload: {channelId}});
           } else {

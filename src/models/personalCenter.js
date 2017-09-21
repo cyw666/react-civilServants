@@ -27,7 +27,10 @@ export default modelExtend(model, {
         UnfinishModel: [],
         AppointedModel: [],
         FinishModel: []
-      }
+      },
+      UnfinishCount:0,
+      AppointedCount:0,
+      FinishCount:0
     },
     activeKey: 'Unfinish',
     myCourseParams: {

@@ -27,7 +27,7 @@ const TmExamList = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={9}>
-            <div className="list" title={item.Name}><Link to="examDetail">{item.Name}</Link></div>
+            <div className="list" title={item.Name}><Link to="examDetail" target="_blank" rel="noopener noreferrer">{item.Name}</Link></div>
           </Col>
           <Col span={3}>
             <div className="list">{item.CreditHour}</div>
@@ -73,7 +73,7 @@ const TmExamList = ({
             }}>参加测试</a></div>
           </Col>
           <Col span={4}>
-            <div className="list"><Link to="examDetailList">查看详细记录</Link></div>
+            <div className="list"><Link to="examDetailList" target="_blank" rel="noopener noreferrer">查看详细记录</Link></div>
           </Col>
         </Row>
       )
