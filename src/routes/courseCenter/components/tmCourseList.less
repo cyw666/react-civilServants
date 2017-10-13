@@ -1,15 +1,15 @@
 /**
  * 课程列表
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .tmCourseList{
   .courseBorder{
-    border:1px solid @gray-eee;
+    .border-base();
     .sortCourse{
-      .clearFix;
+      .clearFix();
       margin-bottom: 15px;
       .tag{
-        .pull-left;
+        .pull-left();
         margin-left: 25px;
         &>span{
           display: inline-block;
@@ -17,7 +17,7 @@
         }
       }
       .titleBar{
-        .pull-left;
+        .pull-left();
         &>span{
           margin: 0 15px;
         }
@@ -30,7 +30,7 @@
     .ant-checkbox-group-item {
       display: block;
       height: 95px;
-      border-top: 1px solid @gray-eee;
+      .border-base();
       .ant-checkbox{
         top:33px;
         left: 5px;
@@ -41,26 +41,25 @@
     }
     .ant-col-24{
       padding: 20px 0;
-      border-top:1px solid @gray-eee;
+      .border-base();
       .ant-checkbox-wrapper{
-        .pull-left;
+        .pull-left();
         margin: 0 9px;
-        height: 28px;
-        line-height: 28px;
+        .ht-lineHt(28px);
       }
       .ant-btn{
-        .pull-left;
+        .pull-left();
         margin: 0 15px;
       }
       .ant-pagination {
-        .pull-left;
+        .pull-left();
       }
     }
     .table{
       tr{
-        border-top: 1px solid @gray-eee;
+        .border-base();
         td{
-          text-align: left;
+          .text-left();
           border-top:none;
         }
       }
@@ -78,35 +77,32 @@
     .desc{
       width: 60%;
       p{
-        height: 26px;
-        line-height: 26px;
-        font-size: 12px;
-        color: @text-gray;
+        .ht-lineHt(26px);
+        font-size: @font-size-sm;
+        color: @text-color;
         &.title{
-          font-size: 14px;
-          color: @text-gray;
+          font-size: @font-size-base;
+          color: @text-color;
         }
         &>span{
           width: 100px;
           display: inline-block;
-          text-align: left;
+          .text-left();
         }
       }
-
     }
     .playRight{
       width: 25%;
       p{
         &.time{
           margin-bottom: 10px;
-          font-size: 12px;
-          color: @text-gray*3;
+          font-size: @font-size-sm;
+          color: @text-color-3;
         }
         &.play{
         }
-        height: 30px;
-        line-height: 30px;
-        text-align: right;
+        .ht-lineHt(30px);
+        .text-right();
       }
     }
   }

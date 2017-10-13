@@ -1,9 +1,8 @@
 /*通知公告*/
-@import "../../../themes/index.less";
+@import "../../../themes/mixins";
 .noticeAnnouncement{
-  height: 482px;
-  width: 590px;
-  border: 1px solid darken(@gray-eee,1%);
+  .wh(590px,482px);
+  .border-base();
   padding: 10px;
   .notice {
     img {
@@ -17,7 +16,7 @@
         color: @white;
         width: 400px;
         padding-left: 10px;
-        .ellipsis;
+        .ellipsis();
       }
     }
     :global {
@@ -38,39 +37,38 @@
   .noticeBody{
     background-color: @gray-f3;
     margin-top: 10px;
-    .clearFix;
+    .clearFix();
     .noticeBodyLeft {
       .wh(60px,100%);
       padding: 0 25px;
       border-right: 1px solid @gray-ddd;
-      font-size: 14px;
       font-weight: bold;
-      color: @red;
+      color: @primary-color;
       margin: 10px auto;
       text-align: center;
       word-wrap: break-word;
-      .pull-left;
+      .pull-left();
     }
     .noticeBodyRight {
       .wh(500px,100%);
-      .pull-right;
+      .pull-right();
       li {
         line-height: 33px;
-        .clearFix;
+        .clearFix();
         .triangleRight {
           .triangleRight;
           margin: 12px 10px;
-          .pull-left;
+          .pull-left();
         }
         a{
-          .pull-left;
-          .ellipsis;
+          .pull-left();
+          .ellipsis();
           width: 320px;
         }
         .time {
           margin-left: 50px;
-          color: @text-gray*3;
-          .pull-left;
+          color: @text-color-3;
+          .pull-left();
         }
       }
     }

@@ -1,7 +1,7 @@
 /**
  * 专题学习
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .specialTraining {
   margin-left: 16px;
   margin-top: 25px;
@@ -11,12 +11,11 @@
     li {
       margin-top: 10px;
       .title {
-        .ellipsis;
-        height: 33px;
-        line-height: 33px;
+        .ellipsis();
+        .ht-lineHt(33px);
         padding: 0 10px;
         a {
-          font-size: 16px;
+          font-size: @font-size-lg;
         }
       }
       img {

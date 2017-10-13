@@ -5,7 +5,7 @@ import modelExtend from 'dva-model-extend'
 import {routerRedux} from 'dva/router'
 import {message} from 'antd'
 import {model} from './common'
-import {login, LoginCode, getVerifyCode,kickOut} from '../services/main'
+import {login, LoginCode, getVerifyCode,kickOut,userMessage} from '../services/main'
 import {getCookie, setCookie, delCookie,queryURL} from '../utils/index'
 
 export default modelExtend(model, {
@@ -114,7 +114,7 @@ export default modelExtend(model, {
           message.error(data.Message);
           yield put({type:'getVerifyCode'});
         }else {
-          alert(data.Message);
+          message.error(data.Message);
           yield put({type:'getVerifyCode'});
         }
       } catch (error) {
@@ -125,11 +125,25 @@ export default modelExtend(model, {
       let data = yield call(getVerifyCode);
       yield put({type:'updateState',payload:{codeImg:`data:image/png;base64,${data.img}`}})
     },
+    *getUserInfo({payload}, {call, put}){
+      let data = yield call(userMessage);
+      if(data.Data){
+        if (data.Data.Model.Name) {
+          message.warn('用户已登录！');
+          yield put(routerRedux.push('/indexPage'))
+        }
+      }
+    },
   },
   subscriptions: {
     setup({dispatch, history}) {
-      dispatch({type: 'getUserCookie'});
-      dispatch({type: 'getVerifyCode'});
+      history.listen((location)=>{
+        if(location.pathname === '/login'){
+          dispatch({type: 'getUserInfo'});
+          dispatch({type: 'getUserCookie'});
+          dispatch({type: 'getVerifyCode'});
+        }
+      })
     }
   }
 });

@@ -4,6 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Button, Spin} from 'antd';
+import {Link} from 'dva/router'
 import styles from './userInformation.less'
 import GeneralHead from '../GeneralHead/GeneralHead'
 const UserInformation = ({information, loginOut, loading}) => {
@@ -16,7 +17,8 @@ const UserInformation = ({information, loginOut, loading}) => {
           <ul>
             <li>欢迎您:<b className={styles.red}>{Model.Name}</b>({Model.Account})</li>
             <li>
-              <span className={styles.list1}>课程学时：<span className={styles.red}>{Model.PcCredit + Model.MobileCredit}</span></span>
+              <span className={styles.list1}>课程学时：<span
+                className={styles.red}>{Model.PcCredit + Model.MobileCredit}</span></span>
               <span className={styles.list2}>考试学时：<span className={styles.red}>{Model.ExamCredit}</span></span>
             </li>
             <li>
@@ -28,18 +30,19 @@ const UserInformation = ({information, loginOut, loading}) => {
             </li>
             <li>
               <span className={styles.item1}>个人学习档案</span>
-              <span className={styles.item2}><a target="_blank" rel="noopener noreferrer">详细&gt;&gt;</a></span>
+              <span className={styles.item2}><Link to="/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
             </li>
             <li>
               <span className={styles.item1}>您有<span className={styles.red}> {Model.UnRead} </span>条新通知！</span>
-              <span className={styles.item2}><a rel="noopener noreferrer">详细&gt;&gt;</a></span>
+              <span className={styles.item2}><Link to="/personalNotice" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
             </li>
             <li className={styles.lastChild}>
-              <a >修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-              <a >修改信息</a> &nbsp;|&nbsp;
+              <Link to="/modifyPassword">修改密码</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+              <Link to="/changeInfor">修改信息</Link> &nbsp;|&nbsp;
               {
                 UserType === '管理员' &&
-                <span className={styles.item2}><a href="/admin/" target="_blank" rel="noopener noreferrer">进入管理控制台</a></span>
+                <span className={styles.item2}><a href="/admin/" target="_blank"
+                                                  rel="noopener noreferrer">进入管理控制台</a></span>
               }
             </li>
             <li className={styles.exit}>

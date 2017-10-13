@@ -2,6 +2,7 @@
  * 课程中心
  */
 import modelExtend from 'dva-model-extend'
+import {message} from 'antd'
 import {model} from './common'
 
 import {
@@ -114,12 +115,12 @@ export default modelExtend(model, {
       if (payload !== '') {
         let data = yield call(addStudyCourse, payload);
         if (data.Type > 0) {
-          alert(data.Message);
+          message.success(data.Message);
           let courseParams = yield select(state => state.courseCenter.courseListParams);
           yield put({type: 'getCourseList', payload: courseParams});
         }
       } else {
-        alert("您没有选择可添加的课程！");
+        message.warn("您没有选择可添加的课程！");
       }
       
     },
@@ -136,7 +137,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        if (location.pathname = "/courseCenter") {
+        if (location.pathname === "/courseCenter") {
           let channelId = location.query.channelId;
           if (channelId) {
             dispatch({type: 'getCourseList', payload: {channelId}});

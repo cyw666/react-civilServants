@@ -10,8 +10,8 @@ import Arrow from '../../../assets/arrow.png'
 import {dateFilter} from '../../../utils/index'
 import styles from './tmNoticeList.less'
 const Search = Input.Search;
-const TmNoticeList = ({noticeListData, inputSearch, loading, pageConfig, linkUrl}) => {
-  const {ListData, search, TitleNav} = noticeListData;
+const TmNoticeList = ({noticeListData, noticeParams,inputSearch, loading, pageConfig, linkUrl}) => {
+  const {ListData, TitleNav} = noticeListData;
   const noticeList = ListData.map((item, index) => {
     return (
       <tr key={index}>
@@ -68,7 +68,7 @@ const TmNoticeList = ({noticeListData, inputSearch, loading, pageConfig, linkUrl
                     pageSize={pageConfig.pageSize}
                     onChange={
                       (pageNumber) => {
-                        inputSearch({page: pageNumber, search})
+                        inputSearch({page: pageNumber, search:noticeParams.search})
                       }
                     }
                   />
@@ -87,6 +87,7 @@ const TmNoticeList = ({noticeListData, inputSearch, loading, pageConfig, linkUrl
 
 TmNoticeList.propTypes = {
   noticeListData: PropTypes.object,
+  noticeParams: PropTypes.object,
   pageConfig: PropTypes.object,
   inputSearch: PropTypes.func,
   loading: PropTypes.bool,

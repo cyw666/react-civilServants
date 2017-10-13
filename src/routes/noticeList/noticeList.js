@@ -16,6 +16,7 @@ const NoticeList = ({app, noticeList, dispatch, loading}) => {
   }
   const noticeListProps = {
     noticeListData: noticeList.noticeListData,
+    noticeParams: noticeList.noticeParams,
     inputSearch: (options) => {
       let params = Object.assign({}, noticeList.noticeParams, options)
       dispatch({
@@ -25,7 +26,7 @@ const NoticeList = ({app, noticeList, dispatch, loading}) => {
     },
     pageConfig: noticeList.pageConfig,
     loading: loading.effects['noticeList/getNoticeList'],
-    linkUrl: 'noticeDetail',
+    linkUrl: '/noticeDetail',
   }
   return (
     <div className={styles.noticeList}>

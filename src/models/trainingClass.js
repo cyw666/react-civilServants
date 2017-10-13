@@ -2,6 +2,7 @@
  * 培训班
  */
 import modelExtend from 'dva-model-extend'
+import {message} from 'antd'
 import {model} from './common'
 
 import {
@@ -113,7 +114,7 @@ export default modelExtend(model, {
       if (isEnterClass) {
         window.open(`/classDetail?id=${trainingId}`);
       } else {
-        alert('请先加入培训班！')
+        message.warning('请先加入培训班！')
       }
       /*yield put(routerRedux.push({
        pathname: '/classDetail',
@@ -122,22 +123,44 @@ export default modelExtend(model, {
        },
        }));*/
     },
-    *updateTrainingStudentup({payload}, {call, put}){
+    *updateTrainingStudentup({payload}, {call, put, select}){
       let data = yield call(updateTrainingStudentup, payload);
-      alert(data.Message);
+      if (data.Type === 1) {
+        const classType = yield select(state => state.trainingClass.classType);
+        message.success(data.Message);
+        yield put({
+          type: 'getClassList',
+          payload: {rows: 10, type: classType}
+        })
+      } else {
+        message.error(data.Message)
+      }
     },
-    *updateTrainingStudentdown({payload}, {call, put}){
+    *updateTrainingStudentdown({payload}, {call, put, select}){
       let data = yield call(updateTrainingStudentdown, payload);
-      alert(data.Message);
+      if (data.Type === 1) {
+        const classType = yield select(state => state.trainingClass.classType);
+        message.success(data.Message);
+        yield put({
+          type: 'getClassList',
+          payload: {rows: 10, type: classType}
+        })
+      } else {
+        message.error(data.Message)
+      }
     },
   },
   subscriptions: {
     setup({dispatch, history}) {
-      dispatch({type: 'getTrainingClassTypeList'});
+      history.listen((location) => {
+        if (location.pathname === "/trainingClass") {
+          dispatch({type: 'getTrainingClassTypeList'});
+          dispatch({type: 'getClassList', payload: {rows: 10, type: 'just'}});
+        }
+      })
       dispatch({type: 'classMy'});
       dispatch({type: 'classActive'});
       dispatch({type: 'classRecent'});
-      dispatch({type: 'getClassList', payload: {rows: 10, type: 'just'}});
     }
   }
 });

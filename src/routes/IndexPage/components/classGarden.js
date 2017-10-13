@@ -18,7 +18,7 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
   const classList = classListData['ListData'].map((item, index) => {
     return (
       <tr key={index}>
-        <td><Link to="classDetail">{item.Name}</Link></td>
+        <td><Link to="/classDetail">{item.Name}</Link></td>
         <td>{dateFilter(item.StartTime, 'yyyy-MM-dd')}~{dateFilter(item.EndTime, 'yyyy-MM-dd')}</td>
         <td>{item.Address}</td>
         <td>
@@ -35,7 +35,7 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
   });
   return (
     <div className={styles.classGarden}>
-      <GeneralHead showIcon={true} title="班级园地" url="trainingClass"></GeneralHead>
+      <GeneralHead showIcon={true} title="班级园地" url="/trainingClass"></GeneralHead>
       <Spin spinning={loading}>
         <Tabs activeKey={activeClassId} onChange={(key) => {
           classChange(key)

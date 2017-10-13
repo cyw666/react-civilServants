@@ -1,7 +1,7 @@
 /**
  * 班级园地
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .classGarden {
   margin-top: 20px;
   :global {
@@ -15,7 +15,7 @@
       height: 44px;
     }
     .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
-      border-top: 3px solid @red;
+      border-top: 3px solid @primary-color;
       padding: 7px 27px 10px;
     }
   }
@@ -33,6 +33,7 @@
           border-bottom: 1px solid@gray-ddd;
           height: 48px;
           line-height: 48px;
+          .ht-lineHt(48px);
           button {
             width: 105px;
           }
@@ -44,7 +45,7 @@
           }
         }
         th{
-          border-bottom: 1px solid@gray-ddd;
+          border-bottom: 1px solid @gray-ddd;
           height: 30px;
           line-height: 30px;
         }

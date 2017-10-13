@@ -1,16 +1,16 @@
 /**
  * 考试列表
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .tmExamList{
   margin-top: 15px;
   padding-left: 10px;
   .examContent{
-    border: 1px solid @gray-eee;
+    .border-base();
     .title {
       width: 100%;
       font-weight: bold;
-      color: @text-gray*2;
+      color: @text-color-2;
       border-bottom: 1px dashed @gray-ccc;
       background-color: @gray-f3;
     }

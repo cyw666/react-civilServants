@@ -1,7 +1,7 @@
 /**
  * 笔记modal
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 
 .notesModal {
 
@@ -14,7 +14,7 @@
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border: 1px solid @gray-ddd;
+    .border-base();
   }
   th {
     background-color: lighten(@gray-ddd, 8%);
@@ -28,7 +28,7 @@
       padding: 0px 15px;
     }
     .seaNoteItemName{
-      .ellipsis;
+      .ellipsis();
       width: 65%;
     }
   }

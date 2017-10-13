@@ -37,6 +37,30 @@ export function kickOut(data) {
 export function LoginCode(data) {
   return fetch.post(api.Login.url, {...api.Login.data, ...data});
 }
+/*修改密码*/
+export function updatePwd(data) {
+  return fetch.post(api.UpdatePwd.url, {...api.UpdatePwd.data, ...data});
+}
+/*设置密保--密码验证*/
+export function setPasswordQuestion(data) {
+  return fetch.post(api.SetPasswordQuestion.url, {...api.SetPasswordQuestion.data, ...data});
+}
+/*设置密保--添加密保问题*/
+export function addPasswordQuestion(data) {
+  return fetch.post(api.AddPasswordQuestion.url, {...api.AddPasswordQuestion.data, ...data});
+}
+/*获取用户信息（修改信息）*/
+export function getUserInfo(data) {
+  return fetch.post(api.GetUserInfo.url, {...api.GetUserInfo.data, ...data});
+}
+/*获取职位列表*/
+export function getGradeList(data) {
+  return fetch.post(api.GetGradeList.url, {...api.GetGradeList.data, ...data});
+}
+/*修改用户信息*/
+export function updateUserInfo(data) {
+  return fetch.post(api.UpdateUserInfo.url, {...api.UpdateUserInfo.data, ...data});
+}
 /*获取验证码*/
 export function getVerifyCode() {
   return fetch.get(api.GetVerifyCode.url);
@@ -233,4 +257,15 @@ export function register(data) {
 export function sendMsg(data) {
   return fetch.post(api.SendMsg.url, {...api.SendMsg.data, ...data});
 }
-
+/*个人档案*/
+export function studyStatistics(data) {
+  return fetch.post(api.StudyStatistics.url, {...api.StudyStatistics.data, ...data});
+}
+/*个人通知*/
+export function noticeUnReadList(data) {
+  return fetch.post(api.NoticeUnReadList.url, {...api.NoticeUnReadList.data, ...data});
+}
+/*班级列表（type："my" 我的班级 type："recent" 近期班级 type："active" 活跃班级）*/
+export function classList(data) {
+  return fetch.post(api.ClassList.url, {...api.ClassList.data, ...data});
+}

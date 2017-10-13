@@ -89,11 +89,11 @@ const Login = ({
                 })(
                   <Checkbox>记住密码</Checkbox>
                 )}
-                <Link to="forgetPassword" className={styles["login-form-forgot"]}>忘记密码？</Link>
+                <Link to="/forgetPassword" className={styles["login-form-forgot"]}>忘记密码？</Link>
                 <Button type="primary" size={'large'} htmlType="submit" className={styles["login-form-button"]}>
                   登陆
                 </Button>
-                <Link to="register">立即注册</Link>
+                <Link to="/register">立即注册</Link>
               </FormItem>
             </Form>
           </div>

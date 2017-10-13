@@ -1,5 +1,5 @@
 /**
- * 考试中心
+ * 文章中心
  */
 import React from 'react';
 import {connect} from 'dva';
@@ -27,6 +27,7 @@ const Article = ({article, dispatch, loading}) => {
   }
   const noticeListProps = {
     noticeListData: article.articleListData,
+    noticeParams: article.articleParams,
     inputSearch: (options) => {
       let params = Object.assign({}, article.articleParams, options)
       dispatch({

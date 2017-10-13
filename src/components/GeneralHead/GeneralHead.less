@@ -1,26 +1,24 @@
 /*
 * 模版通用头部
 */
-@import "../../themes/index";
+@import "../../themes/mixins";
 .generalHead{
-  height: 50px;
-  width: 100%;
-  border-bottom: 1px solid @red;
+  .wh(100%,50px);
+  border-bottom: 1px solid @primary-color;
   .clearFix;
   p{
-    height: 50px;
-    line-height: 50px;
+    .ht-lineHt(50px);
   }
   .headerImg{
-    .pull-left;
+    .pull-left();
   }
   .title {
-    .pull-left;
-    color: @text-gray;
+    .pull-left();
+    color: @text-color;
     font-size: 18px;
     font-weight: 600;
   }
   .more {
-    .pull-right;
+    .pull-right();
   }
 }

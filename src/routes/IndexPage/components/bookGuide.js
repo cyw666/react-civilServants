@@ -15,13 +15,13 @@ const BookGuide = ({loading, bookListData}) => {
     return (
       <li key={index}>
         <p className={styles.bookImg}>
-          <Link to="bookDetail" target="_blank" rel="noopener noreferrer">
+          <Link to="/bookDetail" target="_blank" rel="noopener noreferrer">
             <Img src={Path + item.Icon} alt={item.Name}/>
           </Link>
         </p>
         <div className={styles.content}>
           <h4 className={styles.title}>
-            <Link to="bookDetail" target="_blank" rel="noopener noreferrer">{wordLimit(item.Name, 17)}</Link>
+            <Link to="/bookDetail" target="_blank" rel="noopener noreferrer">{wordLimit(item.Name, 17)}</Link>
           </h4>
           <p className={styles.desc}>简介：{wordLimit(delHtmlTag(item.Content), 23)}</p>
           <p className={styles.author}>作者：{item.Author}</p>
@@ -32,7 +32,7 @@ const BookGuide = ({loading, bookListData}) => {
   });
   return (
     <div className={styles.bookGuide}>
-      <GeneralHead showIcon={true} title="电子书" url="library"></GeneralHead>
+      <GeneralHead showIcon={true} title="电子书" url="/library"></GeneralHead>
       <Spin spinning={loading}>
         <div className={styles.bookList}>
           <ul>

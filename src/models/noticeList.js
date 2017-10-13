@@ -1,3 +1,7 @@
+
+/*
+* 通知公告列表
+* */
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
 import {model} from './common'

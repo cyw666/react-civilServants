@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'dva';
+import {message} from 'antd'
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import {
@@ -89,7 +90,7 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
           payload: {id}
         });
       } else {
-        alert('请登录！');
+        message.warn('请登录！');
       }
       
     },

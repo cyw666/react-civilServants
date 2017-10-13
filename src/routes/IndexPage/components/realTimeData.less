@@ -1,22 +1,21 @@
 /**
  * 实时数据
  */
-@import "../../../themes/index.less";
+@import "../../../themes/mixins";
 
 .realTimeData {
   margin-top: 10px;
   .realTimeList {
     padding: 0 8px;
-    .clearFix;
+    .clearFix();
     ul {
-      .pull-left;
+      .pull-left();
       .wh(142px, 100px);
       text-align: center;
       background-color: lighten(@gray-eee, 3%);
-      color: @blue2; //#2371ff;
+      color: #2371ff; //#2371ff;
       li {
-        width: 100%;
-        height: 80px;
+        .wh(100%,80px);
         margin-top: 10px;
         border-right: 1px solid darken(@gray-ddd, 2%);
         .count {
@@ -28,13 +27,11 @@
         }
         div {
           margin-top: 10px;
-          height: 30px;
-          line-height: 30px;
+          .ht-lineHt(30px);
           span {
             display: inline-block;
             margin-left: 10px;
-            height: 30px;
-            line-height: 30px;
+            .ht-lineHt(30px);
           }
         }
       }

@@ -1,12 +1,12 @@
 /**
  * 通知公告（模板）
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .tmNoticeList {
   padding-left: 10px;
   margin-top: 15px;
   .noticeContent {
-    border: 1px solid @gray-eee;
+    .border-base();
   }
   :global {
     .ant-pagination {

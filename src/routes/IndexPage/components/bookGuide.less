@@ -1,45 +1,44 @@
 /**
  * 电子书推荐
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 
 .bookGuide {
   .bookList {
-    height: 200px;
-    width: 100%;
     padding-top: 20px;
     ul {
-      .clearFix;
+      .clearFix();
       li {
-        .pull-left;
+        .pull-left();
         width: 283px;
         .bookImg {
-          .pull-left;
+          .pull-left();
           img{
             width: 114px;
             height: 162px;
+            .wh(114px,162px);
           }
         }
         .content {
-          .pull-left;
+          .pull-left();
           width: 169px;
           padding: 5px 15px 0 15px;
           .title {
-            color: @text-gray;
-            font-size: 14px;
+            color: @text-color;
+            font-size: @font-size-base;
             line-height: 17px;
             height: 34px;
           }
           .desc {
-            color: @text-gray*3;
+            color: @text-color-3;
             margin: 10px 0;
             height: 60px;
           }
           .author {
-            color: @text-gray*2;
+            color: @text-color-3;
           }
           .clickCount {
-            color: @orang;
+            color: @orange-3;
             margin-top: 5px;
           }
         }

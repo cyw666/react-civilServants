@@ -1,25 +1,24 @@
 /**
  * 考试列表
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .tmArticleCategory{
   margin-top: 15px;
   padding-left: 10px;
   .categoryContent{
-    border: 1px solid @gray-eee;
+    .border-base();
     ul{
       min-height: 100px;
       padding: 20px 20px 0 20px;
-      .clearFix;
+      .clearFix();
       li{
-        .pull-left;
+        .pull-left();
         width: 50%;
         margin-bottom: 20px;
-        text-align:center;
+        .text-center();
         :global{
           .ant-btn{
-            width: 100px;
-            height: 38px;
+            .wh(100px,38px);
             line-height: 38px;
             padding: 0;
           }

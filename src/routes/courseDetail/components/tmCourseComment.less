@@ -1,16 +1,16 @@
 /**
  * 课程评论
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .tmCourseComment{
   border: 1px solid @gray-ddd;
   border-top:none;
   .commentTitle{
-    color: @text-gray;
-    background-color: @gray-f3;
+    color: @text-color;
+    background-color: @background-color-base;
     border-color: @gray-ddd;
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: @font-size-lg;
     font-weight: 500;
   }
   .commentBody{
@@ -26,16 +26,16 @@
       }
       .user{
         width: 60%;
-        color: @text-gray*2;
+        color: @text-color-2;
         font-weight: 600;
       }
       .time{
         width: 20%;
-        color: @text-gray*3;
+        color: @text-color-3;
       }
       .comment{
         width: 60%;
-        color: @text-gray;
+        color: @text-color;
         padding-bottom: 25px;
       }
     }

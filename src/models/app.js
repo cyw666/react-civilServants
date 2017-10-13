@@ -1,3 +1,4 @@
+import {message} from 'antd'
 import {blogroll, authorization, loginLong, loginOut} from '../services/main'
 
 export default {
@@ -46,7 +47,7 @@ export default {
           yield put({type: 'updateState', payload: {isLoginIn: false}});
           window.location = `${location.origin}/indexPage`
         } else {
-          alert(data.Message);
+          message.error(data.Message);
         }
       }
       catch (error) {
@@ -57,7 +58,7 @@ export default {
   },
   subscriptions: {
     setup({dispatch, history}) {
-      dispatch({type: 'isLoginIn'});
+      // dispatch({type: 'isLoginIn'});
       dispatch({type: 'getBlogroll'});
       dispatch({type: 'getUserInformation'});
     }

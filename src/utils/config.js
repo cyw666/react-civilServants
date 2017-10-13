@@ -35,7 +35,37 @@ module.exports = {
     },
     /*获取验证码*/
     GetVerifyCode: {
-      url: `${API}/common/GetVerifyCode`,
+      url: `${API}/Common/GetVerifyCode`,
+      data: {}
+    },
+    /*修改密码*/
+    UpdatePwd: {
+      url: `${API}/Page/UpdatePwd`,
+      data: {newPwd: "", oldPwd: ""}
+    },
+    /*设置密保--密码验证*/
+    SetPasswordQuestion: {
+      url: `${API}/Page/SetPasswordQuestion`,
+      data: {pwd: ""}
+    },
+    /*设置密保--添加密保问题*/
+    AddPasswordQuestion: {
+      url: `${API}/Page/AddPasswordQuestion`,
+      data: {pwd: "",questions:''}
+    },
+    /*获取用户信息（修改信息）*/
+    GetUserInfo: {
+      url: `${API}/Page/GetUserInfo`,
+      data: {}
+    },
+    /*获取职位列表*/
+    GetGradeList: {
+      url: `${API}/Common/GetGradeList`,
+      data: {}
+    },
+    /*修改用户信息*/
+    UpdateUserInfo: {
+      url: `${API}/Page/UpdateUserInfo`,
       data: {}
     },
     /*获取token*/
@@ -127,12 +157,12 @@ module.exports = {
     },
     /*报名培训班*/
     UpdateTrainingStudentup: {
-      url: `${API}/Pc/UpdateTrainingStudentup`,
+      url: `${API}/Guid/UpdateTrainingStudentup`,
       data: {id: ''}
     },
     /*取消报名培训班*/
     UpdateTrainingStudentdown: {
-      url: `${API}/Pc/UpdateTrainingStudentdown`,
+      url: `${API}/Guid/UpdateTrainingStudentdown`,
       data: {id: ''}
     },
     /*查看培训班权限*/
@@ -301,7 +331,7 @@ module.exports = {
     },
     /*获取单位*/
     GetGroupList: {
-      url: `${API}/common/GetGroupList`,
+      url: `${API}/Common/GetGroupList`,
       data: {id: ''}
     },
     /*注册*/
@@ -313,6 +343,31 @@ module.exports = {
     SendMsg: {
       url: `${API}/Page/SendMsg`,
       data: {mobileNo: ''}
+    },
+    /*个人档案*/
+    StudyStatistics: {
+      url: `${API}/Page/StudyStatistics`,
+      data: {
+        page: 1,
+        rows: 5,
+        sort: 'Id',
+        order: 'desc',
+        type: '',
+        startDate: '',
+        endDate: '',
+        wordLimt: 24,
+        titleNav: '个人学习档案'
+      }
+    },
+    /*个人通知*/
+    NoticeUnReadList: {
+      url: `${API}/Page/NoticeUnReadList`,
+      data: {page: 1, rows: 7, sort: 'Id', order: 'desc', titleNav: '个人通知', wordLimt: 30}
+    },
+    /*班级列表（type："my" 我的班级 type："recent" 近期班级 type："active" 活跃班级）*/
+    ClassList: {
+      url: `${API}/Page/ClassList`,
+      data: {page: 1, rows: 20, sort: 'Id', order: 'desc', title: "", type: "", wordLimt: 30}
     },
   }
 }

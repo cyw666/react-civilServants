@@ -1,21 +1,20 @@
 /**
  * 我的班级模块
  */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .classModule{
   margin-top: 20px;
   .content {
     text-align: center;
     min-height: 100px;
-    .clearFix;
+    .clearFix();
     span{
-      .pull-left;
-      height: 30px;
-      line-height: 30px;
+      .pull-left();
+      .ht-lineHt(30px);
     }
     .title{
       span{
-        font-size: 16px;
+        font-size: @font-size-lg;
         font-weight: 600;
         text-align: center;
       }
@@ -24,7 +23,7 @@
       width: 60%;
       padding: 0 20px;
       text-align: center;
-      .ellipsis;
+      .ellipsis();
     }
     .list2{
       width: 35%;

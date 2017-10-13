@@ -11,8 +11,6 @@ import VerificationCode from '../../components/verificationCode/verificationCode
 import Agreement from './components/agreement'
 import {getGroupList} from '../../services/main'
 const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
 const Register = ({
   register,
   form: {
@@ -34,7 +32,7 @@ const Register = ({
           type: 'register/register',
           payload: registerParams
         })
-        console.log('Received values of form: ', values);
+        // console.log('Received values of form: ', values);
       }
     });
   }

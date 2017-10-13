@@ -9,7 +9,6 @@ import styles from './tmRelatedCourse.less'
 import Img from '../../../components/Img/Img'
 import notCourse from '../../../assets/notCourse.png'
 const TmRelatedCourse = ({courseData, loading}) => {
-  // debugger
   const baseImg = courseData.ImageCourse;
   const relatedCourseList = courseData.ListData && courseData.ListData.map((item, index) => {
       return (

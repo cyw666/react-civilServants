@@ -21,14 +21,14 @@ const SpecialTraining = ({studySpecialData, loading}) => {
           </Link>
         </p>
         <p className={styles.title} title={item.SeriesName}>
-          <Link to="specialOne" target="_blank" rel="noopener noreferrer">{item.SeriesName}</Link>
+          <Link to="/specialOne" target="_blank" rel="noopener noreferrer">{item.SeriesName}</Link>
         </p>
       </li>
     )
   });
   return (
     <div className={styles.specialTraining}>
-      <GeneralHead showIcon={true} title="专题学习" url="specialLearning"></GeneralHead>
+      <GeneralHead showIcon={true} title="专题学习" url="/specialLearning"></GeneralHead>
       <Spin spinning={loading}>
         <ul className={styles.specialContent}>
           {specialList}

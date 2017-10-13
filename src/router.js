@@ -1,5 +1,6 @@
 import React from 'react';
 import {Router, Route} from 'dva/router';
+import {message} from 'antd'
 import App from './routes/App';
 import Play from './routes/play/play'
 import {authorization, keepOnline} from './services/main';
@@ -28,37 +29,37 @@ const isOnLine = (nextState, replace, cb) => {
     authorization().then((data) => {
       if (!data.isauth) {
         if (data.Type == 3) {
-          alert("在其他设备上已经登录");
+          message.warn("在其他设备上已经登录");
           goToLogin(from,replace);
         }
         else if (data.Type == 9) {
-          alert("在其他平台登录或被其他人登录");
+          message.warn("在其他平台登录或被其他人登录");
           goToLogin(from,replace);
         }
         else if (data.Type == 10) {
-          alert("您还不是本平台会员，将前往您所在的平台" + ":" + data.Message);
+          message.warn("您还不是本平台会员，将前往您所在的平台" + ":" + data.Message);
           window.location = "http://" + data.Message;
         }
         else if (data.Type == 11) {
-          alert("过期了");
+          message.warn("过期了");
           goToLogin(from,replace);
         }
         else if (data.Type == 13) {
-          alert(data.Message);
+          message.warn(data.Message);
           goToLogin(from,replace);
         }
         else if (data.Type == 15) {
-          alert(data.Type + ":" + data.Message);
+          message.warn(data.Type + ":" + data.Message);
         }
         else {
-          alert('请登录！');
+          message.warn('请登录！');
           goToLogin(from,replace);
         }
         
       }
       cb();
     }).catch(error => {
-      alert("服务器出错！请等待！");
+      message.warn("服务器出错！请等待！");
       replace('indexPage');
       window.location.reload();
       cb(error);
@@ -247,6 +248,78 @@ function RouterConfig({history, app}) {
           },
           onEnter (nextState, replace, cb) {
             setTitle("登陆", cb);
+          },
+        },
+        {
+          path: 'modifyPassword',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/modifyPassword'))
+              cb(null, require('./routes/modifyPassword/modifyPassword'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("修改密码", cb);
+          },
+        },
+        {
+          path: 'securitySetting',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/securitySetting'))
+              cb(null, require('./routes/securitySetting/securitySetting'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("设置密保", cb);
+          },
+        },
+        {
+          path: 'changeInfor',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/changeInfor'))
+              cb(null, require('./routes/changeInfor/changeInfor'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("修改信息", cb);
+          },
+        },
+        {
+          path: 'personalFile',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/personalFile'))
+              cb(null, require('./routes/personalFile/personalFile'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("个人学习档案", cb);
+          },
+        },
+        {
+          path: 'personalNotice',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/personalNotice'))
+              cb(null, require('./routes/personalNotice/personalNotice'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("个人通知", cb);
+          },
+        },
+        {
+          path: 'classList',
+          getComponent (nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/classList'))
+              cb(null, require('./routes/classList/classList'))
+            })
+          },
+          onEnter (nextState, replace, cb) {
+            setTitle("班级列表", cb);
           },
         },
         {

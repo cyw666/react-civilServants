@@ -1,13 +1,12 @@
 /*less file*/
-@import "../../../themes/index.less";
+@import "../../../themes/mixins";
 .loginBg {
   position: relative;
   background: url(../../../assets/banner.png) no-repeat center;
   background-size: 100% 430px;
   .bigBanner {
-    width: 100%;
-    height: 430px;
-    text-align: center;
+    .wh(100%,430px);
+    .text-center();
     .bannerText {
       position: absolute;
       top: 118px;
@@ -26,11 +25,10 @@
       background-color: @white;
       margin-top: 20px;
       .title {
-        height: 44px;
+        .ht-lineHt(44px);
         font-size: 18px;
         font-weight: bold;
-        line-height: 44px;
-        border-bottom: 1px solid @red;
+        border-bottom: 1px solid @primary-color;
         margin-bottom: 25px;
       }
       .loginBefore{
@@ -45,7 +43,7 @@
             margin-bottom: 15px;
           }
           .login-form-forgot {
-            float: right;
+            .pull-right();
           }
         }
       }
@@ -55,9 +53,8 @@
         }
         .loginInfo{
           li{
-            color: @text-gray;
-            height: 44px;
-            line-height: 44px;
+            color: @text-color;
+            .ht-lineHt(44px);
             width: 100%;
             margin: 0 auto;
             border-bottom: 1px solid darken(@gray-ddd,4%);
@@ -74,8 +71,7 @@
             border-bottom: none;
             button{
               padding: 0;
-              width: 80px;
-              height: 26px;
+              .wh(80px,26px);
               .border-radius(6px);
             }
           }

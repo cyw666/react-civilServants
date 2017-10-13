@@ -1,0 +1,21 @@
+/**
+ * 个人通知（模板）
+ */
+@import "../../../themes/mixins";
+.tmNoticeList {
+  padding-left: 10px;
+  margin-top: 15px;
+  .noticeContent {
+    .border-base();
+  }
+  .title{
+    width: 50%;
+  }
+  :global {
+    .ant-pagination {
+      display: block;
+      text-align: left;
+      padding: 10px;
+    }
+  }
+}

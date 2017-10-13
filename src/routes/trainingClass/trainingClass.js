@@ -35,19 +35,11 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
         type: 'trainingClass/updateTrainingStudentup',
         payload: {id}
       })
-      dispatch({
-        type: 'trainingClass/getClassList',
-        payload: {rows: 10, type: trainingClass.classType}
-      })
     },
     delClass: (id) => {
       dispatch({
         type: 'trainingClass/updateTrainingStudentdown',
         payload: {id}
-      })
-      dispatch({
-        type: 'trainingClass/getClassList',
-        payload: {rows: 10, type: trainingClass.classType}
       })
     },
     getClass: (type) => {

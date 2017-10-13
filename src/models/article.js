@@ -78,7 +78,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        if (location.pathname = "/article") {
+        if (location.pathname === "/article") {
           let categoryCode = location.query.code;
           let titleNav = location.query.name || '文章列表';
           if (categoryCode) {

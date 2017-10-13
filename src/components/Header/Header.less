@@ -1,19 +1,18 @@
-@import "../../themes/index.less";
+@import "../../themes/mixins";
 
 .header {
   width: 100%;
-  background-color: darken(@gray-eee,1%);
+  background-color: @footer-background;
   .headerContent {
-    height: 40px;
-    line-height: 40px;
-    color: @text-gray*3;
+    .ht-lineHt(40px);
+    color: @text-color-3;
     :global {
       .grid_9 {
         padding-left: 25px;
       }
     }
     .phone {
-      color: @red;
+      color: @primary-color;
       img {
         padding: 0 14px;
         position: relative;
@@ -21,9 +20,9 @@
       }
     }
     a{
-      color: @text-gray*3;
+      color: @text-color-3;
       &:hover {
-        color: @text-gray;
+        color: @text-color;
       }
     }
   }
@@ -32,8 +31,7 @@
   height: 100px;
   li {
     .logoImg {
-      line-height: 100px;
-      height: 100px;
+      .ht-lineHt(100px);
       img{
         vertical-align: middle;
       }
@@ -44,11 +42,11 @@
         font-size: 35px;
         font-weight: 600;
         margin-top: 20px;
-        color: lighten(@text-gray,7%);
-        text-align: center;
+        color: lighten(@text-color,7%);
+        .text-center();
       }
       p{
-        text-align: center;
+        .text-center();
       }
     }
     &.searchInput {
@@ -60,12 +58,12 @@
       }
       :global {
         .ant-input-affix-wrapper {
-          height: 44px;
           line-height: 44px;
-          width: 335px;
+          .wh(335px,44px);
         }
         .ant-input-affix-wrapper .ant-input:not(:first-child) {
           padding-left: 35px;
+          .border-right-radius(0);
         }
         .ant-btn{
           padding: 0;
@@ -73,9 +71,8 @@
           color: @white;
           .wh(62px,44px);
           border:none;
-          border-radius: 0;
-          border-bottom-right-radius: 4px;
-          border-top-right-radius: 4px;
+          .border-radius(0);
+          .border-right-radius(4px);
         }
       }
     }
@@ -88,8 +85,8 @@
       padding: 0 20px;
     }
     .appImg span{
-      font-size: 12px;
-      color: @text-gray;
+      font-size: @font-size-sm;
+      color: @text-color;
     }
     .appImg img{
       .wh(61px,61px);

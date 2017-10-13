@@ -3,6 +3,7 @@
  */
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
+import {message} from 'antd'
 import pathToRegexp from 'path-to-regexp'
 import {model} from './common'
 import {articleContent, favoriteAdd, favoriteDelete} from '../services/main';
@@ -55,32 +56,29 @@ export default modelExtend(model, {
     *favoriteAdd({payload}, {call, put}){
       let data = yield call(favoriteAdd, payload);
       if (data.Type === 1) {
-        alert(data.Message);
+        message.success(data.Message);
         yield put({type: 'changeFavoriteId', payload: {FavoriteId: data.Value}});
       } else {
-        alert('收藏失败！');
+        message.error('收藏失败！');
       }
     },
     *favoriteDelete({payload}, {call, put}){
       let data = yield call(favoriteDelete, payload);
       if (data.Type === 1) {
-        alert(data.Message);
+        message.success(data.Message);
         yield put({type: 'changeFavoriteId', payload: {FavoriteId: 0}});
       } else {
-        alert('取消收藏失败！');
+        message.error('取消收藏失败！');
       }
     },
   },
   subscriptions: {
     setup({dispatch, history}){
       history.listen((location) => {
-        let match = pathToRegexp('/articleDetail/:id').exec(location.pathname);
-        dispatch({
-          type: 'getArticleDetail',
-          payload: {
-            id: match[1]
-          }
-        })
+        const match = pathToRegexp('/articleDetail/:id').exec(location.pathname);
+        if(match){
+          dispatch({type: 'getArticleDetail', payload: {id: match[1]}});
+        }
       })
     }
   }

@@ -3,7 +3,7 @@
  */
 import modelExtend from 'dva-model-extend'
 import {model} from './common'
-// import {routerRedux} from 'dva/router'
+import {message} from 'antd'
 import {createHistory, useQueries} from 'history'
 import {
   examList,
@@ -63,7 +63,7 @@ export default modelExtend(model, {
       let data = yield call(exam, payload);
       if (data.Type) {
         //Type存在，意味着不能考试
-        alert(data.Message);
+        message.info(data.Message);
       } else {
         let examHref = history.createPath({pathname: '/exam', query: {id: payload.parameter1}});
         window.open(examHref)

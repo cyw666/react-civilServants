@@ -2,6 +2,7 @@
  * 个人中心
  */
 import modelExtend from 'dva-model-extend'
+import {message} from 'antd'
 import {model} from './common'
 
 import {
@@ -108,9 +109,14 @@ export default modelExtend(model, {
     },
     *delMyCourse({payload}, {call, put, select}){
       let data = yield call(delUserCourseReg, payload);
-      alert(data.Message);
-      let params = yield select(state => state.personalCenter.myCourseParams);
-      yield put({type: 'getMyCourse', payload: params})
+      if(data.Type === 1){
+        message.success(data.Message);
+        let params = yield select(state => state.personalCenter.myCourseParams);
+        yield put({type: 'getMyCourse', payload: params})
+      }else {
+        message.error(data.Message)
+      }
+      
     },
     /*学习笔记*/
     *noteAdd({payload}, {call, put, select}){
@@ -162,11 +168,16 @@ export default modelExtend(model, {
     },
     *delNote({payload}, {call, put, select}){
       let data = yield call(delNote, payload);
-      alert(data.Message);
-      let courseId = yield select(state => state.personalCenter.courseId);
-      yield put({type: 'seeNote', payload: {courseId}})
-      let params = yield select(state => state.personalCenter.myCourseParams);
-      yield put({type: 'getMyCourse', payload: params})
+      if(data.Type === 1){
+        message.success(data.Message);
+        let courseId = yield select(state => state.personalCenter.courseId);
+        yield put({type: 'seeNote', payload: {courseId}})
+        let params = yield select(state => state.personalCenter.myCourseParams);
+        yield put({type: 'getMyCourse', payload: params})
+      }else {
+        message.error(data.Message);
+      }
+      
     },
     *noteEditUpdate({payload}, {call, put, select}){
       let data = yield call(noteEditUpdate, payload);
@@ -201,10 +212,15 @@ export default modelExtend(model, {
     },
     *editStudyPlan({payload}, {call, put, select}){
       let data = yield call(editStudyPlan, payload);
-      alert(data.Message)
-      yield put({type: 'updateState', payload: {showPlanModal: false}})
-      let params = yield select(state => state.personalCenter.myCourseParams);
-      yield put({type: 'getMyCourse', payload: params})
+      if(data.Type === 1){
+        message.success(data.Message);
+        yield put({type: 'updateState', payload: {showPlanModal: false}})
+        let params = yield select(state => state.personalCenter.myCourseParams);
+        yield put({type: 'getMyCourse', payload: params})
+      }else {
+        message.error(data.Message);
+      }
+      
     },
     /*查看考试*/
     *seeExam({payload}, {call, put}){
@@ -220,7 +236,11 @@ export default modelExtend(model, {
   },
   subscriptions: {
     setup({dispatch, history}) {
-      dispatch({type: 'getMyCourse', payload: {page: 1, rows: 5, courseType: 'All', title: ''}});
+      history.listen((location)=>{
+        if(location.pathname === '/personalCenter'){
+          dispatch({type: 'getMyCourse', payload: {page: 1, rows: 5, courseType: 'All', title: ''}});
+        }
+      })
     }
   }
 });

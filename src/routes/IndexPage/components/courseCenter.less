@@ -1,9 +1,9 @@
 /*
 * 课程中心
 */
-@import "../../../themes/index";
+@import "../../../themes/mixins";
 .courseCenter{
-  border-bottom: 6px solid @red;
+  border-bottom: 6px solid @primary-color;
   :global {
     .ant-radio-group-large .ant-radio-button-wrapper {
       height: 44px;
@@ -12,8 +12,8 @@
       text-align: center;
     }
     .ant-radio-button-wrapper-checked {
-      background: @red;
-      border-color: @red;
+      background: @primary-color;
+      border-color: @primary-color;
       color: @white;
     }
   }
@@ -21,9 +21,9 @@
     min-height: 440px;
     margin-top: 20px;
     ul{
-      .clearFix;
+      .clearFix();
       li {
-        .pull-left;
+        .pull-left();
         margin-left: 10px;
         min-height: 200px;
         width: 200px;
@@ -32,24 +32,24 @@
         .desc {
           margin-top: 10px;
           p {
-            .clearFix;
+            .clearFix();
             line-height: 23px;
             max-width: 190px;
-            .ellipsis;
-            color: @text-gray*3;
+            .ellipsis();
+            color: @text-color-3;
             .teacher {
-              .pull-left;
+              .pull-left();
             }
             .red {
-              .pull-right;
-              color: @red;
+              .pull-right();
+              color: @primary-color;
             }
           }
           a{
-            font-size: 16px;
+            font-size: @font-size-lg;
             color: #003333;
             &:hover {
-              color: @blue;
+              color: lighten(#003333,10%);
             }
           }
         }
@@ -58,10 +58,9 @@
           left: 10px;
           top: 100px;
           color: @white;
-          font-size: 12px;
+          font-size: @font-size-sm;
           .bg{
-            width: 66px;
-            height: 20px;
+            .wh(66px,20px);
             background-color: #000;
             .opacity(0.4);
           }

@@ -4,6 +4,7 @@
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
 import pathToRegexp from 'path-to-regexp'
+import {message} from 'antd'
 import {model} from './common'
 import {noticeContent, favoriteAdd, favoriteDelete} from '../services/main';
 
@@ -54,19 +55,19 @@ export default modelExtend(model, {
     *favoriteAdd({payload}, {call, put}){
       let data = yield call(favoriteAdd, payload);
       if (data.Type === 1) {
-        alert(data.Message);
+        message.success(data.Message);
         yield put({type: 'changeFavoriteId', payload: {FavoriteId: data.Value}});
       } else {
-        alert('收藏失败！');
+        message.error('收藏失败！');
       }
     },
     *favoriteDelete({payload}, {call, put}){
       let data = yield call(favoriteDelete, payload);
       if (data.Type === 1) {
-        alert(data.Message);
+        message.success(data.Message);
         yield put({type: 'changeFavoriteId', payload: {FavoriteId: 0}});
       } else {
-        alert('取消收藏失败！');
+        message.error('取消收藏失败！');
       }
     },
   },
@@ -74,12 +75,9 @@ export default modelExtend(model, {
     setup({dispatch, history}){
       history.listen((location) => {
         let match = pathToRegexp('/noticeDetail/:id').exec(location.pathname);
-        dispatch({
-          type: 'getNoticeDetail',
-          payload: {
-            id: match[1]
-          }
-        })
+        if(match){
+          dispatch({type: 'getNoticeDetail', payload: {id: match[1]}});
+        }
       })
     }
   }

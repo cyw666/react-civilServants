@@ -74,7 +74,7 @@ class CourseCenter extends React.Component {
     return (
       <div className={styles.courseCenter}>
         <Spin spinning={loading}>
-          <GeneralHead showIcon={true} url="courseCenter" title="课程中心"></GeneralHead>
+          <GeneralHead showIcon={true} url="/courseCenter" title="课程中心"></GeneralHead>
           <RadioGroup value={activeValue} size="large" onChange={this.handleSizeChange}>
             {radioButtonList}
           </RadioGroup>

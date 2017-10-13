@@ -141,7 +141,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}){
       history.listen((location) => {
-        if (location.pathname = "/courseDetail") {
+        if (location.pathname === "/courseDetail") {
           let id = location.query.id;
           if (id) {
             dispatch({type: 'getCourseContent', payload: {id}})

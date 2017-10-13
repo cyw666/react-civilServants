@@ -1,107 +1,96 @@
+@import "../themes/mixins";
 
-@import "../themes/index";
-.normal {
-  .header {
-    text-align: center;
+:global {
+  .ant-breadcrumb {
+    padding: 8px 15px;
+    background: @gray-f3;
   }
-  :global{
-    .ant-breadcrumb {
-      padding: 8px 15px;
-      background: @gray-f3;
+  .searchText {
+    margin: 20px 40px;
+  }
+  .noData {
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5em;
+    padding: 20px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    th, tr, td {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: top;
+      border-top: 1px solid @gray-ddd;
     }
-    /*.ant-row {
+    th {
+      background-color: lighten(@gray-ddd, 8%);
+    }
+    .listDate {
       text-align: center;
-    }*/
-    .searchText{
-      margin: 20px 40px;
     }
-    .noData {
-      display: block;
-      text-align: center;
-      font-weight: 500;
-      font-size: 1.5em;
-      padding: 20px;
+    .arrow {
+      margin: 0 10px;
     }
-    .table{
-      width: 100%;
-      border-collapse: collapse;
-      th,tr,td{
-        padding: 8px;
-        line-height: 1.42857143;
-        vertical-align: top;
-        border-top: 1px solid @gray-ddd;
-      }
-      th{
-        background-color: lighten(@gray-ddd,8%);
-      }
-      .listDate{
-        text-align: center;
-      }
-      .arrow{
-        margin: 0 10px;
-      }
-      .tableName{
-        vertical-align: middle;
-        display: inline-block;
-        width: 460px;
-        .ellipsis;
-      }
+    .tableName {
+      vertical-align: middle;
+      display: inline-block;
+      width: 460px;
+      .ellipsis();
     }
-    .table-bordered,
-    .table-bordered>tbody>tr>td,
-    .table-bordered>tbody>tr>th,
-    .table-bordered>tfoot>tr>td,
-    .table-bordered>tfoot>tr>th,
-    .table-bordered>thead>tr>td,
-    .table-bordered>thead>tr>th{
-      border: 1px solid @gray-ddd;
+  }
+  .table-bordered,
+  .table-bordered > tbody > tr > td,
+  .table-bordered > tbody > tr > th,
+  .table-bordered > tfoot > tr > td,
+  .table-bordered > tfoot > tr > th,
+  .table-bordered > thead > tr > td,
+  .table-bordered > thead > tr > th {
+    border: 1px solid @gray-ddd;
+  }
+  .pagination {
+    margin: 10px 20px;
+  }
+  .list {
+    display: block;
+    width: 100%;
+    line-height: 37px;
+    padding-left: 10px;
+    padding-right: 10px;
+    .ellipsis();
+  }
+  /*排行榜*/
+  .rankHeader {
+    background-color: lighten(@gray-f3, 2%);
+    .headerList {
+      display: inline-block;
+      .wh(100%,48px);
+      line-height: 48px;
+      padding: 0 10px;
+      .ellipsis();
     }
-    .pagination{
-      margin: 10px 20px;
+  }
+  .rankContent {
+    .contentList {
+      display: inline-block;
+      .wh(100%,48px);
+      line-height: 48px;
+      padding: 0 10px;
+      .ellipsis();
     }
-    .list{
-      display: block;
-      width: 100%;
-      line-height: 37px;
-      padding-left: 10px;
-      padding-right: 10px;
-      .ellipsis;
-    }
-    /*排行榜*/
-    .rankHeader{
-      background-color: lighten(@gray-f3,2%);
-      .headerList{
-        display: inline-block;
-        width: 100%;
-        height: 48px;
-        line-height: 48px;
-        padding: 0 10px;
-        .ellipsis;
-      }
-    }
-    .rankContent{
-      .contentList{
-        display: inline-block;
-        width: 100%;
-        height: 48px;
-        line-height: 48px;
-        padding: 0 10px;
-        .ellipsis;
-      }
-    }
-    .rankBg{
-      background-color: lighten(@gray-f3,2%);
-    }
-    /*排行前三背景*/
-    .rankFirstBg {
-      background: url("../assets/rankOne.png") center no-repeat;
-    }
-    .rankSecondBg {
-      background: url("../assets/rankTwo.png") center no-repeat;
-    }
-    .rankThirdBg {
-      background: url("../assets/rankThree.png") center no-repeat;
-    }
+  }
+  .rankBg {
+    background-color: lighten(@gray-f3, 2%);
+  }
+  /*排行前三背景*/
+  .rankFirstBg {
+    background: url("../assets/rankOne.png") center no-repeat;
+  }
+  .rankSecondBg {
+    background: url("../assets/rankTwo.png") center no-repeat;
+  }
+  .rankThirdBg {
+    background: url("../assets/rankThree.png") center no-repeat;
   }
 }
-
