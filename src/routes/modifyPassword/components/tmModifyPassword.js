@@ -108,7 +108,7 @@ const TmModifyPassword = ({
             <FormItem {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit" className={styles["login-form-button"]}>确定</Button>
               <Button className={styles["securitySetting"]}>
-                <Link to="/securitySetting">设置密保</Link>
+                <Link to="/main/securitySetting">设置密保</Link>
               </Button>
             </FormItem>
           </Form>

@@ -75,7 +75,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}){
       history.listen((location) => {
-        const match = pathToRegexp('/articleDetail/:id').exec(location.pathname);
+        const match = pathToRegexp('/main/articleDetail/:id').exec(location.pathname);
         if(match){
           dispatch({type: 'getArticleDetail', payload: {id: match[1]}});
         }

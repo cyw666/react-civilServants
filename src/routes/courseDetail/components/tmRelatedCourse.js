@@ -13,7 +13,7 @@ const TmRelatedCourse = ({courseData, loading}) => {
   const relatedCourseList = courseData.ListData && courseData.ListData.map((item, index) => {
       return (
         <li key={index}>
-          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
+          <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
                 rel="noopener noreferrer">
             <Img src={`${baseImg}/${item.Img}`} alt="相关课程" errSrc={notCourse}/>
           </Link>

@@ -57,7 +57,7 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
           }
         </li>
         <li className={styles.list2} title='1'>
-          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">
+          <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">
             {item.Name}
           </Link>
         </li>
@@ -67,7 +67,7 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
   });
   return (
     <div className={styles.rankingTab}>
-      <GeneralHead showIcon={true} title="排行榜" url="/userRankingList"></GeneralHead>
+      <GeneralHead showIcon={true} title="排行榜" url="main//userRankingList"></GeneralHead>
       <Spin spinning={loading}>
         <Tabs defaultActiveKey="1">
           <TabPane tab="单位" key="1">

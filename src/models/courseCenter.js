@@ -19,6 +19,7 @@ export default modelExtend(model, {
       ListData: [],
       TitleNav: '课程分类'
     },
+    expandedKeys:[],
     baseImageCourse: '',
     courseListData: [],
     channelName: "课程中心",
@@ -80,16 +81,20 @@ export default modelExtend(model, {
         courseListData: courseListData
       }
     },
+    updateExpanderKeys(state, {payload}){
+      return {
+        ...state,
+        ...{expandedKeys: payload}
+      }
+    },
   },
   effects: {
     *getCourseCategory({payload}, {call, put}){
       let data = yield call(courseCategory, payload);
-      yield put({
-        type: 'updateState',
-        payload: {
-          courseCategory: data.Data,
-        }
-      });
+      let expandedKeys = [];
+      expandedKeys.push((data.Data.ListData[0].id).toString());
+      yield put({type: 'updateState', payload: {courseCategory: data.Data}});
+      yield put({type: 'updateExpanderKeys', payload: expandedKeys});
     },
     *getCourseList({payload}, {call, put}){
       let data = yield call(courseList, payload);
@@ -137,7 +142,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        if (location.pathname === "/courseCenter") {
+        if (location.pathname === "/main/courseCenter") {
           let channelId = location.query.channelId;
           if (channelId) {
             dispatch({type: 'getCourseList', payload: {channelId}});

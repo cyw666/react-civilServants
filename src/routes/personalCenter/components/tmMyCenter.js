@@ -31,7 +31,7 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to={{pathname: "/courseDetail", query: {id: item.Id}}}
+            <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
                                                           target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
             </div>
           </Col>
@@ -93,7 +93,7 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to={{pathname: "/courseDetail", query: {id: item.Id}}}
+            <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
                                                           target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
             </div>
           </Col>
@@ -155,7 +155,7 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to={{pathname: "/courseDetail", query: {id: item.Id}}}
+            <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
                                                           target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
             </div>
           </Col>
@@ -222,7 +222,7 @@ const TmMyCenter = ({
       <div className={styles.courseBorder}>
         <Breadcrumb>
           <Breadcrumb.Item><Icon type="setting" style={{fontSize: 16, color: '#656565'}}/> 您的当前位置：</Breadcrumb.Item>
-          <Breadcrumb.Item><Link to={`/indexPage`}>首页</Link></Breadcrumb.Item>
+          <Breadcrumb.Item><Link to={`/main/indexPage`}>首页</Link></Breadcrumb.Item>
           <Breadcrumb.Item>个人中心</Breadcrumb.Item>
         </Breadcrumb>
         <div className="searchText">

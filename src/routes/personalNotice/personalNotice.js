@@ -30,7 +30,7 @@ const PersonalNotice = ({app, personalNotice, dispatch, loading}) => {
     },
     pageConfig: personalNotice.pageConfig,
     loading: loading.effects['personalNotice/getNoticeList'],
-    linkUrl: '/noticeDetail',
+    linkUrl: '/main/noticeDetail',
   }
   return (
     <div className={styles.noticeList}>

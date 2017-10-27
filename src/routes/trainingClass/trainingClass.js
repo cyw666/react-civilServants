@@ -6,20 +6,27 @@ import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import styles from './trainingClass.less';
-import TrainingClassCategory from './components/trainingClassCategory'
 import ClassModule from './components/classModule'
 import TmTrainingClass from './components/tmTrainingClass'
+import TmCategory from '../../components/tmCategory/tmCategory'
+
 const TrainingClass = ({trainingClass, dispatch, loading}) => {
-  const classCategoryProps = {
-    classCategory: trainingClass.classCategory,
-    searchClass: (options) => {
-      let params = Object.assign({}, {type: 'just'}, options);
+  const categoryProps = {
+    treeData: trainingClass.classCategory,
+    searchData: (id) => {
+      let params = Object.assign({}, {type: 'just'}, {categoryId: id, page: 1, title: '', sort: 'Sort', order: 'Desc'});
       dispatch({
         type: 'trainingClass/getClassList',
         payload: params
       })
     },
-    loading: loading.effects['trainingClass/getTrainingClassTypeList']
+    updateExpandedKeys: (keys)=>{
+      dispatch({
+        type: 'trainingClass/updateState',
+        payload: {expandedKeys:keys}
+      })
+    },
+    expandedKeys: trainingClass.expandedKeys
   }
   const tmTrainingClassProps = {
     classListData: trainingClass.classListData,
@@ -54,7 +61,7 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
     <div className={styles.trainingClass}>
       <div className={cs(["container_24"])}>
         <div className="grid_6">
-          <TrainingClassCategory {...classCategoryProps}></TrainingClassCategory>
+          <TmCategory {...categoryProps}></TmCategory>
           <ClassModule classModuleData={trainingClass.classMyData}
                        loading={loading.effects['trainingClass/classMy']}></ClassModule>
           <ClassModule classModuleData={trainingClass.classActiveData}

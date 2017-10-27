@@ -71,7 +71,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        if (location.pathname === '/changeInfor') {
+        if (location.pathname === '/main/changeInfor') {
           dispatch({type: 'getUserInfo'});
           dispatch({type: 'getGradeList'});
         }

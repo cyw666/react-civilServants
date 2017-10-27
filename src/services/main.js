@@ -269,3 +269,19 @@ export function noticeUnReadList(data) {
 export function classList(data) {
   return fetch.post(api.ClassList.url, {...api.ClassList.data, ...data});
 }
+/*全局搜索*/
+export function searchAll(data) {
+  return fetch.post(api.SearchAll.url, {...api.SearchAll.data, ...data});
+}
+/*平台介绍*/
+export function collegeInfo(data) {
+  return fetch.post(api.CollegeInfo.url, {...api.CollegeInfo.data, ...data});
+}
+/*播放信息*/
+export function play(data) {
+  return fetch.post(api.Play.url, {...api.Play.data, ...data});
+}
+/*添加评论*/
+export function courseCommentAdd(data) {
+  return fetch.post(api.CourseCommentAdd.url, {...api.CourseCommentAdd.data, ...data});
+}

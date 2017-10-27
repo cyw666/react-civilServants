@@ -25,7 +25,7 @@ const TmCourseRankingList = ({rankData}) => {
         }
         <Col span={12}>
           <span className="contentList" title={item.Name}>
-            <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+            <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
               {item.Name}
               </Link>
           </span>
@@ -38,12 +38,14 @@ const TmCourseRankingList = ({rankData}) => {
   return (
     <div className={styles.tmCourseRankingList}>
       <GeneralHead showIcon={false} title={'课程排行'}></GeneralHead>
-      <Row className="rankHeader">
-        <Col span={6}><span className="headerList">排行</span></Col>
-        <Col span={12}><span className="headerList">课程名称</span></Col>
-        <Col span={6}><span className="headerList">点击数</span></Col>
-      </Row>
-      {rankContentList}
+      <div className="border-base">
+        <Row className="rankHeader">
+          <Col span={6}><span className="headerList">排行</span></Col>
+          <Col span={12}><span className="headerList">课程名称</span></Col>
+          <Col span={6}><span className="headerList">点击数</span></Col>
+        </Row>
+        {rankContentList}
+      </div>
     </div>
   )
 }

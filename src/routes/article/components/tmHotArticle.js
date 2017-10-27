@@ -25,7 +25,7 @@ const TmHotArticle = ({
         }
         <Col span={19}>
           <span className="contentList" title={item.Name}>
-            <Link to={`/articleDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
+            <Link to={`/main/articleDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
           </span>
         </Col>
       </Row>

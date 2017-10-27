@@ -32,8 +32,8 @@ const TmCourseDetail = ({
     <div className={styles.tmCourseDetail}>
       <Breadcrumb>
         <Breadcrumb.Item><Icon type="setting" style={{fontSize: 16, color: '#656565'}}/> 您的当前位置：</Breadcrumb.Item>
-        <Breadcrumb.Item><Link to="/indexPage">首页</Link></Breadcrumb.Item>
-        <Breadcrumb.Item><Link to="/courseCenter">课程中心</Link></Breadcrumb.Item>
+        <Breadcrumb.Item><Link to="/main/indexPage">首页</Link></Breadcrumb.Item>
+        <Breadcrumb.Item><Link to="/main/courseCenter">课程中心</Link></Breadcrumb.Item>
         <Breadcrumb.Item>课程详情</Breadcrumb.Item>
       </Breadcrumb>
       <div className={styles.title}>课程详情</div>
@@ -67,7 +67,7 @@ const TmCourseDetail = ({
                 <span>课程分类：</span>
               </td>
               <td className={styles.list2}>
-                <Link to={{pathname: '/courseCenter', query: {channelId: courseDetailData.ChannelId}}} target="_blank" rel="noopener noreferrer">{courseDetailData.ChannelName}</Link>
+                <Link to={{pathname: '/main/courseCenter', query: {channelId: courseDetailData.ChannelId}}} target="_blank" rel="noopener noreferrer">{courseDetailData.ChannelName}</Link>
               </td>
               <td className={styles.list3}>学员评论：</td>
               <td className={styles.list4}><span>已有<span>{courseDetailData.Count || 0}</span>条评论</span></td>

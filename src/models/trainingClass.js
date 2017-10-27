@@ -20,8 +20,10 @@ export default modelExtend(model, {
   namespace: 'trainingClass',
   state: {
     classCategory: {
-      ListData: []
+      ListData: [],
+      TitleNav: '班级分类'
     },
+    expandedKeys:[],
     classMyData: {
       ListData: [],
       type: 'my'
@@ -64,10 +66,13 @@ export default modelExtend(model, {
   effects: {
     *getTrainingClassTypeList({payload}, {call, put}){
       let data = yield call(getTrainingClassTypeList);
+      let expandedKeys = [];
+      expandedKeys.push((data.Data.ListData[0].id).toString());
       yield put({
         type: 'updateState',
         payload: {
           classCategory: data.Data,
+          expandedKeys:expandedKeys
         }
       });
     },
@@ -153,7 +158,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        if (location.pathname === "/trainingClass") {
+        if (location.pathname === "/main/trainingClass") {
           dispatch({type: 'getTrainingClassTypeList'});
           dispatch({type: 'getClassList', payload: {rows: 10, type: 'just'}});
         }

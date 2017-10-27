@@ -13,12 +13,12 @@ import entrance5 from '../../../assets/entrance5.png'
 import entrance6 from '../../../assets/entrance6.png'
 const GuideEntry = () => {
   let guideListData = [
-    {title: '平台介绍', imgSrc: entrance1, url: '/articleDetail'},
-    {title: '考核规则', imgSrc: entrance2, url: '/articleDetail/79'},
-    {title: '常见问题', imgSrc: entrance3, url: '/articleDetail/29'},
-    {title: '问卷调查', imgSrc: entrance4, url: '/pollList'},
-    {title: '学员心声', imgSrc: entrance5, url: '/originalarticlelist'},
-    {title: '在线留言', imgSrc: entrance6, url: '/messageList'},
+    {title: '平台介绍', imgSrc: entrance1, url: '/main/collegeinfo'},
+    {title: '考核规则', imgSrc: entrance2, url: '/main/articleDetail/79'},
+    {title: '常见问题', imgSrc: entrance3, url: '/main/articleDetail/29'},
+    {title: '问卷调查', imgSrc: entrance4, url: '/main/pollList'},
+    {title: '学员心声', imgSrc: entrance5, url: '/main/originalarticlelist'},
+    {title: '在线留言', imgSrc: entrance6, url: '/main/messageList'},
   ];
   let guideList = guideListData.map((item, index) => {
     return (

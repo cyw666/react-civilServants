@@ -12,8 +12,10 @@ import notCourse from '../../../assets/notCourse.png'
 import sfp from '../../../assets/sfp.png'
 import dsp from '../../../assets/dsp.png'
 import dh from '../../../assets/dh.png'
+import biXiu from '../../../assets/biXue.png'
+import xuanXiu from '../../../assets/xuanXiu.png'
 import {dateFilter} from '../../../utils/index'
-import {Button, Breadcrumb, Icon, Input, Checkbox, Row, Col, Pagination} from 'antd';
+import {Button, Breadcrumb, Icon, Input, Checkbox, Row, Col, Pagination,Spin} from 'antd';
 const Search = Input.Search;
 const CheckboxGroup = Checkbox.Group;
 
@@ -29,19 +31,25 @@ const TmCourseList = ({
   onCheckChange,
   pageConfig,
   onAddStudyCourse,
+  loading,
 }) => {
   
   const courseListContent = courseList.map((item, index) => {
     return (
       <tr key={index}>
         <td className={styles.courseImgs}>
-          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+          <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
             <Img src={baseImageCourse + '/' + item.Img} errSrc={notCourse} alt={item.Name}/>
           </Link>
         </td>
         <td className={styles.desc}>
-          <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
-            <p className={styles.title} title={item.Name}>{item.Name}</p>
+          <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+            <p className={styles.title} title={item.Name}>
+              <span className={styles.name}>{item.Name}</span>
+              {
+                item.RequiredFlag?<img src={biXiu} alt="必修"/>:<img src={xuanXiu} alt="选修"/>
+              }
+            </p>
           </Link>
           <p>
             <span>学时：{item.Credit}</span>
@@ -58,7 +66,7 @@ const TmCourseList = ({
           <p className={styles.time}>上线日期：{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</p>
           <p className={styles.play}>
             <Button type={'primary'}>
-              <Link to={{pathname: '/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+              <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
                 点击播放
               </Link>
             </Button>
@@ -90,8 +98,8 @@ const TmCourseList = ({
       <div className={styles.courseBorder}>
         <Breadcrumb>
           <Breadcrumb.Item><Icon type="setting" style={{fontSize: 16, color: '#656565'}}/> 您的当前位置：</Breadcrumb.Item>
-          <Breadcrumb.Item><Link to={`/indexPage`}>首页</Link></Breadcrumb.Item>
-          <Breadcrumb.Item><Link to={`/courseCenter`}>课程中心</Link></Breadcrumb.Item>
+          <Breadcrumb.Item><Link to={`/main/indexPage`}>首页</Link></Breadcrumb.Item>
+          <Breadcrumb.Item><Link to={`/main/courseCenter`}>课程中心</Link></Breadcrumb.Item>
           <Breadcrumb.Item>{channelName}</Breadcrumb.Item>
         </Breadcrumb>
         <div className="searchText">
@@ -123,34 +131,36 @@ const TmCourseList = ({
             </CourseOrder>
           </div>
         </div>
-        <div className={styles.courseContent}>
-          <Row>
-            <Col span={1}>
-              <CheckboxGroup options={courseOptions} value={checkedList} onChange={onCheckChange}/>
-            </Col>
-            <Col span={23}>
-              <table className="table">
-                <tbody>
-                {courseListContent}
-                </tbody>
-              </table>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Checkbox defaultChecked={false} onChange={onCheckAllChange} checked={checkAll}>全选/反选</Checkbox>
-              <Button onClick={() => {
-                onAddStudyCourse(checkedList)
-              }}>批量选课</Button>
-              <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
-                          total={pageConfig.total} onChange={(currentPage) => {
-                onSearchCourse({page: currentPage})
-              }} showTotal={(total) => {
-                return `共${total}条`
-              }}/>
-            </Col>
-          </Row>
-        </div>
+        <Spin spinning={loading}>
+          <div className={styles.courseContent}>
+            <Row>
+              <Col span={1}>
+                <CheckboxGroup options={courseOptions} value={checkedList} onChange={onCheckChange}/>
+              </Col>
+              <Col span={23}>
+                <table className="table">
+                  <tbody>
+                  {courseListContent}
+                  </tbody>
+                </table>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Checkbox defaultChecked={false} onChange={onCheckAllChange} checked={checkAll}>全选/反选</Checkbox>
+                <Button onClick={() => {
+                  onAddStudyCourse(checkedList)
+                }}>批量选课</Button>
+                <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
+                            total={pageConfig.total} onChange={(currentPage) => {
+                  onSearchCourse({page: currentPage})
+                }} showTotal={(total) => {
+                  return `共${total}条`
+                }}/>
+              </Col>
+            </Row>
+          </div>
+        </Spin>
       </div>
     </div>
   )
@@ -169,5 +179,6 @@ TmCourseList.propTypes = {
   onSearchCourse: PropTypes.func,
   pageConfig: PropTypes.object,
   onAddStudyCourse: PropTypes.func,
+  loading: PropTypes.bool,
 };
 export default TmCourseList;

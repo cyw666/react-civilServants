@@ -237,7 +237,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location)=>{
-        if(location.pathname === '/personalCenter'){
+        if(location.pathname === '/main/personalCenter'){
           dispatch({type: 'getMyCourse', payload: {page: 1, rows: 5, courseType: 'All', title: ''}});
         }
       })

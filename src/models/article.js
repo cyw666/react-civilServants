@@ -14,6 +14,7 @@ export default modelExtend(model, {
     articleCategory: {
       ListData: []
     },
+    expandedKeys:[],
     articleListData: {
       ListData: []
     },
@@ -66,10 +67,13 @@ export default modelExtend(model, {
     },
     *getArticleCategory({payload}, {call, put}){
       let data = yield call(articleCategory, payload);
+      let expandedKeys = [];
+      expandedKeys.push((data.Data.ListData[0].id).toString());
       yield put({
         type: 'updateState',
         payload: {
           articleCategory: data.Data,
+          expandedKeys:expandedKeys
         }
       });
     },
@@ -78,7 +82,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        if (location.pathname === "/article") {
+        if (location.pathname === "/main/article") {
           let categoryCode = location.query.code;
           let titleNav = location.query.name || '文章列表';
           if (categoryCode) {

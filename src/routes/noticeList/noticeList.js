@@ -26,7 +26,7 @@ const NoticeList = ({app, noticeList, dispatch, loading}) => {
     },
     pageConfig: noticeList.pageConfig,
     loading: loading.effects['noticeList/getNoticeList'],
-    linkUrl: '/noticeDetail',
+    linkUrl: '/main/noticeDetail',
   }
   return (
     <div className={styles.noticeList}>

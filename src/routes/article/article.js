@@ -6,20 +6,26 @@ import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import styles from './article.less';
-import TmArticleCategory from './components/tmArticleCategory'
+import TmCategory from '../../components/tmCategory/tmCategory'
 import HotArticle from './components/tmHotArticle'
 import TmNoticeList from '../noticeList/components/tmNoticeList'
 const Article = ({article, dispatch, loading}) => {
-  const articleCategoryProps = {
-    loading: loading.effects['article/getArticleCategory'],
-    searchArticle: (options) => {
-      let params = Object.assign({}, article.articleParams, options)
+  const categoryProps = {
+    treeData: article.articleCategory,
+    searchData: (id) => {
+      let params = Object.assign({}, article.articleParams, {page: 1, search: '', categoryCode: '', categoryId: id})
       dispatch({
         type: 'article/getArticleList',
         payload: params
-      });
+      })
     },
-    dataList: article.articleCategory,
+    updateExpandedKeys: (keys)=>{
+      dispatch({
+        type: 'article/updateState',
+        payload: {expandedKeys:keys}
+      })
+    },
+    expandedKeys: article.expandedKeys
   }
   const hotArticleProps = {
     loading: loading.effects['article/getHotArticle'],
@@ -43,7 +49,7 @@ const Article = ({article, dispatch, loading}) => {
     <div className={styles.testCenter}>
       <div className={cs(["container_24"])}>
         <div className="grid_6">
-          <TmArticleCategory {...articleCategoryProps}></TmArticleCategory>
+          <TmCategory {...categoryProps}></TmCategory>
           <HotArticle {...hotArticleProps}></HotArticle>
         </div>
         <div className="grid_18">

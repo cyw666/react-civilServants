@@ -104,7 +104,7 @@ const UserLogin = ({
                         登陆
                       </Button>
                       <Button className="login-form-register">
-                        <Link to="/register">注册</Link>
+                        <Link to="/main/register">注册</Link>
                       </Button>
                     </FormItem>
                   </Form>
@@ -122,15 +122,15 @@ const UserLogin = ({
                     </li>
                     <li>
                       <span>个人学习档案</span>
-                      <span className="pull-right"><Link to="/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
+                      <span className="pull-right"><Link to="/main/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
                     </li>
                     <li>
                       <p className="pull-left">您有<span className="red"> {userMessage.Model.UnRead} </span>条新通知！</p>
-                      <span className="pull-right"><Link to="/personalNotice">查看详情&gt;&gt;</Link></span>
+                      <span className="pull-right"><Link to="/main/personalNotice">查看详情&gt;&gt;</Link></span>
                     </li>
-                    <li>
-                      <Link to="/modifyPassword">修改密码</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-                      <Link to="/changeInfor">修改信息</Link> &nbsp;|&nbsp;
+                    <li className={styles.lastList}>
+                      <Link to="/main/modifyPassword">修改密码</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                      <Link to="/main/changeInfor">修改信息</Link> &nbsp;|&nbsp;
                       {
                         userMessage.UserType === '管理员' &&
                         <span><a href="/admin" target="_blank" rel="noopener noreferrer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

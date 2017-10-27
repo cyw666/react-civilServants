@@ -29,7 +29,7 @@ const ClassList = ({app, classList, dispatch, loading}) => {
     },
     pageConfig: classList.pageConfig,
     loading: loading.effects['classList/getClassList'],
-    linkUrl: '/classDetail',
+    linkUrl: '/main/classDetail',
   }
   return (
     <div className={styles.noticeList}>

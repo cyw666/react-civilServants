@@ -1,6 +1,94 @@
 /**
  * 课程播放
  */
+@import "../../themes/mixins";
 .play{
-
+  .playPage{
+    width: 100%;
+    .video{
+      width: 100%;
+      height: 100%;
+    }
+    .info{
+      padding: 15px;
+      .wh(350px,100%);
+      position: fixed;
+      right: -350px;
+      top:0;
+      background: @background-color-active;
+      border:1px solid @border-color-base;
+      box-shadow: 0px 0px 8px @border-color-base;
+      z-index: 9999;
+      .transition();
+      .hoverBtn {
+        width: 30px;
+        padding: 10px 0;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        margin-top: -66px;
+        left: -30px;
+        color: @white;
+        background: rgba(0,0,0,0.8);
+        .border-left-radius(3px);
+        span{
+          .pull-left();
+          display: inline-block;
+          .wh(30px,19px);
+          line-height: 19px;
+          .text-center();
+          overflow: hidden;
+        }
+      }
+      .content {
+        .detail{
+          padding-right: 45px;
+          padding-bottom: 10px;
+          .teacher{
+            .clearFix();
+            color: @text-color-2;
+            font-size: @font-size-sm;
+          }
+          .progress{
+            .pull-left();
+            width: 60%;
+          }
+          .desc{
+            color: @text-color-2;
+            font-size: @font-size-sm;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+    .commentListOuter{
+      overflow: auto;
+      height: 300px;
+      visibility: visible;
+      .commentList{
+        .clearFix();
+        border-bottom: 1px solid @border-color-base;
+        padding: 10px;
+        li{
+          line-height: 28px;
+        }
+        .time{
+          font-size: @font-size-sm;
+          .pull-right();
+          color: @text-color-3;
+        }
+        .del{
+          .pull-right();
+        }
+      }
+    }
+    :global{
+      .infoShow{
+        right: 0px;
+      }
+      .ant-progress-line {
+        font-size: 12px;
+      }
+    }
+  }
 }

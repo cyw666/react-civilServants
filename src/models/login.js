@@ -138,7 +138,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location)=>{
-        if(location.pathname === '/login'){
+        if(location.pathname === '/main/login'){
           dispatch({type: 'getUserInfo'});
           dispatch({type: 'getUserCookie'});
           dispatch({type: 'getVerifyCode'});

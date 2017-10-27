@@ -30,10 +30,10 @@
     .ant-checkbox-group-item {
       display: block;
       height: 95px;
-      .border-base();
+      border-top: 1px solid @border-color-base;
       .ant-checkbox{
         top:33px;
-        left: 5px;
+        left: 10px;
       }
     }
     .ant-checkbox-wrapper:not(:last-child){
@@ -41,7 +41,7 @@
     }
     .ant-col-24{
       padding: 20px 0;
-      .border-base();
+      //.border-base();
       .ant-checkbox-wrapper{
         .pull-left();
         margin: 0 9px;
@@ -83,6 +83,12 @@
         &.title{
           font-size: @font-size-base;
           color: @text-color;
+          img{
+            margin-left: 15px;
+          }
+          .name{
+            width: auto;
+          }
         }
         &>span{
           width: 100px;

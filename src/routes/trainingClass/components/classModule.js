@@ -4,6 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'dva/router'
+import cs from 'classnames'
 import {Spin} from 'antd'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './classModule.less'
@@ -13,16 +14,16 @@ const ClassModule = ({classModuleData, loading}) => {
   const classNameList = ListData.map((item, index) => {
     return (
       <li key={index}>
-        <span className={styles.list1}><Link href={`/classDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
+        <span className={styles.list1}><Link href={`/main/classDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
         <span className={styles.list2}>{item.CurrentUser}</span>
       </li>
     )
   });
   return (
     <div className={styles.classModule}>
-      <GeneralHead showIcon={true} title={TitleNav} url={`/classlist?type=${type}`}></GeneralHead>
+      <GeneralHead showIcon={true} title={TitleNav} url={`/main/classlist?type=${type}`}></GeneralHead>
       <Spin spinning={loading}>
-        <ul className={styles.content}>
+        <ul className={cs(["border-base"],`${styles.content}`)}>
           <li className={styles.title}>
             <span className={styles.list1}>班级名称</span>
             <span className={styles.list2}>学员</span>

@@ -19,7 +19,7 @@ const NewsInfor = ({newsData, loading, tabChange, realTimeData}) => {
       <li key={index}>
         <span className={styles.arrow}><img src={arrowRight} alt="arrow"/></span>
         <span className={styles.name} title={item.Name}>
-          <Link to={`/articleDetail/${item.Id}`} target='_blank' rel="noopener noreferrer">{item.Name}</Link>
+          <Link to={`/main/articleDetail/${item.Id}`} target='_blank' rel="noopener noreferrer">{item.Name}</Link>
         </span>
         <span className={styles.time}>{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</span>
       </li>
@@ -39,7 +39,7 @@ const NewsInfor = ({newsData, loading, tabChange, realTimeData}) => {
           <div className={styles.tabContent}>
             <div className={styles.top}>
               <h4 title={ListData[0].Name}>
-                <Link to={`/articleDetail/${ListData[0].Id}`} target='_blank' rel="noopener noreferrer"
+                <Link to={`/main/articleDetail/${ListData[0].Id}`} target='_blank' rel="noopener noreferrer"
                       className={styles.title}>
                   {ListData[0].Name}
                 </Link>

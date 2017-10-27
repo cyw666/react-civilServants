@@ -29,8 +29,8 @@ export default modelExtend(model, {
       Url: "",
     },
     breadcrumbItem: [
-      {url: '/indexPage', name: '首页'},
-      {url: '/noticeList', name: '通告公告'},
+      {url: '/main/indexPage', name: '首页'},
+      {url: '/main/noticeList', name: '通告公告'},
       {url: '', name: '通知内容'},
     ]
   },
@@ -74,7 +74,7 @@ export default modelExtend(model, {
   subscriptions: {
     setup({dispatch, history}){
       history.listen((location) => {
-        let match = pathToRegexp('/noticeDetail/:id').exec(location.pathname);
+        let match = pathToRegexp('/main/noticeDetail/:id').exec(location.pathname);
         if(match){
           dispatch({type: 'getNoticeDetail', payload: {id: match[1]}});
         }

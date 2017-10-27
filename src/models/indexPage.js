@@ -47,7 +47,7 @@ export default modelExtend(model, {
     classCategory: {
       ListData: [],
     },
-    activeClassId: '0',
+    activeClassId: '1',
     classListData: {
       ListData: []
     },
@@ -206,7 +206,7 @@ export default modelExtend(model, {
     },
     *getCourseCategory({payload}, {call, put}){
       let data = yield call(mainService.courseCategory, payload);
-      let defaultId = data.Data.ListData[0].Id;
+      let defaultId = data.Data.ListData[0].id;
       let courseList = yield call(mainService.courseList, {rows: 8, channelId: defaultId});
       yield put({
         type: 'updateState',
@@ -227,13 +227,13 @@ export default modelExtend(model, {
     },
     *getClassCategory({payload}, {call, put}){
       let data = yield call(mainService.getTrainingClassTypeList, payload);
-      let defaultId = data.Data.ListData[0].Id;
+      let defaultId = data.Data.ListData[0].id;
       let classList = yield call(mainService.getClassList, {rows: 6, categoryId: defaultId});
       yield put({
         type: 'updateState',
         payload: {
           classCategory: data.Data,
-          activeClassId: defaultId,
+          activeClassId: defaultId.toString(),
           classListData: classList.Data,
         }
       });
@@ -302,7 +302,7 @@ export default modelExtend(model, {
      },*/
     setup({dispatch, history}) {
       history.listen(({pathname, query}) => {
-        if (pathname === '/indexPage'||pathname === '/') {
+        if (pathname === '/main/indexPage'||pathname === '/main') {
           dispatch({type: 'getUserCookie'});
           dispatch({type: 'getVerifyCode'});
         }

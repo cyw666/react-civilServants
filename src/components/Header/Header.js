@@ -50,7 +50,7 @@ const Header = ({addFavorite, setHome, inputChange, data}) => {
                 onChange={inputChange}
                 size="large"
               />
-              <Button><Link to={`/Products/${data.searchText}`} target="_blank" rel="noopener noreferrer">搜索</Link></Button>
+              <Button><Link to={{pathname:'/main/searchGloable',query:{keyword:`${data.searchText}`}}} target="_blank" rel="noopener noreferrer">搜索</Link></Button>
             </div>
           </li>
           <li className="grid_7 clearFix">

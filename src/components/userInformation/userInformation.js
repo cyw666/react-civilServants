@@ -30,15 +30,15 @@ const UserInformation = ({information, loginOut, loading}) => {
             </li>
             <li>
               <span className={styles.item1}>个人学习档案</span>
-              <span className={styles.item2}><Link to="/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
+              <span className={styles.item2}><Link to="/main/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
             </li>
             <li>
               <span className={styles.item1}>您有<span className={styles.red}> {Model.UnRead} </span>条新通知！</span>
-              <span className={styles.item2}><Link to="/personalNotice" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
+              <span className={styles.item2}><Link to="/main/personalNotice" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
             </li>
             <li className={styles.lastChild}>
-              <Link to="/modifyPassword">修改密码</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-              <Link to="/changeInfor">修改信息</Link> &nbsp;|&nbsp;
+              <Link to="/main/modifyPassword">修改密码</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+              <Link to="/main/changeInfor">修改信息</Link> &nbsp;|&nbsp;
               {
                 UserType === '管理员' &&
                 <span className={styles.item2}><a href="/admin/" target="_blank"

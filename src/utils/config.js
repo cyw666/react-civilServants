@@ -26,7 +26,7 @@ module.exports = {
     /*踢出*/
     KickOut: {
       url: `${API}/Page/KickOut`,
-      data: {kickUserId:''}
+      data: {kickUserId: ''}
     },
     /*验证码登陆*/
     Login: {
@@ -51,7 +51,7 @@ module.exports = {
     /*设置密保--添加密保问题*/
     AddPasswordQuestion: {
       url: `${API}/Page/AddPasswordQuestion`,
-      data: {pwd: "",questions:''}
+      data: {pwd: "", questions: ''}
     },
     /*获取用户信息（修改信息）*/
     GetUserInfo: {
@@ -368,6 +368,26 @@ module.exports = {
     ClassList: {
       url: `${API}/Page/ClassList`,
       data: {page: 1, rows: 20, sort: 'Id', order: 'desc', title: "", type: "", wordLimt: 30}
+    },
+    /*全局搜索*/
+    SearchAll: {
+      url: `${API}/Page/SearchAll`,
+      data: {page: 1, rows: 20, key: '',}
+    },
+    /*平台介绍*/
+    CollegeInfo: {
+      url: `${API}/Page/CollegeInfo`,
+      data: {sort: "sort"}
+    },
+    /*播放信息*/
+    Play: {
+      url: `${API}/Home/Play`,
+      data: {id: ""}
+    },
+    /*添加评论*/
+    CourseCommentAdd: {
+      url: `${API}/Page/CourseCommentAdd`,
+      data: {mainId: "", parentId: 0, content: '', rate: ''}
     },
   }
 }

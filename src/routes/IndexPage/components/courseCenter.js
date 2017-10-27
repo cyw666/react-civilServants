@@ -36,13 +36,13 @@ class CourseCenter extends React.Component {
     let baseImgPath = courseListData['ImageCourse'];
     let radioButtonList = courseCategory['ListData'].map((item, index) => {
       return (
-        <RadioButton value={item.Id} key={index}>{item.Name}</RadioButton>
+        <RadioButton value={item.id} key={index}>{item.text}</RadioButton>
       )
     });
     let courseCenterList = courseCenterData.map((item, index) => {
       return (
         <li key={index}>
-          <Link to={{pathname:'/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">
+          <Link to={{pathname:'/main/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">
             <Img src={baseImgPath + '/' + item.Img} alt="" errSrc={notCourse}/>
           </Link>
           {
@@ -59,7 +59,7 @@ class CourseCenter extends React.Component {
           
           <div className={styles.desc}>
             <p>
-              <Link to={{pathname:'/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
+              <Link to={{pathname:'/main/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
             </p>
             <p>
               <span className={styles.teacher}>讲师：{item.Teacher}</span>
@@ -74,7 +74,7 @@ class CourseCenter extends React.Component {
     return (
       <div className={styles.courseCenter}>
         <Spin spinning={loading}>
-          <GeneralHead showIcon={true} url="/courseCenter" title="课程中心"></GeneralHead>
+          <GeneralHead showIcon={true} url="/main/courseCenter" title="课程中心"></GeneralHead>
           <RadioGroup value={activeValue} size="large" onChange={this.handleSizeChange}>
             {radioButtonList}
           </RadioGroup>

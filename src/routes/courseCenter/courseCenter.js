@@ -6,20 +6,30 @@ import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import styles from './courseCenter.less';
-import {TmCourseCategory, TmCourseList, TmCourseRankingList} from './components/index'
-const CourseCenter = ({courseCenter, dispatch}) => {
-  const tmCourseCategoryProps = {
-    courseCategory: courseCenter.courseCategory,
-    searchCourse: (options) => {
+import {TmCourseList, TmCourseRankingList} from './components/index'
+import TmCategory from '../../components/tmCategory/tmCategory'
+const CourseCenter = ({courseCenter, dispatch,loading}) => {
+  const tmCategoryProps = {
+    treeData: courseCenter.courseCategory,
+    searchData: (id) => {
+      let params = {channelId: id, page: 1, teacher: '', courseType: 'All', title: ''}
       dispatch({
         type: 'courseCenter/getCourseList',
-        payload: options
+        payload: params
       })
-    }
+    },
+    updateExpandedKeys: (keys)=>{
+      dispatch({
+        type: 'courseCenter/updateExpanderKeys',
+        payload: keys
+      })
+    },
+    expandedKeys: courseCenter.expandedKeys
   }
   
   const courseListPrpos = {
     courseList: courseCenter.courseListData,
+    loading: loading.effects['courseCenter/getCourseList'],
     baseImageCourse: courseCenter.baseImageCourse,
     channelName: courseCenter.channelName,
     checkedList: courseCenter.checkedList,
@@ -71,7 +81,7 @@ const CourseCenter = ({courseCenter, dispatch}) => {
     <div className={styles.courseCenter}>
       <div className={cs(["container_24"])}>
         <div className="grid_6">
-          <TmCourseCategory {...tmCourseCategoryProps}></TmCourseCategory>
+          <TmCategory {...tmCategoryProps}></TmCategory>
           <TmCourseRankingList rankData={courseCenter.courseRankData}></TmCourseRankingList>
         </div>
         <div className="grid_18">
