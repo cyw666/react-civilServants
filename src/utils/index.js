@@ -132,6 +132,32 @@ const queryURL = (name) => {
   if (r != null) return decodeURI(r[2])
   return null
 }
+//考试总分
+const examAllScore = (arr) =>{
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i].Question.Score;
+  }
+  return sum;
+}
+//答对题目总数
+const countIf = (arr) =>{
+  var count = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].UserAnswer == arr[i].Question.Answer) {
+      count++;
+    }
+  }
+  return count;
+}
+//正确得分
+const rightScore = (arr) =>{
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i].UserScore;
+  }
+  return sum;
+}
 module.exports = {
   config,
   fetch,
@@ -146,4 +172,7 @@ module.exports = {
   JudgeStatus,
   delHtmlTag,
   queryURL,
+  examAllScore,
+  countIf,
+  rightScore,
 }

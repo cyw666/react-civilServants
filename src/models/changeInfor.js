@@ -60,7 +60,7 @@ export default modelExtend(model, {
     *updateUserInfo({payload}, {call, put}){
       let data = yield call(updateUserInfo, payload);
       if (data.Type == 1) {
-        message.success(data.Message, 3, yield put(routerRedux.push('/indexPage'))
+        message.success(data.Message, 3, yield put(routerRedux.push('/main/indexPage'))
         );
       } else {
         message.error(data.Message);

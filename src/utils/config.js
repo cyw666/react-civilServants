@@ -2,8 +2,14 @@
  * Created by admin on 2017/8/4.
  */
 const API = 'http://test10.jy365.net/api';
+// const API = '/api';
 module.exports = {
   api: {
+    /*mock 测试*/
+    tags: {
+      url: `${API}/page/tags`,
+      data: {}
+    },
     /*判断能否访问页面接口*/
     Authorization: {
       url: `${API}/Page/Authorization`,
@@ -309,6 +315,16 @@ module.exports = {
       url: `${API}/Exam/Exam`,
       data: {parameter1: ''}
     },
+    /*提交考试*/
+    PostExam: {
+      url: `${API}/Exam/PostExam`,
+      data: {}
+    },
+    /*考试记录详情*/
+    ExamReview: {
+      url: `${API}/Exam/ExamReview`,
+      data: {parameter1: '', parameter2: ''}
+    },
     /*文章详情*/
     ArticleContent: {
       url: `${API}/Page/ArticleContent`,
@@ -389,5 +405,6 @@ module.exports = {
       url: `${API}/Page/CourseCommentAdd`,
       data: {mainId: "", parentId: 0, content: '', rate: ''}
     },
+    
   }
 }

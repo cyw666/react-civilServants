@@ -1,5 +1,9 @@
 import {fetch, config} from '../utils/index'
 const {api} = config;
+/*mock 测试*/
+export function tags(data) {
+  return fetch.post(api.tags.url, {...api.tags.data, ...data});
+}
 /*获取token*/
 export function antiForgeryToken() {
   return fetch.post(api.AntiForgeryToken.url).then(function (response) {
@@ -228,6 +232,14 @@ export function examList(data) {
 /*参加测试*/
 export function exam(data) {
   return fetch.post(api.Exam.url, {...api.Exam.data, ...data});
+}
+/*提交考试*/
+export function postExam(data) {
+  return fetch.post(api.PostExam.url, {...api.PostExam.data, ...data});
+}
+/*考试记录详情*/
+export function examReview(data) {
+  return fetch.post(api.ExamReview.url, {...api.ExamReview.data, ...data});
 }
 /*文章详情*/
 export function articleContent(data) {

@@ -65,7 +65,7 @@ export default modelExtend(model, {
         //Type存在，意味着不能考试
         message.info(data.Message);
       } else {
-        let examHref = history.createPath({pathname: '/exam', query: {id: payload.parameter1}});
+        let examHref = history.createPath({pathname: '/main/exam', query: {id: payload.parameter1}});
         window.open(examHref)
       }
     },

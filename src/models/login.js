@@ -82,12 +82,12 @@ export default modelExtend(model, {
           if (from) {
             yield put(routerRedux.push(from))
           } else {
-            yield put(routerRedux.push('/indexPage'))
+            yield put(routerRedux.push('/main/indexPage'))
           }
         } else if (data.Type == 2) {
           yield put({type:'setUserCookie',payload:loginValue});
           message.warning("首次登录，请修改密码！");
-          yield put(routerRedux.push('/modifyPassword'))
+          yield put(routerRedux.push('/main/modifyPassword'))
         } else if (data.Type == 3) {
           if (window.confirm("帐号在别的地方登录，是否踢出？")) {
             yield put({type:'kickOut',payload:{kickUserId:data.Message}});
@@ -130,7 +130,7 @@ export default modelExtend(model, {
       if(data.Data){
         if (data.Data.Model.Name) {
           message.warn('用户已登录！');
-          yield put(routerRedux.push('/indexPage'))
+          yield put(routerRedux.push('/main/indexPage'))
         }
       }
     },

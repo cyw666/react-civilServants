@@ -103,7 +103,7 @@ export default modelExtend(model, {
         } else if (data.Type == 2) {
           yield put({type: 'setUserCookie', payload: loginValue});
           message.warning("首次登录，请修改密码！");
-          yield put(routerRedux.push('/modifyPassword'))
+          yield put(routerRedux.push('/main/modifyPassword'))
         } else if (data.Type == 3) {
           if (window.confirm("帐号在别的地方登录，是否踢出？")) {
             yield put({type: 'kickOut', payload: {kickUserId: data.Message}});
@@ -292,6 +292,9 @@ export default modelExtend(model, {
         }
       });
     },
+    *getTags({payload}, {call, put, select}) {
+      let data = yield call(mainService.tags, payload);
+    },
     
   },
   subscriptions: {
@@ -307,6 +310,7 @@ export default modelExtend(model, {
           dispatch({type: 'getVerifyCode'});
         }
       });
+      // dispatch({type: 'getTags'});
       dispatch({type: 'getRealTimeData'});
       dispatch({type: 'userMessage'});
       dispatch({type: 'getCourseCategory', payload: {page: 1, rows: 5}});

@@ -1,57 +1,56 @@
 /*考试*/
 import modelExtend from 'dva-model-extend'
+import {message} from 'antd'
+import { routerRedux } from 'dva/router'
 import {model} from './common'
-import {searchAll} from '../services/main'
+import {exam, postExam} from '../services/main'
 
 export default modelExtend(model, {
   namespace: 'exam',
   state: {
-    searchResult: {
-      ListData: []
-    },
-    searchParams: {
-      page: 1,
-      key: '',
-      rows: 20
-    },
-    pageConfig: {
-      current: 1,
-      pageSize: 20,
-      total: 0
-    },
+    examData: {
+      Exam: [],
+      Type0Questions: [],
+      Type1Questions: [],
+      Type2Questions: [],
+      Type3Questions: [],
+      examid: "",
+      isfixed: ""
+    }
   },
-  reducers: {
-    updateSearchResult(state, {payload}){
-      return {
-        ...state,
-        searchParams: {...state.searchParams, ...payload}
-      }
-    },
-  },
+  reducers: {},
   effects: {
-    *getSearchList({payload}, {call, put, select}){
-      let searchParams = yield select(state => state.searchGloable.searchParams);
-      let params = {...searchParams, ...payload};
-      let data = yield call(searchAll, params);
+    * getExam({payload}, {call, put, select}) {
+      let data = yield call(exam, payload);
       yield put({
         type: 'updateState',
         payload: {
-          searchResult: data.Data,
-          pageConfig: {
-            current: data.Data.Page,
-            pageSize: data.Data.Rows,
-            total: data.Data.Count
-          }
+          examData: data.Data,
         }
       });
-      yield put({type: 'updateSearchResult', payload});
+    },
+    * postExam({payload}, {call, put, select}) {
+      let data = yield call(postExam, payload);
+      let parameter1 = yield select(state => state.exam.examData.examid);
+      if(data.Type == 1){
+        message.success(data.Message,2,
+          yield put(routerRedux.push({
+            pathname: '/main/examReview',
+            query: {parameter1: parameter1, parameter2: data.Value}
+          }))
+        );
+      }else {
+        message.error(data.Message);
+      }
     },
   },
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        let key = location.query.keyword;
-        dispatch({type: 'getSearchList', payload: {page: 1, rows: 20, key}});
+        let id = location.query.id;
+        if (location.pathname === '/main/exam') {
+          dispatch({type: 'getExam', payload: {parameter1: id}});
+        }
       })
     }
   }

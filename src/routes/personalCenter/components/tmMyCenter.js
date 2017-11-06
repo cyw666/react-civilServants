@@ -36,7 +36,7 @@ const TmMyCenter = ({
             </div>
           </Col>
           <Col span={4}>
-            <div className="list"><Progress percent={item.BrowseScore} status="active"/></div>
+            <div className="list"><Progress percent={item.BrowseScore.toFixed(1)} status="active"/></div>
           </Col>
           <Col span={2}>
             <div className="list">{item.Credit}</div>
@@ -98,7 +98,7 @@ const TmMyCenter = ({
             </div>
           </Col>
           <Col span={4}>
-            <div className="list"><Progress percent={item.BrowseScore} status="active"/></div>
+            <div className="list"><Progress percent={item.BrowseScore.toFixed(1)} status="active"/></div>
           </Col>
           <Col span={2}>
             <div className="list">{item.Credit}</div>
@@ -160,7 +160,7 @@ const TmMyCenter = ({
             </div>
           </Col>
           <Col span={4}>
-            <div className="list"><Progress percent={item.BrowseScore} status="active"/></div>
+            <div className="list"><Progress percent={item.BrowseScore.toFixed(1)} status="active"/></div>
           </Col>
           <Col span={2}>
             <div className="list">{item.Credit}</div>

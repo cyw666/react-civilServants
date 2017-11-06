@@ -37,7 +37,7 @@ export default modelExtend(model, {
     *register({payload}, {call, put}){
       let data = yield call(register, payload);
       if(data.Type==1){
-        message.success(data.Message,3,yield put(routerRedux.push('/indexPage')));
+        message.success(data.Message,3,yield put(routerRedux.push('/main/indexPage')));
       }else {
         message.error(data.Message);
       }

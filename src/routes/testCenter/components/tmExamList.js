@@ -128,7 +128,7 @@ const TmExamList = ({
               {!pageConfig.unFinishTotal && <h2 className={styles.noData}>暂无未完成的考试！</h2>}
               <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
                           total={pageConfig.unFinishTotal} onChange={(page) => {
-                searchMyCourse({courseType: 'UnFinish', page})
+                searchExam({courseType: 'UnFinish', page})
               }} showTotal={(total) => {
                 return `共${total}条`
               }}/>
@@ -158,7 +158,7 @@ const TmExamList = ({
               {!pageConfig.finishTotal && <h2 className={styles.noData}>暂无已经完成的考试！</h2>}
               <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
                           total={pageConfig.finishTotal} onChange={(page) => {
-                searchMyCourse({courseType: 'Finish', page})
+                searchExam({courseType: 'Finish', page})
               }} showTotal={(total) => {
                 return `共${total}条`
               }}/>

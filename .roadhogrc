@@ -17,7 +17,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://122.225.101.117:9090/",
+      "target": "http://test10.jy365.net/",
       "changeOrigin": true
     }
   }

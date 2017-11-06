@@ -364,6 +364,18 @@ function RouterConfig({history, app}) {
               },
             },
             {
+              path: 'examReview',
+              getComponent (nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/examReview'))
+                  cb(null, require('./routes/examReview/examReview'))
+                })
+              },
+              onEnter (nextState, replace, cb) {
+                setTitle("考试详情", cb);
+              },
+            },
+            {
               path: '*',
               getComponent (nextState, cb) {
                 require.ensure([], (require) => {
