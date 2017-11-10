@@ -2,12 +2,18 @@
  * 课程播放
  */
 @import "../../themes/mixins";
+body{
+  background-color: @background-color-active;
+}
 .play{
   .playPage{
     width: 100%;
     .video{
-      width: 100%;
+      width: 98%;
       height: 100%;
+      .transition();
+      position: absolute;
+      background-color: @background-color-active;
     }
     .info{
       padding: 15px;

@@ -51,10 +51,10 @@ const StudyPlanModal = ({
       >
         <div>
           <form id="studyPlan">
-            <FormItem hasFeedback label={"课程名称"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
+            <FormItem hasFeedback label={"课程名称"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
               <p>{studyPlanData.CourseName}</p>
             </FormItem>
-            <FormItem hasFeedback label={"计划完成日期"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
+            <FormItem hasFeedback label={"计划完成日期"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
               {getFieldDecorator('planFinishDate', {
                 rules: [
                   {
@@ -65,7 +65,7 @@ const StudyPlanModal = ({
                 initialValue: moment(dateFilter(studyPlanData.PlanFinishDate, 'yyyy-MM-dd'), 'YYYY-MM-DD')
               })(<DatePicker format={'YYYY-MM-DD'}/>)}
             </FormItem>
-            <FormItem hasFeedback label={"开始提醒日期"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
+            <FormItem hasFeedback label={"开始提醒日期"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
               {getFieldDecorator('remindDate', {
                 rules: [
                   {required: true, message: '请选择开始提醒日期！',},
@@ -73,7 +73,7 @@ const StudyPlanModal = ({
                 initialValue: moment(dateFilter(studyPlanData.RemindDate, 'yyyy-MM-dd'), 'YYYY-MM-DD')
               })(<DatePicker format={'YYYY-MM-DD'}/>)}
             </FormItem>
-            <FormItem hasFeedback label={"提醒周期"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
+            <FormItem hasFeedback label={"提醒周期"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
               {getFieldDecorator('remindCycle', {
                 rules: [
                   {required: true, message: '请选择提醒周期！',},
@@ -87,13 +87,13 @@ const StudyPlanModal = ({
                 </Select>
               )}
             </FormItem>
-            <FormItem hasFeedback label={"提醒方式"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
+            <FormItem hasFeedback label={"提醒方式"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
               <p>站内通知</p>
             </FormItem>
-            <FormItem hasFeedback label={"计划说明"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
+            <FormItem hasFeedback label={"计划说明"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
               {getFieldDecorator('remark', {
                 rules: [
-                  {required: true, min: 7, max: 249, message: '请填写计划说明'},
+                  {required: true, min: 1, max: 249, message: '请填写计划说明，最多249字符！'},
                 ],
                 initialValue: studyPlanData.Remark
               })(<TextArea placeholder="请输入笔记内容" autosize={{minRows: 4, maxRows: 6}}/>)}

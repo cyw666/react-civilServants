@@ -1,0 +1,224 @@
+/**
+ * mp4播放
+ */
+@import "../../../themes/mixins";
+
+.tmPlayMp4 {
+  width: 100%;
+  background-color: @black;
+  position: absolute;
+  top:50%;
+  left:0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  .myplayer {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  :global {
+    .overlay_component {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      background-color: transparent;
+      .overlay_inner {
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        margin-left: -30px;
+        background-color: rgba(0, 0, 0, .7);
+        border-radius: 10px;
+        .anticon-caret-right {
+          font-size: 25px;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          left: 50%;
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+          margin-left: -30px;
+        }
+      }
+    }
+    .controls {
+      .clearFix();
+      width: 80%;
+      min-width: 750px;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      height: 34px;
+      background-color: #3b3b3b;
+      color: #f5f5f5;
+      z-index: 10;
+      opacity: 0;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      .border-radius(4px);
+    }
+    .playPause_component {
+      .pull-left();
+      .playPause_button {
+        .wh(34px, 34px);
+        background: none;
+        border: 0;
+        overflow: visible;
+        padding: 0;
+        cursor: pointer;
+        font-size: 16px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .time_component{
+      .pull-left();
+      padding: 0 10px;
+      line-height: 34px;
+      color: #fff;
+    }
+    .seek_component{
+      .pull-left();
+      width: 72%;
+      position: relative;
+      height: 100%;
+      .seek_track{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        right: 5px;
+        height: 8px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        background-color: #3e3e3e;
+      }
+      .seek_buffer, .seek_fill, .seek_input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        .border-radius(4px);
+      }
+      .seek_buffer{
+        width: 100%;
+        background-color: #5a5a5a;
+      }
+      .seek_fill{
+        background-color: #fff;
+        width: 0%;
+      }
+      .seek_input{
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .seek_location{
+        position: absolute;
+        top: -6px;
+        left: 0;
+        height: 20px;
+        width: 4px;
+        background-color: @orange-3;
+        .border-radius(2px);
+      }
+    }
+    .volume_component{
+      .pull-left();
+      position: relative;
+      &:hover{
+        .volume_slider{
+          display: block;
+        }
+      }
+      .volume_button{
+        .wh(34px, 34px);
+        line-height: 34px;
+        background: none;
+        border: 0;
+        overflow: visible;
+        padding: 0;
+        cursor: pointer;
+        img{
+          width: 18px;
+          height: auto;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .volume_slider {
+        display: none;
+        position: absolute;
+        right: 5px;
+        bottom: 100%;
+        left: 5px;
+        height: 70px;
+        background-color: #000;
+      }
+      .volume_track {
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: 50%;
+        width: 4px;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background-color: #3e3e3e;
+      }
+      .volume_fill, .volume_input {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .volume_fill{
+        background-color: #fff;
+      }
+      .volume_input{
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        -webkit-appearance: slider-vertical;
+        cursor: pointer;
+      }
+    }
+    .fullScreen_component{
+      .pull-left();
+      .fullScreen_button{
+        .wh(34px, 34px);
+        line-height: 34px;
+        background: none;
+        border: 0;
+        overflow: visible;
+        padding: 0;
+        cursor: pointer;
+        img{
+          width: 17px;
+          height: auto;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+  }
+}

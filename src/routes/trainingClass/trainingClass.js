@@ -8,6 +8,7 @@ import cs from 'classnames';
 import styles from './trainingClass.less';
 import ClassModule from './components/classModule'
 import TmTrainingClass from './components/tmTrainingClass'
+import ClassDetailModal from './components/classDetailModal'
 import TmCategory from '../../components/tmCategory/tmCategory'
 
 const TrainingClass = ({trainingClass, dispatch, loading}) => {
@@ -55,7 +56,23 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
         payload: {rows: 10, type, categoryId: trainingClass.categoryId}
       })
     },
+    seeClassDetail: (id) => {
+      dispatch({
+        type: 'trainingClass/seeClassDetail',
+        payload: {id,more:false}
+      })
+    },
     loading: loading.effects['trainingClass/getClassList']
+  }
+  const classDetailModalProps = {
+    closeModal: () => {
+      dispatch({
+        type: 'trainingClass/updateState',
+        payload: {showModal: false}
+      })
+    },
+    showModal: trainingClass.showModal,
+    data: trainingClass.classDetailData,
   }
   return (
     <div className={styles.trainingClass}>
@@ -71,6 +88,7 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
         </div>
         <div className="grid_18">
           <TmTrainingClass {...tmTrainingClassProps}></TmTrainingClass>
+          <ClassDetailModal {...classDetailModalProps}></ClassDetailModal>
         </div>
       </div>
     </div>

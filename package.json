@@ -20,7 +20,8 @@
     "keymaster": "^1.6.2",
     "mockjs": "^1.0.1-beta3",
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "react-html5video": "^2.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

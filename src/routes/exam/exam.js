@@ -29,7 +29,6 @@ const Exam = ({
     validateFieldsAndScroll((err, values) => {
       if (!err) {
         let params = {...{hdnexamid:examid,hdnisfixed:isfixed},...values};
-        console.log(params)
         dispatch({type:'exam/postExam',payload:params})
       }
     });

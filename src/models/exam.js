@@ -22,12 +22,13 @@ export default modelExtend(model, {
   effects: {
     * getExam({payload}, {call, put, select}) {
       let data = yield call(exam, payload);
-      yield put({
-        type: 'updateState',
-        payload: {
-          examData: data.Data,
-        }
-      });
+      if (data.Type) {
+        //Type存在，意味着不能考试
+        alert(data.Message);
+        window.close();
+      } else {
+        yield put({type: 'updateState', payload: {examData: data.Data}});
+      }
     },
     * postExam({payload}, {call, put, select}) {
       let data = yield call(postExam, payload);

@@ -4,19 +4,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Button, Breadcrumb, Icon, Input, Tabs, Row, Col, Spin} from 'antd'
+import {Link} from 'dva/router'
 import styles from './tmTrainingClass.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {dateFilter, JudgeStatus} from '../../../utils/index'
 const Search = Input.Search
 const TabPane = Tabs.TabPane;
-const TmTrainingClass = ({classListData, checkUserClass, joinClass, delClass, getClass, classType, loading}) => {
+const TmTrainingClass = ({classListData, checkUserClass, joinClass, delClass, getClass, classType,seeClassDetail, loading}) => {
   const {ListData} = classListData;
   const classList = ListData.map((item, index) => {
     return (
       <Row key={index} className={styles.tabList}>
         <Col span={6}><p className="list">{item.Name}</p></Col>
         <Col span={4}><p className="list"><a onClick={() => {
-          checkUserClass(item.Id)
+          // checkUserClass(item.Id)
+          seeClassDetail(item.Id)
         }}>详情</a></p></Col>
         {
           item.ApplyStatus ? <Col span={4}><p className="list">{JudgeStatus(item.ApplyStatus)}</p></Col> :
@@ -29,7 +31,7 @@ const TmTrainingClass = ({classListData, checkUserClass, joinClass, delClass, ge
           item.ApplyStatus === 'UnApprove' ?
             <Col span={4}><p className="list"><Button type={'danger'} disabled>审核未通过</Button></p></Col> :
             item.ApplyStatus === 'Normal' ?
-              <Col span={4}><p className="list"><Button type={'danger'} disabled>已报名</Button></p></Col> :
+              <Col span={4}><p className="list"><Button type={'primary'} ><Link to={{pathname: "/main/classDetail", query: {id: item.Id}}} rel="noopener noreferrer">点击进入</Link></Button></p></Col> :
               item.ApplyStatus === 'UnAudit' ?
                 <Col span={4}><p className="list"><Button type={'primary'} onClick={() => {
                   delClass(item.Id)
@@ -47,7 +49,8 @@ const TmTrainingClass = ({classListData, checkUserClass, joinClass, delClass, ge
       <Row key={index} className={styles.tabList}>
         <Col span={8}><p className="list">{item.Name}</p></Col>
         <Col span={4}><p className="list"><a onClick={() => {
-          checkUserClass(item.Id)
+          // checkUserClass(item.Id)
+          seeClassDetail(item.Id)
         }}>详情</a></p></Col>
         {
           item.ApplyStatus ? <Col span={4}><p className="list">{JudgeStatus(item.ApplyStatus)}</p></Col> :
@@ -125,6 +128,7 @@ TmTrainingClass.propTypes = {
   delClass: PropTypes.func,
   getClass: PropTypes.func,
   classType: PropTypes.string,
+  seeClassDetail: PropTypes.func,
   loading: PropTypes.bool,
 };
 export default TmTrainingClass;

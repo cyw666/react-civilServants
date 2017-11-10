@@ -83,11 +83,15 @@
         &.title{
           font-size: @font-size-base;
           color: @text-color;
+          .clearFix();
           img{
             margin-left: 15px;
+            .pull-right();
           }
-          .name{
-            width: auto;
+          a{
+            .pull-left();
+            width: 85%;
+            .ellipsis();
           }
         }
         &>span{

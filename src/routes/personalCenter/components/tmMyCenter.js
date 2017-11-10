@@ -36,7 +36,7 @@ const TmMyCenter = ({
             </div>
           </Col>
           <Col span={4}>
-            <div className="list"><Progress percent={item.BrowseScore.toFixed(1)} status="active"/></div>
+            <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
           </Col>
           <Col span={2}>
             <div className="list">{item.Credit}</div>
@@ -45,7 +45,9 @@ const TmMyCenter = ({
             <div className="list">{item.Type}</div>
           </Col>
           <Col span={2}>
-            <div className="list"><a>播放</a></div>
+            <div className="list">
+              <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank" rel="noopener noreferrer">播放</Link>
+            </div>
           </Col>
           {item.NoteFlag ? <Col span={2}>
               <div className="list"><a onClick={() => {
@@ -98,7 +100,7 @@ const TmMyCenter = ({
             </div>
           </Col>
           <Col span={4}>
-            <div className="list"><Progress percent={item.BrowseScore.toFixed(1)} status="active"/></div>
+            <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
           </Col>
           <Col span={2}>
             <div className="list">{item.Credit}</div>
@@ -107,7 +109,9 @@ const TmMyCenter = ({
             <div className="list">{item.Type}</div>
           </Col>
           <Col span={2}>
-            <div className="list"><a>播放</a></div>
+            <div className="list">
+              <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank" rel="noopener noreferrer">播放</Link>
+            </div>
           </Col>
           {item.NoteFlag ? <Col span={2}>
               <div className="list"><a onClick={() => {
@@ -155,12 +159,12 @@ const TmMyCenter = ({
       return (
         <Row key={index} className={styles.tabList}>
           <Col span={6}>
-            <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
-                                                          target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
+            <div className="list" title={item.Name}>
+              <Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}} target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
             </div>
           </Col>
           <Col span={4}>
-            <div className="list"><Progress percent={item.BrowseScore.toFixed(1)} status="active"/></div>
+            <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
           </Col>
           <Col span={2}>
             <div className="list">{item.Credit}</div>
@@ -169,7 +173,9 @@ const TmMyCenter = ({
             <div className="list">{item.Type}</div>
           </Col>
           <Col span={2}>
-            <div className="list"><a>播放</a></div>
+            <div className="list">
+              <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank" rel="noopener noreferrer">播放</Link>
+            </div>
           </Col>
           {item.NoteFlag ? <Col span={2}>
               <div className="list"><a onClick={() => {

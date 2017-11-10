@@ -95,7 +95,7 @@ const TmCourseDetail = ({
               <td className={styles.list4}>
                 {
                   courseDetailData.BrowseScore >= 0 ?
-                    <Link to="/play" target="_blank" rel="noopener noreferrer" className={styles.red}>
+                    <Link to={{pathname: "/play", query: {courseId: courseDetailData.Id}}} target="_blank" rel="noopener noreferrer" className={styles.red}>
                       <Icon type="play-circle"/> &nbsp;<span>点击播放</span>
                     </Link> :
                     <a onClick={() => {

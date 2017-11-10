@@ -43,14 +43,14 @@ const TmCourseList = ({
           </Link>
         </td>
         <td className={styles.desc}>
-          <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
             <p className={styles.title} title={item.Name}>
-              <span className={styles.name}>{item.Name}</span>
+              <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+                <span className={styles.name}>{item.Name}</span>
+              </Link>
               {
                 item.RequiredFlag?<img src={biXiu} alt="必修"/>:<img src={xuanXiu} alt="选修"/>
               }
             </p>
-          </Link>
           <p>
             <span>学时：{item.Credit}</span>
             <span>主讲人：{item.Teacher}</span>

@@ -328,6 +328,18 @@ function RouterConfig({history, app}) {
               },
             },
             {
+              path: 'classDetail',
+              getComponent (nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/classDetail'))
+                  cb(null, require('./routes/classDetail/classDetail'))
+                })
+              },
+              onEnter (nextState, replace, cb) {
+                setTitle("班级详情", cb);
+              },
+            },
+            {
               path: 'searchGloable',
               getComponent (nextState, cb) {
                 require.ensure([], (require) => {

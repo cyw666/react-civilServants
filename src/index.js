@@ -21,3 +21,13 @@ app.router(require('./router'));
 
 // 5. Start
 app.start('#root');
+
+String.prototype.rsaEnscrypt = function (publicKey) {
+  if (!publicKey) {
+    publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCa4KHNwDX44gGmmIAtRu4gjVYtGWZzcm4t+1wjUD4dn7fMLPvuK7ai4UrfDeEJE1RPwudJw+lJ6crql8wSIg7/DbTlG3ihsCT6dT9H5B9OoeR7K9VWUesaW/iyVL6HXiYOANabW14pvJATDmdq91Tfgp6PSQyvdfiRdV4r07crpQIDAQAB";
+  }
+  var rsaProvider = new JSEncrypt();
+  rsaProvider.setPublicKey(publicKey);
+  var strEncrypt = rsaProvider.encrypt(this.replace(/\+/g, '%2B'));
+  return strEncrypt;
+};

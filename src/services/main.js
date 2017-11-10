@@ -297,3 +297,35 @@ export function play(data) {
 export function courseCommentAdd(data) {
   return fetch.post(api.CourseCommentAdd.url, {...api.CourseCommentAdd.data, ...data});
 }
+/*播放mp4*/
+export function playJwplay(data) {
+  return fetch.post(api.PlayJwplay.url, {...api.PlayJwplay.data, ...data});
+}
+/*单视频播放进度*/
+export function singleProcess(data) {
+  return fetch.post(api.SingleProcess.url, {...api.SingleProcess.data, ...data});
+}
+/*播放Jy*/
+export function playJY(data) {
+  return fetch.post(api.PlayJY.url, {...api.PlayJY.data, ...data});
+}
+/*Jy播放进度*/
+export function jYProcess(data) {
+  return fetch.post(api.JYProcess.url, {...api.JYProcess.data, ...data});
+}
+/*播放Scorm*/
+export function playScorm(data) {
+  return fetch.post(api.PlayScorm.url, {...api.PlayScorm.data, ...data});
+}
+/*Scorm播放进度*/
+export function scormProcess(url,data) {
+  return fetch.post(url, {...api.ScormProcess.data, ...data});
+}
+/*班级详情*/
+export function classDetail(data) {
+  return fetch.post(api.ClassDetail.url, {...api.ClassDetail.data, ...data});
+}
+/*个人学习信息*/
+export function classInformation(data) {
+  return fetch.post(api.ClassInformation.url, {...api.ClassInformation.data, ...data});
+}

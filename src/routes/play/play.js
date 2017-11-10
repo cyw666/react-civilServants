@@ -11,6 +11,9 @@ import {dateFilter} from '../../utils/index'
 import TmDrag from './components/tmDrag'
 import TmAddNote from './components/tmAddNote'
 import TmAddComment from './components/tmAddComment'
+import TmPlayMp4 from './components/tmPlayMp4'
+import TmPlayJy from "./components/tmPlayJy";
+import TmPlayScorm from "./components/tmPlayScorm";
 const TabPane = Tabs.TabPane;
 const Play = ({play, dispatch, loading}) => {
   const {CourseId, PortalId, PlayPage, resultCourseDetail, resultCourseNote, resultComment} = play.playInfo;
@@ -60,12 +63,59 @@ const Play = ({play, dispatch, loading}) => {
       </ul>
     )
   })
+  //播放mp4
+  const playMp4 = ()=>{
+    dispatch({type:'play/playMp4', payload:{courseId:CourseId}});
+  }
+  //提交MP4进度
+  const sendMp4Progress = (options)=>{
+    dispatch({type:'play/sendMp4Progress', payload:options});
+  }
+  //播放Jy
+  const playJy = ()=>{
+    dispatch({type:'play/playJy', payload:{courseId:CourseId}});
+  }
+  //播放Scorm
+  const playScorm = ()=>{
+    dispatch({type:'play/playScorm', payload:{courseId:CourseId}});
+  }
+  //提交Scorm进度
+  const sendScormProgress = (payload)=>{
+    dispatch({type:'play/sendScormProgress', payload});
+  }
+  //滑块拖动完成
+  const dragReady = ()=>{
+    let playPage = PlayPage.split('?')[0];
+    if (playPage == 'PlayJwplay.html') {
+      playMp4();
+    } else if (playPage == 'PlayJy.html') {
+      playJy();
+    } else if (playPage == 'PlayScorm.html') {
+      playScorm();
+    } else if (playPage == 'PlaySingle.html') {
+    
+    } else if (playPage == 'PlayOffice.html') {
+    
+    }
+  }
+
   return (
     <div className={styles.play}>
-      <TmDrag onDragReady={()=>{console.log("ready!")}}></TmDrag>
+      <TmDrag onDragReady={dragReady}></TmDrag>
       <div className={styles.playPage}>
-        <div className={styles.video}>
-          11
+        <div className={styles.video} style={{width: play.showInfo?"72%":"98%"}}>
+          {
+            play.showPlayMp4&&
+            <TmPlayMp4 mp4Data={play.playMp4Data} sendProgress={sendMp4Progress}></TmPlayMp4>
+          }
+          {
+            play.showPlayJy&&
+            <TmPlayJy data={play.playJyData}></TmPlayJy>
+          }
+          {
+            play.showPlayScorm&&
+            <TmPlayScorm data={play.playScormData} sendProgress={sendScormProgress}></TmPlayScorm>
+          }
         </div>
         <div className={cs(`${styles.info}`,{'infoShow':play.showInfo})}>
           <div className={styles.hoverBtn} onClick={toggleInfo}>

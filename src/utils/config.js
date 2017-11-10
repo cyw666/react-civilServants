@@ -405,6 +405,45 @@ module.exports = {
       url: `${API}/Page/CourseCommentAdd`,
       data: {mainId: "", parentId: 0, content: '', rate: ''}
     },
-    
+    /*播放mp4*/
+    PlayJwplay: {
+      url: `${API}/Home/PlayJwplay`,
+      data: {courseId: ''}
+    },
+    /*单视频播放进度*/
+    SingleProcess: {
+      url: `${API}/CourseProcess/SingleProcess`,
+      data: {portalId: '', userId: '', courseId: '', positionen: ''}
+    },
+    /*播放Jy*/
+    PlayJY: {
+      url: `${API}/Home/PlayJY`,
+      data: {courseId: ''}
+    },
+    /*Jy播放进度*/
+    JYProcess: {
+      url: `${API}/CourseProcess/JYProcess`,
+      data: {portalId: '', userId: '', courseId: '', positionen: ''}
+    },
+    /*播放Scorm*/
+    PlayScorm: {
+      url: `${API}/Home/PlayScorm`,
+      data: {courseId: ''}
+    },
+    /*Scorm播放进度*/
+    ScormProcess: {
+      url: `${API}/CourseProcess/ScormProcess`,
+      data: {portalId: '', userId: '', courseId: '', position: ''}
+    },
+    /*班级详情*/
+    ClassDetail: {
+      url: `${API}/Page/ClassDetail`,
+      data: {id:'',titleNav: '培训班详情', page: 1, rows: 9, sort: 'Id', order: 'desc'}
+    },
+    /*个人学习信息*/
+    ClassInformation: {
+      url: `${API}/Page/ClassInformation`,
+      data: {id:'',titleNav: '个人学习信息'}
+    },
   }
 }

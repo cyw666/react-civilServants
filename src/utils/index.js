@@ -1,7 +1,6 @@
 import config from './config'
 import fetch from './request'
 
-
 /**
  * 获取cookie
  */
@@ -117,9 +116,10 @@ const JudgeStatus = (status) => {
   }
   return outputHtml;
 };
+//去掉所有的html标记
 const delHtmlTag = (value) => {
   if (!value) return
-  var result = value.replace(/<[^>]+>|&nbsp;| /ig, "");//去掉所有的html标记
+  var result = value.replace(/<[^>]+>|&nbsp;| /ig, "");
   return result;
 };
 /**
@@ -133,7 +133,7 @@ const queryURL = (name) => {
   return null
 }
 //考试总分
-const examAllScore = (arr) =>{
+const examAllScore = (arr) => {
   var sum = 0;
   for (var i = 0; i < arr.length; i++) {
     sum += arr[i].Question.Score;
@@ -141,7 +141,7 @@ const examAllScore = (arr) =>{
   return sum;
 }
 //答对题目总数
-const countIf = (arr) =>{
+const countIf = (arr) => {
   var count = 0;
   for (var i = 0; i < arr.length; i++) {
     if (arr[i].UserAnswer == arr[i].Question.Answer) {
@@ -151,12 +151,59 @@ const countIf = (arr) =>{
   return count;
 }
 //正确得分
-const rightScore = (arr) =>{
+const rightScore = (arr) => {
   var sum = 0;
   for (var i = 0; i < arr.length; i++) {
     sum += arr[i].UserScore;
   }
   return sum;
+}
+/*
+ * 将秒数格式化时间
+ * @param {Number} seconds: 整数类型的秒数
+ * @return {String} time: 格式化之后的时间
+ */
+const formatTime = (seconds) => {
+  var min = Math.floor(seconds / 60),
+    second = seconds % 60,
+    hour, newMin, time;
+  
+  if (min > 60) {
+    hour = Math.floor(min / 60);
+    newMin = min % 60;
+  }
+  
+  if (second < 10) {
+    second = '0' + second;
+  }
+  if (min < 10) {
+    min = '0' + min;
+  }
+  
+  return time = hour ? (hour + ':' + newMin + ':' + second) : (min + ':' + second);
+}
+/*全屏*/
+const fullScreen = (docElm) => {
+  if (docElm.requestFullscreen) {//W3C
+    docElm.requestFullscreen();
+  } else if (docElm.mozRequestFullScreen) {//FireFox
+    docElm.mozRequestFullScreen();
+  } else if (docElm.webkitRequestFullScreen) {//Chrome等
+    docElm.webkitRequestFullScreen();
+  }
+  else if (docElm.msRequestFullscreen) {//IE11
+    docElm.msRequestFullscreen();
+  }
+}
+/*退出全屏*/
+const exitFullScreen = () => {
+  if(document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if(document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if(document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
 }
 module.exports = {
   config,
@@ -175,4 +222,7 @@ module.exports = {
   examAllScore,
   countIf,
   rightScore,
+  formatTime,
+  fullScreen,
+  exitFullScreen,
 }

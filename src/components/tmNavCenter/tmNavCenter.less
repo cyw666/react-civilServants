@@ -1,0 +1,23 @@
+/**
+ * 导航模块
+ */
+@import "../../themes/mixins";
+.tmClassNav{
+  margin-top: 20px;
+  .categoryGuide{
+    .border-base();
+    .clearFix();
+    .text-center();
+    li{
+      .pull-left();
+      width: 50%;
+      padding: 10px 0;
+      :global{
+        .ant-btn{
+          width: 65%;
+          height: 32px;
+        }
+      }
+    }
+  }
+}

@@ -107,7 +107,7 @@ export default modelExtend(model, {
       if (payload) {
         let data = yield call(addStudyCourse, payload);
         if (data.Type == 1) {
-          let playHref = history.createPath({pathname: '/play', query: {id: payload.checkValue}});
+          let playHref = history.createPath({pathname: '/play', query: {courseId: payload.checkValue}});
           window.open(playHref)
         } else {
           message.error('选课失败！')

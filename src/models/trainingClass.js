@@ -14,6 +14,7 @@ import {
   checkUserClass,
   updateTrainingStudentup,
   updateTrainingStudentdown,
+  classDetail,
 } from '../services/main';
 
 export default modelExtend(model, {
@@ -41,7 +42,11 @@ export default modelExtend(model, {
     },
     isEnterClass: false,
     classType: 'just',
-    categoryId: ''
+    categoryId: '',
+    showModal:false,
+    classDetailData:{
+    
+    }
   },
   reducers: {
     updateClassMy(state, {payload}){
@@ -153,6 +158,16 @@ export default modelExtend(model, {
       } else {
         message.error(data.Message)
       }
+    },
+    *seeClassDetail({payload}, {call, put, select}){
+      let data = yield call(classDetail, payload);
+      yield put({
+        type: 'updateState',
+        payload: {
+          classDetailData: data.Data.Model,
+          showModal: true,
+        }
+      })
     },
   },
   subscriptions: {

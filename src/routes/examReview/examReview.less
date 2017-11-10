@@ -1,6 +1,7 @@
 /**
  * 考试记录查看
  */
+@import "../../themes/mixins";
 .examReview{
   .examTop{
     margin: 0 auto;
@@ -9,7 +10,7 @@
   }
   .xz {
     li {
-      float: left !important;
+      .pull-left();
       font-size: 15px;
       font-weight: bold;
       padding-left: 15px;
