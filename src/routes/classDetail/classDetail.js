@@ -6,31 +6,16 @@ import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import styles from './classDetail.less';
-// import ClassDetailModal from './components/classDetailModal'
-import TmLearningInfo from './components/tmLearningInfo'
-import TmNavCenter from '../../components/tmNavCenter/tmNavCenter'
-import ClassModule from '../trainingClass/components/classModule'
+import TmClassDetail from './components/tmClassDetail'
 
 const ClassDetail = ({classDetail, dispatch, loading}) => {
-  const learningInfoProps = {
-    infoData:classDetail.classInfoData,
-    loading:loading.effects['classDetail/getClassInfo'],
-  }
-  const navCenterProps = {
-    title:"班级导航",
-    navData:classDetail.navData,
+  const classDetailProps ={
+    detailData:classDetail.classDetailData,
+    loading: loading.effects['classDetail/getClassDetail'],
   }
   return (
     <div className={styles.classDetail}>
-      <div className={cs(["container_24"])}>
-        <div className="grid_6">
-          <TmLearningInfo {...learningInfoProps}></TmLearningInfo>
-          <ClassModule classModuleData={classDetail.classMyData} loading={loading.effects['classDetail/classMy']}></ClassModule>
-          <TmNavCenter {...navCenterProps}></TmNavCenter>
-        </div>
-        <div className="grid_18">
-        </div>
-      </div>
+      <TmClassDetail {...classDetailProps}></TmClassDetail>
     </div>
   );
 };

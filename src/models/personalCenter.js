@@ -79,7 +79,23 @@ export default modelExtend(model, {
     showExamModal: false,
     examListData: {
       ListData: []
-    }
+    },
+    navData:[
+      {name:"选择课程",pathname:"/main/courseCenter",query:null},
+      {name:"学习统计",pathname:"/main/testStat",query:null},
+      {name:"考试统计",pathname:"/main/testCenter",query:null},
+      {name:"学习计划",pathname:"/main/studyPlan",query:null},
+      {name:"我的收藏",pathname:"/main/myFavorite",query:null},
+      {name:"留言板",pathname:"/main/messageList",query:null},
+      {name:"学员心声",pathname:"/main/originalArticleList",query:null},
+      {name:"学员风采",pathname:"/main/studentStyle",query:null},
+      {name:"问卷调查",pathname:"/main/pollList",query:null},
+      {name:"必装软件",pathname:"/main/software",query:null},
+      {name:"排行榜",pathname:"/main/rankList",query:null},
+      {name:"专题学习",pathname:"/main/specialLearning",query:null},
+      {name:"成果展示",pathname:"/main/resultShow",query:null},
+      {name:"新闻中心",pathname:"/main/article",query:null},
+    ]
   },
   reducers: {
     updateMyCourseParams(state, {payload}) {

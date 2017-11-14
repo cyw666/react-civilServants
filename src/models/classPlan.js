@@ -1,26 +1,26 @@
 /**
- * 班级详情
+ * 教学计划
  */
 import modelExtend from 'dva-model-extend'
 import {message} from 'antd'
 import {model} from './common'
 
-import {classDetail} from '../services/main';
+import {classPlan} from '../services/main';
 
 export default modelExtend(model, {
-  namespace: 'classDetail',
+  namespace: 'classPlan',
   state: {
     classId: '',
-    classDetailData: {},
+    classPlanData: {},
   },
   reducers: {},
   effects: {
-    * getClassDetail({payload}, {call, put, select}) {
-      let data = yield call(classDetail, payload);
+    * getClassPlan({payload}, {call, put, select}) {
+      let data = yield call(classPlan, payload);
       yield put({
         type: 'updateState',
         payload: {
-          classDetailData: data.Data.Model,
+          classPlanData: data.Data,
         }
       })
     },
@@ -29,10 +29,10 @@ export default modelExtend(model, {
     setup({dispatch, history}) {
       let id;
       history.listen((location) => {
-        if (location.pathname === "/main/grade/classDetail") {
+        if (location.pathname === "/main/grade/classPlan") {
           if (id != location.query.id) {
             id = location.query.id;
-            dispatch({type: 'getClassDetail', payload: {id}});
+            dispatch({type: 'getClassPlan', payload: {id}});
             dispatch({type: 'updateState', payload: {classId: id}});
           }
         }

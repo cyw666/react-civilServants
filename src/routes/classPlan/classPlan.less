@@ -1,0 +1,21 @@
+/**
+ * 教学计划
+ */
+@import "../../themes/mixins";
+
+.classPlan {
+  margin-top: 20px;
+  padding-left: 10px;
+  .innerContent{
+    .border-base();
+    .borderBold {
+      border-top: 6px solid @primary-color;
+      margin-top: 20px;
+    }
+    .teachingPlan {
+      .justify();
+      padding: 10px;
+    }
+  }
+
+}

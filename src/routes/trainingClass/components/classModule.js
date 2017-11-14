@@ -14,7 +14,7 @@ const ClassModule = ({classModuleData, loading}) => {
   const classNameList = ListData.map((item, index) => {
     return (
       <li key={index}>
-        <span className={styles.list1}><Link to={{pathname: "/main/classDetail", query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
+        <span className={styles.list1}><Link to={{pathname: "/main/grade/classDetail", query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
         <span className={styles.list2}>{item.CurrentUser}</span>
       </li>
     )
@@ -34,7 +34,6 @@ const ClassModule = ({classModuleData, loading}) => {
     </div>
   )
 }
-
 
 ClassModule.propTypes = {
   classModuleData: PropTypes.object,

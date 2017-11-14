@@ -438,12 +438,47 @@ module.exports = {
     /*班级详情*/
     ClassDetail: {
       url: `${API}/Page/ClassDetail`,
-      data: {id:'',titleNav: '培训班详情', page: 1, rows: 9, sort: 'Id', order: 'desc'}
+      data: {id: '', titleNav: '培训班详情', page: 1, rows: 9, sort: 'Id', order: 'desc'}
     },
     /*个人学习信息*/
     ClassInformation: {
       url: `${API}/Page/ClassInformation`,
-      data: {id:'',titleNav: '个人学习信息'}
+      data: {id: '', titleNav: '个人学习信息'}
+    },
+    /*教学计划*/
+    ClassPlan: {
+      url: `${API}/Page/ClassPlan`,
+      data: {id: '', titleNav: '教学计划'}
+    },
+    /*同学名录*/
+    ClassStudent: {
+      url: `${API}/Page/ClassStudent`,
+      data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '同学名录'}
+    },
+    /*班级论文*/
+    ClassPaperList: {
+      url: `${API}/Page/ClassPaperList`,
+      data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '班级论文', wordLimt: 30}
+    },
+    /*班级话题*/
+    ClassTopicList: {
+      url: `${API}/Page/ClassTopicList`,
+      data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '班级话题', wordLimt: 30}
+    },
+    /*班级公告*/
+    ClassNoticeList: {
+      url: `${API}/Page/ClassNoticeList`,
+      data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '班级公告', wordLimt: 30}
+    },
+    /*班级课程*/
+    ClassCourse: {
+      url: `${API}/Page/ClassCourse`,
+      data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '班级课程', wordLimt: 30}
+    },
+    /*班级考试*/
+    ClassExam: {
+      url: `${API}/Page/ClassExam`,
+      data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '班级考试', wordLimt: 30}
     },
   }
 }

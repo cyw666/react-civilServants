@@ -329,3 +329,31 @@ export function classDetail(data) {
 export function classInformation(data) {
   return fetch.post(api.ClassInformation.url, {...api.ClassInformation.data, ...data});
 }
+/*教学计划*/
+export function classPlan(data) {
+  return fetch.post(api.ClassPlan.url, {...api.ClassPlan.data, ...data});
+}
+/*同学名录*/
+export function classStudent(data) {
+  return fetch.post(api.ClassStudent.url, {...api.ClassStudent.data, ...data});
+}
+/*班级论文*/
+export function classPaperList(data) {
+  return fetch.post(api.ClassPaperList.url, {...api.ClassPaperList.data, ...data});
+}
+/*班级话题*/
+export function classTopicList(data) {
+  return fetch.post(api.ClassTopicList.url, {...api.ClassTopicList.data, ...data});
+}
+/*班级公告*/
+export function classNoticeList(data) {
+  return fetch.post(api.ClassNoticeList.url, {...api.ClassNoticeList.data, ...data});
+}
+/*班级课程*/
+export function classCourse(data) {
+  return fetch.post(api.ClassCourse.url, {...api.ClassCourse.data, ...data});
+}
+/*班级考试*/
+export function classExam(data) {
+  return fetch.post(api.ClassExam.url, {...api.ClassExam.data, ...data});
+}

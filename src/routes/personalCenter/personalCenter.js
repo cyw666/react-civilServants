@@ -8,6 +8,7 @@ import cs from 'classnames';
 import styles from './personalCenter.less';
 import {TmMyCenter} from './components/index'
 import UserInformation from '../../components/userInformation/userInformation'
+import TmNavCenter from '../../components/tmNavCenter/tmNavCenter'
 import ExamModal from './components/examModal'
 import StudyPlanModal from './components/studyPlanModal'
 import NotesModal from './components/notesModal'
@@ -18,6 +19,10 @@ const PersonalCenter = ({app, personalCenter, dispatch, loading, history}) => {
       dispatch({type: 'app/loginOut', payload: personalCenter.token});
     },
     loading: loading.effects['app/getUserInformation']
+  }
+  const navCenterProps = {
+    title:"个人中心导航",
+    navData:personalCenter.navData,
   }
   const myCenterProps = {
     courseData: personalCenter.myCourseData,
@@ -144,6 +149,7 @@ const PersonalCenter = ({app, personalCenter, dispatch, loading, history}) => {
       <div className={cs(["container_24"])}>
         <div className="grid_7">
           <UserInformation {...userInforProps}></UserInformation>
+          <TmNavCenter {...navCenterProps}></TmNavCenter>
         </div>
         <div className="grid_17">
           <TmMyCenter {...myCenterProps}></TmMyCenter>

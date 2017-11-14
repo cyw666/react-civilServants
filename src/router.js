@@ -3,6 +3,7 @@ import {Router, Route} from 'dva/router';
 import {message} from 'antd'
 import App from './routes/App';
 import Main from './routes/Main';
+import grade from './routes/grade/grade';
 import {authorization, keepOnline} from './services/main';
 /*注册model*/
 const registerModel = (app, model) => {
@@ -98,7 +99,7 @@ function RouterConfig({history, app}) {
               cb(null, {component: require('./routes/IndexPage/IndexPage')})
             })
           },
-          childRoutes: [
+          childRoutes:[
             {
               path: 'indexPage',
               getComponent (nextState, cb) {
@@ -328,16 +329,112 @@ function RouterConfig({history, app}) {
               },
             },
             {
-              path: 'classDetail',
-              getComponent (nextState, cb) {
+              path: 'grade',
+              component:grade,
+              getIndexRoute (nextState, cb) {
                 require.ensure([], (require) => {
                   registerModel(app, require('./models/classDetail'))
                   cb(null, require('./routes/classDetail/classDetail'))
                 })
               },
-              onEnter (nextState, replace, cb) {
-                setTitle("班级详情", cb);
-              },
+              childRoutes:[
+                {
+                  path: 'classDetail',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classDetail'))
+                      cb(null, require('./routes/classDetail/classDetail'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("课程详情", cb);
+                  },
+                },
+                {
+                  path: 'classPlan',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classPlan'))
+                      cb(null, require('./routes/classPlan/classPlan'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("教学计划", cb);
+                  },
+                },
+                {
+                  path: 'classStudent',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classStudent'))
+                      cb(null, require('./routes/classStudent/classStudent'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("同学名录", cb);
+                  },
+                },
+                {
+                  path: 'classPaperList',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classPaperList'))
+                      cb(null, require('./routes/classPaperList/classPaperList'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("班级论文", cb);
+                  },
+                },
+                {
+                  path: 'classTopicList',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classTopicList'))
+                      cb(null, require('./routes/classTopicList/classTopicList'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("班级话题", cb);
+                  },
+                },
+                {
+                  path: 'classNotice',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classNotice'))
+                      cb(null, require('./routes/classNotice/classNotice'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("班级公告", cb);
+                  },
+                },
+                {
+                  path: 'classCourse',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classCourse'))
+                      cb(null, require('./routes/classCourse/classCourse'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("班级课程", cb);
+                  },
+                },
+                {
+                  path: 'classExam',
+                  getComponent (nextState, cb) {
+                    require.ensure([], (require) => {
+                      registerModel(app, require('./models/classExam'))
+                      cb(null, require('./routes/classExam/classExam'))
+                    })
+                  },
+                  onEnter (nextState, replace, cb) {
+                    setTitle("班级考试", cb);
+                  },
+                },
+              ]
             },
             {
               path: 'searchGloable',
