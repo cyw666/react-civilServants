@@ -7,6 +7,7 @@ import {Link} from 'dva/router'
 import {Breadcrumb, Icon, Spin} from 'antd';
 import {dateFilter} from '../../../utils/index'
 import styles from './tmNoticeDetail.less'
+
 const TmNoticeDetail = ({noticeDetailData, favoriteAdd, favoriteDelete, loading, breadcrumbItem}) => {
   const {
     AttachmentName,

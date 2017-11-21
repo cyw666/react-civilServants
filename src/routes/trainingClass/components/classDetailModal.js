@@ -3,10 +3,10 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'dva/router'
 import styles from './classDetailModal.less'
-import {dateFilter} from'../../../utils/index'
-import {Modal,Icon} from 'antd';
+import {dateFilter} from '../../../utils/index'
+import {Modal, Icon} from 'antd';
+
 const ClassDetailModal = ({closeModal, showModal, data}) => {
   
   return (
@@ -18,8 +18,8 @@ const ClassDetailModal = ({closeModal, showModal, data}) => {
     >
       <div className={styles.classModal}>
         <div className={styles.classTip}>
-            <span className={styles.tipTitle}><Icon type="smile" style={{color:"#333"}}/> 友情提示：<br/></span>
-            <span className={styles.tipDesc}>班级简介会有介绍学习班级内容的规则和标准哦 请学员仔细查看，祝您学习愉快！</span>
+          <span className={styles.tipTitle}><Icon type="smile" style={{color: "#333"}}/> 友情提示：<br/></span>
+          <span className={styles.tipDesc}>班级简介会有介绍学习班级内容的规则和标准哦 请学员仔细查看，祝您学习愉快！</span>
         </div>
         <div className={styles.classContent}>
           <p>班级名称：{data.Name}</p>

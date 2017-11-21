@@ -15,11 +15,11 @@ const ModifyPassword = ({app, modifyPassword, dispatch, loading}) => {
     loading: loading.effects['app/getUserInformation']
   }
   const tmModifyPasswordProps = {
-    updatePwd: (values)=>{
+    updatePwd: (values) => {
       const {newPwd, oldPwd} = values;
       const pwdParams = {newPwd, oldPwd};
-      let sendParams = {...pwdParams,...modifyPassword.token};
-      dispatch({type:'modifyPassword/updatePwd',payload:sendParams})
+      let sendParams = {...pwdParams, ...modifyPassword.token};
+      dispatch({type: 'modifyPassword/updatePwd', payload: sendParams})
     }
   }
   return (

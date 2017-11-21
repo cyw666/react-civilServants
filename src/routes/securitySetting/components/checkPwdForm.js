@@ -3,16 +3,17 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Input, Form, Row, Col, Button} from 'antd';
+import {Input, Form, Button} from 'antd';
 import styles from './checkPwdForm.less'
+
 const FormItem = Form.Item;
 const CheckPwdForm = ({
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  checkPwd,
-}) => {
+                        form: {
+                          getFieldDecorator,
+                          validateFieldsAndScroll,
+                        },
+                        checkPwd,
+                      }) => {
   const formItemLayout = {
     labelCol: {
       span: 5,

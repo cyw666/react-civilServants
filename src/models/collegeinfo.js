@@ -11,7 +11,7 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateSearchResult(state, {payload}){
+    updateSearchResult(state, {payload}) {
       return {
         ...state,
         searchParams: {...state.searchParams, ...payload}
@@ -19,7 +19,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getCollegeinfo({payload}, {call, put}){
+    * getCollegeinfo({payload}, {call, put}) {
       let data = yield call(collegeInfo, payload);
       yield put({
         type: 'updateState',

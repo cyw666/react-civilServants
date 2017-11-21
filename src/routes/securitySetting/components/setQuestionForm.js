@@ -5,15 +5,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Input, Form, Row, Col, Button} from 'antd';
 import styles from './setQuestionForm.less'
+
 const FormItem = Form.Item;
 const SetQuestionForm = ({
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  setQuestion,
-  question,
-}) => {
+                           form: {
+                             getFieldDecorator,
+                             validateFieldsAndScroll,
+                           },
+                           setQuestion,
+                           question,
+                         }) => {
   const formItemLayout = {
     labelCol: {span: 6},
     wrapperCol: {span: 18},
@@ -35,9 +36,9 @@ const SetQuestionForm = ({
   };
   const questionList = question.map((item, index) => {
     return (
-      <Row gutter={40}  key={index}>
+      <Row gutter={40} key={index}>
         <Col span={12}>
-          <FormItem {...formItemLayout} label={`问题${index+1}`}>
+          <FormItem {...formItemLayout} label={`问题${index + 1}`}>
             {getFieldDecorator(`questions[${index}].Question`, {
               initialValue: item.Question,
             })(
@@ -46,7 +47,7 @@ const SetQuestionForm = ({
           </FormItem>
         </Col>
         <Col span={12}>
-          <FormItem {...formItemLayout} label={`答案${index+1}`}>
+          <FormItem {...formItemLayout} label={`答案${index + 1}`}>
             {getFieldDecorator(`questions[${index}].Answer`, {
               initialValue: item.Answer,
             })(

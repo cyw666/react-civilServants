@@ -5,7 +5,7 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import {Rate, Progress, Tabs, Icon,Button} from 'antd'
+import {Rate, Progress, Tabs, Icon, Button} from 'antd'
 import styles from './play.less';
 import {dateFilter} from '../../utils/index'
 import TmDrag from './components/tmDrag'
@@ -14,48 +14,51 @@ import TmAddComment from './components/tmAddComment'
 import TmPlayMp4 from './components/tmPlayMp4'
 import TmPlayJy from "./components/tmPlayJy";
 import TmPlayScorm from "./components/tmPlayScorm";
+
 const TabPane = Tabs.TabPane;
 const Play = ({play, dispatch, loading}) => {
   const {CourseId, PortalId, PlayPage, resultCourseDetail, resultCourseNote, resultComment} = play.playInfo;
   
   //切换侧边栏
-  const toggleInfo = () =>{
-    dispatch({type:'play/updateState',payload:{showInfo:!play.showInfo}})
+  const toggleInfo = () => {
+    dispatch({type: 'play/updateState', payload: {showInfo: !play.showInfo}})
   }
   //添加笔记
-  const addNote = (params)=>{
-    dispatch({type:'play/addNote', payload:params})
+  const addNote = (params) => {
+    dispatch({type: 'play/addNote', payload: params})
   }
   //删除笔记
-  const delNote = (params)=>{
-    dispatch({type:'play/delNote', payload:{id:params}})
+  const delNote = (params) => {
+    dispatch({type: 'play/delNote', payload: {id: params}})
   }
   //添加评论
-  const courseCommentAdd = (params) =>{
-    dispatch({type:'play/courseCommentAdd', payload:params})
+  const courseCommentAdd = (params) => {
+    dispatch({type: 'play/courseCommentAdd', payload: params})
   }
   //笔记列表
-  const noteList = resultCourseNote.map((item,index)=>{
+  const noteList = resultCourseNote.map((item, index) => {
     return (
       <ul key={index} className={styles.commentList}>
         <li className={styles.title}>
           <span>标题：{item.Name}</span>
-          <span className={styles.time}>{dateFilter(item.CreateDate,'yyyy-MM-dd')}</span>
+          <span className={styles.time}>{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</span>
         </li>
         <li>
           <span>{item.Content}</span>
-          <Button onClick={()=>{delNote(item.Id)}} className={styles.del}>删除</Button>
+          <Button onClick={() => {
+            delNote(item.Id)
+          }} className={styles.del}>删除</Button>
         </li>
       </ul>
     )
   })
   //评论列表
-  const commentList = resultComment.map((item,index)=>{
+  const commentList = resultComment.map((item, index) => {
     return (
       <ul key={index} className={styles.commentList}>
         <li className={styles.title}>
           <span>用户名：{item.UserName}</span>
-          <span className={styles.time}>{dateFilter(item.CreateDate,'yyyy-MM-dd')}</span>
+          <span className={styles.time}>{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</span>
         </li>
         <li>
           <span>{item.Comment}</span>
@@ -64,27 +67,27 @@ const Play = ({play, dispatch, loading}) => {
     )
   })
   //播放mp4
-  const playMp4 = ()=>{
-    dispatch({type:'play/playMp4', payload:{courseId:CourseId}});
+  const playMp4 = () => {
+    dispatch({type: 'play/playMp4', payload: {courseId: CourseId}});
   }
   //提交MP4进度
-  const sendMp4Progress = (options)=>{
-    dispatch({type:'play/sendMp4Progress', payload:options});
+  const sendMp4Progress = (options) => {
+    dispatch({type: 'play/sendMp4Progress', payload: options});
   }
   //播放Jy
-  const playJy = ()=>{
-    dispatch({type:'play/playJy', payload:{courseId:CourseId}});
+  const playJy = () => {
+    dispatch({type: 'play/playJy', payload: {courseId: CourseId}});
   }
   //播放Scorm
-  const playScorm = ()=>{
-    dispatch({type:'play/playScorm', payload:{courseId:CourseId}});
+  const playScorm = () => {
+    dispatch({type: 'play/playScorm', payload: {courseId: CourseId}});
   }
   //提交Scorm进度
-  const sendScormProgress = (payload)=>{
-    dispatch({type:'play/sendScormProgress', payload});
+  const sendScormProgress = (payload) => {
+    dispatch({type: 'play/sendScormProgress', payload});
   }
   //滑块拖动完成
-  const dragReady = ()=>{
+  const dragReady = () => {
     let playPage = PlayPage.split('?')[0];
     if (playPage == 'PlayJwplay.html') {
       playMp4();
@@ -98,26 +101,26 @@ const Play = ({play, dispatch, loading}) => {
     
     }
   }
-
+  
   return (
     <div className={styles.play}>
       <TmDrag onDragReady={dragReady}></TmDrag>
       <div className={styles.playPage}>
-        <div className={styles.video} style={{width: play.showInfo?"72%":"98%"}}>
+        <div className={styles.video} style={{width: play.showInfo ? "72%" : "98%"}}>
           {
-            play.showPlayMp4&&
+            play.showPlayMp4 &&
             <TmPlayMp4 mp4Data={play.playMp4Data} sendProgress={sendMp4Progress}></TmPlayMp4>
           }
           {
-            play.showPlayJy&&
+            play.showPlayJy &&
             <TmPlayJy data={play.playJyData}></TmPlayJy>
           }
           {
-            play.showPlayScorm&&
+            play.showPlayScorm &&
             <TmPlayScorm data={play.playScormData} sendProgress={sendScormProgress}></TmPlayScorm>
           }
         </div>
-        <div className={cs(`${styles.info}`,{'infoShow':play.showInfo})}>
+        <div className={cs(`${styles.info}`, {'infoShow': play.showInfo})}>
           <div className={styles.hoverBtn} onClick={toggleInfo}>
             <span>课</span>
             <span>程</span>
@@ -134,7 +137,8 @@ const Play = ({play, dispatch, loading}) => {
               <Rate disabled defaultValue={2}/>
               <div className="clearFix">
                 <span className="pull-left">课程进度：</span>
-                <div className={styles.progress}><Progress percent={resultCourseDetail.BrowseScore} status="active"/></div>
+                <div className={styles.progress}><Progress percent={resultCourseDetail.BrowseScore} status="active"/>
+                </div>
               </div>
               <p className={styles.desc}>课程描述：{resultCourseDetail.Description}</p>
             </div>

@@ -13,6 +13,7 @@ import linkLogo3 from '../../assets/linkLogo3.png'
 import linkLogo9 from '../../assets/linkLogo9.png'
 import linkLogo7 from '../../assets/linkLogo7.png'
 import {Menu, Dropdown, Button, Icon} from 'antd';
+
 const Footer = ({blogrollData}) => {
   const dropdown = blogrollData["ListData"].map((item1, index1) => {
     const menuItem = item1["Nodes"].map((item2, index2) => {
@@ -40,12 +41,19 @@ const Footer = ({blogrollData}) => {
       <div className={cs(["container_24"])}>
         <GeneralHead showIcon={false} title="友情链接"></GeneralHead>
         <ul className={styles.imgLink}>
-          <li><a href="http://www.hngbwlxy.gov.cn" target="_blank" rel="noopener noreferrer"><img src={linkLogo1} alt=""/></a></li>
-          <li><a href="http://www.hngbjy.com/" target="_blank" rel="noopener noreferrer"><img src={linkLogo4} alt=""/></a></li>
-          <li><a href="http://122.225.101.117:81/#/main" target="_blank" rel="noopener noreferrer"><img src={linkLogo8} alt=""/></a></li>
-          <li><a href="http://www.bhgbzx.gov.cn" target="_blank" rel="noopener noreferrer"><img src={linkLogo3} alt=""/></a></li>
-          <li><a href="http://gjwlxy.ljxfw.gov.cn/Default.aspx" target="_blank" rel="noopener noreferrer"><img src={linkLogo9} alt=""/></a></li>
-          <li className={styles.last}><a href="http://cqgj.12371.gov.cn/" target="_blank" rel="noopener noreferrer"><img src={linkLogo7} alt=""/></a>
+          <li><a href="http://www.hngbwlxy.gov.cn" target="_blank" rel="noopener noreferrer"><img src={linkLogo1}
+                                                                                                  alt=""/></a></li>
+          <li><a href="http://www.hngbjy.com/" target="_blank" rel="noopener noreferrer"><img src={linkLogo4}
+                                                                                              alt=""/></a></li>
+          <li><a href="http://122.225.101.117:81/#/main" target="_blank" rel="noopener noreferrer"><img src={linkLogo8}
+                                                                                                        alt=""/></a>
+          </li>
+          <li><a href="http://www.bhgbzx.gov.cn" target="_blank" rel="noopener noreferrer"><img src={linkLogo3} alt=""/></a>
+          </li>
+          <li><a href="http://gjwlxy.ljxfw.gov.cn/Default.aspx" target="_blank" rel="noopener noreferrer"><img
+            src={linkLogo9} alt=""/></a></li>
+          <li className={styles.last}><a href="http://cqgj.12371.gov.cn/" target="_blank" rel="noopener noreferrer"><img
+            src={linkLogo7} alt=""/></a>
           </li>
         </ul>
         <div className={styles.slideLink}>

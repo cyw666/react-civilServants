@@ -6,43 +6,31 @@ import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
 import moment from 'moment';
-import {
-  Form,
-  Input,
-  Breadcrumb,
-  Icon,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Collapse,
-  Button,
-  DatePicker,
-  Table
-} from 'antd';
+import {Form, Breadcrumb, Icon, Collapse, Button, Table,DatePicker} from 'antd';
 import styles from './personalFile.less';
 import GeneralHead from '../../components/GeneralHead/GeneralHead'
 import {dateFilter} from '../../utils/index'
+
 const FormItem = Form.Item;
 const RangePicker = DatePicker.RangePicker;
 const Panel = Collapse.Panel;
 const PersonalFile = ({
-  personalFile:{
-    personalFileData:{
-      Model,
-      ViewBag
-    },
-    params
-  },
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-    getFieldValue,
-    validateFields,
-  },
-  dispatch,
-  loading
-}) => {
+                        personalFile: {
+                          personalFileData: {
+                            Model,
+                            ViewBag
+                          },
+                          params
+                        },
+                        form: {
+                          getFieldDecorator,
+                          validateFieldsAndScroll,
+                          getFieldValue,
+                          validateFields,
+                        },
+                        dispatch,
+                        loading
+                      }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
@@ -52,16 +40,16 @@ const PersonalFile = ({
           startDate: rangeValue[0].format('YYYY-MM-DD'),
           endDate: rangeValue[1].format('YYYY-MM-DD'),
         }
-        let payload = {...params,...returnValue};
-        dispatch({type:'personalFile/getStudyStatistics',payload})
+        let payload = {...params, ...returnValue};
+        dispatch({type: 'personalFile/getStudyStatistics', payload})
         console.log('Received values of form: ', payload);
       }
     });
   }
   const studyCourseSource = Model.StudyCourseModel && Model.StudyCourseModel.map((item, index) => {
-      let sourse = {...item, ...{key: index}}
-      return sourse
-    });
+    let sourse = {...item, ...{key: index}}
+    return sourse
+  });
   const pageConfig = {
     pageSize: 5,
     showQuickJumper: true,
@@ -123,14 +111,14 @@ const PersonalFile = ({
     }
   ];
   const examSource = Model.ExamCreditModel && Model.ExamCreditModel.map((item, index) => {
-      let sourse = {...item, ...{key: index}}
-      return sourse
-    });
+    let sourse = {...item, ...{key: index}}
+    return sourse
+  });
   const examColumns = [
     {
       title: '序号	',
       render: (text, record, index) => (
-        <span>{index+1}</span>
+        <span>{index + 1}</span>
       )
     },
     {
@@ -153,9 +141,9 @@ const PersonalFile = ({
     }
   ];
   const trainSource = Model.TrainCreditModel && Model.TrainCreditModel.map((item, index) => {
-      let sourse = {...item, ...{key: index}}
-      return sourse
-    });
+    let sourse = {...item, ...{key: index}}
+    return sourse
+  });
   const trainColumns = [
     {
       title: '姓名	',
@@ -246,7 +234,7 @@ const PersonalFile = ({
                       rules: [{type: 'array', required: false, message: '请选择日期!'}],
                       initialValue: [moment('2019/09/01', 'YYYY/MM/DD'), moment('2017/09/25', 'YYYY/MM/DD')]
                     })(
-                      <RangePicker />
+                      <RangePicker/>
                     )}
                   </FormItem>
                   <FormItem>

@@ -3,22 +3,18 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Button, Breadcrumb, Icon, Input, Tabs, Row, Col, Spin} from 'antd'
-import {Link} from 'dva/router'
 import styles from './tmLearningInfo.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
-import {dateFilter, JudgeStatus} from '../../../utils/index'
-const Search = Input.Search
-const TabPane = Tabs.TabPane;
+
 const TmLearningInfo = ({infoData, loading}) => {
-  const {Model,ViewBag} = infoData;
+  const {Model, ViewBag} = infoData;
   return (
     <div className={styles.tmLearningInfo}>
       <GeneralHead showIcon={false} title={'个人学习信息'}></GeneralHead>
       <div className={styles.content}>
         {
-          Model.RemainingTime?
-            <p className={styles.title}>班级还有<span className="highlight">【{Model.RemainingTime}】</span>结束</p>:
+          Model.RemainingTime ?
+            <p className={styles.title}>班级还有<span className="highlight">【{Model.RemainingTime}】</span>结束</p> :
             <p className={styles.title}>班级 <span className="highlight">【已结束】</span></p>
         }
         <p>必修课(已学 | 总课数):
@@ -32,22 +28,22 @@ const TmLearningInfo = ({infoData, loading}) => {
         <p>
           考试：
           {
-            Model.ExamCount>0?
+            Model.ExamCount > 0 ?
               <span>
                 (已完成 | 考试数 | 必考数)：
                 <span className="highlight">{Model.FinishExamCount}</span> |&nbsp;
                 <span className="highlight">{Model.ExamCount}</span> |&nbsp;
                 <span className="highlight">{Model.ExamPassCount}</span>
-              </span>:
+              </span> :
               <span className="highlight">未安排</span>
           }
         </p>
         <p>
           <span>培训班考核状态：</span>
           {
-            ViewBag.PassStatus=='Pass'?<span className="highlight">通过</span>:
-              ViewBag.PassStatus=='UnPass'?<span className="highlight">未通过</span>:
-                ViewBag.PassStatus=='UnFinish'?<span className="highlight">未结业</span>:<span></span>
+            ViewBag.PassStatus == 'Pass' ? <span className="highlight">通过</span> :
+              ViewBag.PassStatus == 'UnPass' ? <span className="highlight">未通过</span> :
+                ViewBag.PassStatus == 'UnFinish' ? <span className="highlight">未结业</span> : <span></span>
           }
         </p>
       </div>
@@ -57,7 +53,7 @@ const TmLearningInfo = ({infoData, loading}) => {
 
 
 TmLearningInfo.propTypes = {
-  infoData:PropTypes.object,
+  infoData: PropTypes.object,
   loading: PropTypes.bool,
 };
 export default TmLearningInfo;

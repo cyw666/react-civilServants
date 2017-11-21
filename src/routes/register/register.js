@@ -5,29 +5,39 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete} from 'antd';
+import {Form, Input, Cascader, Row, Col, Checkbox, Button} from 'antd';
 import styles from './register.less';
 import VerificationCode from '../../components/verificationCode/verificationCode'
 import Agreement from './components/agreement'
 import {getGroupList} from '../../services/main'
+
 const FormItem = Form.Item;
 const Register = ({
-  register,
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-    getFieldValue,
-    validateFields,
-  },
-  dispatch,
-  loading
-}) => {
+                    register,
+                    form: {
+                      getFieldDecorator,
+                      validateFieldsAndScroll,
+                      getFieldValue,
+                      validateFields,
+                    },
+                    dispatch,
+                    loading
+                  }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
       if (!err) {
-        const {account, name, password, mobile, idcard, email, groupid, smgcode,agreement,confirmPassword} = values;
-        const registerParams = {account, name, password, mobile, idcard, email, groupid:groupid[groupid.length-1], smgcode};
+        const {account, name, password, mobile, idcard, email, groupid, smgcode, agreement, confirmPassword} = values;
+        const registerParams = {
+          account,
+          name,
+          password,
+          mobile,
+          idcard,
+          email,
+          groupid: groupid[groupid.length - 1],
+          smgcode
+        };
         dispatch({
           type: 'register/register',
           payload: registerParams
@@ -80,12 +90,12 @@ const Register = ({
       },
     },
   };
-  const sendCode = (callback)=>{
-    validateFields(['mobile'], { force: true },(err, values) => {
+  const sendCode = (callback) => {
+    validateFields(['mobile'], {force: true}, (err, values) => {
       if (!err) {
         dispatch({
-          type:'register/sendMsg',
-          payload:{mobileNo:values.mobile,callback}
+          type: 'register/sendMsg',
+          payload: {mobileNo: values.mobile, callback}
         })
       }
     });
@@ -93,27 +103,27 @@ const Register = ({
   const loadGroupId = (selectedOptions) => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
     targetOption.loading = true;
-    getGroupList({id:targetOption.value}).then((data)=>{
+    getGroupList({id: targetOption.value}).then((data) => {
       targetOption.loading = false;
       let residences = [];
       data.forEach((item, index) => {
-        residences.push({value: String(item.id), label: item.text, isLeaf:!item.SunFlag})
+        residences.push({value: String(item.id), label: item.text, isLeaf: !item.SunFlag})
       })
       targetOption.children = residences;
       dispatch({
-        type:'register/updateGroupList',
-        payload:register.groupList
+        type: 'register/updateGroupList',
+        payload: register.groupList
       })
     })
   }
   const agreementProps = {
-    title:"干部教育网络学院注册服务协议",
-    visible:register.registerModal,
-    handleOk:()=>{
-      dispatch({type:'register/updateState',payload:{registerModal:false}})
+    title: "干部教育网络学院注册服务协议",
+    visible: register.registerModal,
+    handleOk: () => {
+      dispatch({type: 'register/updateState', payload: {registerModal: false}})
     },
-    handleCancel:()=>{
-      dispatch({type:'register/updateState',payload:{registerModal:false}})
+    handleCancel: () => {
+      dispatch({type: 'register/updateState', payload: {registerModal: false}})
     }
   }
   return (
@@ -262,9 +272,10 @@ const Register = ({
             <FormItem {...tailFormItemLayout} style={{marginBottom: 8}}>
               {getFieldDecorator('agreement', {
                 valuePropName: 'checked',
-                initialValue:false
+                initialValue: false
               })(
-                <Checkbox>我已经阅读并同意 <a onClick={()=>dispatch({type:'register/updateState',payload:{registerModal:true}})}>《干部教育网络学院注册服务协议》</a></Checkbox>
+                <Checkbox>我已经阅读并同意 <a
+                  onClick={() => dispatch({type: 'register/updateState', payload: {registerModal: true}})}>《干部教育网络学院注册服务协议》</a></Checkbox>
               )}
             </FormItem>
             <FormItem {...tailFormItemLayout}>

@@ -5,8 +5,7 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import {Link} from 'dva/router'
-import {Button, Breadcrumb, Icon, Input, Tabs, Row, Col, Spin, Progress, Pagination} from 'antd'
-import cs from 'classnames';
+import {Breadcrumb, Icon, Row, Col, Spin, Pagination} from 'antd'
 import styles from './classStudent.less';
 
 const ClassStudent = ({classStudent, dispatch, loading}) => {
@@ -65,7 +64,7 @@ const ClassStudent = ({classStudent, dispatch, loading}) => {
               {contentList}
             </div>
             {
-              pageOptions.total>0?
+              pageOptions.total > 0 ?
                 <Pagination showQuickJumper {...pageOptions} onChange={pageSizeChange} showTotal={(total) => {
                   return `共${total}条`
                 }}/>

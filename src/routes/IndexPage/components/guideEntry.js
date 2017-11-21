@@ -11,6 +11,7 @@ import entrance3 from '../../../assets/entrance3.png'
 import entrance4 from '../../../assets/entrance4.png'
 import entrance5 from '../../../assets/entrance5.png'
 import entrance6 from '../../../assets/entrance6.png'
+
 const GuideEntry = () => {
   let guideListData = [
     {title: '平台介绍', imgSrc: entrance1, url: '/main/collegeinfo'},

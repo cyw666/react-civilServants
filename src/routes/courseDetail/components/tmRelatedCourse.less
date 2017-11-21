@@ -2,10 +2,11 @@
  * 相关课程模块
  */
 @import "../../../themes/mixins";
-.tmRelatedCourse{
+
+.tmRelatedCourse {
   .border-base();
   border-top: none;
-  .title{
+  .title {
     color: @text-color;
     background-color: @gray-f3;
     border-color: @gray-ddd;
@@ -13,33 +14,33 @@
     font-size: @font-size-lg;
     font-weight: 500;
   }
-  ul{
+  ul {
     .clearFix();
     margin: 20px 0;
     min-height: 200px;
-    li{
+    li {
       .pull-left();
       margin-left: 33px;
       min-height: 200px;
       width: 200px;
       margin-bottom: 10px;
       position: relative;
-      a{
-        img{
-          .wh(200px,127px);
+      a {
+        img {
+          .wh(200px, 127px);
         }
       }
-      .desc{
+      .desc {
         margin-top: 10px;
-        p{
+        p {
           line-height: 23px;
           max-width: 190px;
           .ellipsis();
           color: @text-color-3;
-          a{
+          a {
             font-size: @font-size-lg;
             color: #003333;
-            &:hover{
+            &:hover {
               color: #004848;
             }
           }

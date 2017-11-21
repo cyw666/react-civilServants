@@ -12,6 +12,7 @@ function Main({children, app, dispatch}) {
 function mapStateToProps({app, loading}) {
   return {app, loading};
 }
+
 Main.propTypes = {
   children: PropTypes.element.isRequired,
   location: PropTypes.object,

@@ -14,7 +14,7 @@ export default modelExtend(model, {
     articleCategory: {
       ListData: []
     },
-    expandedKeys:[],
+    expandedKeys: [],
     articleListData: {
       ListData: []
     },
@@ -33,7 +33,7 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updateArticleParams(state, {payload}){
+    updateArticleParams(state, {payload}) {
       return {
         ...state,
         articleParams: {...state.articleParams, ...payload}
@@ -41,7 +41,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getArticleList({payload}, {call, put}){
+    * getArticleList({payload}, {call, put}) {
       let data = yield call(articleList, payload);
       yield put({
         type: 'updateState',
@@ -56,7 +56,7 @@ export default modelExtend(model, {
       });
       yield put({type: 'updateArticleParams', payload});
     },
-    *getHotArticle({payload}, {call, put}){
+    * getHotArticle({payload}, {call, put}) {
       let data = yield call(articleList, payload);
       yield put({
         type: 'updateState',
@@ -65,7 +65,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getArticleCategory({payload}, {call, put}){
+    * getArticleCategory({payload}, {call, put}) {
       let data = yield call(articleCategory, payload);
       let expandedKeys = [];
       expandedKeys.push((data.Data.ListData[0].id).toString());
@@ -73,7 +73,7 @@ export default modelExtend(model, {
         type: 'updateState',
         payload: {
           articleCategory: data.Data,
-          expandedKeys:expandedKeys
+          expandedKeys: expandedKeys
         }
       });
     },

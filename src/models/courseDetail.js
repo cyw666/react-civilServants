@@ -5,6 +5,7 @@ import modelExtend from 'dva-model-extend'
 import {message} from 'antd'
 import {createHistory, useQueries} from 'history'
 import {model} from './common'
+
 const history = useQueries(createHistory)()
 import {
   courseContent,
@@ -57,13 +58,13 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    changeFavoriteId(state, {payload}){
+    changeFavoriteId(state, {payload}) {
       return {
         ...state,
         courseContent: {...state.courseContent, ...payload,},
       }
     },
-    updateCourseContent(state, {payload}){
+    updateCourseContent(state, {payload}) {
       return {
         ...state,
         courseContent: {...state.courseContent, ...payload,},
@@ -72,7 +73,7 @@ export default modelExtend(model, {
   }
   ,
   effects: {
-    *getCourseContent({payload}, {call, put}){
+    * getCourseContent({payload}, {call, put}) {
       let data = yield call(courseContent, payload);
       yield put({
         type: 'updateCourseContent',
@@ -85,7 +86,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *favoriteAdd({payload}, {call, put}){
+    * favoriteAdd({payload}, {call, put}) {
       let data = yield call(favoriteAdd, payload);
       if (data.Type === 1) {
         message.success(data.Message);
@@ -94,7 +95,7 @@ export default modelExtend(model, {
         message.error('收藏失败！');
       }
     },
-    *favoriteDelete({payload}, {call, put}){
+    * favoriteDelete({payload}, {call, put}) {
       let data = yield call(favoriteDelete, payload);
       if (data.Type === 1) {
         message.success(data.Message);
@@ -103,7 +104,7 @@ export default modelExtend(model, {
         message.error('取消收藏失败！');
       }
     },
-    *addStudyCourse({payload}, {call, put}){
+    * addStudyCourse({payload}, {call, put}) {
       if (payload) {
         let data = yield call(addStudyCourse, payload);
         if (data.Type == 1) {
@@ -114,7 +115,7 @@ export default modelExtend(model, {
         }
       }
     },
-    *getCourseComment({payload}, {call, put}){
+    * getCourseComment({payload}, {call, put}) {
       let data = yield call(courseComment, payload);
       yield put({
         type: 'updateState',
@@ -128,7 +129,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getRelatedCourse({payload}, {call, put}){
+    * getRelatedCourse({payload}, {call, put}) {
       let data = yield call(relatedCourse, payload);
       yield put({
         type: 'updateState',
@@ -139,7 +140,7 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}){
+    setup({dispatch, history}) {
       history.listen((location) => {
         if (location.pathname === "/main/courseDetail") {
           let id = location.query.id;

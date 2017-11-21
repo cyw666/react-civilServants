@@ -13,20 +13,21 @@ import {
   Select,
   Modal
 } from 'antd';
+
 const Option = Select.Option;
 const FormItem = Form.Item;
 const {TextArea} = Input;
 const StudyPlanModal = ({
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  closeModal,
-  showModal,
-  studyPlanData,
-  submitPlan,
+                          form: {
+                            getFieldDecorator,
+                            validateFieldsAndScroll,
+                          },
+                          closeModal,
+                          showModal,
+                          studyPlanData,
+                          submitPlan,
   
-}) => {
+                        }) => {
   const onPlanOk = () => {
     validateFieldsAndScroll((errors, values) => {
       if (errors) {

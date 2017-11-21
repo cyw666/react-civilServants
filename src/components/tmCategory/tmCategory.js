@@ -5,9 +5,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './tmCategory.less'
 import GeneralHead from '../GeneralHead/GeneralHead'
-import {Tree } from 'antd';
+import {Tree} from 'antd';
+
 const TreeNode = Tree.TreeNode;
-const TmCategory = ({treeData, searchData,updateExpandedKeys,expandedKeys}) => {
+const TmCategory = ({treeData, searchData, updateExpandedKeys, expandedKeys}) => {
   const onExpand = (expandedKeys) => {
     updateExpandedKeys(expandedKeys);
   }
@@ -22,7 +23,7 @@ const TmCategory = ({treeData, searchData,updateExpandedKeys,expandedKeys}) => {
         </TreeNode>
       );
     }
-    return <TreeNode key={item.id} title={item.text} />;
+    return <TreeNode key={item.id} title={item.text}/>;
   });
   
   return (

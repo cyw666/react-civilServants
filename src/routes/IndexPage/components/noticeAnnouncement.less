@@ -1,14 +1,15 @@
 /*通知公告*/
 @import "../../../themes/mixins";
-.noticeAnnouncement{
-  .wh(590px,482px);
+
+.noticeAnnouncement {
+  .wh(590px, 482px);
   .border-base();
   padding: 10px;
   .notice {
     img {
-      .wh(568px,350px);
+      .wh(568px, 350px);
     }
-    .title{
+    .title {
       position: absolute;
       bottom: 3px;
       a {
@@ -23,23 +24,23 @@
       .ant-carousel .slick-dots {
         right: 10px;
         bottom: 10px;
-        .wh(auto,10px);
+        .wh(auto, 10px);
       }
       .ant-carousel .slick-dots li {
         margin: 0 4px;
       }
       .ant-carousel .slick-dots li button {
-        .wh(10px,10px);
+        .wh(10px, 10px);
         .border-radius(5px);
       }
     }
   }
-  .noticeBody{
+  .noticeBody {
     background-color: @gray-f3;
     margin-top: 10px;
     .clearFix();
     .noticeBodyLeft {
-      .wh(60px,100%);
+      .wh(60px, 100%);
       padding: 0 25px;
       border-right: 1px solid @gray-ddd;
       font-weight: bold;
@@ -50,7 +51,7 @@
       .pull-left();
     }
     .noticeBodyRight {
-      .wh(500px,100%);
+      .wh(500px, 100%);
       .pull-right();
       li {
         line-height: 33px;
@@ -60,7 +61,7 @@
           margin: 12px 10px;
           .pull-left();
         }
-        a{
+        a {
           .pull-left();
           .ellipsis();
           width: 320px;

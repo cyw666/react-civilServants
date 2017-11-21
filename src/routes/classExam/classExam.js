@@ -5,10 +5,8 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import {Link} from 'dva/router'
-import {Button, Breadcrumb, Icon, Input, Tabs, Row, Col, Spin, Progress, Pagination} from 'antd'
-import cs from 'classnames';
+import {Breadcrumb, Icon, Row, Col, Spin, Pagination} from 'antd'
 import GeneralHead from '../../components/GeneralHead/GeneralHead'
-import {dateFilter} from '../../utils/index'
 import styles from './classExam.less';
 
 const ClassExam = ({classExam, dispatch, loading}) => {
@@ -19,7 +17,7 @@ const ClassExam = ({classExam, dispatch, loading}) => {
         <Col span={12} className="ellipsis">{item.Name}</Col>
         <Col span={4}><p>{item.Credit}</p></Col>
         <Col span={4}><p>{item.TotalScore}</p></Col>
-        <Col span={4}><a>参加测试</a></Col>
+        <Col span={4}><Link to={{pathname: "/main/exam", query: {id: item.Id}}} target="_blank">参加测试</Link></Col>
       </Row>
     )
   });
@@ -40,7 +38,10 @@ const ClassExam = ({classExam, dispatch, loading}) => {
           <Breadcrumb.Item><Icon type="setting" style={{fontSize: 16, color: '#656565'}}/> 您的当前位置：</Breadcrumb.Item>
           <Breadcrumb.Item><a href="/main/indexPage">首页</a></Breadcrumb.Item>
           <Breadcrumb.Item><a href="/main/trainingClass">培训班</a></Breadcrumb.Item>
-          <Breadcrumb.Item><Link to={{pathname: '/main/grade/classDetail', query: {id: classId}}}>{classExamData.TrainingName}</Link></Breadcrumb.Item>
+          <Breadcrumb.Item><Link to={{
+            pathname: '/main/grade/classDetail',
+            query: {id: classId}
+          }}>{classExamData.TrainingName}</Link></Breadcrumb.Item>
           <Breadcrumb.Item>班级考试</Breadcrumb.Item>
         </Breadcrumb>
         <div className={styles.borderBold}>
@@ -59,7 +60,7 @@ const ClassExam = ({classExam, dispatch, loading}) => {
                 {contentList}
               </div>
               {
-                pageOptions.total>0?
+                pageOptions.total > 0 ?
                   <Pagination showQuickJumper {...pageOptions} onChange={pageSizeChange} showTotal={(total) => {
                     return `共${total}条`
                   }}/>

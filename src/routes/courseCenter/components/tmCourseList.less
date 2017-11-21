@@ -2,23 +2,24 @@
  * 课程列表
  */
 @import "../../../themes/mixins";
-.tmCourseList{
-  .courseBorder{
+
+.tmCourseList {
+  .courseBorder {
     .border-base();
-    .sortCourse{
+    .sortCourse {
       .clearFix();
       margin-bottom: 15px;
-      .tag{
+      .tag {
         .pull-left();
         margin-left: 25px;
-        &>span{
+        & > span {
           display: inline-block;
           padding: 2px 15px;
         }
       }
-      .titleBar{
+      .titleBar {
         .pull-left();
-        &>span{
+        & > span {
           margin: 0 15px;
         }
       }
@@ -26,28 +27,28 @@
   }
   margin-top: 20px;
   padding-left: 10px;
-  :global{
+  :global {
     .ant-checkbox-group-item {
       display: block;
       height: 95px;
       border-top: 1px solid @border-color-base;
-      .ant-checkbox{
-        top:33px;
+      .ant-checkbox {
+        top: 33px;
         left: 10px;
       }
     }
-    .ant-checkbox-wrapper:not(:last-child){
+    .ant-checkbox-wrapper:not(:last-child) {
       margin-right: 0;
     }
-    .ant-col-24{
+    .ant-col-24 {
       padding: 20px 0;
       //.border-base();
-      .ant-checkbox-wrapper{
+      .ant-checkbox-wrapper {
         .pull-left();
         margin: 0 9px;
         .ht-lineHt(28px);
       }
-      .ant-btn{
+      .ant-btn {
         .pull-left();
         margin: 0 15px;
       }
@@ -55,61 +56,61 @@
         .pull-left();
       }
     }
-    .table{
-      tr{
+    .table {
+      tr {
         .border-base();
-        td{
+        td {
           .text-left();
-          border-top:none;
+          border-top: none;
         }
       }
     }
   }
-  .courseContent{
-    .courseImgs{
+  .courseContent {
+    .courseImgs {
       width: 15%;
-      :global{
-        .comImg{
-          .wh(110px,74px);
+      :global {
+        .comImg {
+          .wh(110px, 74px);
         }
       }
     }
-    .desc{
+    .desc {
       width: 60%;
-      p{
+      p {
         .ht-lineHt(26px);
         font-size: @font-size-sm;
         color: @text-color;
-        &.title{
+        &.title {
           font-size: @font-size-base;
           color: @text-color;
           .clearFix();
-          img{
+          img {
             margin-left: 15px;
             .pull-right();
           }
-          a{
+          a {
             .pull-left();
             width: 85%;
             .ellipsis();
           }
         }
-        &>span{
+        & > span {
           width: 100px;
           display: inline-block;
           .text-left();
         }
       }
     }
-    .playRight{
+    .playRight {
       width: 25%;
-      p{
-        &.time{
+      p {
+        &.time {
           margin-bottom: 10px;
           font-size: @font-size-sm;
           color: @text-color-3;
         }
-        &.play{
+        &.play {
         }
         .ht-lineHt(30px);
         .text-right();

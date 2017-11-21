@@ -3,25 +3,25 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Breadcrumb, Icon, Input, Form, Row, Col, Button, Radio, Select} from 'antd';
-import {Link} from 'dva/router'
+import {Breadcrumb, Icon, Input, Form, Button, Radio, Select} from 'antd';
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './tmChangeInfor.less'
+
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
 const TmChangeInfor = ({
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-    getFieldValue,
-    validateFields,
-  },
-  userInfo,
-  gradeList,
-  submit,
-  loading
-}) => {
+                         form: {
+                           getFieldDecorator,
+                           validateFieldsAndScroll,
+                           getFieldValue,
+                           validateFields,
+                         },
+                         userInfo,
+                         gradeList,
+                         submit,
+                         loading
+                       }) => {
   const formItemLayout = {
     labelCol: {
       span: 5,

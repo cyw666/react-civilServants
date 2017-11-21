@@ -6,11 +6,12 @@ import PropTypes from 'prop-types'
 import {Link} from 'dva/router'
 import styles from './notesModal.less'
 import {Modal} from 'antd';
+
 const ExamModal = ({
-  closeModal,
-  showModal,
-  examList,
-}) => {
+                     closeModal,
+                     showModal,
+                     examList,
+                   }) => {
   
   const examListData = examList['ListData'].map((item, index) => {
     return (
@@ -18,7 +19,8 @@ const ExamModal = ({
         <td>{item.Name}</td>
         <td>{item.CreditHour}</td>
         <td>{item.TimeLimit}</td>
-        <td><Link to={{pathname: "/main/exam", query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">参加测试</Link></td>
+        <td><Link to={{pathname: "/main/exam", query: {id: item.Id}}} target="_blank"
+                  rel="noopener noreferrer">参加测试</Link></td>
       </tr>
     )
     

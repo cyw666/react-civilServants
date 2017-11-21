@@ -6,12 +6,13 @@ import PropTypes from 'prop-types'
 import {Breadcrumb, Icon, Steps} from 'antd';
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './tmSecuritySetting.less'
+
 const Step = Steps.Step;
 const TmSecuritySetting = ({
-  current,
-  children1,
-  children2,
-}) => {
+                             current,
+                             children1,
+                             children2,
+                           }) => {
   return (
     <div className={styles.tmSecuritySetting}>
       <GeneralHead showIcon={false} title="设置密保"></GeneralHead>
@@ -43,7 +44,7 @@ const TmSecuritySetting = ({
 
 TmSecuritySetting.propTypes = {
   current: PropTypes.number,
-  children1:PropTypes.element,
-  children2:PropTypes.element,
+  children1: PropTypes.element,
+  children2: PropTypes.element,
 };
 export default TmSecuritySetting;

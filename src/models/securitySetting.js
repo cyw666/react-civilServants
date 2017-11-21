@@ -14,7 +14,7 @@ export default modelExtend(model, {
     currentStep: 0
   },
   reducers: {
-    nextStep(state, {payload}){
+    nextStep(state, {payload}) {
       return {
         ...state,
         currentStep: state.currentStep + 1
@@ -22,7 +22,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *setPasswordQuestion({payload}, {call, put}){
+    * setPasswordQuestion({payload}, {call, put}) {
       let data = yield call(setPasswordQuestion, payload);
       if (data.Status === 200) {
         yield put({type: 'updateState', payload: {pwd: payload}});
@@ -32,11 +32,11 @@ export default modelExtend(model, {
         message.error(data.Message);
       }
     },
-    *addPasswordQuestion({payload}, {call, put}){
+    * addPasswordQuestion({payload}, {call, put}) {
       let data = yield call(addPasswordQuestion, payload);
-      if(data.Type===1){
+      if (data.Type === 1) {
         message.success(data.Message);
-      }else{
+      } else {
         message.error(data.Message);
       }
     },

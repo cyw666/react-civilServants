@@ -4,7 +4,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './tmPlayScorm.less'
-const TmPlayScorm = ({data,sendProgress}) => {
+
+const TmPlayScorm = ({data, sendProgress}) => {
   const {
     BatchId,
     PortalURL,
@@ -16,6 +17,7 @@ const TmPlayScorm = ({data,sendProgress}) => {
   } = data;
   
   var paraName;
+  
   function LMSInitialize(value) {
     var reCode = "";
     return true;

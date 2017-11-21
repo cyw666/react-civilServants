@@ -9,6 +9,7 @@ import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Img from '../../../components/Img/Img'
 import styles from './bookGuide.less'
 import {delHtmlTag, wordLimit} from '../../../utils/index'
+
 const BookGuide = ({loading, bookListData}) => {
   const {ListData, Path} = bookListData;
   const bookList = ListData.map((item, index) => {

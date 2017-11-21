@@ -7,11 +7,12 @@ import PropTypes from 'prop-types'
 import {Spin, Button} from 'antd';
 import styles from './tmArticleCategory.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
+
 const TmArticleCategory = ({
-  loading,
-  searchArticle,
-  dataList
-}) => {
+                             loading,
+                             searchArticle,
+                             dataList
+                           }) => {
   const categoryList = dataList.ListData.map((item, index) => {
     return (
       <li key={index}><Button type="primary" onClick={() => {

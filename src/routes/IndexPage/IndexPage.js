@@ -16,6 +16,7 @@ import {
 } from './components/index';
 import styles from './IndexPage.less';
 import bannerCenter from '../../assets/bannerCenter.png'
+
 const IndexPage = ({indexPage, dispatch, loading}) => {
   /*登陆*/
   let {token} = indexPage;
@@ -30,7 +31,7 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
     pushSubmit: (values) => {
       const loginParams = Object.assign({}, values, token)
       dispatch({type: 'indexPage/login', payload: loginParams});
-      dispatch({type:'updateState',payload:{loginValue:loginParams}})
+      dispatch({type: 'updateState', payload: {loginValue: loginParams}})
     },
     pushOut: () => {
       dispatch({type: 'indexPage/loginOut', payload: token});

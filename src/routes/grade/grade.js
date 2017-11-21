@@ -10,17 +10,17 @@ import TmLearningInfo from './components/tmLearningInfo'
 import TmNavCenter from '../../components/tmNavCenter/tmNavCenter'
 import ClassModule from '../trainingClass/components/classModule'
 
-const Grade = ({children,grade, dispatch, loading}) => {
+const Grade = ({children, grade, dispatch, loading}) => {
   const learningInfoProps = {
-    infoData:grade.classInfoData,
-    loading:loading.effects['classDetail/getClassInfo'],
+    infoData: grade.classInfoData,
+    loading: loading.effects['classDetail/getClassInfo'],
   }
-  const navData = grade.navData.map((item,index)=>{
-    const query = {...item.query,...{id:grade.classId}}
-    return {name:item.name,pathname:item.pathname,query}
+  const navData = grade.navData.map((item, index) => {
+    const query = {...item.query, ...{id: grade.classId}}
+    return {name: item.name, pathname: item.pathname, query}
   })
   const navCenterProps = {
-    title:"班级导航",
+    title: "班级导航",
     navData,
   }
   return (

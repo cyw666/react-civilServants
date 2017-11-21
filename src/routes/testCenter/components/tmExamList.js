@@ -10,74 +10,76 @@ import {Link} from 'dva/router'
 import {Spin, Breadcrumb, Icon, Input, Row, Col, Pagination, Select, Tabs} from 'antd';
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import {dateFilter} from '../../../utils/index'
+
 const Search = Input.Search;
 const Option = Select.Option;
 const TabPane = Tabs.TabPane;
 const TmExamList = ({
-  examListData,
-  searchExam,
-  selectChange,
-  joinExam,
-  loading,
-  activeKey,
-  pageConfig,
-}) => {
+                      examListData,
+                      searchExam,
+                      selectChange,
+                      joinExam,
+                      loading,
+                      activeKey,
+                      pageConfig,
+                    }) => {
   const {UnfinishModel, FinishModel} = examListData;
   const unFinishList = UnfinishModel && UnfinishModel.map((item, index) => {
-      return (
-        <Row key={index} className={styles.tabList}>
-          <Col span={9}>
-            <div className="list" title={item.Name}><Link to="/examDetail" target="_blank" rel="noopener noreferrer">{item.Name}</Link></div>
-          </Col>
-          <Col span={3}>
-            <div className="list">{item.CreditHour}</div>
-          </Col>
-          <Col span={3}>
-            <div className="list">{item.TimeLimit}</div>
-          </Col>
-          <Col span={3}>
-            <div className="list"><a onClick={() => {
-              joinExam(item.Id)
-            }}>参加测试</a></div>
-          </Col>
-          <Col span={6}>
-            <div
-              className="list">{dateFilter(item.StartTime, 'yyyy-MM-dd')}~{dateFilter(item.EndTime, 'yyyy-MM-dd')}</div>
-          </Col>
-        </Row>
-      )
-    })
+    return (
+      <Row key={index} className={styles.tabList}>
+        <Col span={9}>
+          <div className="list" title={item.Name}><Link to="/examDetail" target="_blank"
+                                                        rel="noopener noreferrer">{item.Name}</Link></div>
+        </Col>
+        <Col span={3}>
+          <div className="list">{item.CreditHour}</div>
+        </Col>
+        <Col span={3}>
+          <div className="list">{item.TimeLimit}</div>
+        </Col>
+        <Col span={3}>
+          <div className="list"><a onClick={() => {
+            joinExam(item.Id)
+          }}>参加测试</a></div>
+        </Col>
+        <Col span={6}>
+          <div
+            className="list">{dateFilter(item.StartTime, 'yyyy-MM-dd')}~{dateFilter(item.EndTime, 'yyyy-MM-dd')}</div>
+        </Col>
+      </Row>
+    )
+  })
   const finishList = FinishModel && FinishModel.map((item, index) => {
-      return (
-        <Row key={index} className={styles.tabList}>
-          <Col span={9}>
-            <div className="list" title={item.Name}>{item.Name}</div>
-          </Col>
-          <Col span={3}>
-            <div className="list">{item.CreditHour}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.TimeLimit}</div>
-          </Col>
-          {
-            item.PassFlag ? <Col span={3}>
-                <div className={cs(['red', 'list'])}>通过</div>
-              </Col> :
-              <Col span={3}>
-                <div className="list">未通过</div>
-              </Col>
-          }
-          <Col span={3}>
-            <div className="list"><a onClick={() => {
-              joinExam(item.Id)
-            }}>参加测试</a></div>
-          </Col>
-          <Col span={4}>
-            <div className="list"><Link to="/examDetailList" target="_blank" rel="noopener noreferrer">查看详细记录</Link></div>
-          </Col>
-        </Row>
-      )
-    })
+    return (
+      <Row key={index} className={styles.tabList}>
+        <Col span={9}>
+          <div className="list" title={item.Name}>{item.Name}</div>
+        </Col>
+        <Col span={3}>
+          <div className="list">{item.CreditHour}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.TimeLimit}</div>
+        </Col>
+        {
+          item.PassFlag ? <Col span={3}>
+              <div className={cs(['red', 'list'])}>通过</div>
+            </Col> :
+            <Col span={3}>
+              <div className="list">未通过</div>
+            </Col>
+        }
+        <Col span={3}>
+          <div className="list"><a onClick={() => {
+            joinExam(item.Id)
+          }}>参加测试</a></div>
+        </Col>
+        <Col span={4}>
+          <div className="list"><Link to="/examDetailList" target="_blank" rel="noopener noreferrer">查看详细记录</Link></div>
+        </Col>
+      </Row>
+    )
+  })
   
   return (
     <div className={styles.tmExamList}>

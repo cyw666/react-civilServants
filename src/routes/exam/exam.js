@@ -5,10 +5,8 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
-import {Form, Icon, Input, Row, Col, Spin, Checkbox, Button, Radio,Breadcrumb, Pagination} from 'antd';
-import {Link} from 'dva/router'
+import {Form, Checkbox, Button, Radio} from 'antd';
 import styles from './exam.less';
-import GeneralHead from '../../components/GeneralHead/GeneralHead'
 import examTop from '../../assets/exam_top.png'
 
 const FormItem = Form.Item;
@@ -23,13 +21,13 @@ const Exam = ({
                 dispatch,
                 loading
               }) => {
-  const {Exam, Type0Questions, Type1Questions, Type2Questions, Type3Questions,examid,isfixed} = exam.examData;
+  const {Exam, Type0Questions, Type1Questions, Type2Questions, Type3Questions, examid, isfixed} = exam.examData;
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
       if (!err) {
-        let params = {...{hdnexamid:examid,hdnisfixed:isfixed},...values};
-        dispatch({type:'exam/postExam',payload:params})
+        let params = {...{hdnexamid: examid, hdnisfixed: isfixed}, ...values};
+        dispatch({type: 'exam/postExam', payload: params})
       }
     });
   }
@@ -112,7 +110,7 @@ const Exam = ({
               item.QuestionsItems.map((question, i) => {
                 return (
                   <Checkbox className={styles.itemStyle} key={question.Id}
-                         value={question.ItemFlag}>{question.ItemFlag + '.' + question.Name}</Checkbox>
+                            value={question.ItemFlag}>{question.ItemFlag + '.' + question.Name}</Checkbox>
                 )
               })
             }

@@ -24,7 +24,7 @@ export default modelExtend(model, {
       ListData: [],
       TitleNav: '班级分类'
     },
-    expandedKeys:[],
+    expandedKeys: [],
     classMyData: {
       ListData: [],
       type: 'my'
@@ -43,25 +43,23 @@ export default modelExtend(model, {
     isEnterClass: false,
     classType: 'just',
     categoryId: '',
-    showModal:false,
-    classDetailData:{
-    
-    }
+    showModal: false,
+    classDetailData: {}
   },
   reducers: {
-    updateClassMy(state, {payload}){
+    updateClassMy(state, {payload}) {
       return {
         ...state,
         classMyData: {...state.classMyData, ...payload}
       }
     },
-    updateActive(state, {payload}){
+    updateActive(state, {payload}) {
       return {
         ...state,
         classActiveData: {...state.classActiveData, ...payload}
       }
     },
-    updateRecent(state, {payload}){
+    updateRecent(state, {payload}) {
       return {
         ...state,
         classRecentData: {...state.classRecentData, ...payload}
@@ -69,7 +67,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getTrainingClassTypeList({payload}, {call, put}){
+    * getTrainingClassTypeList({payload}, {call, put}) {
       let data = yield call(getTrainingClassTypeList);
       let expandedKeys = [];
       expandedKeys.push((data.Data.ListData[0].id).toString());
@@ -77,32 +75,32 @@ export default modelExtend(model, {
         type: 'updateState',
         payload: {
           classCategory: data.Data,
-          expandedKeys:expandedKeys
+          expandedKeys: expandedKeys
         }
       });
     },
-    *classMy({payload}, {call, put}){
+    * classMy({payload}, {call, put}) {
       let data = yield call(classMy);
       yield put({
         type: 'updateClassMy',
         payload: data.Data
       });
     },
-    *classActive({payload}, {call, put}){
+    * classActive({payload}, {call, put}) {
       let data = yield call(classActive);
       yield put({
         type: 'updateActive',
         payload: data.Data
       });
     },
-    *classRecent({payload}, {call, put}){
+    * classRecent({payload}, {call, put}) {
       let data = yield call(classRecent);
       yield put({
         type: 'updateRecent',
         payload: data.Data
       });
     },
-    *getClassList({payload}, {call, put}){
+    * getClassList({payload}, {call, put}) {
       let data = yield call(getClassList, payload);
       yield put({
         type: 'updateState',
@@ -113,13 +111,13 @@ export default modelExtend(model, {
         }
       });
     },
-    *checkUserClass({payload}, {call, put, select}){
+    * checkUserClass({payload}, {call, put, select}) {
       const {trainingId} = payload;
       let data = yield call(checkUserClass, payload);
       data.Type === 0 ? yield put({
-          type: 'updateState',
-          payload: {isEnterClass: false}
-        }) : yield put({type: 'updateState', payload: {isEnterClass: true}});
+        type: 'updateState',
+        payload: {isEnterClass: false}
+      }) : yield put({type: 'updateState', payload: {isEnterClass: true}});
       const isEnterClass = yield select(state => state.trainingClass.isEnterClass);
       if (isEnterClass) {
         window.open(`/classDetail?id=${trainingId}`);
@@ -133,7 +131,7 @@ export default modelExtend(model, {
        },
        }));*/
     },
-    *updateTrainingStudentup({payload}, {call, put, select}){
+    * updateTrainingStudentup({payload}, {call, put, select}) {
       let data = yield call(updateTrainingStudentup, payload);
       if (data.Type === 1) {
         const classType = yield select(state => state.trainingClass.classType);
@@ -146,7 +144,7 @@ export default modelExtend(model, {
         message.error(data.Message)
       }
     },
-    *updateTrainingStudentdown({payload}, {call, put, select}){
+    * updateTrainingStudentdown({payload}, {call, put, select}) {
       let data = yield call(updateTrainingStudentdown, payload);
       if (data.Type === 1) {
         const classType = yield select(state => state.trainingClass.classType);
@@ -159,7 +157,7 @@ export default modelExtend(model, {
         message.error(data.Message)
       }
     },
-    *seeClassDetail({payload}, {call, put, select}){
+    * seeClassDetail({payload}, {call, put, select}) {
       let data = yield call(classDetail, payload);
       yield put({
         type: 'updateState',

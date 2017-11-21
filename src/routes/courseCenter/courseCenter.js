@@ -8,7 +8,8 @@ import cs from 'classnames';
 import styles from './courseCenter.less';
 import {TmCourseList, TmCourseRankingList} from './components/index'
 import TmCategory from '../../components/tmCategory/tmCategory'
-const CourseCenter = ({courseCenter, dispatch,loading}) => {
+
+const CourseCenter = ({courseCenter, dispatch, loading}) => {
   const tmCategoryProps = {
     treeData: courseCenter.courseCategory,
     searchData: (id) => {
@@ -18,7 +19,7 @@ const CourseCenter = ({courseCenter, dispatch,loading}) => {
         payload: params
       })
     },
-    updateExpandedKeys: (keys)=>{
+    updateExpandedKeys: (keys) => {
       dispatch({
         type: 'courseCenter/updateExpanderKeys',
         payload: keys

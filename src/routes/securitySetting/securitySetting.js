@@ -10,6 +10,7 @@ import UserInformation from '../../components/userInformation/userInformation'
 import TmSecuritySetting from './components/tmSecuritySetting'
 import CheckPwdForm from './components/checkPwdForm'
 import SetQuestionForm from './components/setQuestionForm'
+
 const SecuritySetting = ({app, securitySetting, dispatch, loading}) => {
   const userInforProps = {
     information: app.userInformation,
@@ -24,7 +25,7 @@ const SecuritySetting = ({app, securitySetting, dispatch, loading}) => {
   }
   const setQuestionFormProps = {
     setQuestion: (values) => {
-      const sendParams = {...values,...securitySetting.token,...securitySetting.pwd};
+      const sendParams = {...values, ...securitySetting.token, ...securitySetting.pwd};
       dispatch({type: 'securitySetting/addPasswordQuestion', payload: sendParams});
     },
     question: securitySetting.question,

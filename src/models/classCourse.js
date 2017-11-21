@@ -11,7 +11,7 @@ export default modelExtend(model, {
   namespace: 'classCourse',
   state: {
     classId: '',
-    courseType:'',
+    courseType: '',
     classCourseData: {},
     pageOptions: {
       current: 1,
@@ -52,11 +52,11 @@ export default modelExtend(model, {
       let type;
       history.listen((location) => {
         if (location.pathname === "/main/grade/classCourse") {
-          if (id != location.query.id||type != location.query.type) {
+          if (id != location.query.id || type != location.query.type) {
             id = location.query.id;
             type = location.query.type;
-            dispatch({type: 'getClassCourse', payload: {id,type}});
-            dispatch({type: 'updateState', payload: {classId: id,courseType:type}});
+            dispatch({type: 'getClassCourse', payload: {id, type}});
+            dispatch({type: 'updateState', payload: {classId: id, courseType: type}});
           }
         }
       })

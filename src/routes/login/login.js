@@ -8,29 +8,30 @@ import cs from 'classnames';
 import {Form, Input, Icon, Row, Col, Checkbox, Button, Spin} from 'antd';
 import {Link} from 'dva/router'
 import styles from './login.less';
+
 const FormItem = Form.Item;
 
 const Login = ({
-  login: {
-    token,
-    loginValue,
-    showCode,
-    codeImg,
-  },
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  dispatch,
-  loading
-}) => {
+                 login: {
+                   token,
+                   loginValue,
+                   showCode,
+                   codeImg,
+                 },
+                 form: {
+                   getFieldDecorator,
+                   validateFieldsAndScroll,
+                 },
+                 dispatch,
+                 loading
+               }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
       if (!err) {
         const loginParams = Object.assign({}, values, token)
         dispatch({type: 'login/login', payload: loginParams})
-        dispatch({type: 'login/updateState', payload: {loginValue:loginParams}})
+        dispatch({type: 'login/updateState', payload: {loginValue: loginParams}})
       }
     });
   }

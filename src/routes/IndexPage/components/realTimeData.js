@@ -9,6 +9,7 @@ import realTime1 from '../../../assets/realTime1.png'
 import realTime2 from '../../../assets/realTime2.png'
 import realTime3 from '../../../assets/realTime3.png'
 import realTime4 from '../../../assets/realTime4.png'
+
 const RealTimeData = ({realData}) => {
   let {Model, loading} = realData;
   return (

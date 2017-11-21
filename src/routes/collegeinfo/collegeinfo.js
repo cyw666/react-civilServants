@@ -8,6 +8,7 @@ import cs from 'classnames';
 import {Icon, Spin, Breadcrumb, Tabs} from 'antd';
 import styles from './collegeinfo.less';
 import GeneralHead from '../../components/GeneralHead/GeneralHead'
+
 const TabPane = Tabs.TabPane;
 
 const Collegeinfo = ({collegeinfo, dispatch, loading}) => {

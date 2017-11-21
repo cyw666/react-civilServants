@@ -21,7 +21,7 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateSearchResult(state, {payload}){
+    updateSearchResult(state, {payload}) {
       return {
         ...state,
         searchParams: {...state.searchParams, ...payload}
@@ -29,7 +29,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getSearchList({payload}, {call, put, select}){
+    * getSearchList({payload}, {call, put, select}) {
       let searchParams = yield select(state => state.searchGloable.searchParams);
       let params = {...searchParams, ...payload};
       let data = yield call(searchAll, params);

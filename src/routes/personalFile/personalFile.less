@@ -2,44 +2,45 @@
  * 个人档案
  */
 @import "../../themes/mixins";
-.personalFile{
+
+.personalFile {
   .border-base();
   .content {
     padding: 20px;
-    .infor{
-      fieldset{
-        :global{
+    .infor {
+      fieldset {
+        :global {
           .ant-form {
             margin-left: 20px;
           }
-          .table{
+          .table {
             text-align: center;
             padding: 15px 20px;
-            thead td{
-              background-color: lighten(@gray-eee,1%);
+            thead td {
+              background-color: lighten(@gray-eee, 1%);
             }
           }
         }
         .border-base();
         margin: 10px 0;
-        .inforCont{
+        .inforCont {
           margin: 15px 20px;
           border: 1px solid @gray-ddd;
-          span{
+          span {
             display: inline-block;
             width: 25%;
             height: 32px;
             line-height: 32px;
             text-align: center;
-            &.label{
-              background-color: lighten(@gray-eee,1%);
+            &.label {
+              background-color: lighten(@gray-eee, 1%);
             }
           }
         }
-        .courseCredit{
+        .courseCredit {
           padding: 0 20px 15px 20px;
         }
-        .courseName{
+        .courseName {
           .ellipsis();
           width: 300px;
         }

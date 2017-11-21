@@ -2,27 +2,29 @@
  * 课程播放
  */
 @import "../../themes/mixins";
-body{
+
+body {
   background-color: @background-color-active;
 }
-.play{
-  .playPage{
+
+.play {
+  .playPage {
     width: 100%;
-    .video{
+    .video {
       width: 98%;
       height: 100%;
       .transition();
       position: absolute;
       background-color: @background-color-active;
     }
-    .info{
+    .info {
       padding: 15px;
-      .wh(350px,100%);
+      .wh(350px, 100%);
       position: fixed;
       right: -350px;
-      top:0;
+      top: 0;
       background: @background-color-active;
-      border:1px solid @border-color-base;
+      border: 1px solid @border-color-base;
       box-shadow: 0px 0px 8px @border-color-base;
       z-index: 9999;
       .transition();
@@ -35,31 +37,31 @@ body{
         margin-top: -66px;
         left: -30px;
         color: @white;
-        background: rgba(0,0,0,0.8);
+        background: rgba(0, 0, 0, 0.8);
         .border-left-radius(3px);
-        span{
+        span {
           .pull-left();
           display: inline-block;
-          .wh(30px,19px);
+          .wh(30px, 19px);
           line-height: 19px;
           .text-center();
           overflow: hidden;
         }
       }
       .content {
-        .detail{
+        .detail {
           padding-right: 45px;
           padding-bottom: 10px;
-          .teacher{
+          .teacher {
             .clearFix();
             color: @text-color-2;
             font-size: @font-size-sm;
           }
-          .progress{
+          .progress {
             .pull-left();
             width: 60%;
           }
-          .desc{
+          .desc {
             color: @text-color-2;
             font-size: @font-size-sm;
             line-height: 20px;
@@ -67,29 +69,29 @@ body{
         }
       }
     }
-    .commentListOuter{
+    .commentListOuter {
       overflow: auto;
       height: 300px;
       visibility: visible;
-      .commentList{
+      .commentList {
         .clearFix();
         border-bottom: 1px solid @border-color-base;
         padding: 10px;
-        li{
+        li {
           line-height: 28px;
         }
-        .time{
+        .time {
           font-size: @font-size-sm;
           .pull-right();
           color: @text-color-3;
         }
-        .del{
+        .del {
           .pull-right();
         }
       }
     }
-    :global{
-      .infoShow{
+    :global {
+      .infoShow {
         right: 0px;
       }
       .ant-progress-line {

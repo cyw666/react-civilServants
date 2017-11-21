@@ -9,6 +9,7 @@ import styles from './courseDetail.less';
 import TmCourseDetail from './components/tmCourseDetail'
 import TmCourseComment from './components/tmCourseComment'
 import TmRelatedCourse from './components/tmRelatedCourse'
+
 const CourseDetail = ({courseDetail, dispatch, loading}) => {
   const courseDetailProps = {
     courseDetailData: courseDetail.courseContent,

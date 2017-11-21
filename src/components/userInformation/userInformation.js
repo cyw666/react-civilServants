@@ -7,6 +7,7 @@ import {Button, Spin} from 'antd';
 import {Link} from 'dva/router'
 import styles from './userInformation.less'
 import GeneralHead from '../GeneralHead/GeneralHead'
+
 const UserInformation = ({information, loginOut, loading}) => {
   const {Model, UserType} = information;
   return (
@@ -30,7 +31,8 @@ const UserInformation = ({information, loginOut, loading}) => {
             </li>
             <li>
               <span className={styles.item1}>个人学习档案</span>
-              <span className={styles.item2}><Link to="/main/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
+              <span className={styles.item2}><Link to="/main/personalFile" target="_blank"
+                                                   rel="noopener noreferrer">详细&gt;&gt;</Link></span>
             </li>
             <li>
               <span className={styles.item1}>您有<span className={styles.red}> {Model.UnRead} </span>条新通知！</span>

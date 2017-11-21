@@ -7,6 +7,7 @@ import {Link} from 'dva/router'
 import styles from './GeneralHead.less'
 import headerLeftIcon from '../../assets/headerLeftIcon.png'
 import more from '../../assets/more.png'
+
 const GeneralHead = ({showIcon, url, title = "标题"}) => {
   return (
     <div className={styles.generalHead}>

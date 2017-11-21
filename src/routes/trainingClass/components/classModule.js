@@ -14,7 +14,8 @@ const ClassModule = ({classModuleData, loading}) => {
   const classNameList = ListData.map((item, index) => {
     return (
       <li key={index}>
-        <span className={styles.list1}><Link to={{pathname: "/main/grade/classDetail", query: {id: item.Id}}} target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
+        <span className={styles.list1}><Link to={{pathname: "/main/grade/classDetail", query: {id: item.Id}}}
+                                             target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
         <span className={styles.list2}>{item.CurrentUser}</span>
       </li>
     )
@@ -23,7 +24,7 @@ const ClassModule = ({classModuleData, loading}) => {
     <div className={styles.classModule}>
       <GeneralHead showIcon={true} title={TitleNav} url={`/main/classlist?type=${type}`}></GeneralHead>
       <Spin spinning={loading}>
-        <ul className={cs(["border-base"],`${styles.content}`)}>
+        <ul className={cs(["border-base"], `${styles.content}`)}>
           <li className={styles.title}>
             <span className={styles.list1}>班级名称</span>
             <span className={styles.list2}>学员</span>

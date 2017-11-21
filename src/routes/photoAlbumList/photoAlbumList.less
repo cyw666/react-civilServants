@@ -1,0 +1,28 @@
+/**
+ * 班级相册
+ */
+@import "../../themes/mixins";
+
+.photoAlbumList {
+  margin-top: 20px;
+  padding-left: 10px;
+  .innerContent {
+    .border-base();
+    .borderBold {
+      border-top: 6px solid @primary-color;
+      margin-top: 20px;
+    }
+    .albumList {
+      .text-center();
+      img {
+        width: 80%;
+        margin-top: 30px;
+        .border-radius();
+      }
+      p {
+        line-height: 38px;
+      }
+    }
+
+  }
+}

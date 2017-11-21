@@ -12,6 +12,7 @@ import TmNavCenter from '../../components/tmNavCenter/tmNavCenter'
 import ExamModal from './components/examModal'
 import StudyPlanModal from './components/studyPlanModal'
 import NotesModal from './components/notesModal'
+
 const PersonalCenter = ({app, personalCenter, dispatch, loading, history}) => {
   const userInforProps = {
     information: app.userInformation,
@@ -21,8 +22,8 @@ const PersonalCenter = ({app, personalCenter, dispatch, loading, history}) => {
     loading: loading.effects['app/getUserInformation']
   }
   const navCenterProps = {
-    title:"个人中心导航",
-    navData:personalCenter.navData,
+    title: "个人中心导航",
+    navData: personalCenter.navData,
   }
   const myCenterProps = {
     courseData: personalCenter.myCourseData,

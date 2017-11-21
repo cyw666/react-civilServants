@@ -1,7 +1,7 @@
 /*考试*/
 import modelExtend from 'dva-model-extend'
 import {message} from 'antd'
-import { routerRedux } from 'dva/router'
+import {routerRedux} from 'dva/router'
 import {model} from './common'
 import {exam, postExam} from '../services/main'
 
@@ -33,14 +33,14 @@ export default modelExtend(model, {
     * postExam({payload}, {call, put, select}) {
       let data = yield call(postExam, payload);
       let parameter1 = yield select(state => state.exam.examData.examid);
-      if(data.Type == 1){
-        message.success(data.Message,2,
+      if (data.Type == 1) {
+        message.success(data.Message, 2,
           yield put(routerRedux.push({
             pathname: '/main/examReview',
             query: {parameter1: parameter1, parameter2: data.Value}
           }))
         );
-      }else {
+      } else {
         message.error(data.Message);
       }
     },

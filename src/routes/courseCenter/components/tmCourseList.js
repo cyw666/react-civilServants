@@ -15,24 +15,25 @@ import dh from '../../../assets/dh.png'
 import biXiu from '../../../assets/biXue.png'
 import xuanXiu from '../../../assets/xuanXiu.png'
 import {dateFilter} from '../../../utils/index'
-import {Button, Breadcrumb, Icon, Input, Checkbox, Row, Col, Pagination,Spin} from 'antd';
+import {Button, Breadcrumb, Icon, Input, Checkbox, Row, Col, Pagination, Spin} from 'antd';
+
 const Search = Input.Search;
 const CheckboxGroup = Checkbox.Group;
 
 const TmCourseList = ({
-  courseList,
-  channelName,
-  baseImageCourse,
-  checkedList,
-  checkAll,
-  onSearchCourse,
-  courseOptions,
-  onCheckAllChange,
-  onCheckChange,
-  pageConfig,
-  onAddStudyCourse,
-  loading,
-}) => {
+                        courseList,
+                        channelName,
+                        baseImageCourse,
+                        checkedList,
+                        checkAll,
+                        onSearchCourse,
+                        courseOptions,
+                        onCheckAllChange,
+                        onCheckChange,
+                        pageConfig,
+                        onAddStudyCourse,
+                        loading,
+                      }) => {
   
   const courseListContent = courseList.map((item, index) => {
     return (
@@ -43,14 +44,14 @@ const TmCourseList = ({
           </Link>
         </td>
         <td className={styles.desc}>
-            <p className={styles.title} title={item.Name}>
-              <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
-                <span className={styles.name}>{item.Name}</span>
-              </Link>
-              {
-                item.RequiredFlag?<img src={biXiu} alt="必修"/>:<img src={xuanXiu} alt="选修"/>
-              }
-            </p>
+          <p className={styles.title} title={item.Name}>
+            <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+              <span className={styles.name}>{item.Name}</span>
+            </Link>
+            {
+              item.RequiredFlag ? <img src={biXiu} alt="必修"/> : <img src={xuanXiu} alt="选修"/>
+            }
+          </p>
           <p>
             <span>学时：{item.Credit}</span>
             <span>主讲人：{item.Teacher}</span>
@@ -66,7 +67,8 @@ const TmCourseList = ({
           <p className={styles.time}>上线日期：{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</p>
           <p className={styles.play}>
             <Button type={'primary'}>
-              <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
+              <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank'
+                    rel="noopener noreferrer">
                 点击播放
               </Link>
             </Button>
@@ -151,7 +153,8 @@ const TmCourseList = ({
                 <Button onClick={() => {
                   onAddStudyCourse(checkedList)
                 }}>批量选课</Button>
-                <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current} pageSize={pageConfig.pageSize}
+                <Pagination showQuickJumper defaultCurrent={1} current={pageConfig.current}
+                            pageSize={pageConfig.pageSize}
                             total={pageConfig.total} onChange={(currentPage) => {
                   onSearchCourse({page: currentPage})
                 }} showTotal={(total) => {

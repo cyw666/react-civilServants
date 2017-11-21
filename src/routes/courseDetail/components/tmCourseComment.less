@@ -2,10 +2,11 @@
  * 课程评论
  */
 @import "../../../themes/mixins";
-.tmCourseComment{
+
+.tmCourseComment {
   border: 1px solid @gray-ddd;
-  border-top:none;
-  .commentTitle{
+  border-top: none;
+  .commentTitle {
     color: @text-color;
     background-color: @background-color-base;
     border-color: @gray-ddd;
@@ -13,35 +14,35 @@
     font-size: @font-size-lg;
     font-weight: 500;
   }
-  .commentBody{
+  .commentBody {
     padding: 0 15px 15px 15px;
-    tbody{
+    tbody {
       border-bottom: 1px solid @gray-ddd;
-      td{
+      td {
         vertical-align: middle;
       }
-      .userImg{
+      .userImg {
         width: 7%;
         text-align: right;
       }
-      .user{
+      .user {
         width: 60%;
         color: @text-color-2;
         font-weight: 600;
       }
-      .time{
+      .time {
         width: 20%;
         color: @text-color-3;
       }
-      .comment{
+      .comment {
         width: 60%;
         color: @text-color;
         padding-bottom: 25px;
       }
     }
-    :global{
-      .table{
-        td,tr{
+    :global {
+      .table {
+        td, tr {
           border: none;
         }
       }

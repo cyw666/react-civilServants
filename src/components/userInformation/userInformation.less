@@ -2,22 +2,23 @@
  * 个人信息
  */
 @import "../../themes/mixins";
-.userInformation{
+
+.userInformation {
   margin-top: 15px;
-  .userContent{
+  .userContent {
     .border-base();
-    .red{
+    .red {
       color: @highlight-color;
     }
-    ul{
+    ul {
       li {
         .clearFix();
         color: @text-color;
         .ht-lineHt(40px);
-        margin:0 auto;
+        margin: 0 auto;
         border-bottom: 1px solid @border-color-base;
         width: 80%;
-        .list1,.list2{
+        .list1, .list2 {
           display: inline-block;
           width: 50%;
         }
@@ -27,30 +28,30 @@
         .item2 {
           .pull-right();
           .text-right();
-          a{
+          a {
             color: @text-color-2;
-            &:hover{
+            &:hover {
               color: @text-color;
             }
           }
         }
       }
-      .lastChild{
+      .lastChild {
         border-bottom: 0;
-        a{
+        a {
           font-size: @font-size-sm;
           color: @text-color-2;
         }
-        .item2{
-          a{
+        .item2 {
+          a {
             color: @primary-color;
           }
         }
       }
-      .exit{
+      .exit {
         .text-center();
-        :global{
-          .ant-btn{
+        :global {
+          .ant-btn {
             padding: 0 23px;
           }
         }

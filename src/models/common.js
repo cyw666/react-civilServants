@@ -1,14 +1,14 @@
-
 /*
 * 公用model
 * */
 import {antiForgeryToken} from '../services/main';
+
 const model = {
   state: {
     token: {},
   },
   reducers: {
-    updateState (state, {payload}) {
+    updateState(state, {payload}) {
       return {
         ...state,
         ...payload,
@@ -16,7 +16,7 @@ const model = {
     },
   },
   effects: {
-    *token(action, {call, put}){
+    * token(action, {call, put}) {
       let data = yield call(antiForgeryToken);
       yield put({
         type: 'updateState',

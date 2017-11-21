@@ -3,18 +3,18 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, Icon, Input, Button} from 'antd';
+import {Form, Input, Button} from 'antd';
 import styles from './tmAddNote.less';
 
 const FormItem = Form.Item;
 const TmAddNote = ({
-  form:{
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  loading,
-  addNote
-}) => {
+                     form: {
+                       getFieldDecorator,
+                       validateFieldsAndScroll,
+                     },
+                     loading,
+                     addNote
+                   }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
@@ -47,7 +47,7 @@ const TmAddNote = ({
               {required: true, message: '请输入笔记内容!'},
               {min: 7, message: '笔记内容字数不能少于7个字!'},
               {max: 249, message: '笔记内容字数不能超过249个字!'},
-              ],
+            ],
           })(
             <Input type="textarea" placeholder="笔记内容" rows={4}/>
           )}
@@ -58,7 +58,7 @@ const TmAddNote = ({
           </Button>
         </FormItem>
       </Form>
-
+    
     </div>
   );
 };

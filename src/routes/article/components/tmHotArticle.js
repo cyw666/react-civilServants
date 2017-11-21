@@ -8,17 +8,23 @@ import {Link} from 'dva/router'
 import {Row, Col, Spin} from 'antd';
 import styles from './tmHotArticle.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
+
 const TmHotArticle = ({
-  loading,
-  hotArticleData
-}) => {
+                        loading,
+                        hotArticleData
+                      }) => {
   const rankContentList = hotArticleData.ListData.map((item, index) => {
     return (
       <Row key={index} className={cs({'rankContent': true, 'rankBg': index % 2 !== 0})}>
         {
           index < 3 ?
             <Col span={5}>
-              <span className={cs({'contentList': true, 'rankFirstBg': index === 0, 'rankSecondBg': index === 1, 'rankThirdBg': index === 2})}></span>
+              <span className={cs({
+                'contentList': true,
+                'rankFirstBg': index === 0,
+                'rankSecondBg': index === 1,
+                'rankThirdBg': index === 2
+              })}></span>
             </Col>
             :
             <Col span={5}><span className="contentList">{index + 1}</span></Col>

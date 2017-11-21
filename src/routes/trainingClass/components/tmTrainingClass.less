@@ -2,30 +2,31 @@
  * 班级园地（模块）
  */
 @import "../../../themes/mixins";
-.tmTrainingClass{
+
+.tmTrainingClass {
   margin-top: 20px;
   padding-left: 10px;
-  .classList{
+  .classList {
     .border-base();
-    :global{
-      .ant-tabs-bar{
+    :global {
+      .ant-tabs-bar {
         margin-bottom: 2px;
       }
     }
-    .title{
+    .title {
       width: 100%;
       font-weight: 600;
       color: @text-color-2;
       border-bottom: 1px dashed @gray-ccc;
       background-color: @gray-f3;
     }
-    .tabList{
+    .tabList {
       border-bottom: 1px dashed @gray-ccc;
-      &:hover{
+      &:hover {
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
       }
       :global {
-        .ant-btn{
+        .ant-btn {
           width: 88px;
           padding: 0;
         }

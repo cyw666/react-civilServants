@@ -19,7 +19,7 @@ export default modelExtend(model, {
       ListData: [],
       TitleNav: '课程分类'
     },
-    expandedKeys:[],
+    expandedKeys: [],
     baseImageCourse: '',
     courseListData: [],
     channelName: "课程中心",
@@ -47,19 +47,19 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updateCourseListParams(state, {payload}){
+    updateCourseListParams(state, {payload}) {
       return {
         ...state,
         courseListParams: {...state.courseListParams, ...payload}
       }
     },
-    updateCheckedList(state, {payload}){
+    updateCheckedList(state, {payload}) {
       return {
         ...state,
         checkedList: {...state.checkedList, ...payload}
       }
     },
-    initCourseListData(state, {payload}){
+    initCourseListData(state, {payload}) {
       let courseOptions = payload.map(item => {
         let option = {label: '', value: item.Id.toString(), disabled: item.Learning >= 0 ? true : false}
         return option
@@ -72,7 +72,7 @@ export default modelExtend(model, {
         checkAll: false
       }
     },
-    updateCourseListData(state, {payload}){
+    updateCourseListData(state, {payload}) {
       let courseListData = state.courseListData.map(item => {
         return Object.assign({}, item, {checked: payload})
       })
@@ -81,7 +81,7 @@ export default modelExtend(model, {
         courseListData: courseListData
       }
     },
-    updateExpanderKeys(state, {payload}){
+    updateExpanderKeys(state, {payload}) {
       return {
         ...state,
         ...{expandedKeys: payload}
@@ -89,14 +89,14 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getCourseCategory({payload}, {call, put}){
+    * getCourseCategory({payload}, {call, put}) {
       let data = yield call(courseCategory, payload);
       let expandedKeys = [];
       expandedKeys.push((data.Data.ListData[0].id).toString());
       yield put({type: 'updateState', payload: {courseCategory: data.Data}});
       yield put({type: 'updateExpanderKeys', payload: expandedKeys});
     },
-    *getCourseList({payload}, {call, put}){
+    * getCourseList({payload}, {call, put}) {
       let data = yield call(courseList, payload);
       yield put({
         type: 'initCourseListData',
@@ -116,7 +116,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *addStudyCourse({payload}, {call, put, select}){
+    * addStudyCourse({payload}, {call, put, select}) {
       if (payload !== '') {
         let data = yield call(addStudyCourse, payload);
         if (data.Type > 0) {
@@ -129,7 +129,7 @@ export default modelExtend(model, {
       }
       
     },
-    *getCourseRank({payload}, {call, put}){
+    * getCourseRank({payload}, {call, put}) {
       let data = yield call(courseClickRank, payload);
       yield put({
         type: 'updateState',

@@ -8,6 +8,7 @@ import {Link} from 'dva/router'
 import styles from './noticeAnnouncement.less';
 import Img from '../../../components/Img/Img'
 import {dateFilter} from '../../../utils/index'
+
 const NoticeAnnouncement = ({noticeData, loading}) => {
   const baseImgPath = noticeData.Path;
   let listNotice = noticeData['ListData'].map((list) => {

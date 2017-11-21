@@ -2,9 +2,10 @@
  * 通知公告（模板）
  */
 @import "../../../themes/mixins";
+
 .tmCourseDetail {
   .border-base();
-  .title{
+  .title {
     padding: 20px;
     color: @text-color-2;
     font-weight: 600;
@@ -13,54 +14,54 @@
   }
   .courseContent {
     margin-top: 20px;
-    .list1{
+    .list1 {
       text-align: center;
       width: 20%;
     }
-    .list2{
+    .list2 {
       width: 40%;
       text-align: left;
-      :global{
-        .ant-progress-line{
+      :global {
+        .ant-progress-line {
           width: 60%;
         }
       }
     }
-    .list3{
+    .list3 {
       text-align: center;
       width: 20%;
     }
-    .list4{
+    .list4 {
       width: 20%;
       text-align: left;
     }
-    .list5{
+    .list5 {
       width: 80%;
       text-align: left;
     }
-    .nodeTitle{
+    .nodeTitle {
       .ht-lineHt(35px);
       font-size: @font-size-lg;
     }
-    td{
-      a.red{
+    td {
+      a.red {
         color: @primary-color;
-        &:hover{
+        &:hover {
           color: @primary-4;
         }
       }
     }
-    .NodeContent{
-      li{
+    .NodeContent {
+      li {
         .ht-lineHt(28px);
-        .number{
+        .number {
           color: @text-color-3;
         }
-        .name{
+        .name {
           margin-left: 25px;
         }
-        :global{
-          .anticon{
+        :global {
+          .anticon {
             .pull-right();
             margin-right: 65px;
           }

@@ -7,17 +7,18 @@ import {Breadcrumb, Icon, Input, Form, Row, Col, Button} from 'antd';
 import {Link} from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './tmModifyPassword.less'
+
 const FormItem = Form.Item;
 const TmModifyPassword = ({
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-    getFieldValue,
-    validateFields,
-  },
-  updatePwd,
-  loading
-}) => {
+                            form: {
+                              getFieldDecorator,
+                              validateFieldsAndScroll,
+                              getFieldValue,
+                              validateFields,
+                            },
+                            updatePwd,
+                            loading
+                          }) => {
   const formItemLayout = {
     labelCol: {
       span: 5,

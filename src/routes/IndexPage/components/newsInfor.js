@@ -9,12 +9,13 @@ import styles from './newsInfor.less';
 import arrowRight from '../../../assets/arrowRight.png';
 import {dateFilter, wordLimit} from '../../../utils/index'
 import RealTimeData from './realTimeData'
+
 const TabPane = Tabs.TabPane;
 const NewsInfor = ({newsData, loading, tabChange, realTimeData}) => {
   let {ListData} = newsData;
   
   let newsList = ListData.map((item, index) => {
-    if (index === 0)return
+    if (index === 0) return
     return (
       <li key={index}>
         <span className={styles.arrow}><img src={arrowRight} alt="arrow"/></span>

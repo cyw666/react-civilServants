@@ -1,10 +1,9 @@
-
 /*
  * 班级列表
  * */
 import modelExtend from 'dva-model-extend'
 import {model} from './common'
-import {noticeList,classList} from '../services/main'
+import {noticeList, classList} from '../services/main'
 
 export default modelExtend(model, {
   namespace: 'classList',
@@ -24,7 +23,7 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateClassParams(state, {payload}){
+    updateClassParams(state, {payload}) {
       return {
         ...state,
         classParams: {...state.classParams, ...payload}
@@ -32,7 +31,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getClassList({payload}, {call, put}){
+    * getClassList({payload}, {call, put}) {
       let data = yield call(classList, payload);
       yield put({
         type: 'updateState',

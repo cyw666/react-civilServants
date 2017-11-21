@@ -9,6 +9,7 @@ import styles from './article.less';
 import TmCategory from '../../components/tmCategory/tmCategory'
 import HotArticle from './components/tmHotArticle'
 import TmNoticeList from '../noticeList/components/tmNoticeList'
+
 const Article = ({article, dispatch, loading}) => {
   const categoryProps = {
     treeData: article.articleCategory,
@@ -19,10 +20,10 @@ const Article = ({article, dispatch, loading}) => {
         payload: params
       })
     },
-    updateExpandedKeys: (keys)=>{
+    updateExpandedKeys: (keys) => {
       dispatch({
         type: 'article/updateState',
-        payload: {expandedKeys:keys}
+        payload: {expandedKeys: keys}
       })
     },
     expandedKeys: article.expandedKeys

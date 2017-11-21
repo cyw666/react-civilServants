@@ -7,12 +7,13 @@ import {Pagination, Spin} from 'antd';
 import styles from './tmCourseComment.less'
 import {dateFilter} from '../../../utils/index'
 import userPortrait from '../../../assets/userPortrait.png'
+
 const TmCourseComment = ({
-  courseComment,
-  loading,
-  pageConfig,
-  pageChange,
-}) => {
+                           courseComment,
+                           loading,
+                           pageConfig,
+                           pageChange,
+                         }) => {
   const commentList = courseComment.ListData.map((item, index) => {
     return (
       <tbody key={index}>

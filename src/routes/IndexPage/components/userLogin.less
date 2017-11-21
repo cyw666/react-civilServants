@@ -1,11 +1,12 @@
 /*less file*/
 @import "../../../themes/mixins";
+
 .loginBg {
   position: relative;
   background: url(../../../assets/banner.png) no-repeat center;
   background-size: 100% 430px;
   .bigBanner {
-    .wh(100%,430px);
+    .wh(100%, 430px);
     .text-center();
     .bannerText {
       position: absolute;
@@ -31,7 +32,7 @@
         border-bottom: 1px solid @primary-color;
         margin-bottom: 25px;
       }
-      .loginBefore{
+      .loginBefore {
         :global {
           .login-form-login {
             width: 100%;
@@ -48,33 +49,33 @@
         }
       }
       .loginSuccess {
-        .titleInfo{
+        .titleInfo {
           margin-bottom: 0;
         }
-        .loginInfo{
-          li{
+        .loginInfo {
+          li {
             color: @text-color;
             .ht-lineHt(44px);
             width: 100%;
             margin: 0 auto;
-            border-bottom: 1px solid darken(@gray-ddd,4%);
-            a{
+            border-bottom: 1px solid darken(@gray-ddd, 4%);
+            a {
               font-size: 12px;
               color: @text-color*3;
-              &:hover{
+              &:hover {
                 color: @black;
               }
             }
           }
-          .lastList{
+          .lastList {
             border-bottom: none;
           }
-          .exit{
+          .exit {
             text-align: center;
             border-bottom: none;
-            button{
+            button {
               padding: 0;
-              .wh(80px,26px);
+              .wh(80px, 26px);
               .border-radius(6px);
             }
           }

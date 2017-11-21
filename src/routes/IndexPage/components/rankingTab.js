@@ -8,6 +8,7 @@ import {Spin, Tabs} from 'antd';
 import {Link} from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './rankingTab.less';
+
 const TabPane = Tabs.TabPane;
 const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => {
   const groutRankList = groupRankData['ListData'].map((item, index) => {
@@ -16,10 +17,10 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
         <li className={styles.list1}>
           {
             index < 3 ? <span className={cs({
-                'rankFirstBg': index == 0,
-                'rankSecondBg': index == 1,
-                'rankThirdBg': index == 2,
-              })}></span> : <span>{index + 1}</span>
+              'rankFirstBg': index == 0,
+              'rankSecondBg': index == 1,
+              'rankThirdBg': index == 2,
+            })}></span> : <span>{index + 1}</span>
           }
         </li>
         <li className={styles.list2} title='1'>{item.DepartmentName}</li>
@@ -33,10 +34,10 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
         <li className={styles.list1}>
           {
             index < 3 ? <span className={cs({
-                'rankFirstBg': index == 0,
-                'rankSecondBg': index == 1,
-                'rankThirdBg': index == 2,
-              })}></span> : <span>{index + 1}</span>
+              'rankFirstBg': index == 0,
+              'rankSecondBg': index == 1,
+              'rankThirdBg': index == 2,
+            })}></span> : <span>{index + 1}</span>
           }
         </li>
         <li className={styles.list2} title='1'>{item.UserName}</li>
@@ -50,10 +51,10 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
         <li className={styles.list1}>
           {
             index < 3 ? <span className={cs({
-                'rankFirstBg': index == 0,
-                'rankSecondBg': index == 1,
-                'rankThirdBg': index == 2,
-              })}></span> : <span>{index + 1}</span>
+              'rankFirstBg': index == 0,
+              'rankSecondBg': index == 1,
+              'rankThirdBg': index == 2,
+            })}></span> : <span>{index + 1}</span>
           }
         </li>
         <li className={styles.list2} title='1'>

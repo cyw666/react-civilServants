@@ -4,6 +4,7 @@
 import React from 'react'
 import {Link} from 'dva/router'
 import styles from './NavBar.less'
+
 const NavBar = () => {
   return (
     <div className={styles.navBar}>
@@ -15,7 +16,8 @@ const NavBar = () => {
           <li><Link to='/main/courseCenter' activeClassName={styles.active}>课程中心</Link></li>
           <li><Link to='/main/personalCenter' activeClassName={styles.active}>个人中心</Link></li>
           <li><Link to='/main/testCenter' activeClassName={styles.active}>在线考试</Link></li>
-          <li><Link to={{pathname: '/main/article', query: {code: 'onlineHelp', name: '在线帮助'}}} activeClassName={styles.active}>在线帮助</Link></li>
+          <li><Link to={{pathname: '/main/article', query: {code: 'onlineHelp', name: '在线帮助'}}}
+                    activeClassName={styles.active}>在线帮助</Link></li>
         </ul>
       </div>
     </div>

@@ -8,6 +8,7 @@ import {Link} from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './classGarden.less';
 import {dateFilter, JudgeStatus} from '../../../utils/index'
+
 const TabPane = Tabs.TabPane;
 const ClassGarden = ({loading, classChange, classCategory, classListData, addClass, activeClassId}) => {
   const tabPane = classCategory['ListData'].map((item, index) => {
@@ -37,7 +38,9 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
     <div className={styles.classGarden}>
       <GeneralHead showIcon={true} title="班级园地" url="/main/trainingClass"></GeneralHead>
       <Spin spinning={loading}>
-        <Tabs activeKey={activeClassId} onChange={(key) => {classChange(key)}} type="card">
+        <Tabs activeKey={activeClassId} onChange={(key) => {
+          classChange(key)
+        }} type="card">
           {tabPane}
         </Tabs>
         <div className={styles.classContent}>

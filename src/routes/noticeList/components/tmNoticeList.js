@@ -9,8 +9,9 @@ import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Arrow from '../../../assets/arrow.png'
 import {dateFilter} from '../../../utils/index'
 import styles from './tmNoticeList.less'
+
 const Search = Input.Search;
-const TmNoticeList = ({noticeListData, noticeParams,inputSearch, loading, pageConfig, linkUrl}) => {
+const TmNoticeList = ({noticeListData, noticeParams, inputSearch, loading, pageConfig, linkUrl}) => {
   const {ListData, TitleNav} = noticeListData;
   const noticeList = ListData.map((item, index) => {
     return (
@@ -59,7 +60,7 @@ const TmNoticeList = ({noticeListData, noticeParams,inputSearch, loading, pageCo
             </table>
             <div className="pagination">
               {
-                pageConfig.total>0?
+                pageConfig.total > 0 ?
                   <Pagination
                     showQuickJumper
                     showTotal={total => `共 ${total} 条`}
@@ -68,14 +69,14 @@ const TmNoticeList = ({noticeListData, noticeParams,inputSearch, loading, pageCo
                     pageSize={pageConfig.pageSize}
                     onChange={
                       (pageNumber) => {
-                        inputSearch({page: pageNumber, search:noticeParams.search})
+                        inputSearch({page: pageNumber, search: noticeParams.search})
                       }
                     }
                   />
                   :
                   <p className="noData">暂无通知</p>
               }
-              
+            
             </div>
           </Spin>
         </div>

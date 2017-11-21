@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 import NavBar from '../components/NavBar/NavBar'
 import Footer from '../components/Footer/Footer'
 import '../themes/index.less'
-import  './App.less';
+import './App.less';
 
 function App({children, app, dispatch}) {
   const addFavorite = () => {
@@ -78,6 +78,7 @@ function App({children, app, dispatch}) {
 function mapStateToProps({app, loading}) {
   return {app, loading};
 }
+
 App.propTypes = {
   children: PropTypes.element.isRequired,
   location: PropTypes.object,

@@ -4,7 +4,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Slider} from 'antd';
-import {dateFilter} from '../../../utils/index'
 import styles from './tmDrag.less'
 
 class TmDrag extends React.Component {
@@ -24,6 +23,7 @@ class TmDrag extends React.Component {
       this.props.onDragReady();
     }
   }
+  
   render() {
     const {value, showSlider} = this.state;
     return (
@@ -38,7 +38,7 @@ class TmDrag extends React.Component {
               </div>
               <Slider value={value} onChange={this.onChange} onAfterChange={this.onAfterChange}/>
             </div>
-            
+          
           </div>
         }
       </div>
@@ -47,6 +47,6 @@ class TmDrag extends React.Component {
 }
 
 TmDrag.propTypes = {
-  onDragReady:PropTypes.func
+  onDragReady: PropTypes.func
 };
 export default TmDrag;

@@ -11,22 +11,22 @@ import styles from './userLogin.less';
 
 const FormItem = Form.Item;
 const UserLogin = ({
-  form:{
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  indexPage:{
-    userMessage,
-    loginValue,
-    showCode,
-    codeImg,
-  },
-  pushSubmit,
-  pushOut,
-  loading,
-  inputChange,
-  changeVerifyCode,
-}) => {
+                     form: {
+                       getFieldDecorator,
+                       validateFieldsAndScroll,
+                     },
+                     indexPage: {
+                       userMessage,
+                       loginValue,
+                       showCode,
+                       codeImg,
+                     },
+                     pushSubmit,
+                     pushOut,
+                     loading,
+                     inputChange,
+                     changeVerifyCode,
+                   }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
@@ -122,7 +122,8 @@ const UserLogin = ({
                     </li>
                     <li>
                       <span>个人学习档案</span>
-                      <span className="pull-right"><Link to="/main/personalFile" target="_blank" rel="noopener noreferrer">详细&gt;&gt;</Link></span>
+                      <span className="pull-right"><Link to="/main/personalFile" target="_blank"
+                                                         rel="noopener noreferrer">详细&gt;&gt;</Link></span>
                     </li>
                     <li>
                       <p className="pull-left">您有<span className="red"> {userMessage.Model.UnRead} </span>条新通知！</p>

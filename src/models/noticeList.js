@@ -1,4 +1,3 @@
-
 /*
 * 通知公告列表
 * */
@@ -25,7 +24,7 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateNoticeParams(state, {payload}){
+    updateNoticeParams(state, {payload}) {
       return {
         ...state,
         noticeParams: {...state.noticeParams, ...payload}
@@ -33,7 +32,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getNoticeList({payload}, {call, put}){
+    * getNoticeList({payload}, {call, put}) {
       let data = yield call(noticeList, payload);
       yield put({
         type: 'updateState',

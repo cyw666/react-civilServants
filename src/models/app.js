@@ -15,7 +15,7 @@ export default {
     },
   },
   reducers: {
-    updateState (state, {payload}) {
+    updateState(state, {payload}) {
       return {
         ...state,
         ...payload,
@@ -23,7 +23,7 @@ export default {
     },
   },
   effects: {
-    *getBlogroll(action, {call, put}){
+    * getBlogroll(action, {call, put}) {
       let data = yield call(blogroll);
       yield put({
         type: 'updateState',
@@ -32,15 +32,15 @@ export default {
         }
       });
     },
-    *isLoginIn({payload}, {call, put}){
+    * isLoginIn({payload}, {call, put}) {
       let data = yield call(authorization);
       yield put({type: 'updateState', payload: {isLoginIn: data.isauth}});
     },
-    *getUserInformation({payload}, {call, put}){
+    * getUserInformation({payload}, {call, put}) {
       let data = yield call(loginLong);
       yield put({type: 'updateState', payload: {userInformation: data.Data}});
     },
-    *loginOut({payload}, {call, put}){
+    * loginOut({payload}, {call, put}) {
       try {
         let data = yield call(loginOut, payload);
         if (data.Type === 1) {

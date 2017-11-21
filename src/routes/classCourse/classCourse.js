@@ -5,20 +5,24 @@ import React from 'react';
 import {connect} from 'dva';
 import PropTypes from 'prop-types';
 import {Link} from 'dva/router'
-import {Button, Breadcrumb, Icon, Input, Tabs, Row, Col, Spin, Progress, Pagination} from 'antd'
-import cs from 'classnames';
+import {Breadcrumb, Icon, Row, Col, Spin, Progress, Pagination} from 'antd'
 import GeneralHead from '../../components/GeneralHead/GeneralHead'
-import {dateFilter} from '../../utils/index'
 import styles from './classCourse.less';
 
 const ClassCourse = ({classCourse, dispatch, loading}) => {
-  const {classId,courseType, classCourseData, pageOptions} = classCourse;
+  const {classId, courseType, classCourseData, pageOptions} = classCourse;
   const contentList = classCourseData.ListData && classCourseData.ListData.map((item, index) => {
     return (
       <Row key={index}>
-        <Col span={14}><Link to={{pathname:'/main/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">{item.Name}</Link></Col>
-        <Col span={6}><div><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div></Col>
-        <Col span={4}><div><Link to={{pathname:'/play',query:{courseId:item.Id}}} target="_blank" rel="noopener noreferrer">点击播放</Link></div></Col>
+        <Col span={14}><Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name}
+                             target="_blank" rel="noopener noreferrer">{item.Name}</Link></Col>
+        <Col span={6}>
+          <div><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
+        </Col>
+        <Col span={4}>
+          <div><Link to={{pathname: '/play', query: {courseId: item.Id}}} target="_blank"
+                     rel="noopener noreferrer">点击播放</Link></div>
+        </Col>
       </Row>
     )
   });
@@ -40,11 +44,14 @@ const ClassCourse = ({classCourse, dispatch, loading}) => {
           <Breadcrumb.Item><Icon type="setting" style={{fontSize: 16, color: '#656565'}}/> 您的当前位置：</Breadcrumb.Item>
           <Breadcrumb.Item><a href="/main/indexPage">首页</a></Breadcrumb.Item>
           <Breadcrumb.Item><a href="/main/trainingClass">培训班</a></Breadcrumb.Item>
-          <Breadcrumb.Item><Link to={{pathname: '/main/grade/classDetail', query: {id: classId}}}>{classCourseData.TrainingName}</Link></Breadcrumb.Item>
+          <Breadcrumb.Item><Link to={{
+            pathname: '/main/grade/classDetail',
+            query: {id: classId}
+          }}>{classCourseData.TrainingName}</Link></Breadcrumb.Item>
           <Breadcrumb.Item>班级课程</Breadcrumb.Item>
         </Breadcrumb>
         <div className={styles.borderBold}>
-          <h2 className="commonTitle">班级课程（{courseType=="required"?"必修":"选修"}）</h2>
+          <h2 className="commonTitle">班级课程（{courseType == "required" ? "必修" : "选修"}）</h2>
           <Spin spinning={loading.effects['classCourse/getClassCourse']}>
             <div className="myTab">
               <div className="header">
@@ -58,7 +65,7 @@ const ClassCourse = ({classCourse, dispatch, loading}) => {
                 {contentList}
               </div>
               {
-                pageOptions.total>0&&
+                pageOptions.total > 0 &&
                 <Pagination showQuickJumper {...pageOptions} onChange={pageSizeChange} showTotal={(total) => {
                   return `共${total}条`
                 }}/>

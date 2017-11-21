@@ -79,7 +79,7 @@ class TmPlayMp4 extends React.Component {
         "courseId": this.state.courseId,
         "positionen": this.state.currentTime.toString().rsaEnscrypt()
       });
-    },30000);
+    }, 30000);
   }
   
   componentWillUnmount() {

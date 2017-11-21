@@ -4,6 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './tmPlayJy.less'
+
 const TmPlayJy = ({data}) => {
   const {
     BatchId,

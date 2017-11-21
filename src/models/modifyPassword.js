@@ -16,7 +16,7 @@ export default modelExtend(model, {
   },
   reducers: {},
   effects: {
-    *updatePwd({payload}, {call, put}){
+    * updatePwd({payload}, {call, put}) {
       let data = yield call(updatePwd, payload);
       if (data.Type === 1) {
         message.success(data.Message);

@@ -12,213 +12,217 @@ const Search = Input.Search;
 const Option = Select.Option;
 const TabPane = Tabs.TabPane;
 const TmMyCenter = ({
-  courseData,
-  activeKey,
-  loading,
-  searchMyCourse,
-  selectChange,
-  delMyCourse,
-  openNotesModal,
-  seeNotesModal,
-  pageConfig,
-  openPlanModal,
-  seePlanModal,
-  openExamModal
-}) => {
+                      courseData,
+                      activeKey,
+                      loading,
+                      searchMyCourse,
+                      selectChange,
+                      delMyCourse,
+                      openNotesModal,
+                      seeNotesModal,
+                      pageConfig,
+                      openPlanModal,
+                      seePlanModal,
+                      openExamModal
+                    }) => {
   const {UnfinishCount, AppointedCount, FinishCount} = courseData;
   const {UnfinishModel, AppointedModel, FinishModel} = courseData.ListData;
   const unFinishList = UnfinishModel && UnfinishModel.map((item, index) => {
-      return (
-        <Row key={index} className={styles.tabList}>
-          <Col span={6}>
-            <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
-                                                          target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
-            </div>
-          </Col>
-          <Col span={4}>
-            <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.Credit}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.Type}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">
-              <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank" rel="noopener noreferrer">播放</Link>
-            </div>
-          </Col>
-          {item.NoteFlag ? <Col span={2}>
-              <div className="list"><a onClick={() => {
-                seeNotesModal(item.Id, item.Name)
-              }}>查看</a></div>
-            </Col> : <Col span={2}>
-              <div className="list"><a onClick={() => {
-                openNotesModal(item.Id)
-              }}>添加</a></div>
-            </Col>}
-          {item.PlanId ? <Col span={2}>
-              <div className="list"><a onClick={() => {
-                seePlanModal(item.PlanId)
-              }}>查看</a></div>
-            </Col> : <Col span={2}>
-              <div className="list"><a onClick={() => {
-                openPlanModal(item.Id)
-              }}>添加</a></div>
-            </Col>}
-          
-          {
-            (item.ExamFlag && item.BrowseScore < 100) ? <Col span={2}>
-                <div className="list">有考试</div>
+    return (
+      <Row key={index} className={styles.tabList}>
+        <Col span={6}>
+          <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
+                                                        target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
+          </div>
+        </Col>
+        <Col span={4}>
+          <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.Credit}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.Type}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">
+            <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank"
+                  rel="noopener noreferrer">播放</Link>
+          </div>
+        </Col>
+        {item.NoteFlag ? <Col span={2}>
+          <div className="list"><a onClick={() => {
+            seeNotesModal(item.Id, item.Name)
+          }}>查看</a></div>
+        </Col> : <Col span={2}>
+          <div className="list"><a onClick={() => {
+            openNotesModal(item.Id)
+          }}>添加</a></div>
+        </Col>}
+        {item.PlanId ? <Col span={2}>
+          <div className="list"><a onClick={() => {
+            seePlanModal(item.PlanId)
+          }}>查看</a></div>
+        </Col> : <Col span={2}>
+          <div className="list"><a onClick={() => {
+            openPlanModal(item.Id)
+          }}>添加</a></div>
+        </Col>}
+        
+        {
+          (item.ExamFlag && item.BrowseScore < 100) ? <Col span={2}>
+              <div className="list">有考试</div>
+            </Col> :
+            (item.ExamFlag && item.BrowseScore == 100) ? <Col span={2}>
+                <div className="list"><a onClick={() => {
+                  openExamModal(item.Id)
+                }}>查看</a></div>
               </Col> :
-              (item.ExamFlag && item.BrowseScore == 100) ? <Col span={2}>
-                  <div className="list"><a onClick={() => {
-                    openExamModal(item.Id)
-                  }}>查看</a></div>
-                </Col> :
-                <Col span={2}>
-                  <div className="list">无</div>
-                </Col>
-          }
-          
-          <Col span={2}>
-            <div className="list"><a onClick={() => {
-              delMyCourse(item.Id)
-            }}><Icon type="delete" style={{fontSize: 18}}/></a></div>
-          </Col>
-        </Row>
-      )
-      
-    })
+              <Col span={2}>
+                <div className="list">无</div>
+              </Col>
+        }
+        
+        <Col span={2}>
+          <div className="list"><a onClick={() => {
+            delMyCourse(item.Id)
+          }}><Icon type="delete" style={{fontSize: 18}}/></a></div>
+        </Col>
+      </Row>
+    )
+    
+  })
   const appointedList = AppointedModel && AppointedModel.map((item, index) => {
-      return (
-        <Row key={index} className={styles.tabList}>
-          <Col span={6}>
-            <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
-                                                          target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
-            </div>
-          </Col>
-          <Col span={4}>
-            <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.Credit}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.Type}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">
-              <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank" rel="noopener noreferrer">播放</Link>
-            </div>
-          </Col>
-          {item.NoteFlag ? <Col span={2}>
-              <div className="list"><a onClick={() => {
-                seeNotesModal(item.Id, item.Name)
-              }}>查看</a></div>
-            </Col> : <Col span={2}>
-              <div className="list"><a onClick={() => {
-                openNotesModal(item.Id)
-              }}>添加</a></div>
-            </Col>}
-          {item.PlanId ? <Col span={2}>
-              <div className="list"><a onClick={() => {
-                seePlanModal(item.PlanId)
-              }}>查看</a></div>
-            </Col> : <Col span={2}>
-              <div className="list"><a onClick={() => {
-                openPlanModal(item.Id)
-              }}>添加</a></div>
-            </Col>}
-          
-          {
-            (item.ExamFlag && item.BrowseScore < 100) ? <Col span={2}>
-                <div className="list">有考试</div>
+    return (
+      <Row key={index} className={styles.tabList}>
+        <Col span={6}>
+          <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
+                                                        target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
+          </div>
+        </Col>
+        <Col span={4}>
+          <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.Credit}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.Type}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">
+            <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank"
+                  rel="noopener noreferrer">播放</Link>
+          </div>
+        </Col>
+        {item.NoteFlag ? <Col span={2}>
+          <div className="list"><a onClick={() => {
+            seeNotesModal(item.Id, item.Name)
+          }}>查看</a></div>
+        </Col> : <Col span={2}>
+          <div className="list"><a onClick={() => {
+            openNotesModal(item.Id)
+          }}>添加</a></div>
+        </Col>}
+        {item.PlanId ? <Col span={2}>
+          <div className="list"><a onClick={() => {
+            seePlanModal(item.PlanId)
+          }}>查看</a></div>
+        </Col> : <Col span={2}>
+          <div className="list"><a onClick={() => {
+            openPlanModal(item.Id)
+          }}>添加</a></div>
+        </Col>}
+        
+        {
+          (item.ExamFlag && item.BrowseScore < 100) ? <Col span={2}>
+              <div className="list">有考试</div>
+            </Col> :
+            (item.ExamFlag && item.BrowseScore == 100) ? <Col span={2}>
+                <div className="list"><a onClick={() => {
+                  openExamModal(item.Id)
+                }}>查看</a></div>
               </Col> :
-              (item.ExamFlag && item.BrowseScore == 100) ? <Col span={2}>
-                  <div className="list"><a onClick={() => {
-                    openExamModal(item.Id)
-                  }}>查看</a></div>
-                </Col> :
-                <Col span={2}>
-                  <div className="list">无</div>
-                </Col>
-          }
-          
-          <Col span={2}>
-            <div className="list"><a onClick={() => {
-              delMyCourse(item.Id)
-            }}><Icon type="delete" style={{fontSize: 18}}/></a></div>
-          </Col>
-        </Row>
-      )
-      
-    })
+              <Col span={2}>
+                <div className="list">无</div>
+              </Col>
+        }
+        
+        <Col span={2}>
+          <div className="list"><a onClick={() => {
+            delMyCourse(item.Id)
+          }}><Icon type="delete" style={{fontSize: 18}}/></a></div>
+        </Col>
+      </Row>
+    )
+    
+  })
   const finishList = FinishModel && FinishModel.map((item, index) => {
-      return (
-        <Row key={index} className={styles.tabList}>
-          <Col span={6}>
-            <div className="list" title={item.Name}>
-              <Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}} target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
-            </div>
-          </Col>
-          <Col span={4}>
-            <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.Credit}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">{item.Type}</div>
-          </Col>
-          <Col span={2}>
-            <div className="list">
-              <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank" rel="noopener noreferrer">播放</Link>
-            </div>
-          </Col>
-          {item.NoteFlag ? <Col span={2}>
-              <div className="list"><a onClick={() => {
-                seeNotesModal(item.Id, item.Name)
-              }}>查看</a></div>
-            </Col> : <Col span={2}>
-              <div className="list"><a onClick={() => {
-                openNotesModal(item.Id)
-              }}>添加</a></div>
-            </Col>}
-          {item.PlanId ? <Col span={2}>
-              <div className="list"><a onClick={() => {
-                seePlanModal(item.PlanId)
-              }}>查看</a></div>
-            </Col> : <Col span={2}>
-              <div className="list"><a onClick={() => {
-                openPlanModal(item.Id)
-              }}>添加</a></div>
-            </Col>}
-          
-          {
-            (item.ExamFlag && item.BrowseScore < 100) ? <Col span={2}>
-                <div className="list">有考试</div>
+    return (
+      <Row key={index} className={styles.tabList}>
+        <Col span={6}>
+          <div className="list" title={item.Name}>
+            <Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}} target={"_blank"}
+                  rel="noopener noreferrer">{item.Name}</Link>
+          </div>
+        </Col>
+        <Col span={4}>
+          <div className="list"><Progress percent={parseFloat(item.BrowseScore.toFixed(1))} status="active"/></div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.Credit}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">{item.Type}</div>
+        </Col>
+        <Col span={2}>
+          <div className="list">
+            <Link to={{pathname: "/play", query: {courseId: item.Id}}} target="_blank"
+                  rel="noopener noreferrer">播放</Link>
+          </div>
+        </Col>
+        {item.NoteFlag ? <Col span={2}>
+          <div className="list"><a onClick={() => {
+            seeNotesModal(item.Id, item.Name)
+          }}>查看</a></div>
+        </Col> : <Col span={2}>
+          <div className="list"><a onClick={() => {
+            openNotesModal(item.Id)
+          }}>添加</a></div>
+        </Col>}
+        {item.PlanId ? <Col span={2}>
+          <div className="list"><a onClick={() => {
+            seePlanModal(item.PlanId)
+          }}>查看</a></div>
+        </Col> : <Col span={2}>
+          <div className="list"><a onClick={() => {
+            openPlanModal(item.Id)
+          }}>添加</a></div>
+        </Col>}
+        
+        {
+          (item.ExamFlag && item.BrowseScore < 100) ? <Col span={2}>
+              <div className="list">有考试</div>
+            </Col> :
+            (item.ExamFlag && item.BrowseScore == 100) ? <Col span={2}>
+                <div className="list"><a onClick={() => {
+                  openExamModal(item.Id)
+                }}>查看</a></div>
               </Col> :
-              (item.ExamFlag && item.BrowseScore == 100) ? <Col span={2}>
-                  <div className="list"><a onClick={() => {
-                    openExamModal(item.Id)
-                  }}>查看</a></div>
-                </Col> :
-                <Col span={2}>
-                  <div className="list">无</div>
-                </Col>
-          }
-          
-          <Col span={2}>
-            <div className="list"><a onClick={() => {
-              delMyCourse(item.Id)
-            }}><Icon type="delete" style={{fontSize: 18}}/></a></div>
-          </Col>
-        </Row>
-      )
-      
-    })
+              <Col span={2}>
+                <div className="list">无</div>
+              </Col>
+        }
+        
+        <Col span={2}>
+          <div className="list"><a onClick={() => {
+            delMyCourse(item.Id)
+          }}><Icon type="delete" style={{fontSize: 18}}/></a></div>
+        </Col>
+      </Row>
+    )
+    
+  })
   
   
   return (

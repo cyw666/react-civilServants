@@ -15,11 +15,11 @@ const ChangeInfor = ({app, changeInfor, dispatch, loading}) => {
     loading: loading.effects['app/getUserInformation']
   }
   const tmChangeInforProps = {
-    userInfo:changeInfor.userInfo,
-    gradeList:changeInfor.gradeList,
-    submit:(values)=>{
-      const infoParams = {...values,...changeInfor.token};
-      dispatch({type:'changeInfor/updateUserInfo',payload:infoParams})
+    userInfo: changeInfor.userInfo,
+    gradeList: changeInfor.gradeList,
+    submit: (values) => {
+      const infoParams = {...values, ...changeInfor.token};
+      dispatch({type: 'changeInfor/updateUserInfo', payload: infoParams})
     }
   }
   return (

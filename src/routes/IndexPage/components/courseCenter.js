@@ -10,8 +10,10 @@ import Img from '../../../components/Img/Img'
 import styles from './courseCenter.less';
 import hotIcon from '../../../assets/hotIcon.png'
 import notCourse from '../../../assets/notCourse.png'
+
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+
 class CourseCenter extends React.Component {
   constructor(props) {
     super(props)
@@ -42,7 +44,8 @@ class CourseCenter extends React.Component {
     let courseCenterList = courseCenterData.map((item, index) => {
       return (
         <li key={index}>
-          <Link to={{pathname:'/main/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">
+          <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
+                rel="noopener noreferrer">
             <Img src={baseImgPath + '/' + item.Img} alt="" errSrc={notCourse}/>
           </Link>
           {
@@ -59,7 +62,8 @@ class CourseCenter extends React.Component {
           
           <div className={styles.desc}>
             <p>
-              <Link to={{pathname:'/main/courseDetail',query:{id:item.Id}}} title={item.Name} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
+              <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
+                    rel="noopener noreferrer">{item.Name}</Link>
             </p>
             <p>
               <span className={styles.teacher}>讲师：{item.Teacher}</span>

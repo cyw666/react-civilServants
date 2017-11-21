@@ -35,7 +35,7 @@ export default modelExtend(model, {
     ]
   },
   reducers: {
-    changeFavoriteId(state, {payload}){
+    changeFavoriteId(state, {payload}) {
       return {
         ...state,
         noticeDetailData: {...state.noticeDetailData, ...payload},
@@ -43,7 +43,7 @@ export default modelExtend(model, {
     }
   },
   effects: {
-    *getNoticeDetail({payload}, {call, put}){
+    * getNoticeDetail({payload}, {call, put}) {
       let data = yield call(noticeContent, payload);
       yield put({
         type: 'updateState',
@@ -52,7 +52,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *favoriteAdd({payload}, {call, put}){
+    * favoriteAdd({payload}, {call, put}) {
       let data = yield call(favoriteAdd, payload);
       if (data.Type === 1) {
         message.success(data.Message);
@@ -61,7 +61,7 @@ export default modelExtend(model, {
         message.error('收藏失败！');
       }
     },
-    *favoriteDelete({payload}, {call, put}){
+    * favoriteDelete({payload}, {call, put}) {
       let data = yield call(favoriteDelete, payload);
       if (data.Type === 1) {
         message.success(data.Message);
@@ -72,10 +72,10 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}){
+    setup({dispatch, history}) {
       history.listen((location) => {
         let match = pathToRegexp('/main/noticeDetail/:id').exec(location.pathname);
-        if(match){
+        if (match) {
           dispatch({type: 'getNoticeDetail', payload: {id: match[1]}});
         }
       })

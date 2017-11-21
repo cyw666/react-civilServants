@@ -2,23 +2,24 @@
  * 考试列表
  */
 @import "../../../themes/mixins";
-.tmArticleCategory{
+
+.tmArticleCategory {
   margin-top: 15px;
   padding-left: 10px;
-  .categoryContent{
+  .categoryContent {
     .border-base();
-    ul{
+    ul {
       min-height: 100px;
       padding: 20px 20px 0 20px;
       .clearFix();
-      li{
+      li {
         .pull-left();
         width: 50%;
         margin-bottom: 20px;
         .text-center();
-        :global{
-          .ant-btn{
-            .wh(100px,38px);
+        :global {
+          .ant-btn {
+            .wh(100px, 38px);
             line-height: 38px;
             padding: 0;
           }

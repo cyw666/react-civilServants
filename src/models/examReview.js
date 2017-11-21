@@ -35,7 +35,7 @@ export default modelExtend(model, {
         let parameter1 = location.query.parameter1;
         let parameter2 = location.query.parameter2;
         if (location.pathname === '/main/examReview') {
-          dispatch({type: 'getExamReview', payload: {parameter1,parameter2}});
+          dispatch({type: 'getExamReview', payload: {parameter1, parameter2}});
         }
       })
     }

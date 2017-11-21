@@ -39,7 +39,7 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updateGroupList(state, {payload}){
+    updateGroupList(state, {payload}) {
       return {
         ...state,
         groupList: [...payload]
@@ -47,17 +47,17 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getUserInfo({payload}, {call, put}){
+    * getUserInfo({payload}, {call, put}) {
       let data = yield call(getUserInfo, payload);
       if (data.Status === 200) {
         yield put({type: 'updateState', payload: {userInfo: data.Data.Model}});
       }
     },
-    *getGradeList({payload}, {call, put}){
+    * getGradeList({payload}, {call, put}) {
       let gradeList = yield call(getGradeList, payload);
       yield put({type: 'updateState', payload: {gradeList}});
     },
-    *updateUserInfo({payload}, {call, put}){
+    * updateUserInfo({payload}, {call, put}) {
       let data = yield call(updateUserInfo, payload);
       if (data.Type == 1) {
         message.success(data.Message, 3, yield put(routerRedux.push('/main/indexPage'))

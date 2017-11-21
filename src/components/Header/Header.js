@@ -12,6 +12,7 @@ import logo from '../../assets/logo.png'
 import redFlag from '../../assets/redFlag.png'
 import appImg from '../../assets/appImg.png'
 import weiXinImg from '../../assets/weiXinImg.png'
+
 const Header = ({addFavorite, setHome, inputChange, data}) => {
   return (
     <div>
@@ -50,7 +51,8 @@ const Header = ({addFavorite, setHome, inputChange, data}) => {
                 onChange={inputChange}
                 size="large"
               />
-              <Button><Link to={{pathname:'/main/searchGloable',query:{keyword:`${data.searchText}`}}} target="_blank" rel="noopener noreferrer">搜索</Link></Button>
+              <Button><Link to={{pathname: '/main/searchGloable', query: {keyword: `${data.searchText}`}}}
+                            target="_blank" rel="noopener noreferrer">搜索</Link></Button>
             </div>
           </li>
           <li className="grid_7 clearFix">

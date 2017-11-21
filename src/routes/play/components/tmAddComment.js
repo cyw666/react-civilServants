@@ -3,24 +3,24 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, Icon, Input, Button, Rate} from 'antd';
+import {Form, Input, Button, Rate} from 'antd';
 import styles from './tmAddComment.less';
 
 const FormItem = Form.Item;
 const TmAddComment = ({
-  form:{
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  loading,
-  submit
-}) => {
+                        form: {
+                          getFieldDecorator,
+                          validateFieldsAndScroll,
+                        },
+                        loading,
+                        submit
+                      }) => {
   let rate = 5;
   const handleSubmit = (e) => {
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
       if (!err) {
-        let params = {...values,...{rate}};
+        let params = {...values, ...{rate}};
         submit(params);
       }
     });

@@ -65,15 +65,15 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    save(state, {payload: list}){
+    save(state, {payload: list}) {
       return {...state, linkData: list}
     },
-    addUserMessage(state, {payload: userMessage}){
+    addUserMessage(state, {payload: userMessage}) {
       return {...state, userMessage: userMessage}
     }
   },
   effects: {
-    *kickOut({payload}, {call, put, select}){
+    * kickOut({payload}, {call, put, select}) {
       var data = yield call(mainService.kickOut, payload);
       if (data.Type == 1) {
         //重新登录
@@ -81,11 +81,11 @@ export default modelExtend(model, {
         yield put({type: "login", payload: loginValue})
       }
     },
-    *getVerifyCode({payload}, {call, put}){
+    * getVerifyCode({payload}, {call, put}) {
       let data = yield call(mainService.getVerifyCode);
       yield put({type: 'updateState', payload: {codeImg: `data:image/png;base64,${data.img}`}})
     },
-    *login({payload:loginValue}, {call, put, select}){
+    * login({payload: loginValue}, {call, put, select}) {
       try {
         const showCode = yield select(state => state.indexPage.showCode);
         let data;
@@ -137,11 +137,11 @@ export default modelExtend(model, {
         throw error;
       }
     },
-    *userMessage(action, {call, put}){
+    * userMessage(action, {call, put}) {
       let data = yield call(mainService.userMessage);
       yield put({type: 'addUserMessage', payload: data.Data});
     },
-    *loginOut({payload}, {call, put}){
+    * loginOut({payload}, {call, put}) {
       try {
         let data = yield call(mainService.loginOut, payload);
         if (data.Type === 1) {
@@ -155,7 +155,7 @@ export default modelExtend(model, {
       }
       
     },
-    *getUserCookie({payload}, {call, put}){
+    * getUserCookie({payload}, {call, put}) {
       if (getCookie("RB")) {
         let userCookies = getCookie("RB").split('|');
         let RB = userCookies[0];
@@ -170,7 +170,7 @@ export default modelExtend(model, {
         });
       }
     },
-    *setUserCookie({payload:values}, {call, put}){
+    * setUserCookie({payload: values}, {call, put}) {
       if (values.RememberMe) {
         var rmString = values.RememberMe + '|' + values.Account + '|' + values.PassWord;
         setCookie("RB", rmString, 7);
@@ -188,23 +188,23 @@ export default modelExtend(model, {
         });
       }
     },
-    *getNotice({payload}, {call, put}){
+    * getNotice({payload}, {call, put}) {
       let data = yield call(mainService.leftNotice, payload);
       yield put({type: 'updateState', payload: {noticeData: data.Data}});
     },
-    *getNews({payload}, {call, put}){
+    * getNews({payload}, {call, put}) {
       let data = yield call(mainService.articleList, payload);
       yield put({type: 'updateState', payload: {newsData: data.Data}});
     },
-    *getRealTimeData({payload}, {call, put}){
+    * getRealTimeData({payload}, {call, put}) {
       let data = yield call(mainService.leftRealTimeData, payload);
       yield put({type: 'updateState', payload: {realTimeData: data.Data}});
     },
-    *getCourseList({payload}, {call, put}){
+    * getCourseList({payload}, {call, put}) {
       let data = yield call(mainService.courseList, payload);
       yield put({type: 'updateState', payload: {courseListData: data.Data}});
     },
-    *getCourseCategory({payload}, {call, put}){
+    * getCourseCategory({payload}, {call, put}) {
       let data = yield call(mainService.courseCategory, payload);
       let defaultId = data.Data.ListData[0].id;
       let courseList = yield call(mainService.courseList, {rows: 8, channelId: defaultId});
@@ -216,7 +216,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getStudySpecial({payload}, {call, put}){
+    * getStudySpecial({payload}, {call, put}) {
       let data = yield call(mainService.studySpecial, payload);
       yield put({
         type: 'updateState',
@@ -225,7 +225,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getClassCategory({payload}, {call, put}){
+    * getClassCategory({payload}, {call, put}) {
       let data = yield call(mainService.getTrainingClassTypeList, payload);
       let defaultId = data.Data.ListData[0].id;
       let classList = yield call(mainService.getClassList, {rows: 6, categoryId: defaultId});
@@ -238,7 +238,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getClassList({payload}, {call, put}){
+    * getClassList({payload}, {call, put}) {
       let data = yield call(mainService.getClassList, payload);
       yield put({
         type: 'updateState',
@@ -248,15 +248,15 @@ export default modelExtend(model, {
         }
       });
     },
-    *joinClass({payload}, {call, put}){
+    * joinClass({payload}, {call, put}) {
       let data = yield call(mainService.updateTrainingStudentup, payload);
-      if(data.Type === 1){
+      if (data.Type === 1) {
         message.success(data.Message)
-      }else {
+      } else {
         message.error(data.Message)
       }
     },
-    *getGroupRank({payload}, {call, put}){
+    * getGroupRank({payload}, {call, put}) {
       let data = yield call(mainService.leftGroupRank, payload);
       yield put({
         type: 'updateState',
@@ -265,7 +265,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getRankUser({payload}, {call, put}){
+    * getRankUser({payload}, {call, put}) {
       let data = yield call(mainService.rankUserList, payload);
       yield put({
         type: 'updateState',
@@ -274,7 +274,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getCourseClick({payload}, {call, put}){
+    * getCourseClick({payload}, {call, put}) {
       let data = yield call(mainService.courseClickRank, payload);
       yield put({
         type: 'updateState',
@@ -283,7 +283,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getBookList({payload}, {call, put}){
+    * getBookList({payload}, {call, put}) {
       let data = yield call(mainService.bookList, payload);
       yield put({
         type: 'updateState',
@@ -292,7 +292,7 @@ export default modelExtend(model, {
         }
       });
     },
-    *getTags({payload}, {call, put, select}) {
+    * getTags({payload}, {call, put, select}) {
       let data = yield call(mainService.tags, payload);
     },
     
@@ -305,7 +305,7 @@ export default modelExtend(model, {
      },*/
     setup({dispatch, history}) {
       history.listen(({pathname, query}) => {
-        if (pathname === '/main/indexPage'||pathname === '/main') {
+        if (pathname === '/main/indexPage' || pathname === '/main') {
           dispatch({type: 'getUserCookie'});
           dispatch({type: 'getVerifyCode'});
         }

@@ -9,6 +9,7 @@ import {
   examList,
   exam,
 } from '../services/main';
+
 const history = useQueries(createHistory)()
 
 export default modelExtend(model, {
@@ -35,7 +36,7 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateExamParams(state, {payload}){
+    updateExamParams(state, {payload}) {
       return {
         ...state,
         examParams: {...state.examParams, ...payload}
@@ -43,7 +44,7 @@ export default modelExtend(model, {
     },
   },
   effects: {
-    *getExamList({payload}, {call, put}){
+    * getExamList({payload}, {call, put}) {
       let data = yield call(examList, payload);
       yield put({
         type: 'updateState',
@@ -59,7 +60,7 @@ export default modelExtend(model, {
       });
       yield put({type: 'updateExamParams', payload});
     },
-    *joinExam({payload}, {call, put}){
+    * joinExam({payload}, {call, put}) {
       let data = yield call(exam, payload);
       if (data.Type) {
         //Type存在，意味着不能考试

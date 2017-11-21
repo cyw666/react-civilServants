@@ -9,6 +9,7 @@ import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import Arrow from '../../../assets/arrow.png'
 import {dateFilter} from '../../../utils/index'
 import styles from './tmPersonalNotice.less'
+
 const Search = Input.Search;
 const TmPersonalNotice = ({noticeListData, noticeParams, inputSearch, loading, pageConfig, linkUrl}) => {
   const {AllList, TitleNav} = noticeListData;

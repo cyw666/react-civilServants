@@ -21,10 +21,10 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
         payload: params
       })
     },
-    updateExpandedKeys: (keys)=>{
+    updateExpandedKeys: (keys) => {
       dispatch({
         type: 'trainingClass/updateState',
-        payload: {expandedKeys:keys}
+        payload: {expandedKeys: keys}
       })
     },
     expandedKeys: trainingClass.expandedKeys
@@ -59,7 +59,7 @@ const TrainingClass = ({trainingClass, dispatch, loading}) => {
     seeClassDetail: (id) => {
       dispatch({
         type: 'trainingClass/seeClassDetail',
-        payload: {id,more:false}
+        payload: {id, more: false}
       })
     },
     loading: loading.effects['trainingClass/getClassList']

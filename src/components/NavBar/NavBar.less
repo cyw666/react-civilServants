@@ -1,22 +1,23 @@
 @import "../../themes/mixins";
+
 .navBar {
   text-align: center;
   background: @primary-color;
-  .navTabs{
-    li{
+  .navTabs {
+    li {
       .pull-left();
-      a{
+      a {
         display: inline-block;
         color: @white;
         font-size: @font-size-lg;
         font-weight: 500;
-        .wh(170px,42px);
+        .wh(170px, 42px);
         line-height: 42px;
-        &:hover{
+        &:hover {
           background: @primary-4;
         }
       }
-      .active{
+      .active {
         background: @primary-4;
       }
     }

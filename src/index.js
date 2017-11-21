@@ -5,7 +5,7 @@ import createLoading from 'dva-loading';
 // 1. Initialize
 const app = dva({
   history: browserHistory,
-  onError (error) {
+  onError(error) {
     message.error(error.message);
   },
 });

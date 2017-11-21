@@ -480,5 +480,35 @@ module.exports = {
       url: `${API}/Page/ClassExam`,
       data: {id: '', page: 1, rows: 12, sort: 'Id', order: 'desc', titleNav: '班级考试', wordLimt: 30}
     },
+    /*班级相册*/
+    PhotoAlbumList: {
+      url: `${API}/Page/PhotoAlbumList`,
+      data: {id: '', page: 1, rows: 9, sort: 'Id', order: 'desc', titleNav: '班级相册'}
+    },
+    /*班级相册 照片*/
+    PhotoPreview: {
+      url: `${API}/Page/PhotoPreview`,
+      data: {albumId: "", trainingId: "", page: 1, rows: 9, sort: 'Id', order: 'desc', titleNav: '班级照片'}
+    },
+    /*添加话题*/
+    ClassTopicAdd: {
+      url: `${API}/Page/ClassTopicAdd`,
+      data: {id: "", page: 1, rows: 9, sort: 'Id', order: 'desc', titleNav: '添加话题'}
+    },
+    /*发布文章 话题 type: topic paper*/
+    ClassPublishArticle: {
+      url: `${API}/Page/ClassPublishArticle`,
+      data: {type: '', trainingId: "", name: "", categoryId: "", content: ""}
+    },
+    /*培训班--获取分类 type: topic paper*/
+    GetTrainingArticleCategory: {
+      url: `${API}/Page/GetTrainingArticleCategory`,
+      data: {type: '', trainingId: ""}
+    },
+    /*添加论文*/
+    ClassPaperAdd: {
+      url: `${API}/Page/ClassPaperAdd`,
+      data: {id: "", page: 1, rows: 9, sort: 'Id', order: 'desc', titleNav: '添加论文'}
+    },
   }
 }

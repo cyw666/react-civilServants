@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
 import {Breadcrumb, Icon, Input, Pagination, Spin} from 'antd';
 import {Link} from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
-import Arrow from '../../../assets/arrow.png'
-import {dateFilter,JudgeStatus} from '../../../utils/index'
+import {dateFilter, JudgeStatus} from '../../../utils/index'
 import styles from './tmClassList.less'
+
 const Search = Input.Search;
 const TmClassList = ({listData, listParams, inputSearch, loading, pageConfig, linkUrl}) => {
   const {ListData, Nav} = listData;
@@ -24,7 +24,7 @@ const TmClassList = ({listData, listParams, inputSearch, loading, pageConfig, li
         <td>{dateFilter(item.StartTime, 'yyyy-MM-dd')}~{dateFilter(item.EndTime, 'yyyy-MM-dd')}</td>
         <td>
           {
-            item.ApplyStatus?<span>{JudgeStatus(item.ApplyStatus)}</span>:<Link>点击报名</Link>
+            item.ApplyStatus ? <span>{JudgeStatus(item.ApplyStatus)}</span> : <Link>点击报名</Link>
           }
         </td>
         <td>{item.ArticleCount}</td>

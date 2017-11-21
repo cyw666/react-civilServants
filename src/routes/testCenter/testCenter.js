@@ -8,6 +8,7 @@ import cs from 'classnames';
 import styles from './testCenter.less';
 import UserInformation from '../../components/userInformation/userInformation'
 import TmExamList from './components/tmExamList'
+
 const TestCenter = ({app, testCenter, dispatch, loading}) => {
   const userInforProps = {
     information: app.userInformation,

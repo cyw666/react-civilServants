@@ -6,27 +6,28 @@ import PropTypes from 'prop-types'
 import cs from 'classnames'
 import {Form, Button, Input, Modal} from 'antd'
 import styles from './notesModal.less'
+
 const FormItem = Form.Item;
 const {TextArea} = Input;
 const NotesModal = ({
-  form: {
-    getFieldDecorator,
-    validateFieldsAndScroll,
-  },
-  closeModal,
-  showModal,
-  showModalContent,
-  noteDetail,
-  notesCourseParams,
-  handleNotesOk,
-  noteEditUpdate,
-  courseNoteList,
-  openNotesModal,
-  noteListData,
-  delNote,
-  editNotes,
+                      form: {
+                        getFieldDecorator,
+                        validateFieldsAndScroll,
+                      },
+                      closeModal,
+                      showModal,
+                      showModalContent,
+                      noteDetail,
+                      notesCourseParams,
+                      handleNotesOk,
+                      noteEditUpdate,
+                      courseNoteList,
+                      openNotesModal,
+                      noteListData,
+                      delNote,
+                      editNotes,
   
-}) => {
+                    }) => {
   const onNotesOk = () => {
     validateFieldsAndScroll((errors, values) => {
       if (errors) {
