@@ -3,7 +3,6 @@ import {Router, Route} from 'dva/router';
 import {message} from 'antd'
 import App from './routes/App';
 import Main from './routes/Main';
-import grade from './routes/grade/grade';
 import {authorization, keepOnline} from './services/main';
 /*注册model*/
 const registerModel = (app, model) => {
@@ -331,7 +330,13 @@ function RouterConfig({history, app}) {
             },
             {
               path: 'grade',
-              component: grade,
+              // component: grade,
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/grade'))
+                  cb(null, require('./routes/grade/grade'))
+                })
+              },
               getIndexRoute(nextState, cb) {
                 require.ensure([], (require) => {
                   registerModel(app, require('./models/classDetail'))
@@ -498,6 +503,18 @@ function RouterConfig({history, app}) {
               },
             },
             {
+              path: 'photoAlbumAdd',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/photoAlbumAdd'))
+                  cb(null, require('./routes/photoAlbumAdd/photoAlbumAdd'))
+                })
+              },
+              onEnter(nextState, replace, cb) {
+                setTitle("添加相册", cb);
+              },
+            },
+            {
               path: 'collegeinfo',
               getComponent(nextState, cb) {
                 require.ensure([], (require) => {
@@ -531,6 +548,54 @@ function RouterConfig({history, app}) {
               },
               onEnter(nextState, replace, cb) {
                 setTitle("考试详情", cb);
+              },
+            },
+            {
+              path: 'pollList',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/pollList'))
+                  cb(null, require('./routes/pollList/pollList'))
+                })
+              },
+              onEnter(nextState, replace, cb) {
+                setTitle("问卷调查", cb);
+              },
+            },
+            {
+              path: 'originalarticlelist',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/originalarticlelist'))
+                  cb(null, require('./routes/originalarticlelist/originalarticlelist'))
+                })
+              },
+              onEnter(nextState, replace, cb) {
+                setTitle("学员心声列表", cb);
+              },
+            },
+            {
+              path: 'addOriginalArticle',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/addOriginalArticle'))
+                  cb(null, require('./routes/addOriginalArticle/addOriginalArticle'))
+                })
+              },
+              onEnter(nextState, replace, cb) {
+                setTitle("发表心声", cb);
+              },
+            },
+            {
+              path: 'messageList',
+              getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                  registerModel(app, require('./models/messageList'))
+                  cb(null, require('./routes/messageList/messageList'))
+                })
+              },
+              onEnter(nextState, replace, cb) {
+                setTitle("留言板", cb);
               },
             },
             {

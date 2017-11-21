@@ -58,7 +58,12 @@ export default {
   },
   subscriptions: {
     setup({dispatch, history}) {
-      // dispatch({type: 'isLoginIn'});
+      history.listen((location) => {
+        let pathName = location.pathname;
+        if (pathName === "/" || pathName === "/main" || pathName === "/main/indexPage" || pathName === "/main/register" || pathName === "/main/login" || pathName === "/main/forgetPassword") {
+          dispatch({type: 'isLoginIn'});
+        }
+      })
       dispatch({type: 'getBlogroll'});
       dispatch({type: 'getUserInformation'});
     }

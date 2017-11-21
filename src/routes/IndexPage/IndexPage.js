@@ -17,7 +17,7 @@ import {
 import styles from './IndexPage.less';
 import bannerCenter from '../../assets/bannerCenter.png'
 
-const IndexPage = ({indexPage, dispatch, loading}) => {
+const IndexPage = ({app,indexPage, dispatch, loading}) => {
   /*登陆*/
   let {token} = indexPage;
   let loginLoading = false;
@@ -85,15 +85,15 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
       });
     },
     addClass: (id) => {
-      if (indexPage.isLoginIn) {
+      if (app.isLoginIn) {
         dispatch({
           type: 'indexPage/joinClass',
           payload: {id}
         });
       } else {
         message.warn('请登录！');
+        window.scrollTo(0,0);
       }
-      
     },
     classCategory: indexPage.classCategory,
     classListData: indexPage.classListData,
@@ -141,8 +141,9 @@ const IndexPage = ({indexPage, dispatch, loading}) => {
 };
 IndexPage.propTypes = {
   indexPage: PropTypes.object.isRequired,
+  app: PropTypes.object.isRequired,
   dispatch: PropTypes.func,
   loading: PropTypes.object
 };
 
-export default connect(({indexPage, loading}) => ({indexPage, loading}))(IndexPage);
+export default connect(({app,indexPage, loading}) => ({app,indexPage, loading}))(IndexPage);

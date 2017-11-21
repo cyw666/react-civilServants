@@ -475,3 +475,43 @@ export function getTrainingArticleCategory(data) {
 export function classPaperAdd(data) {
   return fetch.post(api.ClassPaperAdd.url, {...api.ClassPaperAdd.data, ...data});
 }
+
+/*添加相册*/
+export function photoAlbumAdd(data) {
+  return fetch.post(api.PhotoAlbumAdd.url, {...api.PhotoAlbumAdd.data, ...data});
+}
+
+/*添加相册-提交*/
+export function getPhotoAlbumAdd(data) {
+  return fetch.post(api.GetPhotoAlbumAdd.url, {...api.GetPhotoAlbumAdd.data, ...data});
+}
+
+/*问卷调查列表*/
+export function pollList(data) {
+  return fetch.post(api.PollList.url, {...api.PollList.data, ...data});
+}
+
+/*原创文章列表(学员心声)*/
+export function originalArticleList(data) {
+  return fetch.post(api.OriginalArticleList.url, {...api.OriginalArticleList.data, ...data});
+}
+
+/*原创文章添加（发表心声）*/
+export function addOriginalArticle(data) {
+  return fetch.post(api.AddOriginalArticle.url, {...api.AddOriginalArticle.data, ...data});
+}
+
+/*留言板*/
+export function messageList(data) {
+  return fetch.post(api.MessageList.url, {...api.MessageList.data, ...data});
+}
+
+/*留言信息详情*/
+export function messageDetail(data) {
+  return fetch.post(api.MessageDetail.url, {...api.MessageDetail.data, ...data});
+}
+
+/*提交添加留言*/
+export function getMessageAdd(data) {
+  return fetch.post(api.GetMessageAdd.url, {...api.GetMessageAdd.data, ...data});
+}

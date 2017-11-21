@@ -2,120 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45c91e07-961f-4191-b2b5-f7c5d021b589" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/edit/edit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/edit/edit.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/classPaperAdd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/classTopicAdd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/photoAlbumList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/photoPreview.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/classPaperAdd/classPaperAdd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/classPaperAdd/classPaperAdd.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/classTopicAdd/classTopicAdd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/classTopicAdd/classTopicAdd.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/photoAlbumList/photoAlbumList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/photoAlbumList/photoAlbumList.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/photoPreview/photoPreview.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/photoPreview/photoPreview.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/upload/upload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/upload/upload.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/addOriginalArticle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/messageList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/originalarticlelist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/photoAlbumAdd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/pollList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/addOriginalArticle/addOriginalArticle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/addOriginalArticle/addOriginalArticle.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/messageList/components/addMessage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/messageList/components/addMessage.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/messageList/components/tmMessageList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/messageList/components/tmMessageList.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/messageList/messageList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/messageList/messageList.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/originalarticlelist/components/tmOriginalarticlelist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/originalarticlelist/components/tmOriginalarticlelist.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/originalarticlelist/originalarticlelist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/originalarticlelist/originalarticlelist.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/photoAlbumAdd/photoAlbumAdd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/photoAlbumAdd/photoAlbumAdd.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/pollList/components/tmPollList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/pollList/components/tmPollList.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/pollList/pollList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes/pollList/pollList.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/app.js" afterPath="$PROJECT_DIR$/src/models/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/indexPage.js" afterPath="$PROJECT_DIR$/src/models/indexPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/router.js" afterPath="$PROJECT_DIR$/src/router.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/guideEntry.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/guideEntry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/specialTraining.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/specialTraining.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.js" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.less" afterPath="$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/article/article.js" afterPath="$PROJECT_DIR$/src/routes/article/article.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/article/article.less" afterPath="$PROJECT_DIR$/src/routes/article/article.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/article/components/tmArticleCategory.js" afterPath="$PROJECT_DIR$/src/routes/article/components/tmArticleCategory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/article/components/tmArticleCategory.less" afterPath="$PROJECT_DIR$/src/routes/article/components/tmArticleCategory.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/article/components/tmHotArticle.js" afterPath="$PROJECT_DIR$/src/routes/article/components/tmHotArticle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/article/components/tmHotArticle.less" afterPath="$PROJECT_DIR$/src/routes/article/components/tmHotArticle.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/articleDetail/articleDetail.less" afterPath="$PROJECT_DIR$/src/routes/articleDetail/articleDetail.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/changeInfor/changeInfor.js" afterPath="$PROJECT_DIR$/src/routes/changeInfor/changeInfor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/changeInfor/changeInfor.less" afterPath="$PROJECT_DIR$/src/routes/changeInfor/changeInfor.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/changeInfor/components/tmChangeInfor.js" afterPath="$PROJECT_DIR$/src/routes/changeInfor/components/tmChangeInfor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/changeInfor/components/tmChangeInfor.less" afterPath="$PROJECT_DIR$/src/routes/changeInfor/components/tmChangeInfor.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classCourse/classCourse.js" afterPath="$PROJECT_DIR$/src/routes/classCourse/classCourse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classCourse/classCourse.less" afterPath="$PROJECT_DIR$/src/routes/classCourse/classCourse.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classDetail/classDetail.js" afterPath="$PROJECT_DIR$/src/routes/classDetail/classDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classDetail/classDetail.less" afterPath="$PROJECT_DIR$/src/routes/classDetail/classDetail.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classDetail/components/tmClassDetail.js" afterPath="$PROJECT_DIR$/src/routes/classDetail/components/tmClassDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classDetail/components/tmClassDetail.less" afterPath="$PROJECT_DIR$/src/routes/classDetail/components/tmClassDetail.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classExam/classExam.js" afterPath="$PROJECT_DIR$/src/routes/classExam/classExam.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classExam/classExam.less" afterPath="$PROJECT_DIR$/src/routes/classExam/classExam.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classList/classList.less" afterPath="$PROJECT_DIR$/src/routes/classList/classList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classList/components/tmClassList.js" afterPath="$PROJECT_DIR$/src/routes/classList/components/tmClassList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classList/components/tmClassList.less" afterPath="$PROJECT_DIR$/src/routes/classList/components/tmClassList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classNotice/classNotice.js" afterPath="$PROJECT_DIR$/src/routes/classNotice/classNotice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classNotice/classNotice.less" afterPath="$PROJECT_DIR$/src/routes/classNotice/classNotice.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classPaperList/classPaperList.js" afterPath="$PROJECT_DIR$/src/routes/classPaperList/classPaperList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classPaperList/classPaperList.less" afterPath="$PROJECT_DIR$/src/routes/classPaperList/classPaperList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classPlan/classPlan.js" afterPath="$PROJECT_DIR$/src/routes/classPlan/classPlan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classPlan/classPlan.less" afterPath="$PROJECT_DIR$/src/routes/classPlan/classPlan.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classStudent/classStudent.js" afterPath="$PROJECT_DIR$/src/routes/classStudent/classStudent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classStudent/classStudent.less" afterPath="$PROJECT_DIR$/src/routes/classStudent/classStudent.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classTopicList/classTopicList.js" afterPath="$PROJECT_DIR$/src/routes/classTopicList/classTopicList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/classTopicList/classTopicList.less" afterPath="$PROJECT_DIR$/src/routes/classTopicList/classTopicList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/collegeinfo/collegeinfo.js" afterPath="$PROJECT_DIR$/src/routes/collegeinfo/collegeinfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/collegeinfo/collegeinfo.less" afterPath="$PROJECT_DIR$/src/routes/collegeinfo/collegeinfo.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseList.js" afterPath="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseList.less" afterPath="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseRankingList.less" afterPath="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseRankingList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseCenter/courseCenter.js" afterPath="$PROJECT_DIR$/src/routes/courseCenter/courseCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseCenter/courseCenter.less" afterPath="$PROJECT_DIR$/src/routes/courseCenter/courseCenter.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseComment.js" afterPath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseComment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseComment.less" afterPath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseComment.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseDetail.js" afterPath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseDetail.less" afterPath="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseDetail.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/components/tmRelatedCourse.js" afterPath="$PROJECT_DIR$/src/routes/courseDetail/components/tmRelatedCourse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/components/tmRelatedCourse.less" afterPath="$PROJECT_DIR$/src/routes/courseDetail/components/tmRelatedCourse.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/courseDetail.js" afterPath="$PROJECT_DIR$/src/routes/courseDetail/courseDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/courseDetail/courseDetail.less" afterPath="$PROJECT_DIR$/src/routes/courseDetail/courseDetail.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/exam/exam.js" afterPath="$PROJECT_DIR$/src/routes/exam/exam.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/exam/exam.less" afterPath="$PROJECT_DIR$/src/routes/exam/exam.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/examReview/examReview.less" afterPath="$PROJECT_DIR$/src/routes/examReview/examReview.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.js" afterPath="$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.less" afterPath="$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/grade/grade.js" afterPath="$PROJECT_DIR$/src/routes/grade/grade.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/grade/grade.less" afterPath="$PROJECT_DIR$/src/routes/grade/grade.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/login/login.js" afterPath="$PROJECT_DIR$/src/routes/login/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/login/login.less" afterPath="$PROJECT_DIR$/src/routes/login/login.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.js" afterPath="$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.less" afterPath="$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.js" afterPath="$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.less" afterPath="$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/noticeDetail/components/tmNoticeDetail.js" afterPath="$PROJECT_DIR$/src/routes/noticeDetail/components/tmNoticeDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/noticeDetail/components/tmNoticeDetail.less" afterPath="$PROJECT_DIR$/src/routes/noticeDetail/components/tmNoticeDetail.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/noticeDetail/noticeDetail.less" afterPath="$PROJECT_DIR$/src/routes/noticeDetail/noticeDetail.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.js" afterPath="$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.less" afterPath="$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/noticeList/noticeList.less" afterPath="$PROJECT_DIR$/src/routes/noticeList/noticeList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/examModal.js" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/examModal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/examModal.less" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/examModal.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/index.js" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/notesModal.js" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/notesModal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/notesModal.less" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/notesModal.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/studyPlanModal.js" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/studyPlanModal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/tmMyCenter.js" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/tmMyCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/components/tmMyCenter.less" afterPath="$PROJECT_DIR$/src/routes/personalCenter/components/tmMyCenter.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/personalCenter.js" afterPath="$PROJECT_DIR$/src/routes/personalCenter/personalCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalCenter/personalCenter.less" afterPath="$PROJECT_DIR$/src/routes/personalCenter/personalCenter.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalFile/personalFile.js" afterPath="$PROJECT_DIR$/src/routes/personalFile/personalFile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/personalFile/personalFile.less" afterPath="$PROJECT_DIR$/src/routes/personalFile/personalFile.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/main.js" afterPath="$PROJECT_DIR$/src/services/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/config.js" afterPath="$PROJECT_DIR$/src/utils/config.js" />
     </list>
@@ -138,11 +57,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="noticeList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/noticeList/noticeList.js">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="428">
+              <caret line="548" column="17" lean-forward="false" selection-start-line="548" selection-start-column="4" selection-end-line="548" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="502" column="0" lean-forward="true" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexPage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/indexPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+              <folding>
+                <element signature="e#32#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexPage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="542">
+              <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -150,108 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="noticeList.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/noticeList/noticeList.less">
+      <file leaf-file-name="classGarden.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="examModal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/examModal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#19#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="examModal.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/examModal.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notesModal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/notesModal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#21#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studyPlanModal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/studyPlanModal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#21#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tmMyCenter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/tmMyCenter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#20#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personalCenter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/personalCenter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-162">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#16#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personalFile.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/routes/personalFile/personalFile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+            <state relative-caret-position="-959">
+              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#16#42#0" expanded="true" />
@@ -267,25 +121,16 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="Less File" />
         <option value="JavaScript File" />
+        <option value="Less File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>classDetail</find>
-      <find>classInfoData</find>
-      <find>classMyData</find>
-      <find>isEnterClass</find>
-      <find>classDetailData</find>
-      <find>ClassPlan</find>
-      <find>TrainingName</find>
-      <find>Row</find>
       <find>index</find>
       <find>loading.effect</find>
       <find>showTotal</find>
-      <find>dateFilter</find>
       <find>.ell</find>
       <find>&lt;p</find>
       <find>Progre</find>
@@ -304,6 +149,15 @@
       <find>Search</find>
       <find>TabPane</find>
       <find>RangePicker</find>
+      <find>photoList</find>
+      <find>dateFilter</find>
+      <find>studyPlanData</find>
+      <find>submitp</find>
+      <find>joinclass</find>
+      <find>isLoginIn</find>
+      <find>islogin</find>
+      <find>isLogin</find>
+      <find>PollList</find>
     </findStrings>
     <replaceStrings>
       <replace>app</replace>
@@ -342,57 +196,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/routes/classTopicAdd/classTopicAdd.js" />
-        <option value="$PROJECT_DIR$/src/routes/classTopicAdd/classTopicAdd.less" />
-        <option value="$PROJECT_DIR$/src/routes/classTopicList/classTopicList.js" />
-        <option value="$PROJECT_DIR$/src/routes/classTopicList/classTopicList.less" />
-        <option value="$PROJECT_DIR$/src/routes/collegeinfo/collegeinfo.js" />
-        <option value="$PROJECT_DIR$/src/routes/collegeinfo/collegeinfo.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseCenter/courseCenter.js" />
-        <option value="$PROJECT_DIR$/src/routes/courseCenter/courseCenter.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseRankingList.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseList.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseCenter/components/tmCourseList.js" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseComment.js" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseComment.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseDetail.js" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/components/tmCourseDetail.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/components/tmRelatedCourse.js" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/components/tmRelatedCourse.less" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/courseDetail.js" />
-        <option value="$PROJECT_DIR$/src/routes/courseDetail/courseDetail.less" />
-        <option value="$PROJECT_DIR$/src/routes/examReview/examReview.less" />
-        <option value="$PROJECT_DIR$/src/routes/grade/grade.less" />
-        <option value="$PROJECT_DIR$/src/routes/grade/grade.js" />
-        <option value="$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.less" />
-        <option value="$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/guideEntry.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/specialTraining.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.js" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.less" />
-        <option value="$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js" />
-        <option value="$PROJECT_DIR$/src/routes/login/login.js" />
-        <option value="$PROJECT_DIR$/src/routes/login/login.less" />
-        <option value="$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.js" />
-        <option value="$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.less" />
-        <option value="$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.js" />
-        <option value="$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.less" />
         <option value="$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.js" />
         <option value="$PROJECT_DIR$/src/routes/personalFile/personalFile.js" />
+        <option value="$PROJECT_DIR$/src/routes/photoAlbumList/photoAlbumList.js" />
+        <option value="$PROJECT_DIR$/src/routes/photoPreview/photoPreview.js" />
+        <option value="$PROJECT_DIR$/src/routes/play/components/tmAddComment.js" />
+        <option value="$PROJECT_DIR$/src/routes/play/components/tmAddNote.js" />
+        <option value="$PROJECT_DIR$/src/routes/play/components/tmDrag.js" />
+        <option value="$PROJECT_DIR$/src/routes/register/register.js" />
+        <option value="$PROJECT_DIR$/src/routes/securitySetting/components/checkPwdForm.js" />
+        <option value="$PROJECT_DIR$/src/routes/testCenter/testCenter.js" />
+        <option value="$PROJECT_DIR$/src/routes/trainingClass/components/classDetailModal.js" />
+        <option value="$PROJECT_DIR$/src/routes/App.js" />
+        <option value="$PROJECT_DIR$/src/routes/App.less" />
+        <option value="$PROJECT_DIR$/src/routes/Main.js" />
+        <option value="$PROJECT_DIR$/src/components/tmNavCenter/tmNavCenter.js" />
+        <option value="$PROJECT_DIR$/src/components/verificationCode/verificationCode.js" />
+        <option value="$PROJECT_DIR$/src/components/upload/upload.less" />
+        <option value="$PROJECT_DIR$/src/models/photoAlbumAdd.js" />
+        <option value="$PROJECT_DIR$/src/routes/photoAlbumAdd/photoAlbumAdd.less" />
+        <option value="$PROJECT_DIR$/src/routes/photoAlbumAdd/photoAlbumAdd.js" />
+        <option value="$PROJECT_DIR$/src/components/upload/upload.js" />
+        <option value="$PROJECT_DIR$/src/routes/classDetail/components/tmClassDetail.js" />
+        <option value="$PROJECT_DIR$/src/models/grade.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/pollList/pollList.less" />
+        <option value="$PROJECT_DIR$/src/routes/pollList/pollList.js" />
+        <option value="$PROJECT_DIR$/src/routes/pollList/components/tmPollList.less" />
+        <option value="$PROJECT_DIR$/src/models/pollList.js" />
+        <option value="$PROJECT_DIR$/src/routes/pollList/components/tmPollList.js" />
+        <option value="$PROJECT_DIR$/src/models/originalarticlelist.js" />
+        <option value="$PROJECT_DIR$/src/routes/originalarticlelist/originalarticlelist.less" />
+        <option value="$PROJECT_DIR$/src/routes/originalarticlelist/originalarticlelist.js" />
+        <option value="$PROJECT_DIR$/src/routes/originalarticlelist/components/tmOriginalarticlelist.less" />
+        <option value="$PROJECT_DIR$/src/routes/addOriginalArticle/addOriginalArticle.less" />
+        <option value="$PROJECT_DIR$/src/models/addOriginalArticle.js" />
+        <option value="$PROJECT_DIR$/src/routes/addOriginalArticle/addOriginalArticle.js" />
+        <option value="$PROJECT_DIR$/src/routes/originalarticlelist/components/tmOriginalarticlelist.js" />
+        <option value="$PROJECT_DIR$/src/services/main.js" />
+        <option value="$PROJECT_DIR$/src/utils/config.js" />
+        <option value="$PROJECT_DIR$/src/routes/messageList/messageList.less" />
+        <option value="$PROJECT_DIR$/src/router.js" />
+        <option value="$PROJECT_DIR$/src/routes/messageList/components/tmMessageList.less" />
+        <option value="$PROJECT_DIR$/src/routes/messageList/components/addMessage.less" />
+        <option value="$PROJECT_DIR$/src/models/messageList.js" />
+        <option value="$PROJECT_DIR$/src/routes/messageList/components/addMessage.js" />
+        <option value="$PROJECT_DIR$/src/routes/messageList/components/tmMessageList.js" />
+        <option value="$PROJECT_DIR$/src/routes/messageList/messageList.js" />
+        <option value="$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js" />
+        <option value="$PROJECT_DIR$/src/models/indexPage.js" />
+        <option value="$PROJECT_DIR$/src/models/app.js" />
+        <option value="$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js" />
       </list>
     </option>
   </component>
@@ -414,7 +268,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1616" />
@@ -469,11 +323,6 @@
             <path>
               <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -501,7 +350,70 @@
               <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Footer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="GeneralHead" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="NavBar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="tmCategory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="tmNavCenter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="userInformation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="verificationCode" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
@@ -520,209 +432,6 @@
               <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="articleDetail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="changeInfor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="changeInfor" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classCourse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classDetail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classDetail" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classExam" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classList" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classNotice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classPaperAdd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classPaperList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classPlan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classStudent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classTopicAdd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="classTopicList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="collegeinfo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="courseCenter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="courseCenter" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="courseDetail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="courseDetail" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="exam" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="examReview" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="grade" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="grade" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="IndexPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -737,75 +446,13 @@
               <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="modifyPassword" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="modifyPassword" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="noticeDetail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="noticeDetail" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="noticeList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="noticeList" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="personalCenter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="personalCenter" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-civilServants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-civilServants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="personalFile" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -836,11 +483,11 @@
       <recent name="F:\react-civilServants\src\routes\Products" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\react-civilServants\src\routes\classPaperAdd" />
-      <recent name="F:\react-civilServants\src\routes\classTopicAdd" />
-      <recent name="F:\react-civilServants\src\routes\photoPreview" />
-      <recent name="F:\react-civilServants\src\routes\photoAlbumList" />
-      <recent name="F:\react-civilServants\src\routes\classExam" />
+      <recent name="F:\react-civilServants\src\routes\messageList" />
+      <recent name="F:\react-civilServants\src\routes\addOriginalArticle" />
+      <recent name="F:\react-civilServants\src\routes\originalarticlelist" />
+      <recent name="F:\react-civilServants\src\routes\pollList" />
+      <recent name="F:\react-civilServants\src\routes\photoAlbumAdd" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1056,12 +703,12 @@
       <workItem from="1510550971315" duration="14498000" />
       <workItem from="1510620343387" duration="17253000" />
       <workItem from="1511158051622" duration="13076000" />
-      <workItem from="1511224861399" duration="2725000" />
+      <workItem from="1511224861399" duration="18876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="918392000" />
+    <option name="totallyTimeSpent" value="934543000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1073,7 +720,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827586" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1114,56 +761,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/routes/examReview/examReview.js">
+    <entry file="file://$PROJECT_DIR$/src/components/tmCategory/tmCategory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#18#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/examReview/examReview.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/grade/grade.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/grade/grade.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#14#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/grade/components/tmLearningInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#18#43#0" expanded="true" />
@@ -1171,123 +772,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#17#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/bookGuide.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js">
+    <entry file="file://$PROJECT_DIR$/src/components/userInformation/userInformation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1431">
           <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
+            <element signature="e#16#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/courseCenter.less">
+    <entry file="file://$PROJECT_DIR$/src/components/verificationCode/verificationCode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/guideEntry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-635">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="756">
+          <caret line="66" column="2" lean-forward="true" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
+            <element signature="e#15#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/guideEntry.less">
+    <entry file="file://$PROJECT_DIR$/src/components/tmNavCenter/tmNavCenter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="337">
+          <caret line="14" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#16#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/newsInfor.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/noticeAnnouncement.less">
+    <entry file="file://$PROJECT_DIR$/src/components/tmNavCenter/tmNavCenter.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1295,10 +813,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.js">
+    <entry file="file://$PROJECT_DIR$/src/components/upload/upload.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="27">
+          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/upload/upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#16#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/classDetail/components/tmClassDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="130" column="22" lean-forward="true" selection-start-line="130" selection-start-column="22" selection-end-line="130" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/grade/grade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#14#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/grade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#14#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/photoAlbumAdd/photoAlbumAdd.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/photoAlbumAdd/photoAlbumAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#15#41#0" expanded="true" />
@@ -1306,37 +893,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/rankingTab.less">
+    <entry file="file://$PROJECT_DIR$/src/models/photoAlbumAdd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="-810">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
+            <element signature="e#16#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/realTimeData.less">
+    <entry file="file://$PROJECT_DIR$/src/routes/exam/exam.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/noticeList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/pollList/pollList.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/specialTraining.js">
+    <entry file="file://$PROJECT_DIR$/src/routes/pollList/components/tmPollList.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        <state relative-caret-position="378">
+          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/pollList/components/tmPollList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="24" column="57" lean-forward="true" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#20#45#0" expanded="true" />
+            <element signature="e#1529#1719#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/pollList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#17#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/originalarticlelist/originalarticlelist.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/pollList/pollList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="26" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#11#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/article/components/tmHotArticle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="55" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/originalarticlelist/components/tmOriginalarticlelist.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/originalarticlelist/originalarticlelist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#17#43#0" expanded="true" />
@@ -1344,215 +1011,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/specialTraining.less">
+    <entry file="file://$PROJECT_DIR$/src/models/classTopicAdd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#20#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/userLogin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1890">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/IndexPage.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/login/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#15#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/login/login.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/modifyPassword/components/tmModifyPassword.less">
+    <entry file="file://$PROJECT_DIR$/src/routes/originalarticlelist/components/tmOriginalarticlelist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#20#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/modifyPassword/modifyPassword.less">
+    <entry file="file://$PROJECT_DIR$/src/routes/addOriginalArticle/addOriginalArticle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#17#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/addOriginalArticle/addOriginalArticle.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeDetail/components/tmNoticeDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#20#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeDetail/components/tmNoticeDetail.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeDetail/noticeDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeDetail/noticeDetail.less">
+    <entry file="file://$PROJECT_DIR$/src/models/addOriginalArticle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="32" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#20#45#0" expanded="true" />
+            <element signature="e#18#60#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeList/components/tmNoticeList.less">
+    <entry file="file://$PROJECT_DIR$/src/models/originalarticlelist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="324">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#23#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/messageList/messageList.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeList/noticeList.js">
+    <entry file="file://$PROJECT_DIR$/src/routes/messageList/components/tmMessageList.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/noticeList/noticeList.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="27">
+          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/examModal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="351">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#19#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/examModal.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="81">
+          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/notesModal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="-2754">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#21#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1560,7 +1120,7 @@
     <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/studyPlanModal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <caret line="3" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#21#46#0" expanded="true" />
@@ -1568,21 +1128,241 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/components/tmMyCenter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#20#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/personalCenter/personalCenter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="540">
+          <caret line="135" column="3" lean-forward="true" selection-start-line="121" selection-start-column="2" selection-end-line="135" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="548" column="17" lean-forward="false" selection-start-line="548" selection-start-column="4" selection-end-line="548" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/messageList/components/addMessage.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/messageList/components/addMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#21#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/messageList/components/tmMessageList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#19#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/messageList/messageList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#8#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/messageList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#14#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="502" column="0" lean-forward="true" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/trainingClass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="168" column="6" lean-forward="true" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="52" lean-forward="false" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#223#234#0" expanded="false" />
+            <element signature="e#273#383#0" expanded="false" />
+            <element signature="e#355#381#0" expanded="false" />
+            <element signature="e#384#395#0" expanded="false" />
+            <element signature="e#428#465#0" expanded="false" />
+            <element signature="e#466#478#0" expanded="false" />
+            <element signature="e#516#586#0" expanded="false" />
+            <element signature="e#999#1850#0" expanded="false" />
+            <element signature="e#1029#1114#0" expanded="false" />
+            <element signature="e#1148#1237#0" expanded="false" />
+            <element signature="e#1272#1405#0" expanded="false" />
+            <element signature="e#1440#1518#0" expanded="false" />
+            <element signature="e#1553#1638#0" expanded="false" />
+            <element signature="e#1673#1740#0" expanded="false" />
+            <element signature="e#1754#1833#0" expanded="false" />
+            <element signature="e#2250#2301#0" expanded="false" />
+            <element signature="e#2341#2585#0" expanded="false" />
+            <element signature="e#2430#2461#0" expanded="false" />
+            <element signature="e#2478#2514#0" expanded="false" />
+            <element signature="e#2962#3389#0" expanded="false" />
+            <element signature="e#3403#3824#0" expanded="false" />
+            <element signature="e#3481#3706#0" expanded="false" />
+            <element signature="e#3531#3689#0" expanded="false" />
+            <element signature="e#3754#3809#0" expanded="false" />
+            <element signature="e#3838#4273#0" expanded="false" />
+            <element signature="e#3924#4155#0" expanded="false" />
+            <element signature="e#3974#4138#0" expanded="false" />
+            <element signature="e#4203#4258#0" expanded="false" />
+            <element signature="e#4287#4720#0" expanded="false" />
+            <element signature="e#4368#4602#0" expanded="false" />
+            <element signature="e#4418#4585#0" expanded="false" />
+            <element signature="e#4650#4705#0" expanded="false" />
+            <element signature="e#4734#5163#0" expanded="false" />
+            <element signature="e#4814#5045#0" expanded="false" />
+            <element signature="e#4864#5028#0" expanded="false" />
+            <element signature="e#5093#5148#0" expanded="false" />
+            <element signature="e#5177#5613#0" expanded="false" />
+            <element signature="e#5259#5496#0" expanded="false" />
+            <element signature="e#5309#5479#0" expanded="false" />
+            <element signature="e#5544#5599#0" expanded="false" />
+            <element signature="e#5627#6047#0" expanded="false" />
+            <element signature="e#5705#5930#0" expanded="false" />
+            <element signature="e#5755#5913#0" expanded="false" />
+            <element signature="e#5978#6033#0" expanded="false" />
+            <element signature="e#6061#6467#0" expanded="false" />
+            <element signature="e#6136#6352#0" expanded="false" />
+            <element signature="e#6186#6335#0" expanded="false" />
+            <element signature="e#6400#6453#0" expanded="false" />
+            <element signature="e#6481#6920#0" expanded="false" />
+            <element signature="e#6568#6802#0" expanded="false" />
+            <element signature="e#6618#6785#0" expanded="false" />
+            <element signature="e#6850#6905#0" expanded="false" />
+            <element signature="e#6934#7363#0" expanded="false" />
+            <element signature="e#7014#7245#0" expanded="false" />
+            <element signature="e#7064#7228#0" expanded="false" />
+            <element signature="e#7293#7348#0" expanded="false" />
+            <element signature="e#7377#7774#0" expanded="false" />
+            <element signature="e#7449#7656#0" expanded="false" />
+            <element signature="e#7499#7639#0" expanded="false" />
+            <element signature="e#7704#7759#0" expanded="false" />
+            <element signature="e#7788#8199#0" expanded="false" />
+            <element signature="e#7864#8083#0" expanded="false" />
+            <element signature="e#7914#8066#0" expanded="false" />
+            <element signature="e#8131#8184#0" expanded="false" />
+            <element signature="e#8213#8612#0" expanded="false" />
+            <element signature="e#8286#8496#0" expanded="false" />
+            <element signature="e#8336#8479#0" expanded="false" />
+            <element signature="e#8544#8597#0" expanded="false" />
+            <element signature="e#8626#9063#0" expanded="false" />
+            <element signature="e#8708#8945#0" expanded="false" />
+            <element signature="e#8758#8928#0" expanded="false" />
+            <element signature="e#8993#9048#0" expanded="false" />
+            <element signature="e#9077#9518#0" expanded="false" />
+            <element signature="e#9160#9400#0" expanded="false" />
+            <element signature="e#9210#9383#0" expanded="false" />
+            <element signature="e#9448#9503#0" expanded="false" />
+            <element signature="e#9532#9957#0" expanded="false" />
+            <element signature="e#9611#9839#0" expanded="false" />
+            <element signature="e#9661#9822#0" expanded="false" />
+            <element signature="e#9887#9942#0" expanded="false" />
+            <element signature="e#9971#10402#0" expanded="false" />
+            <element signature="e#10051#10282#0" expanded="false" />
+            <element signature="e#10101#10265#0" expanded="false" />
+            <element signature="e#10330#10387#0" expanded="false" />
+            <element signature="e#10416#10853#0" expanded="false" />
+            <element signature="e#10498#10735#0" expanded="false" />
+            <element signature="e#10548#10718#0" expanded="false" />
+            <element signature="e#10783#10838#0" expanded="false" />
+            <element signature="e#10867#11284#0" expanded="false" />
+            <element signature="e#11298#16847#0" expanded="false" />
+            <element signature="e#16861#17294#0" expanded="false" />
+            <element signature="e#16942#17176#0" expanded="false" />
+            <element signature="e#16992#17159#0" expanded="false" />
+            <element signature="e#17224#17279#0" expanded="false" />
+            <element signature="e#17308#17741#0" expanded="false" />
+            <element signature="e#17755#18188#0" expanded="false" />
+            <element signature="e#18202#18635#0" expanded="false" />
+            <element signature="e#18649#19074#0" expanded="false" />
+            <element signature="e#18728#18956#0" expanded="false" />
+            <element signature="e#18778#18939#0" expanded="false" />
+            <element signature="e#19004#19059#0" expanded="false" />
+            <element signature="e#19160#19367#0" expanded="false" />
+            <element signature="e#19210#19350#0" expanded="false" />
+            <element signature="e#19415#19470#0" expanded="false" />
+            <element signature="e#19499#19920#0" expanded="false" />
+            <element signature="e#19577#19802#0" expanded="false" />
+            <element signature="e#19627#19785#0" expanded="false" />
+            <element signature="e#19850#19905#0" expanded="false" />
+            <element signature="e#21739#21969#0" expanded="false" />
+            <element signature="e#21808#21954#0" expanded="false" />
+            <element signature="e#21858#21937#0" expanded="false" />
+            <element signature="e#22002#22355#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/indexPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+          <folding>
+            <element signature="e#32#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="57" column="4" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#1042#1406#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/components/classGarden.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-959">
+          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#16#42#0" expanded="true" />
@@ -1590,13 +1370,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/personalFile/personalFile.js">
+    <entry file="file://$PROJECT_DIR$/src/routes/IndexPage/IndexPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+        <state relative-caret-position="542">
+          <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#16#42#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

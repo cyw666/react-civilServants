@@ -1,0 +1,28 @@
+/**
+ * 问卷调查（模板）
+ */
+@import "../../../themes/mixins";
+
+.tmPollList {
+  padding-left: 10px;
+  margin-top: 15px;
+  .pollContent {
+    .border-base();
+    tbody {
+      .text-center();
+    }
+  }
+  .name {
+    width: 60%;
+  }
+  .join {
+    width: 40%;
+  }
+  :global {
+    .ant-pagination {
+      display: block;
+      text-align: left;
+      padding: 10px;
+    }
+  }
+}

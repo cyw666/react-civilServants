@@ -19,7 +19,7 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
   const classList = classListData['ListData'].map((item, index) => {
     return (
       <tr key={index}>
-        <td><Link to="/main/classDetail">{item.Name}</Link></td>
+        <td><Link to={{pathname:'/main/grade/classDetail',query:{id:item.Id}}} target="_blank">{item.Name}</Link></td>
         <td>{dateFilter(item.StartTime, 'yyyy-MM-dd')}~{dateFilter(item.EndTime, 'yyyy-MM-dd')}</td>
         <td>{item.Address}</td>
         <td>

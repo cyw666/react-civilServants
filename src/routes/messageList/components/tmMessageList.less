@@ -1,0 +1,39 @@
+/**
+ * 留言板（模板）
+ */
+@import "../../../themes/mixins";
+
+.tmMessageList {
+  padding-left: 10px;
+  margin-top: 15px;
+  .pollContent {
+    .border-base();
+    tbody {
+      .text-center();
+    }
+  }
+  .number{
+    width: 10%;
+  }
+  .name {
+    width: 40%;
+    .ellipsis();
+  }
+  .category {
+    width: 20%;
+  }
+  .date {
+    width: 30%;
+  }
+  .publish {
+    .text-center();
+    margin: 10px auto;
+  }
+  :global {
+    .ant-pagination {
+      display: block;
+      text-align: left;
+      padding: 10px;
+    }
+  }
+}

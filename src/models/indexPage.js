@@ -5,7 +5,6 @@ import {model} from './common'
 import * as mainService from '../services/main';
 import {getCookie, setCookie, delCookie} from '../utils/index'
 
-
 export default modelExtend(model, {
   namespace: 'indexPage',
   state: {

@@ -510,5 +510,45 @@ module.exports = {
       url: `${API}/Page/ClassPaperAdd`,
       data: {id: "", page: 1, rows: 9, sort: 'Id', order: 'desc', titleNav: '添加论文'}
     },
+    /*添加相册*/
+    PhotoAlbumAdd: {
+      url: `${API}/Page/PhotoAlbumAdd`,
+      data: {trainingId: "",titleNav: '添加相册'}
+    },
+    /*添加相册-提交*/
+    GetPhotoAlbumAdd: {
+      url: `${API}/Page/GetPhotoAlbumAdd`,
+      data: {name:"",description:"",imgUrl:"",trainingId:""}
+    },
+    /*问卷调查列表*/
+    PollList: {
+      url: `${API}/Page/PollList`,
+      data: {page: 1, rows: 10, sort: 'Id', order: 'desc', titleNav: "问卷调查", examType: "All", title: "", trainingId: "",wordLimt:30}
+    },
+    /*原创文章列表(学员心声)*/
+    OriginalArticleList: {
+      url: `${API}/Page/OriginalArticleList`,
+      data: {page: 1, rows: 9, sort: 'Id', order: 'desc', titleNav: '学员心声列表'}
+    },
+    /*原创文章添加（发表心声）*/
+    AddOriginalArticle: {
+      url: `${API}/Page/AddOriginalArticle`,
+      data: {name: '', content: ''}
+    },
+    /*留言板*/
+    MessageList: {
+      url: `${API}/Page/MessageList`,
+      data: {page: 1, rows: 10, sort: 'CreateDate', order: 'desc', titleNav: '留言板', wordLimt: '35'}
+    },
+    /*留言信息详情*/
+    MessageDetail: {
+      url: `${API}/Page/MessageDetail`,
+      data: {id: '', titleNav: '留言详情'}
+    },
+    /*提交添加留言*/
+    GetMessageAdd: {
+      url: `${API}/Page/GetMessageAdd`,
+      data: {name: '', class: '', content: ''}
+    },
   }
 }

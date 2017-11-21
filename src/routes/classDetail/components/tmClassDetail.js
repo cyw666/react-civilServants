@@ -137,7 +137,7 @@ const TmClassDetail = ({detailData, loading}) => {
   const photoList = ClassPhotoList && ClassPhotoList.map((item, index) => {
     return (
       <Col key={index} span={6}>
-        <Link to={{pathname: '/main/grade/photoPreview', query: {albumId: item.Id, trainingId: Id}}}>
+        <Link to={{pathname: '/main/grade/photoPreview', query: {albumId: item.Id, id: Id}}}>
           <Img src={item.Img} errSrc={notFound} alt={item.Name}/>
           <div className="list">{item.Name}</div>
         </Link>
