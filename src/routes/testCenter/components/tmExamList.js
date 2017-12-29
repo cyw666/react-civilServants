@@ -26,7 +26,7 @@ const TmExamList = ({
   const {UnfinishModel, FinishModel} = examListData;
   const unFinishList = UnfinishModel && UnfinishModel.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={9}>
           <div className="list" title={item.Name}><Link to="/examDetail" target="_blank"
                                                         rel="noopener noreferrer">{item.Name}</Link></div>
@@ -51,7 +51,7 @@ const TmExamList = ({
   })
   const finishList = FinishModel && FinishModel.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={9}>
           <div className="list" title={item.Name}>{item.Name}</div>
         </Col>

@@ -13,7 +13,7 @@ const ClassCourse = ({classCourse, dispatch, loading}) => {
   const {classId, courseType, classCourseData, pageOptions} = classCourse;
   const contentList = classCourseData.ListData && classCourseData.ListData.map((item, index) => {
     return (
-      <Row key={index}>
+      <Row key={item.Id}>
         <Col span={14}><Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name}
                              target="_blank" rel="noopener noreferrer">{item.Name}</Link></Col>
         <Col span={6}>

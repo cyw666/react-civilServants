@@ -79,7 +79,7 @@ class CourseOrder extends Component {
       });
     }
   }
-  
+  //在重新渲染过程开始前触发的。 这个函数默认返回true，可使React执行更新,来提升速度
   shouldComponentUpdate(nextProps, nextState) {
     return true
   }

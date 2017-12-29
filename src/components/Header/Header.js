@@ -21,7 +21,7 @@ const Header = ({addFavorite, setHome, inputChange, data}) => {
           <p className='grid_15'>欢迎来到干部教育网络学院！</p>
           <p className='grid_9'>
             <a rel="sidebar" onClick={addFavorite}>收藏本站</a> |
-            <a> 在线留言</a> |
+            <Link to={'/main/messageList'}> 在线留言</Link> |
             <a onClick={setHome}> 设为首页</a> |
             <a> 联系我们</a>
             <span className={styles.phone}>

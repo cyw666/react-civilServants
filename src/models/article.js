@@ -43,39 +43,40 @@ export default modelExtend(model, {
   effects: {
     * getArticleList({payload}, {call, put}) {
       let data = yield call(articleList, payload);
-      yield put({
-        type: 'updateState',
-        payload: {
-          articleListData: data.Data,
-          pageConfig: {
-            current: data.Data.Page,
-            pageSize: data.Data.Rows,
-            total: data.Data.Count,
-          },
-        }
-      });
-      yield put({type: 'updateArticleParams', payload});
+      if (data && data.Status == 200) {
+        yield put({
+          type: 'updateState',
+          payload: {
+            articleListData: data.Data,
+            pageConfig: {
+              current: data.Data.Page,
+              pageSize: data.Data.Rows,
+              total: data.Data.Count,
+            },
+          }
+        });
+        yield put({type: 'updateArticleParams', payload});
+      }
     },
     * getHotArticle({payload}, {call, put}) {
       let data = yield call(articleList, payload);
-      yield put({
-        type: 'updateState',
-        payload: {
-          hotArticle: data.Data,
-        }
-      });
+      if (data && data.Status == 200) {
+        yield put({type: 'updateState', payload: {hotArticle: data.Data}});
+      }
     },
     * getArticleCategory({payload}, {call, put}) {
       let data = yield call(articleCategory, payload);
-      let expandedKeys = [];
-      expandedKeys.push((data.Data.ListData[0].id).toString());
-      yield put({
-        type: 'updateState',
-        payload: {
-          articleCategory: data.Data,
-          expandedKeys: expandedKeys
-        }
-      });
+      if (data && data.Status == 200) {
+        let expandedKeys = [];
+        expandedKeys.push((data.Data.ListData[0].id).toString());
+        yield put({
+          type: 'updateState',
+          payload: {
+            articleCategory: data.Data,
+            expandedKeys: expandedKeys
+          }
+        });
+      }
     },
     
   },

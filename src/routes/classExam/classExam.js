@@ -13,7 +13,7 @@ const ClassExam = ({classExam, dispatch, loading}) => {
   const {classId, classExamData, pageOptions} = classExam;
   const contentList = classExamData.ListData && classExamData.ListData.map((item, index) => {
     return (
-      <Row key={index}>
+      <Row key={item.Id}>
         <Col span={12} className="ellipsis">{item.Name}</Col>
         <Col span={4}><p>{item.Credit}</p></Col>
         <Col span={4}><p>{item.TotalScore}</p></Col>

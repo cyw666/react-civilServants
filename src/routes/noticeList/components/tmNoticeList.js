@@ -15,7 +15,7 @@ const TmNoticeList = ({noticeListData, noticeParams, inputSearch, loading, pageC
   const {ListData, TitleNav} = noticeListData;
   const noticeList = ListData.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td>
           <img className="arrow" src={Arrow} alt="arrow"/>
           <Link className="tableName" to={`${linkUrl}/${item.Id}`} title={item.Name} target="_blank"

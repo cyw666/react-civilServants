@@ -16,7 +16,7 @@ const TmCourseComment = ({
                          }) => {
   const commentList = courseComment.ListData.map((item, index) => {
     return (
-      <tbody key={index}>
+      <tbody key={item.Id}>
       <tr>
         <td className={styles.userImg}><img src={userPortrait} alt="用户头像"/></td>
         <td className={styles.user}>{item.UserName}</td>

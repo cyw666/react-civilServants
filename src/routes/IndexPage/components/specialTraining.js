@@ -14,7 +14,7 @@ const SpecialTraining = ({studySpecialData, loading}) => {
   let {ListData, ImagePath} = studySpecialData;
   const specialList = ListData.map((item, index) => {
     return (
-      <li key={index}>
+      <li key={item.SeriesId}>
         <p>
           <Link to={item.Url} target="_blank" rel="noopener noreferrer">
             <Img src={ImagePath + '/' + item.Icon} alt={item.SeriesName}/>

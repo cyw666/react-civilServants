@@ -13,7 +13,7 @@ const ClassModule = ({classModuleData, loading}) => {
   const {ListData, TitleNav, type} = classModuleData;
   const classNameList = ListData.map((item, index) => {
     return (
-      <li key={index}>
+      <li key={item.Id}>
         <span className={styles.list1}><Link to={{pathname: "/main/grade/classDetail", query: {id: item.Id}}}
                                              target="_blank" rel="noopener noreferrer">{item.Name}</Link></span>
         <span className={styles.list2}>{item.CurrentUser}</span>

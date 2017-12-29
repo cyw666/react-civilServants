@@ -13,7 +13,7 @@ const TmPollList = ({pollListData, pollParams, inputSearch, loading, pageConfig}
   const {Model: {UnfinishModel, FinishModel}} = pollListData;
   const pollList = UnfinishModel && UnfinishModel.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td>
           <Link to={{pathname: "/main/poll", query: {id: item.Id}}} title={item.Name}
                 target="_blank" rel="noopener noreferrer">

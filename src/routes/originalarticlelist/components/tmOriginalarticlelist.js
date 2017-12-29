@@ -14,7 +14,7 @@ const TmOriginalArticleList = ({listData, inputSearch, loading, pageConfig}) => 
   const {ListData} = listData;
   const originalList = ListData && ListData.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td className={styles.name}>
           <Link to={`/main/articleDetail/${item.Id}`} title={item.Name} target="_blank" rel="noopener noreferrer">
             {item.Name}

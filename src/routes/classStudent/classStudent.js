@@ -12,7 +12,7 @@ const ClassStudent = ({classStudent, dispatch, loading}) => {
   const {classId, classStudentData, pageOptions} = classStudent;
   const contentList = classStudentData.ListData && classStudentData.ListData.map((item, index) => {
     return (
-      <Row key={index}>
+      <Row key={item.Id}>
         <Col span={8}><p>{item.UserName}</p></Col>
         <Col span={8}><p>{item.Tel || "暂无电话"}</p></Col>
         <Col span={8}><p>{item.GroupName}</p></Col>

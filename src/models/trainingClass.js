@@ -3,6 +3,7 @@
  */
 import modelExtend from 'dva-model-extend'
 import {message} from 'antd'
+import {routerRedux} from 'dva/router'
 import {model} from './common'
 
 import {
@@ -120,16 +121,16 @@ export default modelExtend(model, {
       }) : yield put({type: 'updateState', payload: {isEnterClass: true}});
       const isEnterClass = yield select(state => state.trainingClass.isEnterClass);
       if (isEnterClass) {
-        window.open(`/classDetail?id=${trainingId}`);
+        // window.open(`/classDetail?id=${trainingId}`);
+        yield put(routerRedux.push({
+          pathname: '/classDetail',
+          query: {
+            id: trainingId,
+          },
+        }));
       } else {
         message.warning('请先加入培训班！')
       }
-      /*yield put(routerRedux.push({
-       pathname: '/classDetail',
-       query: {
-       id: trainingId,
-       },
-       }));*/
     },
     * updateTrainingStudentup({payload}, {call, put, select}) {
       let data = yield call(updateTrainingStudentup, payload);

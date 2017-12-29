@@ -1,6 +1,5 @@
-import {fetch, config} from '../utils/index'
+import {fetch, config as api} from '../utils/index'
 
-const {api} = config;
 
 /*mock 测试*/
 export function tags(data) {

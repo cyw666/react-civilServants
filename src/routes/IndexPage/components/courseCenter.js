@@ -16,7 +16,7 @@ const RadioGroup = Radio.Group;
 
 class CourseCenter extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       activeValue: props.courseCategory.ListData[0].Id || 250
     }
@@ -38,12 +38,12 @@ class CourseCenter extends React.Component {
     let baseImgPath = courseListData['ImageCourse'];
     let radioButtonList = courseCategory['ListData'].map((item, index) => {
       return (
-        <RadioButton value={item.id} key={index}>{item.text}</RadioButton>
+        <RadioButton key={index} value={item.id}>{item.text}</RadioButton>
       )
     });
     let courseCenterList = courseCenterData.map((item, index) => {
       return (
-        <li key={index}>
+        <li key={item.Id}>
           <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
                 rel="noopener noreferrer">
             <Img src={baseImgPath + '/' + item.Img} alt="" errSrc={notCourse}/>

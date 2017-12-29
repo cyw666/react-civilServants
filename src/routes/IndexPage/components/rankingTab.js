@@ -13,7 +13,7 @@ const TabPane = Tabs.TabPane;
 const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => {
   const groutRankList = groupRankData['ListData'].map((item, index) => {
     return (
-      <ul key={index} className={styles.rankingList}>
+      <ul key={item.Id} className={styles.rankingList}>
         <li className={styles.list1}>
           {
             index < 3 ? <span className={cs({
@@ -30,7 +30,7 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
   });
   const rankUserList = rankUserData['ListData'].map((item, index) => {
     return (
-      <ul key={index} className={styles.rankingList}>
+      <ul key={item.Id} className={styles.rankingList}>
         <li className={styles.list1}>
           {
             index < 3 ? <span className={cs({
@@ -47,7 +47,7 @@ const RankingTab = ({loading, groupRankData, rankUserData, courseClickData}) => 
   });
   const courseClick = courseClickData['ListData'].map((item, index) => {
     return (
-      <ul key={index} className={styles.rankingList}>
+      <ul key={item.Id} className={styles.rankingList}>
         <li className={styles.list1}>
           {
             index < 3 ? <span className={cs({

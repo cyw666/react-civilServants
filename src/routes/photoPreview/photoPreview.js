@@ -14,7 +14,7 @@ const PhotoPreview = ({photoPreview, dispatch, loading}) => {
   const {classId, photoPreviewData, pageOptions} = photoPreview;
   const contentList = photoPreviewData.ListData && photoPreviewData.ListData.map((item, index) => {
     return (
-      <Col key={index} span={6}>
+      <Col key={item.Id} span={6}>
         <Link>
           <Img src={`${photoPreviewData.ImgPath}/${item.Img}`} alt=""/>
           <p>{item.Name}</p>

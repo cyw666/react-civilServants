@@ -17,7 +17,7 @@ const NewsInfor = ({newsData, loading, tabChange, realTimeData}) => {
   let newsList = ListData.map((item, index) => {
     if (index === 0) return
     return (
-      <li key={index}>
+      <li key={item.Id}>
         <span className={styles.arrow}><img src={arrowRight} alt="arrow"/></span>
         <span className={styles.name} title={item.Name}>
           <Link to={`/main/articleDetail/${item.Id}`} target='_blank' rel="noopener noreferrer">{item.Name}</Link>

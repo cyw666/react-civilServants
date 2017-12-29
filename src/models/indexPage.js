@@ -1,6 +1,7 @@
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
 import {message} from 'antd'
+import {routerRedux} from 'dva/router'
 import {model} from './common'
 import * as mainService from '../services/main';
 import {getCookie, setCookie, delCookie} from '../utils/index'
@@ -98,7 +99,7 @@ export default modelExtend(model, {
           yield put({type: 'getVerifyCode'});
         } else if (data.Type == 1) {
           yield put({type: 'setUserCookie', payload: loginValue});
-          window.location.reload();
+          yield put(routerRedux.push('/main/indexPage'));
         } else if (data.Type == 2) {
           yield put({type: 'setUserCookie', payload: loginValue});
           message.warning("首次登录，请修改密码！");
@@ -144,7 +145,7 @@ export default modelExtend(model, {
       try {
         let data = yield call(mainService.loginOut, payload);
         if (data.Type === 1) {
-          window.location.reload();
+          yield put(routerRedux.push('/main/indexPage'));
         } else {
           message.warn(data.Message);
         }
@@ -248,11 +249,17 @@ export default modelExtend(model, {
       });
     },
     * joinClass({payload}, {call, put}) {
-      let data = yield call(mainService.updateTrainingStudentup, payload);
-      if (data.Type === 1) {
-        message.success(data.Message)
+      let isLogin = yield call(mainService.authorization);
+      if (isLogin.isauth) {
+        let data = yield call(mainService.updateTrainingStudentup, payload);
+        if (data.Type === 1) {
+          message.success(data.Message)
+        } else {
+          message.error(data.Message)
+        }
       } else {
-        message.error(data.Message)
+        message.error("请登录");
+        window.scrollTo(0,0);
       }
     },
     * getGroupRank({payload}, {call, put}) {
@@ -307,11 +314,11 @@ export default modelExtend(model, {
         if (pathname === '/main/indexPage' || pathname === '/main') {
           dispatch({type: 'getUserCookie'});
           dispatch({type: 'getVerifyCode'});
+          dispatch({type: 'userMessage'});
         }
       });
       // dispatch({type: 'getTags'});
       dispatch({type: 'getRealTimeData'});
-      dispatch({type: 'userMessage'});
       dispatch({type: 'getCourseCategory', payload: {page: 1, rows: 5}});
       dispatch({type: 'getStudySpecial', payload: {rows: 3}});
       dispatch({type: 'getClassCategory', payload: {rows: 3}});

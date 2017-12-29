@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>干部教育网络学院</title>
-  <link rel="stylesheet" href="/index.css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <% if (htmlWebpackPlugin.options.production) { %>
+  <%= htmlWebpackPlugin.files.css.map((item) => {
+    return `<link href="${item}" rel="stylesheet">`
+  }) %>
+  <% } %>
   <!-- Polyfills -->
   <!--[if lt IE 10]>
   <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
@@ -14,10 +19,11 @@
   <script src="https://cdn.staticfile.org/jsencrypt/2.3.1/jsencrypt.min.js"></script>
 </head>
 <body>
-
 <div id="root"></div>
-
-<script src="/index.js"></script>
-
+<% if (htmlWebpackPlugin.options.production) { %>
+<%= htmlWebpackPlugin.files.js.map((item) => {
+  return `<script src="${item}" charset="utf-8"></script>`
+}) %>
+<% } %>
 </body>
 </html>

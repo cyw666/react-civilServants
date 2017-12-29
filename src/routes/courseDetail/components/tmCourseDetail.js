@@ -18,7 +18,7 @@ const TmCourseDetail = ({
                         }) => {
   const nodeList = courseNode.map((item, index) => {
     return (
-      <li key={index}>
+      <li key={item.Id}>
         <span className={styles.number}>{item.Code}</span>
         <span className={styles.name}>{item.Name} </span>
         {

@@ -14,7 +14,7 @@ const ClassNoticeList = ({classNoticeList, dispatch, loading}) => {
   const {classId, classNoticeListData, pageOptions} = classNoticeList;
   const contentList = classNoticeListData.ListData && classNoticeListData.ListData.map((item, index) => {
     return (
-      <Row key={index}>
+      <Row key={item.Id}>
         <Col span={12} className="ellipsis"><Link to={`/main/articleDetail/${item.Id}`} title={item.Name}
                                                   target="_blank" rel="noopener noreferrer">{item.Name}</Link></Col>
         <Col span={6}><p>{dateFilter(item.CreatedDate, "yyyy-MM-dd")}</p></Col>

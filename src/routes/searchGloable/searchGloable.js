@@ -16,7 +16,7 @@ const SearchGloable = ({searchGloable, dispatch, loading}) => {
   const restuleList = resultData.map((item, index) => {
     if (item.Type == 'Article') {
       return (
-        <li key={index}>
+        <li key={item.Id}>
           <Link className="tableName" to={`/main/articleDetail/${item.Id}`} title={item.Name} target="_blank"
                 rel="noopener noreferrer">
             [文章：]{item.Name}
@@ -25,7 +25,7 @@ const SearchGloable = ({searchGloable, dispatch, loading}) => {
       )
     } else if (item.Type == 'Notice') {
       return (
-        <li key={index}>
+        <li key={item.Id}>
           <Link className="tableName" to={`/main/noticeDetail/${item.Id}`} title={item.Name} target="_blank"
                 rel="noopener noreferrer">
             [通知：]{item.Name}
@@ -34,7 +34,7 @@ const SearchGloable = ({searchGloable, dispatch, loading}) => {
       )
     } else if (item.Type == 'Course') {
       return (
-        <li key={index}>
+        <li key={item.Id}>
           <Link className="tableName" to={{pathname: "/main/courseDetail", query: {id: `${item.Id}`}}} title={item.Name}
                 target="_blank" rel="noopener noreferrer">
             [课程：]{item.Name}

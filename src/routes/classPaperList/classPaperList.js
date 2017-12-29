@@ -14,7 +14,7 @@ const ClassPaperList = ({classPaperList, dispatch, loading}) => {
   const {classId, classPaperListData, pageOptions} = classPaperList;
   const contentList = classPaperListData.ListData && classPaperListData.ListData.map((item, index) => {
     return (
-      <Row key={index}>
+      <Row key={item.Id}>
         <Col span={12} className="ellipsis"><Link to={`/main/articleDetail/${item.Id}`} title={item.Name}
                                                   target="_blank" rel="noopener noreferrer">{item.Name}</Link></Col>
         <Col span={4}><p>{item.Author || "无"}</p></Col>

@@ -15,7 +15,7 @@ const ExamModal = ({
   
   const examListData = examList['ListData'].map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td>{item.Name}</td>
         <td>{item.CreditHour}</td>
         <td>{item.TimeLimit}</td>

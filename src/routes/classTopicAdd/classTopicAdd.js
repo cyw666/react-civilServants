@@ -39,7 +39,7 @@ const ClassTopicAdd = ({classTopicAdd, dispatch, loading}) => {
   }
   const options = categoryData.map((item, index) => {
     return (
-      <Option key={index} value={item.Id.toString()}>{item.Name}</Option>
+      <Option key={item.Id} value={item.Id.toString()}>{item.Name}</Option>
     )
   })
   return (

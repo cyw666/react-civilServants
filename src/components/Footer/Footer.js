@@ -15,7 +15,7 @@ import linkLogo7 from '../../assets/linkLogo7.png'
 import {Menu, Dropdown, Button, Icon} from 'antd';
 
 const Footer = ({blogrollData}) => {
-  const dropdown = blogrollData["ListData"].map((item1, index1) => {
+  const dropdown = blogrollData["ListData"].length > 0 && blogrollData["ListData"].map((item1, index1) => {
     const menuItem = item1["Nodes"].map((item2, index2) => {
       return (
         <Menu.Item key={index2}>

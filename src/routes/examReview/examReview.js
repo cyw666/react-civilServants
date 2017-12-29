@@ -14,7 +14,7 @@ const ExamReview = ({examReview, dispatch, loading}) => {
   /*判断题*/
   const checkingList = Type0Questions.length > 0 && Type0Questions.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td className="tibg">
           <div>
             第<span> {index + 1} </span>题、 {item.Question.Name} （分值：{item.Question.Score}）
@@ -26,7 +26,7 @@ const ExamReview = ({examReview, dispatch, loading}) => {
               {
                 item.Question.QuestionsItems.map((question, i) => {
                   return (
-                    <tr key={i}>
+                    <tr key={question.Id}>
                       <td>{question.ItemFlag} . {question.Name}</td>
                     </tr>
                   )
@@ -42,7 +42,7 @@ const ExamReview = ({examReview, dispatch, loading}) => {
   /*单选题*/
   const singleList = Type1Questions.length > 0 && Type1Questions.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td className="tibg">
           <div>
             第<span> {index + 1} </span>题、 {item.Question.Name} （分值：{item.Question.Score}）
@@ -54,7 +54,7 @@ const ExamReview = ({examReview, dispatch, loading}) => {
               {
                 item.Question.QuestionsItems.map((question, i) => {
                   return (
-                    <tr key={i}>
+                    <tr key={question.Id}>
                       <td>{question.ItemFlag} . {question.Name}</td>
                     </tr>
                   )
@@ -82,7 +82,7 @@ const ExamReview = ({examReview, dispatch, loading}) => {
               {
                 item.Question.QuestionsItems.map((question, i) => {
                   return (
-                    <tr key={i}>
+                    <tr key={question.Id}>
                       <td>{question.ItemFlag} . {question.Name}</td>
                     </tr>
                   )

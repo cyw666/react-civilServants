@@ -15,7 +15,7 @@ const TmPersonalNotice = ({noticeListData, noticeParams, inputSearch, loading, p
   const {AllList, TitleNav} = noticeListData;
   const noticeList = AllList.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td>
           <img className="arrow" src={Arrow} alt="arrow"/>
           <Link to={`${linkUrl}/${item.Id}`} title={item.Name} target="_blank" rel="noopener noreferrer">

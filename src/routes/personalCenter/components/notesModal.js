@@ -47,7 +47,7 @@ const NotesModal = ({
   }
   const notesList = noteListData.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td className={styles.seaNoteName}>笔记名称：</td>
         <td className={styles.seaNote}>
           <span className={cs(['pull-left', `${styles.seaNoteItemName}`])} title={item.Name}>{item.Name}</span>

@@ -15,7 +15,7 @@ const TmHotArticle = ({
                       }) => {
   const rankContentList = hotArticleData.ListData.map((item, index) => {
     return (
-      <Row key={index} className={cs({'rankContent': true, 'rankBg': index % 2 !== 0})}>
+      <Row key={item.Id} className={cs({'rankContent': true, 'rankBg': index % 2 !== 0})}>
         {
           index < 3 ?
             <Col span={5}>

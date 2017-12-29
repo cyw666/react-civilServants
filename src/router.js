@@ -18,7 +18,6 @@ const setTitle = (title, cb) => {
 /*判断用户是否在线*/
 const goToLogin = (from, replace) => {
   replace(`/main/login?from=${from}`);
-  window.location.reload();
 }
 const isOnLine = (nextState, replace, cb) => {
   let pathName = nextState.location.pathname;
@@ -60,13 +59,10 @@ const isOnLine = (nextState, replace, cb) => {
       cb();
     }).catch(error => {
       message.warn("服务器出错！请等待！");
-      replace('indexPage');
-      window.location.reload();
-      cb(error);
+      replace(`/main/indexPage`);
+      cb();
     });
   }
-  cb();
-  
 }
 
 function RouterConfig({history, app}) {

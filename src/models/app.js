@@ -1,4 +1,5 @@
 import {message} from 'antd'
+import {routerRedux} from 'dva/router'
 import {blogroll, authorization, loginLong, loginOut} from '../services/main'
 
 export default {
@@ -8,7 +9,6 @@ export default {
     blogrollData: {
       ListData: []
     },
-    isLoginIn: false,
     userInformation: {
       Model: {},
       UserType: ''
@@ -25,27 +25,27 @@ export default {
   effects: {
     * getBlogroll(action, {call, put}) {
       let data = yield call(blogroll);
-      yield put({
-        type: 'updateState',
-        payload: {
-          blogrollData: data.Data
-        }
-      });
-    },
-    * isLoginIn({payload}, {call, put}) {
-      let data = yield call(authorization);
-      yield put({type: 'updateState', payload: {isLoginIn: data.isauth}});
+      if (data && data.Status == 200) {
+        yield put({
+          type: 'updateState',
+          payload: {
+            blogrollData: data.Data
+          }
+        });
+      }
+      
     },
     * getUserInformation({payload}, {call, put}) {
       let data = yield call(loginLong);
-      yield put({type: 'updateState', payload: {userInformation: data.Data}});
+      if (data && data.Status == 200) {
+        yield put({type: 'updateState', payload: {userInformation: data.Data}});
+      }
     },
     * loginOut({payload}, {call, put}) {
       try {
         let data = yield call(loginOut, payload);
         if (data.Type === 1) {
-          yield put({type: 'updateState', payload: {isLoginIn: false}});
-          window.location = `${location.origin}/indexPage`
+          yield put(routerRedux.push('/main/indexPage'));
         } else {
           message.error(data.Message);
         }
@@ -59,13 +59,9 @@ export default {
   subscriptions: {
     setup({dispatch, history}) {
       history.listen((location) => {
-        let pathName = location.pathname;
-        if (pathName === "/" || pathName === "/main" || pathName === "/main/indexPage" || pathName === "/main/register" || pathName === "/main/login" || pathName === "/main/forgetPassword") {
-          dispatch({type: 'isLoginIn'});
-        }
+        dispatch({type: 'getUserInformation'});
       })
       dispatch({type: 'getBlogroll'});
-      dispatch({type: 'getUserInformation'});
     }
   },
 };

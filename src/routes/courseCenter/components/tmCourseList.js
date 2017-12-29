@@ -37,7 +37,7 @@ const TmCourseList = ({
   
   const courseListContent = courseList.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td className={styles.courseImgs}>
           <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} target='_blank' rel="noopener noreferrer">
             <Img src={baseImageCourse + '/' + item.Img} errSrc={notCourse} alt={item.Name}/>

@@ -29,7 +29,7 @@ const TmMyCenter = ({
   const {UnfinishModel, AppointedModel, FinishModel} = courseData.ListData;
   const unFinishList = UnfinishModel && UnfinishModel.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={6}>
           <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
                                                         target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
@@ -94,7 +94,7 @@ const TmMyCenter = ({
   })
   const appointedList = AppointedModel && AppointedModel.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={6}>
           <div className="list" title={item.Name}><Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}}
                                                         target={"_blank"} rel="noopener noreferrer">{item.Name}</Link>
@@ -159,7 +159,7 @@ const TmMyCenter = ({
   })
   const finishList = FinishModel && FinishModel.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={6}>
           <div className="list" title={item.Name}>
             <Link to={{pathname: "/main/courseDetail", query: {id: item.Id}}} target={"_blank"}

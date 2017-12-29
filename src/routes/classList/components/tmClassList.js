@@ -14,7 +14,7 @@ const TmClassList = ({listData, listParams, inputSearch, loading, pageConfig, li
   const {ListData, Nav} = listData;
   const noticeList = ListData.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td>
           <Link to={`${linkUrl}/${item.Id}`} title={item.Name} target="_blank" rel="noopener noreferrer">
             {item.Name}

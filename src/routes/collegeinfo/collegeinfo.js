@@ -14,7 +14,7 @@ const TabPane = Tabs.TabPane;
 const Collegeinfo = ({collegeinfo, dispatch, loading}) => {
   const paneContent = collegeinfo.collegeinfoData.ListData.map((item, index) => {
     return (
-      <TabPane tab={item.Name} key={index}>
+      <TabPane tab={item.Name} key={item.Id}>
         <div className={styles.content} dangerouslySetInnerHTML={{__html: item.Content}}></div>
       </TabPane>
     )

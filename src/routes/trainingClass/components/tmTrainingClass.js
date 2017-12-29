@@ -15,7 +15,7 @@ const TmTrainingClass = ({classListData, checkUserClass, joinClass, delClass, ge
   const {ListData} = classListData;
   const classList = ListData.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={6}><p className="list">{item.Name}</p></Col>
         <Col span={4}><p className="list"><a onClick={() => {
           // checkUserClass(item.Id)
@@ -49,7 +49,7 @@ const TmTrainingClass = ({classListData, checkUserClass, joinClass, delClass, ge
   })
   const classAlreadyList = ListData.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={8}><p className="list">{item.Name}</p></Col>
         <Col span={4}><p className="list"><a onClick={() => {
           // checkUserClass(item.Id)

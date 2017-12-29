@@ -46,12 +46,14 @@ export default modelExtend(model, {
   effects: {
     * getArticleDetail({payload}, {call, put}) {
       let data = yield call(articleContent, payload);
-      yield put({
-        type: 'updateState',
-        payload: {
-          articleDetailData: data.Data,
-        }
-      });
+      if (data && data.Status == 200) {
+        yield put({
+          type: 'updateState',
+          payload: {
+            articleDetailData: data.Data,
+          }
+        });
+      }
     },
     * favoriteAdd({payload}, {call, put}) {
       let data = yield call(favoriteAdd, payload);

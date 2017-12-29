@@ -44,7 +44,7 @@ const Article = ({article, dispatch, loading}) => {
     },
     pageConfig: article.pageConfig,
     loading: loading.effects['article/getArticleList'],
-    linkUrl: 'articleDetail',
+    linkUrl: 'main/articleDetail',
   }
   return (
     <div className={styles.testCenter}>

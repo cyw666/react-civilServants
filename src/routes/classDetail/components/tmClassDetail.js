@@ -32,7 +32,7 @@ const TmClassDetail = ({detailData, loading}) => {
   } = detailData;
   const noticeList = ClassNoticeList && ClassNoticeList.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={12}>
           <div className="list">{item.Name}</div>
         </Col>
@@ -47,7 +47,7 @@ const TmClassDetail = ({detailData, loading}) => {
   });
   const requiredCourseList = ClassRequiredCourseList && ClassRequiredCourseList.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={12}>
           <div className="list">{item.Name}</div>
         </Col>
@@ -63,7 +63,7 @@ const TmClassDetail = ({detailData, loading}) => {
   });
   const electiveCourseList = ClassElectiveCourseList && ClassElectiveCourseList.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={12}>
           <div className="list">{item.Name}</div>
         </Col>
@@ -79,7 +79,7 @@ const TmClassDetail = ({detailData, loading}) => {
   });
   const examList = ClassExamList && ClassExamList.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={9}>
           <div className="list">{item.Name}</div>
         </Col>
@@ -98,7 +98,7 @@ const TmClassDetail = ({detailData, loading}) => {
   });
   const topicList = ClassTopicList && ClassTopicList.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={9}>
           <div className="list">
             <Link to={`/main/articleDetail/${item.Id}`} target="_blank" rel="noopener noreferrer">{item.Name}</Link>
@@ -118,7 +118,7 @@ const TmClassDetail = ({detailData, loading}) => {
   });
   const paperList = ClassPaperList && ClassPaperList.map((item, index) => {
     return (
-      <Row key={index} className={styles.tabList}>
+      <Row key={item.Id} className={styles.tabList}>
         <Col span={12}>
           <div className="list">
             <Link to={`/main/articleDetail/${item.Id}`} title={item.Name} target="_blank"
@@ -136,7 +136,7 @@ const TmClassDetail = ({detailData, loading}) => {
   });
   const photoList = ClassPhotoList && ClassPhotoList.map((item, index) => {
     return (
-      <Col key={index} span={6}>
+      <Col key={item.Id} span={6}>
         <Link to={{pathname: '/main/grade/photoPreview', query: {albumId: item.Id, id: Id}}}>
           <Img src={item.Img} errSrc={notFound} alt={item.Name}/>
           <div className="list">{item.Name}</div>

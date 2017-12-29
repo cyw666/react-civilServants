@@ -14,7 +14,7 @@ const PhotoAlbumList = ({photoAlbumList, dispatch, loading}) => {
   const {classId, photoAlbumData, pageOptions} = photoAlbumList;
   const contentList = photoAlbumData.ListData && photoAlbumData.ListData.map((item, index) => {
     return (
-      <Col key={index} span={6}>
+      <Col key={item.Id} span={6}>
         <Link to={{pathname: "/main/grade/photoPreview", query: {albumId: item.Id, id: classId}}}>
           <Img src={`${photoAlbumData.ImgPath}/${item.Img}`} alt=""/>
           <p>{item.Name}</p>

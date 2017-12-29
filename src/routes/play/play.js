@@ -38,7 +38,7 @@ const Play = ({play, dispatch, loading}) => {
   //笔记列表
   const noteList = resultCourseNote.map((item, index) => {
     return (
-      <ul key={index} className={styles.commentList}>
+      <ul key={item.Id} className={styles.commentList}>
         <li className={styles.title}>
           <span>标题：{item.Name}</span>
           <span className={styles.time}>{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</span>
@@ -55,7 +55,7 @@ const Play = ({play, dispatch, loading}) => {
   //评论列表
   const commentList = resultComment.map((item, index) => {
     return (
-      <ul key={index} className={styles.commentList}>
+      <ul key={item.Id} className={styles.commentList}>
         <li className={styles.title}>
           <span>用户名：{item.UserName}</span>
           <span className={styles.time}>{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</span>

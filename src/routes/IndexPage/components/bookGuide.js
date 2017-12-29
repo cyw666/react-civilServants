@@ -14,7 +14,7 @@ const BookGuide = ({loading, bookListData}) => {
   const {ListData, Path} = bookListData;
   const bookList = ListData.map((item, index) => {
     return (
-      <li key={index}>
+      <li key={item.Id}>
         <p className={styles.bookImg}>
           <Link to="/main/bookDetail" target="_blank" rel="noopener noreferrer">
             <Img src={Path + item.Icon} alt={item.Name}/>

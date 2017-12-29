@@ -13,7 +13,7 @@ const TmMessageList = ({listData, inputSearch, loading, openModal, pageConfig}) 
   const {ListData} = listData;
   const originalList = ListData && ListData.map((item, index) => {
     return (
-      <tr key={index}>
+      <tr key={item.Id}>
         <td className={styles.number}>{index + 1}</td>
         <td className={styles.name}>
           <Link>

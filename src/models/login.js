@@ -17,6 +17,7 @@ export default modelExtend(model, {
       RememberMe: true
     },
     showCode: false,
+    from:'',
     codeImg: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAWCAYAAABXEBvcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALpSURBVFhH3Vi7ccMwDNU8LjJAJtAYGUIDpE+Vyo1b165Sq3E2SOHS59pNJmAIkKAoCiAhivlcfKfLxyQIPjw8AOrMls+xq9593O3W7e3yZ3XM96vPKHjUPS99qEPAOss5vA6R/7G6CGDrKLaEreteWpqrslUEULJayCjcxlEe/t8yKK0yAezEjxZNNYAtL611rrROClBpX+57AlFrYwHg5NRoBiua8Lf47A/mqjrJrnqzR0HRsQ+yF38fwu6/kI6YNZG+a9jNMhDZdj+YvhmAhBMB2RvzqUL+xxdtZmDw2AOIjAEgT2PVZebMIgAn5lUZlTYRuzcYnTOwbEjWwJSBHkBN8YjyMvGgHsDv0OC4aJD97wPQQj2enH45TezN4V6OEK1w2loPINq5DHh2f7Z2/O9BU/Wu4Mo0VdtXYUEDIVJTURkMJraaljoAlwXlag77qZj1Jwvk02i6R/tTXcgmhCWd07QxqW92j9CMLgB0YCELo+IyXNaEXgegaNGzDuKlq/68pVyhaF5EAlgUaSoqHkRMJ/+BYOS1Sg9gHFiUDWgvgHGUwhw2ytmc7HEmtgFYcgAukbQ2MYBlLuoBJGWYqUOsgeXDxBVbGRiTRD2JkDfXcz8DsSmA2MQ6SWVlVQtgRpMDm4U12xgYx4z0hhjnUxgBDJXYV8RoX3684hmIhQkGE+4VV3zREoBMBrGvoKJpI6WpFkCSGJmBAoDzKrwEcJE3N9s0w8Vu8I0H8B1rt2Oy4AE4uChwJQCTwykgaWBqUlgqtqsBDJMJU0RY0fmwY5sF0F3CtiOvtn98WNH5cFmRTEU1TTYHoqqNwX52+ugnkTiFKa29ZuX13LLNv0Qwx3UzMKUfXAz7wFkR8z1oZTFx7I8fYLyDQwMkrMNslM/3zWvQO64PLE8jcUEovnHJdAGaNyOVWM4ZJWkxYxzvlj001cGkhal9wdDior9hg5MKRRszH6OoD1w3gSyvyzqj8KYlcDXamZ7/BTEJVLcVbV7gAAAAAElFTkSuQmCC'
   },
   reducers: {
@@ -65,7 +66,7 @@ export default modelExtend(model, {
       }
     },
     * login({payload: loginValue}, {call, put, select}) {
-      let from = queryURL("from");
+      const from = yield select(state => state.login.from);
       try {
         const showCode = yield select(state => state.login.showCode);
         let data;
@@ -139,6 +140,7 @@ export default modelExtend(model, {
     setup({dispatch, history}) {
       history.listen((location) => {
         if (location.pathname === '/main/login') {
+          dispatch({type: 'updateState',payload:{from:location.query.from}});
           dispatch({type: 'getUserInfo'});
           dispatch({type: 'getUserCookie'});
           dispatch({type: 'getVerifyCode'});

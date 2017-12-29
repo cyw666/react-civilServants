@@ -7,6 +7,7 @@ import {Form, Input, Select, Modal} from 'antd';
 
 const FormItem = Form.Item;
 const {TextArea} = Input;
+const {Option} = Select;
 const AddMessage = ({
                       form: {
                         getFieldDecorator,

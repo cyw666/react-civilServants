@@ -36,7 +36,7 @@ const SetQuestionForm = ({
   };
   const questionList = question.map((item, index) => {
     return (
-      <Row gutter={40} key={index}>
+      <Row gutter={40} key={item.Id}>
         <Col span={12}>
           <FormItem {...formItemLayout} label={`问题${index + 1}`}>
             {getFieldDecorator(`questions[${index}].Question`, {

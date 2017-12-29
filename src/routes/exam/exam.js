@@ -55,7 +55,7 @@ const Exam = ({
   });
   const checkingQuestion = Type0Questions.map((item, index) => {
     return (
-      <FormItem key={index} style={{display: 'none'}}>
+      <FormItem key={item.Id} style={{display: 'none'}}>
         {getFieldDecorator(`questionid${item.Id}`, {
           initialValue: item.Id,
         })(
@@ -88,7 +88,7 @@ const Exam = ({
   });
   const singleQuestion = Type1Questions.map((item, index) => {
     return (
-      <FormItem key={index} style={{display: 'none'}}>
+      <FormItem key={item.Id} style={{display: 'none'}}>
         {getFieldDecorator(`questionid${item.Id}`, {
           initialValue: item.Id,
         })(
@@ -121,7 +121,7 @@ const Exam = ({
   });
   const multipleQuestion = Type2Questions.map((item, index) => {
     return (
-      <FormItem key={index} style={{display: 'none'}}>
+      <FormItem key={item.Id} style={{display: 'none'}}>
         {getFieldDecorator(`questionid${item.Id}`, {
           initialValue: item.Id,
         })(
@@ -143,7 +143,7 @@ const Exam = ({
           {singleQuestion}
           {multipleList}
           {multipleQuestion}
-          <FormItem>
+          <FormItem className={styles.submit}>
             <Button type="primary" size={'large'} htmlType="submit">
               提交
             </Button>

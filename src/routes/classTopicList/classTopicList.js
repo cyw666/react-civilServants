@@ -14,7 +14,7 @@ const ClassTopicList = ({classTopicList, dispatch, loading}) => {
   const {classId, classTopicListData, pageOptions} = classTopicList;
   const contentList = classTopicListData.ListData && classTopicListData.ListData.map((item, index) => {
     return (
-      <Row key={index}>
+      <Row key={item.Id}>
         <Col span={8} className="ellipsis"><Link to={`/main/articleDetail/${item.Id}`} title={item.Name} target="_blank"
                                                  rel="noopener noreferrer">{item.Name}</Link></Col>
         <Col span={6}><p>{item.Type}</p></Col>

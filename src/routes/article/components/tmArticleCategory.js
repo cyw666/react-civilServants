@@ -15,7 +15,7 @@ const TmArticleCategory = ({
                            }) => {
   const categoryList = dataList.ListData.map((item, index) => {
     return (
-      <li key={index}><Button type="primary" onClick={() => {
+      <li key={item.Id}><Button type="primary" onClick={() => {
         searchArticle({categoryId: item.Id, titleNav: item.Name, categoryCode: ''})
       }}>{item.Name}</Button></li>
     )

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header/Header'
 import NavBar from '../components/NavBar/NavBar'
 import Footer from '../components/Footer/Footer'
-import '../themes/index.less'
 import './App.less';
 
 function App({children, app, dispatch}) {

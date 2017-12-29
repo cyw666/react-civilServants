@@ -1,12 +1,12 @@
 import dva from 'dva';
-import {message} from 'antd'
-import {browserHistory} from 'dva/router';
+// import {message} from 'antd'
+// import {browserHistory} from 'dva/router';
 import createLoading from 'dva-loading';
 // 1. Initialize
 const app = dva({
-  history: browserHistory,
+  // history: browserHistory,
   onError(error) {
-    message.error(error.message);
+    // console.log(error.message);
   },
 });
 
