@@ -61,7 +61,6 @@ function checkStatus(response) {
     // 异常状态下，把错误信息返回去
     throw {Status: -404, msg: '服务器异常'};
   }
-  
 }
 
 function checkCode(res) {
