@@ -82,4 +82,4 @@ npm run lint
 # 部分截图
 
 ### 首页
-<img src="https://github.com/cyw666/react-civilServants/tree/master/src/assets/home.png"/>
+![](src/assets/home.png)
