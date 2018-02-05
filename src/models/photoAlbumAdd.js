@@ -2,9 +2,10 @@
  * 添加相册
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-import {photoAlbumAdd, getPhotoAlbumAdd} from '../services/main';
+import { message } from 'antd'
+import model from './common'
+import { photoAlbumAdd, getPhotoAlbumAdd } from '../services/';
+import { querySearch } from '../utils/utils'
 
 export default modelExtend(model, {
   namespace: 'photoAlbumAdd',
@@ -13,15 +14,15 @@ export default modelExtend(model, {
     photoAlbumAddData: {},
   },
   reducers: {
-    updateCategory(state, {payload}) {
+    updateCategory(state, { payload }) {
       return {
         ...state,
-        categoryData: [...state.categoryData, ...payload]
+        categoryData: [ ...state.categoryData, ...payload ]
       }
     },
   },
   effects: {
-    * getPhotoAlbum({payload}, {call, put, select}) {
+    * getPhotoAlbum({ payload }, { call, put }) {
       let data = yield call(photoAlbumAdd, payload);
       yield put({
         type: 'updateState',
@@ -30,7 +31,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * addPhotoAlbum({payload}, {call, put}) {
+    * addPhotoAlbum({ payload }, { call, put }) {
       let data = yield call(getPhotoAlbumAdd, payload);
       if (data.Type === 1) {
         message.success(data.Message);
@@ -40,17 +41,18 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let id;
-      history.listen((location) => {
-        if (location.pathname === "/main/photoAlbumAdd") {
-          if (id != location.query.id) {
-            id = location.query.id;
-            dispatch({type: 'getPhotoAlbum', payload: {trainingId:id}});
-            dispatch({type: 'updateState', payload: {classId: id}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/photoAlbumAdd") {
+          dispatch({ type: 'setTitle', payload: { title: '添加相册' } });
+          if (id != querySearch(search).id) {
+            id = querySearch(search).id;
+            dispatch({ type: 'getPhotoAlbum', payload: { trainingId: id } });
+            dispatch({ type: 'updateState', payload: { classId: id } });
           }
         }
-      })
+      });
     }
   }
 });

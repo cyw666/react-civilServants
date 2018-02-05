@@ -2,9 +2,10 @@
  * 添加话题
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-import {classTopicAdd, classPublishArticle, getTrainingArticleCategory} from '../services/main';
+import { message } from 'antd'
+import model from './common'
+import { classTopicAdd, classPublishArticle, getTrainingArticleCategory } from '../services/';
+import { querySearch } from '../utils/utils'
 
 export default modelExtend(model, {
   namespace: 'classTopicAdd',
@@ -14,15 +15,15 @@ export default modelExtend(model, {
     categoryData: []
   },
   reducers: {
-    updateCategory(state, {payload}) {
+    updateCategory(state, { payload }) {
       return {
         ...state,
-        categoryData: [...state.categoryData, ...payload]
+        categoryData: [ ...state.categoryData, ...payload ]
       }
     },
   },
   effects: {
-    * getClassTopicAdd({payload}, {call, put, select}) {
+    * getClassTopicAdd({ payload }, { call, put, select }) {
       let data = yield call(classTopicAdd, payload);
       yield put({
         type: 'updateState',
@@ -31,14 +32,14 @@ export default modelExtend(model, {
         }
       });
     },
-    * getCategory({payload}, {call, put, select}) {
+    * getCategory({ payload }, { call, put, select }) {
       let data = yield call(getTrainingArticleCategory, payload);
       yield put({
         type: 'updateCategory',
         payload: data,
       });
     },
-    * addTopic({payload}, {call, put}) {
+    * addTopic({ payload }, { call, put }) {
       let data = yield call(classPublishArticle, payload);
       if (data.Type === 1) {
         message.success(data.Message);
@@ -48,18 +49,19 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let id;
-      history.listen((location) => {
-        if (location.pathname === "/main/classTopicAdd") {
-          if (id != location.query.id) {
-            id = location.query.id;
-            dispatch({type: 'getClassTopicAdd', payload: {id}});
-            dispatch({type: 'getCategory', payload: {type: "topic", trainingId: id}});
-            dispatch({type: 'updateState', payload: {classId: id}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/classTopicAdd") {
+          dispatch({ type: 'setTitle', payload: { title: '添加话题' } });
+          if (id != querySearch(search).id) {
+            id = querySearch(search).id;
+            dispatch({ type: 'getClassTopicAdd', payload: { id } });
+            dispatch({ type: 'getCategory', payload: { type: "topic", trainingId: id } });
+            dispatch({ type: 'updateState', payload: { classId: id } });
           }
         }
-      })
+      });
     }
   }
 });

@@ -1,7 +1,8 @@
 /*全局搜索*/
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {searchAll} from '../services/main'
+import model from './common'
+import { searchAll } from '../services/'
+import { querySearch } from '../utils/utils'
 
 export default modelExtend(model, {
   namespace: 'searchGloable',
@@ -21,17 +22,17 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateSearchResult(state, {payload}) {
+    updateSearchResult(state, { payload }) {
       return {
         ...state,
-        searchParams: {...state.searchParams, ...payload}
+        searchParams: { ...state.searchParams, ...payload }
       }
     },
   },
   effects: {
-    * getSearchList({payload}, {call, put, select}) {
+    * getSearchList({ payload }, { call, put, select }) {
       let searchParams = yield select(state => state.searchGloable.searchParams);
-      let params = {...searchParams, ...payload};
+      let params = { ...searchParams, ...payload };
       let data = yield call(searchAll, params);
       yield put({
         type: 'updateState',
@@ -44,15 +45,18 @@ export default modelExtend(model, {
           }
         }
       });
-      yield put({type: 'updateSearchResult', payload});
+      yield put({ type: 'updateSearchResult', payload });
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      history.listen((location) => {
-        let key = location.query.keyword;
-        dispatch({type: 'getSearchList', payload: {page: 1, rows: 20, key}});
-      })
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/searchGloable") {
+          dispatch({ type: 'setTitle', payload: { title: '全局搜索' } });
+        }
+        let key = querySearch(search).keyword;
+        dispatch({ type: 'getSearchList', payload: { page: 1, rows: 20, key } });
+      });
     }
   }
 });

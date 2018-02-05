@@ -2,8 +2,8 @@
  * 个人中心
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
+import { message } from 'antd'
+import model from './common'
 
 import {
   myCenter,
@@ -18,7 +18,7 @@ import {
   editStudyPlan,
   studyPlanUpdate,
   courseExamList,
-} from '../services/main';
+} from '../services/';
 
 export default modelExtend(model, {
   namespace: 'personalCenter',
@@ -81,32 +81,32 @@ export default modelExtend(model, {
       ListData: []
     },
     navData: [
-      {name: "选择课程", pathname: "/main/courseCenter", query: null},
-      {name: "学习统计", pathname: "/main/testStat", query: null},
-      {name: "考试统计", pathname: "/main/testCenter", query: null},
-      {name: "学习计划", pathname: "/main/studyPlan", query: null},
-      {name: "我的收藏", pathname: "/main/myFavorite", query: null},
-      {name: "留言板", pathname: "/main/messageList", query: null},
-      {name: "学员心声", pathname: "/main/originalArticleList", query: null},
-      {name: "学员风采", pathname: "/main/studentStyle", query: null},
-      {name: "问卷调查", pathname: "/main/pollList", query: null},
-      {name: "必装软件", pathname: "/main/software", query: null},
-      {name: "排行榜", pathname: "/main/rankList", query: null},
-      {name: "专题学习", pathname: "/main/specialLearning", query: null},
-      {name: "成果展示", pathname: "/main/resultShow", query: null},
-      {name: "新闻中心", pathname: "/main/article", query: null},
+      { name: "选择课程", pathname: "/main/courseCenter", search: null },
+      { name: "学习统计", pathname: "/main/testStat", search: null },
+      { name: "考试统计", pathname: "/main/testCenter", search: null },
+      { name: "学习计划", pathname: "/main/studyPlan", search: null },
+      { name: "我的收藏", pathname: "/main/myFavorite", search: null },
+      { name: "留言板", pathname: "/main/messageList", search: null },
+      { name: "学员心声", pathname: "/main/originalArticleList", search: null },
+      { name: "学员风采", pathname: "/main/studentStyle", search: null },
+      { name: "问卷调查", pathname: "/main/pollList", search: null },
+      { name: "必装软件", pathname: "/main/software", search: null },
+      { name: "排行榜", pathname: "/main/rankList", search: null },
+      { name: "专题学习", pathname: "/main/specialLearning", search: null },
+      { name: "成果展示", pathname: "/main/resultShow", search: null },
+      { name: "新闻中心", pathname: "/main/main/article", search: null },
     ]
   },
   reducers: {
-    updateMyCourseParams(state, {payload}) {
+    updateMyCourseParams(state, { payload }) {
       return {
         ...state,
-        myCourseParams: {...state.myCourseParams, ...payload}
+        myCourseParams: { ...state.myCourseParams, ...payload }
       }
     },
   },
   effects: {
-    * getMyCourse({payload}, {call, put}) {
+    * getMyCourse({ payload }, { call, put }) {
       let data = yield call(myCenter, payload);
       yield put({
         type: 'updateState',
@@ -121,21 +121,21 @@ export default modelExtend(model, {
           },
         }
       });
-      yield put({type: 'updateMyCourseParams', payload: payload});
+      yield put({ type: 'updateMyCourseParams', payload: payload });
     },
-    * delMyCourse({payload}, {call, put, select}) {
+    * delMyCourse({ payload }, { call, put, select }) {
       let data = yield call(delUserCourseReg, payload);
       if (data.Type === 1) {
         message.success(data.Message);
         let params = yield select(state => state.personalCenter.myCourseParams);
-        yield put({type: 'getMyCourse', payload: params})
+        yield put({ type: 'getMyCourse', payload: params })
       } else {
         message.error(data.Message)
       }
       
     },
     /*学习笔记*/
-    * noteAdd({payload}, {call, put, select}) {
+    * noteAdd({ payload }, { call, put, select }) {
       let data = yield call(noteAdd, payload);
       yield put({
         type: 'updateState',
@@ -149,14 +149,14 @@ export default modelExtend(model, {
         }
       });
     },
-    * addNote({payload}, {call, put, select}) {
+    * addNote({ payload }, { call, put, select }) {
       let data = yield call(addNote, payload);
       alert(data.Message)
-      yield put({type: 'updateState', payload: {showNotesModal: false}})
+      yield put({ type: 'updateState', payload: { showNotesModal: false } })
       let params = yield select(state => state.personalCenter.myCourseParams);
-      yield put({type: 'getMyCourse', payload: params})
+      yield put({ type: 'getMyCourse', payload: params })
     },
-    * seeNote({payload}, {call, put}) {
+    * seeNote({ payload }, { call, put }) {
       let data = yield call(courseNoteList, payload);
       yield put({
         type: 'updateState',
@@ -169,7 +169,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * editNote({payload}, {call, put}) {
+    * editNote({ payload }, { call, put }) {
       let data = yield call(noteUpdate, payload);
       yield put({
         type: 'updateState',
@@ -182,27 +182,27 @@ export default modelExtend(model, {
         }
       });
     },
-    * delNote({payload}, {call, put, select}) {
+    * delNote({ payload }, { call, put, select }) {
       let data = yield call(delNote, payload);
       if (data.Type === 1) {
         message.success(data.Message);
         let courseId = yield select(state => state.personalCenter.courseId);
-        yield put({type: 'seeNote', payload: {courseId}})
+        yield put({ type: 'seeNote', payload: { courseId } })
         let params = yield select(state => state.personalCenter.myCourseParams);
-        yield put({type: 'getMyCourse', payload: params})
+        yield put({ type: 'getMyCourse', payload: params })
       } else {
         message.error(data.Message);
       }
       
     },
-    * noteEditUpdate({payload}, {call, put, select}) {
+    * noteEditUpdate({ payload }, { call, put, select }) {
       let data = yield call(noteEditUpdate, payload);
       alert(data.Message);
       let courseId = yield select(state => state.personalCenter.courseId);
-      yield put({type: 'seeNote', payload: {courseId}})
+      yield put({ type: 'seeNote', payload: { courseId } })
     },
     /*学习计划*/
-    * studyPlanAdd({payload}, {call, put}) {
+    * studyPlanAdd({ payload }, { call, put }) {
       let data = yield call(studyPlanAdd, payload);
       yield put({
         type: 'updateState',
@@ -214,7 +214,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * studyPlanUpdate({payload}, {call, put}) {
+    * studyPlanUpdate({ payload }, { call, put }) {
       let data = yield call(studyPlanUpdate, payload);
       yield put({
         type: 'updateState',
@@ -226,15 +226,15 @@ export default modelExtend(model, {
         }
       });
     },
-    * editStudyPlan({payload}, {call, put, select}) {
+    * editStudyPlan({ payload }, { call, put, select }) {
       let data = yield call(editStudyPlan, payload);
       message.info(data.Message);
-      yield put({type: 'updateState', payload: {showPlanModal: false}})
+      yield put({ type: 'updateState', payload: { showPlanModal: false } })
       let params = yield select(state => state.personalCenter.myCourseParams);
-      yield put({type: 'getMyCourse', payload: params})
+      yield put({ type: 'getMyCourse', payload: params })
     },
     /*查看考试*/
-    * seeExam({payload}, {call, put}) {
+    * seeExam({ payload }, { call, put }) {
       let data = yield call(courseExamList, payload);
       yield put({
         type: 'updateState',
@@ -246,12 +246,13 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       history.listen((location) => {
         if (location.pathname === '/main/personalCenter') {
-          dispatch({type: 'getMyCourse', payload: {page: 1, rows: 5, courseType: 'All', title: ''}});
+          dispatch({ type: 'setTitle', payload: { title: '个人中心' } });
+          dispatch({ type: 'getMyCourse', payload: { page: 1, rows: 5, courseType: 'All', title: '' } });
         }
-      })
+      });
     }
   }
 });

@@ -3,56 +3,59 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Spin, Carousel} from 'antd';
-import {Link} from 'dva/router'
+import { Spin, Carousel } from 'antd';
+import { Link } from 'dva/router'
 import styles from './noticeAnnouncement.less';
 import Img from '../../../components/Img/Img'
-import {dateFilter} from '../../../utils/index'
+import { dateFilter } from '../../../utils/index'
 
-const NoticeAnnouncement = ({noticeData, loading}) => {
+const NoticeAnnouncement = ({ noticeData, loading }) => {
   const baseImgPath = noticeData.Path;
-  let listNotice = noticeData['ListData'].map((list) => {
+  let listNotice = noticeData[ 'ListData' ].map((list) => {
     return (
-      <li key={list.Id}>
-        <span className={styles.triangleRight}></span>
-        <Link to={`/main/noticeDetail/${list.Id}`} target='_blank' title={list.Name} rel="noopener noreferrer">
-          {list.Name}
+      <li key={ list.Id }>
+        <span className={ styles.triangleRight }></span>
+        <Link to={ { pathname: '/main/noticeDetail', search: `?id=${list.Id}` } } target='_blank' title={ list.Name }
+              rel="noopener noreferrer">
+          { list.Name }
         </Link>
-        <span className={styles.time}>{dateFilter(list.CreateDate, 'yyyy-MM-dd')}</span>
+        <span className={ styles.time }>{ dateFilter(list.CreateDate, 'yyyy-MM-dd') }</span>
       </li>
     )
   });
   
-  let carouselList = noticeData['ListData'].map((item) => {
+  let carouselList = noticeData[ 'ListData' ].map((item) => {
     return (
-      <div key={item.Id}>
-        <Link to={`/main/noticeDetail/${item.Id}`} target='_blank' rel="noopener noreferrer">
-          <Img src={baseImgPath + '/' + item.Img} alt={item.Name}/>
+      <div key={ item.Id }>
+        <Link to={ { pathname: '/main/noticeDetail', search: `?id=${item.Id}` } } target='_blank'
+              rel="noopener noreferrer">
+          <Img src={ baseImgPath + '/' + item.Img } alt={ item.Name }/>
         </Link>
-        <p className={styles.title}>
-          <Link to={`/main/noticeDetail/${item.Id}`} target='_blank' title={item.Name} rel="noopener noreferrer">
-            {item.Name}
+        <p className={ styles.title }>
+          <Link to={ { pathname: '/main/noticeDetail', search: `?id=${item.Id}` } } target='_blank' title={ item.Name }
+                rel="noopener noreferrer">
+            { item.Name }
           </Link>
         </p>
       </div>
     )
   });
-  if (!noticeData['ListData'].length) {
+  if (!noticeData[ 'ListData' ].length) {
     carouselList = <div></div>;
   }
   return (
-    <div className={styles.noticeAnnouncement}>
-      <Spin spinning={loading}>
-        <div className={styles.notice}>
+    <div className={ styles.noticeAnnouncement }>
+      <Spin spinning={ loading }>
+        <div className={ styles.notice }>
           <Carousel autoplay>
-            {carouselList}
+            { carouselList }
           </Carousel>
         </div>
-        <div className={styles.noticeBody}>
-          <p className={styles.noticeBodyLeft}>通知公告</p>
-          <div className={styles.noticeBodyRight}>
+        <div className={ styles.noticeBody }>
+          <p className={ styles.noticeBodyLeft }>通知公告</p>
+          <div className={ styles.noticeBodyRight }>
             <ul>
-              {listNotice}
+              { listNotice }
             </ul>
           </div>
         </div>

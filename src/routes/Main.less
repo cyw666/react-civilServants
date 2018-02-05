@@ -1,0 +1,171 @@
+@import "../themes/mixins";
+
+:global {
+  body,
+  div,
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  code,
+  form,
+  fieldset,
+  legend,
+  input,
+  textarea,
+  p,
+  blockquote,
+  th,
+  td,
+  hr,
+  button,
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    margin: 0;
+    padding: 0;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  input[type="text"],
+  textarea {
+    -webkit-appearance: none;
+  }
+  ul,
+  ol {
+    list-style: none;
+  }
+  .app {
+    .ant-breadcrumb {
+      padding: 8px 15px;
+      background: @gray-f3;
+    }
+    /*标签页*/
+    .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav .ant-tabs-tab {
+      padding: 9px 27px;
+    }
+    .ant-tabs.ant-tabs-card > .ant-tabs-bar div.ant-tabs-nav-container {
+      height: 44px;
+    }
+    .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav .ant-tabs-tab-active {
+      border-top: 3px solid @primary-color;
+      padding: 7px 27px 10px;
+    }
+  }
+  .highlight {
+    color: @highlight-color;
+  }
+  .searchText {
+    margin: 20px 40px;
+  }
+  .noData {
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5em;
+    padding: 20px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    th, tr, td {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: top;
+      border-top: 1px solid @gray-ddd;
+    }
+    th {
+      background-color: lighten(@gray-ddd, 8%);
+      text-align: center;
+    }
+    .listDate {
+      text-align: center;
+    }
+    .arrow {
+      margin: 0 10px;
+    }
+    .tableName {
+      vertical-align: middle;
+      display: inline-block;
+      width: 460px;
+      .ellipsis();
+    }
+  }
+  .table-bordered,
+  .table-bordered > tbody > tr > td,
+  .table-bordered > tbody > tr > th,
+  .table-bordered > tfoot > tr > td,
+  .table-bordered > tfoot > tr > th,
+  .table-bordered > thead > tr > td,
+  .table-bordered > thead > tr > th {
+    border: 1px solid @gray-ddd;
+  }
+  .pagination {
+    margin: 10px 20px;
+  }
+  .list {
+    display: block;
+    width: 100%;
+    line-height: 37px;
+    padding-left: 10px;
+    padding-right: 10px;
+    .ellipsis();
+  }
+  /*排行榜*/
+  .rankHeader {
+    background-color: lighten(@gray-f3, 2%);
+    .headerList {
+      display: inline-block;
+      .wh(100%, 48px);
+      line-height: 48px;
+      padding: 0 10px;
+      .ellipsis();
+    }
+  }
+  .rankContent {
+    .contentList {
+      display: inline-block;
+      .wh(100%, 48px);
+      line-height: 48px;
+      padding: 0 10px;
+      .ellipsis();
+    }
+  }
+  .rankBg {
+    background-color: lighten(@gray-f3, 2%);
+  }
+  /*排行前三背景*/
+  .rankFirstBg {
+    background: url("../assets/rankOne.png") center no-repeat;
+  }
+  .rankSecondBg {
+    background: url("../assets/rankTwo.png") center no-repeat;
+  }
+  .rankThirdBg {
+    background: url("../assets/rankThree.png") center no-repeat;
+  }
+}

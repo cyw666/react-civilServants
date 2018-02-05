@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CourseOrderItem.less';
 import PropTypes from 'prop-types'
-import {Icon} from 'antd';
+import { Icon } from 'antd';
 
 class CourseOrderItem extends React.Component {
   constructor(props) {
@@ -10,10 +10,10 @@ class CourseOrderItem extends React.Component {
   
   render() {
     let t = this;
-    const {isActive, name, onOrderClick} = t.props;
+    const { isActive, name, onOrderClick } = t.props;
     return (
-      <span className={styles.orderItem}>
-        <a onClick={onOrderClick.bind(t)}> {name} &nbsp;
+      <span className={ styles.orderItem }>
+        <a onClick={ onOrderClick.bind(t) }> { name } &nbsp;
           {
             isActive ? <Icon type="caret-up"/> : <Icon type="caret-down"/>
           }

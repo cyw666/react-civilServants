@@ -4,11 +4,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cs from 'classnames'
-import {Form, Button, Input, Modal} from 'antd'
+import { Form, Button, Input, Modal } from 'antd'
 import styles from './notesModal.less'
 
 const FormItem = Form.Item;
-const {TextArea} = Input;
+const { TextArea } = Input;
 const NotesModal = ({
                       form: {
                         getFieldDecorator,
@@ -47,16 +47,16 @@ const NotesModal = ({
   }
   const notesList = noteListData.map((item, index) => {
     return (
-      <tr key={item.Id}>
-        <td className={styles.seaNoteName}>笔记名称：</td>
-        <td className={styles.seaNote}>
-          <span className={cs(['pull-left', `${styles.seaNoteItemName}`])} title={item.Name}>{item.Name}</span>
-          <a className="pull-right" onClick={() => {
+      <tr key={ item.Id }>
+        <td className={ styles.seaNoteName }>笔记名称：</td>
+        <td className={ styles.seaNote }>
+          <span className={ cs([ 'pull-left', `${styles.seaNoteItemName}` ]) } title={ item.Name }>{ item.Name }</span>
+          <a className="pull-right" onClick={ () => {
             delNote(item.Id)
-          }}>删除</a>
-          <a className="pull-right" onClick={() => {
+          } }>删除</a>
+          <a className="pull-right" onClick={ () => {
             editNotes(item.Id)
-          }}>编辑</a>
+          } }>编辑</a>
         </td>
       </tr>
     )
@@ -69,17 +69,17 @@ const NotesModal = ({
         showModalContent.showModalContent1 &&
         <Modal
           title="添加笔记"
-          visible={showModal}
-          onOk={onNotesOk}
-          onCancel={closeModal}
+          visible={ showModal }
+          onOk={ onNotesOk }
+          onCancel={ closeModal }
         >
-          <div className={styles.notesModal}>
+          <div className={ styles.notesModal }>
             <form>
-              <FormItem hasFeedback label={"课程名称"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-                <p>{notesCourseParams.courseName}</p>
+              <FormItem hasFeedback label={ "课程名称" } labelCol={ { span: 4 } } wrapperCol={ { span: 20 } }>
+                <p>{ notesCourseParams.courseName }</p>
               </FormItem>
-              <FormItem hasFeedback label={"笔记名称"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-                {getFieldDecorator('name', {
+              <FormItem hasFeedback label={ "笔记名称" } labelCol={ { span: 4 } } wrapperCol={ { span: 20 } }>
+                { getFieldDecorator('name', {
                   rules: [
                     {
                       required: true,
@@ -88,10 +88,10 @@ const NotesModal = ({
                       message: '笔记名称为必填,字数限制2~50',
                     },
                   ],
-                })(<Input size="large" type="text" onPressEnter={onNotesOk} placeholder="请输入笔记名称"/>)}
+                })(<Input size="large" type="text" onPressEnter={ onNotesOk } placeholder="请输入笔记名称"/>) }
               </FormItem>
-              <FormItem hasFeedback label={"笔记内容"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-                {getFieldDecorator('content', {
+              <FormItem hasFeedback label={ "笔记内容" } labelCol={ { span: 4 } } wrapperCol={ { span: 20 } }>
+                { getFieldDecorator('content', {
                   rules: [
                     {
                       required: true,
@@ -100,7 +100,8 @@ const NotesModal = ({
                       message: '笔记内容为必填,字数限制7~249'
                     },
                   ],
-                })(<TextArea placeholder="请输入笔记内容" onPressEnter={onNotesOk} autosize={{minRows: 4, maxRows: 6}}/>)}
+                })(<TextArea placeholder="请输入笔记内容" onPressEnter={ onNotesOk }
+                             autosize={ { minRows: 4, maxRows: 6 } }/>) }
               </FormItem>
             
             </form>
@@ -110,25 +111,25 @@ const NotesModal = ({
       {
         showModalContent.showModalContent2 &&
         <Modal
-          title={notesCourseParams.courseName}
-          visible={showModal}
-          onOk={onNotesOk}
-          onCancel={closeModal}
-          footer={null}
+          title={ notesCourseParams.courseName }
+          visible={ showModal }
+          onOk={ onNotesOk }
+          onCancel={ closeModal }
+          footer={ null }
         >
-          <div className={styles.notesModal}>
-            <table className={styles.table}>
+          <div className={ styles.notesModal }>
+            <table className={ styles.table }>
               <tbody>
-              {notesList}
+              { notesList }
               <tr>
                 <td colSpan="2">
                   <div className="content_page">
                     <span
-                      className="current">{courseNoteList.Page}</span><span>共 {Math.ceil(courseNoteList.Count / courseNoteList.Rows)}页,总记录 {courseNoteList.Count}
+                      className="current">{ courseNoteList.Page }</span><span>共 { Math.ceil(courseNoteList.Count / courseNoteList.Rows) }页,总记录 { courseNoteList.Count }
                     条</span>
-                    <Button onClick={() => {
+                    <Button onClick={ () => {
                       openNotesModal(notesCourseParams.courseId)
-                    }} type={'primary'} className="pull-right">添加笔记</Button>
+                    } } type={ 'primary' } className="pull-right">添加笔记</Button>
                   </div>
                 </td>
               </tr>
@@ -142,17 +143,17 @@ const NotesModal = ({
         showModalContent.showModalContent3 &&
         <Modal
           title="编辑笔记"
-          visible={showModal}
-          onOk={onNotesEditOk}
-          onCancel={closeModal}
+          visible={ showModal }
+          onOk={ onNotesEditOk }
+          onCancel={ closeModal }
         >
-          <div className={styles.notesModal}>
+          <div className={ styles.notesModal }>
             <form>
-              <FormItem hasFeedback label={"课程名称"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-                <p>{notesCourseParams.courseName}</p>
+              <FormItem hasFeedback label={ "课程名称" } labelCol={ { span: 4 } } wrapperCol={ { span: 20 } }>
+                <p>{ notesCourseParams.courseName }</p>
               </FormItem>
-              <FormItem hasFeedback label={"笔记名称"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-                {getFieldDecorator('name', {
+              <FormItem hasFeedback label={ "笔记名称" } labelCol={ { span: 4 } } wrapperCol={ { span: 20 } }>
+                { getFieldDecorator('name', {
                   rules: [
                     {
                       required: true,
@@ -162,10 +163,10 @@ const NotesModal = ({
                     },
                   ],
                   initialValue: noteDetail.Name
-                })(<Input size="large" type="text" onPressEnter={onNotesEditOk} placeholder="请输入笔记名称"/>)}
+                })(<Input size="large" type="text" onPressEnter={ onNotesEditOk } placeholder="请输入笔记名称"/>) }
               </FormItem>
-              <FormItem hasFeedback label={"笔记内容"} labelCol={{span: 4}} wrapperCol={{span: 20}}>
-                {getFieldDecorator('content', {
+              <FormItem hasFeedback label={ "笔记内容" } labelCol={ { span: 4 } } wrapperCol={ { span: 20 } }>
+                { getFieldDecorator('content', {
                   rules: [
                     {
                       required: true,
@@ -175,7 +176,8 @@ const NotesModal = ({
                     },
                   ],
                   initialValue: noteDetail.Content
-                })(<TextArea placeholder="请输入笔记内容" onPressEnter={onNotesEditOk} autosize={{minRows: 4, maxRows: 6}}/>)}
+                })(<TextArea placeholder="请输入笔记内容" onPressEnter={ onNotesEditOk }
+                             autosize={ { minRows: 4, maxRows: 6 } }/>) }
               </FormItem>
             
             </form>

@@ -6,24 +6,24 @@ import PropTypes from 'prop-types'
 import styles from './tmLearningInfo.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 
-const TmLearningInfo = ({infoData, loading}) => {
-  const {Model, ViewBag} = infoData;
+const TmLearningInfo = ({ infoData, loading }) => {
+  const { Model, ViewBag } = infoData;
   return (
-    <div className={styles.tmLearningInfo}>
-      <GeneralHead showIcon={false} title={'个人学习信息'}></GeneralHead>
-      <div className={styles.content}>
+    <div className={ styles.tmLearningInfo }>
+      <GeneralHead showIcon={ false } title={ '个人学习信息' }></GeneralHead>
+      <div className={ styles.content }>
         {
           Model.RemainingTime ?
-            <p className={styles.title}>班级还有<span className="highlight">【{Model.RemainingTime}】</span>结束</p> :
-            <p className={styles.title}>班级 <span className="highlight">【已结束】</span></p>
+            <p className={ styles.title }>班级还有<span className="highlight">【{ Model.RemainingTime }】</span>结束</p> :
+            <p className={ styles.title }>班级 <span className="highlight">【已结束】</span></p>
         }
         <p>必修课(已学 | 总课数):
-          <span className="highlight">{Model.FinishRequiredCount}</span> |&nbsp;
-          <span className="highlight">{Model.RequiredCount}</span></p>
+          <span className="highlight">{ Model.FinishRequiredCount }</span> |&nbsp;
+          <span className="highlight">{ Model.RequiredCount }</span></p>
         <p>选修课(已学 | 总课数 | 必学课数)：
-          <span className="highlight">{Model.FinishElectiveCount}</span> |&nbsp;
-          <span className="highlight">{Model.ElectiveCount}</span> |&nbsp;
-          <span className="highlight">{Model.ElectivePassCount}</span>
+          <span className="highlight">{ Model.FinishElectiveCount }</span> |&nbsp;
+          <span className="highlight">{ Model.ElectiveCount }</span> |&nbsp;
+          <span className="highlight">{ Model.ElectivePassCount }</span>
         </p>
         <p>
           考试：
@@ -31,9 +31,9 @@ const TmLearningInfo = ({infoData, loading}) => {
             Model.ExamCount > 0 ?
               <span>
                 (已完成 | 考试数 | 必考数)：
-                <span className="highlight">{Model.FinishExamCount}</span> |&nbsp;
-                <span className="highlight">{Model.ExamCount}</span> |&nbsp;
-                <span className="highlight">{Model.ExamPassCount}</span>
+                <span className="highlight">{ Model.FinishExamCount }</span> |&nbsp;
+                <span className="highlight">{ Model.ExamCount }</span> |&nbsp;
+                <span className="highlight">{ Model.ExamPassCount }</span>
               </span> :
               <span className="highlight">未安排</span>
           }

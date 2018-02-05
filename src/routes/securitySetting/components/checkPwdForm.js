@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Input, Form, Button} from 'antd';
+import { Input, Form, Button } from 'antd';
 import styles from './checkPwdForm.less'
 
 const FormItem = Form.Item;
@@ -38,20 +38,20 @@ const CheckPwdForm = ({
     });
   }
   return (
-    <Form onSubmit={handleSubmit} className={styles.checkPwdform}>
+    <Form onSubmit={ handleSubmit } className={ styles.checkPwdform }>
       <FormItem
         hasFeedback
         label="请输入密码"
-        {...formItemLayout}
+        { ...formItemLayout }
       >
-        {getFieldDecorator('pwd', {
-          rules: [{required: true, message: '密码不能为空！'}],
+        { getFieldDecorator('pwd', {
+          rules: [ { required: true, message: '密码不能为空！' } ],
         })(
           <Input type="password" placeholder="请输入密码"/>
-        )}
+        ) }
       </FormItem>
-      <FormItem {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit" className={styles["login-form-button"]}>确定</Button>
+      <FormItem { ...tailFormItemLayout }>
+        <Button type="primary" htmlType="submit" className={ styles[ "login-form-button" ] }>确定</Button>
       </FormItem>
     </Form>
   )

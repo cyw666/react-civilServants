@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, Input, Button, Rate} from 'antd';
+import { Form, Input, Button, Rate } from 'antd';
 import styles from './tmAddComment.less';
 
 const FormItem = Form.Item;
@@ -20,31 +20,31 @@ const TmAddComment = ({
     e.preventDefault();
     validateFieldsAndScroll((err, values) => {
       if (!err) {
-        let params = {...values, ...{rate}};
+        let params = { ...values, ...{ rate } };
         submit(params);
       }
     });
   }
   return (
-    <div className={styles.addNoteForm}>
-      <Rate className={styles.rate} allowHalf defaultValue={5} onChange={(value) => {
+    <div className={ styles.addNoteForm }>
+      <Rate className={ styles.rate } allowHalf defaultValue={ 5 } onChange={ (value) => {
         rate = value
-      }}/>
-      <Form onSubmit={handleSubmit}>
+      } }/>
+      <Form onSubmit={ handleSubmit }>
         <FormItem hasFeedback>
-          {getFieldDecorator('content', {
+          { getFieldDecorator('content', {
             initialValue: "",
             rules: [
-              {required: true, message: '请输入评论内容!'},
-              {min: 7, message: '评论内容字数不能少于7个字!'},
-              {max: 249, message: '评论内容字数不能超过249个字!'},
+              { required: true, message: '请输入评论内容!' },
+              { min: 7, message: '评论内容字数不能少于7个字!' },
+              { max: 249, message: '评论内容字数不能超过249个字!' },
             ],
           })(
-            <Input type="textarea" placeholder="评论内容" rows={4}/>
-          )}
+            <Input type="textarea" placeholder="评论内容" rows={ 4 }/>
+          ) }
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit" className={styles.submit}>
+          <Button type="primary" htmlType="submit" className={ styles.submit }>
             保存
           </Button>
         </FormItem>

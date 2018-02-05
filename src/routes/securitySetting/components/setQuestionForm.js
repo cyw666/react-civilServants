@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Input, Form, Row, Col, Button} from 'antd';
+import { Input, Form, Row, Col, Button } from 'antd';
 import styles from './setQuestionForm.less'
 
 const FormItem = Form.Item;
@@ -16,8 +16,8 @@ const SetQuestionForm = ({
                            question,
                          }) => {
   const formItemLayout = {
-    labelCol: {span: 6},
-    wrapperCol: {span: 18},
+    labelCol: { span: 6 },
+    wrapperCol: { span: 18 },
   };
   const tailFormItemLayout = {
     wrapperCol: {
@@ -36,23 +36,23 @@ const SetQuestionForm = ({
   };
   const questionList = question.map((item, index) => {
     return (
-      <Row gutter={40} key={item.Id}>
-        <Col span={12}>
-          <FormItem {...formItemLayout} label={`问题${index + 1}`}>
-            {getFieldDecorator(`questions[${index}].Question`, {
+      <Row gutter={ 40 } key={ item.Id }>
+        <Col span={ 12 }>
+          <FormItem { ...formItemLayout } label={ `问题${index + 1}` }>
+            { getFieldDecorator(`questions[${index}].Question`, {
               initialValue: item.Question,
             })(
               <Input placeholder="请输入问题"/>
-            )}
+            ) }
           </FormItem>
         </Col>
-        <Col span={12}>
-          <FormItem {...formItemLayout} label={`答案${index + 1}`}>
-            {getFieldDecorator(`questions[${index}].Answer`, {
+        <Col span={ 12 }>
+          <FormItem { ...formItemLayout } label={ `答案${index + 1}` }>
+            { getFieldDecorator(`questions[${index}].Answer`, {
               initialValue: item.Answer,
             })(
               <Input placeholder="请输入答案"/>
-            )}
+            ) }
           </FormItem>
         </Col>
       </Row>
@@ -60,12 +60,12 @@ const SetQuestionForm = ({
     )
   })
   return (
-    <Form onSubmit={handleSubmit} className="login-form">
-      <Row gutter={40}>{questionList}</Row>
+    <Form onSubmit={ handleSubmit } className="login-form">
+      <Row gutter={ 40 }>{ questionList }</Row>
       <Row>
         <Col>
-          <FormItem {...tailFormItemLayout} className={styles.submit}>
-            <Button type="primary" htmlType="submit" className={styles["login-form-button"]}>提交</Button>
+          <FormItem { ...tailFormItemLayout } className={ styles.submit }>
+            <Button type="primary" htmlType="submit" className={ styles[ "login-form-button" ] }>提交</Button>
           </FormItem>
         </Col>
       </Row>

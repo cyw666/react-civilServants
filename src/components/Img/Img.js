@@ -5,7 +5,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import errImg from '../../assets/notFound.jpeg'
 
-const Img = ({src, alt, errSrc}) => {
+const Img = ({ src, alt, errSrc }) => {
   let errorLoad = (e) => {
     e.target.src = errSrc || errImg;
   }
@@ -13,7 +13,7 @@ const Img = ({src, alt, errSrc}) => {
     // console.log('img loaded success!')
   }
   return (
-    <img className="comImg" src={src} alt={alt} onError={errorLoad} onLoad={loaded}/>
+    <img className="comImg" src={ src } alt={ alt } onError={ errorLoad } onLoad={ loaded }/>
   )
 }
 

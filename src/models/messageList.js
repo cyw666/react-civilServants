@@ -2,33 +2,33 @@
 * 留言板
 * */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-import {messageList,getMessageAdd} from '../services/main'
+import { message } from 'antd'
+import model from './common'
+import { messageList, getMessageAdd } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'messageList',
   state: {
     messageListData: {
-      ListData:[]
+      ListData: []
     },
     pageConfig: {
       current: 1,
       pageSize: 10,
       total: 0
     },
-    showModal:false
+    showModal: false
   },
   reducers: {
-    updatePollParams(state, {payload}) {
+    updatePollParams(state, { payload }) {
       return {
         ...state,
-        pollParams: {...state.pollParams, ...payload}
+        pollParams: { ...state.pollParams, ...payload }
       }
     },
   },
   effects: {
-    * getMessageList({payload}, {call, put}) {
+    * getMessageList({ payload }, { call, put }) {
       let data = yield call(messageList, payload);
       yield put({
         type: 'updateState',
@@ -42,15 +42,20 @@ export default modelExtend(model, {
         }
       });
     },
-    * addMessage({payload}, {call, put}) {
+    * addMessage({ payload }, { call, put }) {
       let data = yield call(getMessageAdd, payload);
       message.info(data.Message);
       // yield put({type:'updateState',payload:{showModal:false}});
     },
   },
   subscriptions: {
-    setup({dispatch}) {
-      dispatch({type: 'getMessageList', payload: {page: 1}});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === '/main/messageList') {
+          dispatch({ type: 'setTitle', payload: { title: '留言板' } });
+        }
+      });
+      dispatch({ type: 'getMessageList', payload: { page: 1 } });
     }
   }
 });

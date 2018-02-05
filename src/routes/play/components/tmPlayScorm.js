@@ -1,16 +1,11 @@
-/**
- * scorm视频播放
- */
+/* global API:false */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './tmPlayScorm.less'
 
-const TmPlayScorm = ({data, sendProgress}) => {
+const TmPlayScorm = ({ data, sendProgress }) => {
   const {
-    BatchId,
-    PortalURL,
     CourseId,
-    LastPostion,
     PortalId,
     Url,
     UserId,
@@ -19,13 +14,12 @@ const TmPlayScorm = ({data, sendProgress}) => {
   var paraName;
   
   function LMSInitialize(value) {
-    var reCode = "";
     return true;
   }
   
   function LMSSetValue(name, value) {
     var reCode = "";
-    var params = {portalId: PortalId, userid: UserId, courseid: CourseId, position: value}
+    var params = { portalId: PortalId, userid: UserId, courseid: CourseId, position: value }
     switch (name) {
       case "cmi.core.student_id":
         paraName = "cmi.core.student_id";
@@ -92,7 +86,7 @@ const TmPlayScorm = ({data, sendProgress}) => {
   }
   
   function LMSGetValue(name) {
-    var reCode = "";
+    let reCode;
     switch (name) {
       case "cmi.core.student_id":
         reCode = "get.cmi.core.student_id";
@@ -102,14 +96,14 @@ const TmPlayScorm = ({data, sendProgress}) => {
         break;
       case "cmi.core.lesson_location":
         reCode = "get.cmi.core.lesson_location";
-        return LastPostion;
+        // return LastPostion;
         break;
       case "cmi.core.credit":
         reCode = "get.cmi.core.credit";
         break;
       case "cmi.core.lesson_status":
         reCode = "get.cmi.core.lesson_status";
-        return "true";
+        // return "true";
         break;
       case "cmi.core.entry":
         reCode = "get.cmi.core.entry";
@@ -131,15 +125,13 @@ const TmPlayScorm = ({data, sendProgress}) => {
         break;
       case "cmi.core.session_time":
         reCode = "get.cmi.core.session_time";
-        
         break;
       case "cmi.suspend_data":
         reCode = "get.cmi.suspend_data";
         break;
       default:
-        break;
+        reCode = "true";
     }
-    reCode = "true";
     return reCode;
   }
   
@@ -164,7 +156,7 @@ const TmPlayScorm = ({data, sendProgress}) => {
   }
   
   
-  window.API = new Object();
+  window.API = {};
   
   API.LMSInitialize = LMSInitialize;
   API.LMSSetValue = LMSSetValue;
@@ -174,8 +166,8 @@ const TmPlayScorm = ({data, sendProgress}) => {
   API.LMSGetLastError = LMSGetLastError;
   API.LMSGetErrorString = LMSGetErrorString;
   return (
-    <div className={styles.TmPlayScorm}>
-      <iframe frameBorder="0" src={Url}></iframe>
+    <div className={ styles.TmPlayScorm }>
+      <iframe title={ CourseId } frameBorder="0" src={ Url }></iframe>
     </div>
   )
 }

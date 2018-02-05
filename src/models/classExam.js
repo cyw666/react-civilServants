@@ -2,10 +2,9 @@
  * 班级考试
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-
-import {classExam} from '../services/main';
+import model from './common'
+import { querySearch } from '../utils/utils'
+import { classExam } from '../services/';
 
 export default modelExtend(model, {
   namespace: 'classExam',
@@ -19,15 +18,15 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updatePageOptions(state, {payload}) {
+    updatePageOptions(state, { payload }) {
       return {
         ...state,
-        pageOptions: {...state.pageOptions, ...payload}
+        pageOptions: { ...state.pageOptions, ...payload }
       }
     },
   },
   effects: {
-    * getClassExam({payload}, {call, put, select}) {
+    * getClassExam({ payload }, { call, put, select }) {
       let data = yield call(classExam, payload);
       yield put({
         type: 'updateState',
@@ -46,17 +45,18 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let id;
-      history.listen((location) => {
-        if (location.pathname === "/main/grade/classExam") {
-          if (id != location.query.id) {
-            id = location.query.id;
-            dispatch({type: 'getClassExam', payload: {id}});
-            dispatch({type: 'updateState', payload: {classId: id}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/grade/classExam") {
+          dispatch({ type: 'setTitle', payload: { title: '班级考试' } });
+          if (id != querySearch(search).id) {
+            id = querySearch(search).id;
+            dispatch({ type: 'getClassExam', payload: { id } });
+            dispatch({ type: 'updateState', payload: { classId: id } });
           }
         }
-      })
+      });
     }
   }
 });

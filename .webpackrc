@@ -1,0 +1,54 @@
+{
+  "entry": "src/index.js",
+  "theme": "./src/themes/default.js",
+  "publicPath": "/",
+  "hash": true,
+  "extraBabelPlugins": [
+    "@babel/plugin-transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        [
+          "import",
+          {
+            "libraryName": "antd",
+            "style": true
+          }
+        ]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        [
+          "import",
+          {
+            "libraryName": "antd",
+            "style": true
+          }
+        ]
+      ]
+    }
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://test10.jy365.net/",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "/api"
+      }
+    },
+    "/lessionnew": {
+      "target": "http://test10.jy365.net/",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/lessionnew": "/lessionnew"
+      }
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

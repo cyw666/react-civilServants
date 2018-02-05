@@ -2,10 +2,10 @@
  * 修改信息
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {routerRedux} from 'dva/router'
-import {model} from './common'
-import {getUserInfo, getGradeList, updateUserInfo} from '../services/main'
+import { message } from 'antd'
+import { routerRedux } from 'dva/router'
+import model from './common'
+import { getUserInfo, getGradeList, updateUserInfo } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'changeInfor',
@@ -39,41 +39,42 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updateGroupList(state, {payload}) {
+    updateGroupList(state, { payload }) {
       return {
         ...state,
-        groupList: [...payload]
+        groupList: [ ...payload ]
       }
     },
   },
   effects: {
-    * getUserInfo({payload}, {call, put}) {
+    * getUserInfo({ payload }, { call, put }) {
       let data = yield call(getUserInfo, payload);
       if (data.Status === 200) {
-        yield put({type: 'updateState', payload: {userInfo: data.Data.Model}});
+        yield put({ type: 'updateState', payload: { userInfo: data.Data.Model } });
       }
     },
-    * getGradeList({payload}, {call, put}) {
+    * getGradeList({ payload }, { call, put }) {
       let gradeList = yield call(getGradeList, payload);
-      yield put({type: 'updateState', payload: {gradeList}});
+      yield put({ type: 'updateState', payload: { gradeList } });
     },
-    * updateUserInfo({payload}, {call, put}) {
+    * updateUserInfo({ payload }, { call, put }) {
       let data = yield call(updateUserInfo, payload);
-      if (data.Type == 1) {
-        message.success(data.Message, 3, yield put(routerRedux.push('/main/indexPage'))
+      if (data.Type === 1) {
+        message.success(data.Message, 3, yield put(routerRedux.push('/'))
         );
       } else {
         message.error(data.Message);
       }
-      yield put({type: 'updateState', payload: {changeParams: payload}});
+      yield put({ type: 'updateState', payload: { changeParams: payload } });
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       history.listen((location) => {
         if (location.pathname === '/main/changeInfor') {
-          dispatch({type: 'getUserInfo'});
-          dispatch({type: 'getGradeList'});
+          dispatch({ type: 'setTitle', payload: { title: '修改信息' } });
+          dispatch({ type: 'getUserInfo' });
+          dispatch({ type: 'getGradeList' });
         }
       })
     }

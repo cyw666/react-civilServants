@@ -3,32 +3,33 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Upload, message, Button, Icon} from 'antd';
-import {Link} from 'dva/router'
-import styles from './upload.less'
+import { Upload, Button, Icon } from 'antd';
+
+// import styles from './upload.less'
 
 class MyUpload extends React.Component {
   state = {
-    fileList: [{
+    fileList: [ {
       uid: -1,
       name: 'xxx.png',
       status: 'done',
       url: 'http://www.baidu.com/xxx.png',
-    }],
+    } ],
   }
   handleChange = ({ file, fileList }) => {
     if (file.status !== 'uploading') {
       console.log(file, fileList);
     }
   }
+  
   render() {
     const props = {
       action: 'https://jsonplaceholder.typicode.com/posts/',
-      onChange:this.handleChange,
+      onChange: this.handleChange,
       multiple: true,
     };
     return (
-      <Upload {...props}>
+      <Upload { ...props }>
         <Button>
           <Icon type="upload"/> 点击上传
         </Button>
@@ -39,5 +40,6 @@ class MyUpload extends React.Component {
 }
 
 MyUpload.propTypes = {
+  fileList: PropTypes.array,
 };
 export default MyUpload;

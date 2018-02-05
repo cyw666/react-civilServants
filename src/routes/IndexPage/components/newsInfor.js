@@ -3,56 +3,60 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Spin, Tabs} from 'antd';
-import {Link} from 'dva/router'
+import { Spin, Tabs } from 'antd';
+import { Link } from 'dva/router'
 import styles from './newsInfor.less';
 import arrowRight from '../../../assets/arrowRight.png';
-import {dateFilter, wordLimit} from '../../../utils/index'
+import { dateFilter, wordLimit } from '../../../utils/index'
 import RealTimeData from './realTimeData'
 
 const TabPane = Tabs.TabPane;
-const NewsInfor = ({newsData, loading, tabChange, realTimeData}) => {
-  let {ListData} = newsData;
+const NewsInfor = ({ newsData, loading, tabChange, realTimeData }) => {
+  let { ListData } = newsData;
   
   let newsList = ListData.map((item, index) => {
-    if (index === 0) return
+    if (index === 0) {
+      return;
+    }
     return (
-      <li key={item.Id}>
-        <span className={styles.arrow}><img src={arrowRight} alt="arrow"/></span>
-        <span className={styles.name} title={item.Name}>
-          <Link to={`/main/articleDetail/${item.Id}`} target='_blank' rel="noopener noreferrer">{item.Name}</Link>
+      <li key={ item.Id }>
+        <span className={ styles.arrow }><img src={ arrowRight } alt="arrow"/></span>
+        <span className={ styles.name } title={ item.Name }>
+          <Link to={ { pathname: '/main/articleDetail', search: `?id=${item.Id}` } } target='_blank'
+                rel="noopener noreferrer">{ item.Name }</Link>
         </span>
-        <span className={styles.time}>{dateFilter(item.CreateDate, 'yyyy-MM-dd')}</span>
+        <span className={ styles.time }>{ dateFilter(item.CreateDate, 'yyyy-MM-dd') }</span>
       </li>
     )
   });
   return (
-    <div className={styles.newsInfor}>
-      <Spin spinning={loading}>
-        <div className={styles.borderNews}>
-          <Tabs onChange={(key) => {
+    <div className={ styles.newsInfor }>
+      <Spin spinning={ loading }>
+        <div className={ styles.borderNews }>
+          <Tabs onChange={ (key) => {
             tabChange(key);
-          }} type="card">
+          } } type="card">
             <TabPane tab="新闻资讯" key="newsInformation"></TabPane>
             <TabPane tab="干教资讯" key="cadreEducationNews"></TabPane>
             <TabPane tab="时政热点" key="newsHot"></TabPane>
           </Tabs>
-          <div className={styles.tabContent}>
-            <div className={styles.top}>
-              <h4 title={ListData[0].Name}>
-                <Link to={`/main/articleDetail/${ListData[0].Id}`} target='_blank' rel="noopener noreferrer"
-                      className={styles.title}>
-                  {ListData[0].Name}
+          <div className={ styles.tabContent }>
+            <div className={ styles.top }>
+              <h4 title={ ListData[ 0 ].Name }>
+                <Link to={ { pathname: '/main/articleDetail', search: `?id=${ListData[ 0 ].Id}` } } target='_blank'
+                      rel="noopener noreferrer"
+                      className={ styles.title }>
+                  { ListData[ 0 ].Name }
                 </Link>
               </h4>
               <p
-                className={styles.description}> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{wordLimit(ListData[0].Description, 62)}</p>
+                className={ styles.description }> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ wordLimit(ListData[ 0 ].Description, 62) }</p>
             </div>
-            <ul className={styles.bottom}>
-              {newsList}
+            <ul className={ styles.bottom }>
+              { newsList }
             </ul>
           </div>
-          <RealTimeData realData={realTimeData}></RealTimeData>
+          <RealTimeData realData={ realTimeData }></RealTimeData>
         </div>
       </Spin>
     </div>

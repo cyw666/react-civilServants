@@ -2,8 +2,8 @@
  * 个人档案
  */
 import modelExtend from 'dva-model-extend'
-import {studyStatistics} from '../services/main'
-import {model} from './common'
+import { studyStatistics } from '../services/'
+import model from './common'
 
 export default modelExtend(model, {
   namespace: 'personalFile',
@@ -15,23 +15,28 @@ export default modelExtend(model, {
     params: {}
   },
   reducers: {
-    updateParams(state, {payload}) {
+    updateParams(state, { payload }) {
       return {
         ...state,
-        params: {...state.params, ...payload},
+        params: { ...state.params, ...payload },
       }
     },
   },
   effects: {
-    * getStudyStatistics({payload}, {call, put}) {
+    * getStudyStatistics({ payload }, { call, put }) {
       let data = yield call(studyStatistics, payload);
-      yield put({type: 'updateState', payload: {personalFileData: data.Data}});
-      yield put({type: 'updateParams', payload});
+      yield put({ type: 'updateState', payload: { personalFileData: data.Data } });
+      yield put({ type: 'updateParams', payload });
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      dispatch({type: 'getStudyStatistics', payload: {rows: 100}});
+    setup({ dispatch, history }) {
+      history.listen((location) => {
+        if (location.pathname === '/main/personalFile') {
+          dispatch({ type: 'setTitle', payload: { title: '个人档案' } });
+        }
+      });
+      dispatch({ type: 'getStudyStatistics', payload: { rows: 100 } });
     }
   },
 });

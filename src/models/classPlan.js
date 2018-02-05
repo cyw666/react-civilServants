@@ -2,10 +2,9 @@
  * 教学计划
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-
-import {classPlan} from '../services/main';
+import model from './common'
+import { querySearch } from '../utils/utils'
+import { classPlan } from '../services/';
 
 export default modelExtend(model, {
   namespace: 'classPlan',
@@ -15,7 +14,7 @@ export default modelExtend(model, {
   },
   reducers: {},
   effects: {
-    * getClassPlan({payload}, {call, put, select}) {
+    * getClassPlan({ payload }, { call, put, select }) {
       let data = yield call(classPlan, payload);
       yield put({
         type: 'updateState',
@@ -26,17 +25,18 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let id;
-      history.listen((location) => {
-        if (location.pathname === "/main/grade/classPlan") {
-          if (id != location.query.id) {
-            id = location.query.id;
-            dispatch({type: 'getClassPlan', payload: {id}});
-            dispatch({type: 'updateState', payload: {classId: id}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/grade/classPlan") {
+          dispatch({ type: 'setTitle', payload: { title: '教学计划' } });
+          if (id != querySearch(search).id) {
+            id = querySearch(search).id;
+            dispatch({ type: 'getClassPlan', payload: { id } });
+            dispatch({ type: 'updateState', payload: { classId: id } });
           }
         }
-      })
+      });
     }
   }
 });

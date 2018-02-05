@@ -2,11 +2,11 @@
  * 课程详情
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {createHistory, useQueries} from 'history'
-import {model} from './common'
-
-const history = useQueries(createHistory)()
+import { message } from 'antd'
+// import {createHistory, useQueries} from 'history'
+import model from './common'
+import { querySearch } from '../utils/utils'
+// const history = useQueries(createHistory)()
 import {
   courseContent,
   relatedCourse,
@@ -14,7 +14,7 @@ import {
   favoriteAdd,
   favoriteDelete,
   addStudyCourse,
-} from '../services/main';
+} from '../services/';
 
 export default modelExtend(model, {
   namespace: 'courseDetail',
@@ -58,22 +58,22 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    changeFavoriteId(state, {payload}) {
+    changeFavoriteId(state, { payload }) {
       return {
         ...state,
-        courseContent: {...state.courseContent, ...payload,},
+        courseContent: { ...state.courseContent, ...payload, },
       }
     },
-    updateCourseContent(state, {payload}) {
+    updateCourseContent(state, { payload }) {
       return {
         ...state,
-        courseContent: {...state.courseContent, ...payload,},
+        courseContent: { ...state.courseContent, ...payload, },
       }
     }
   }
   ,
   effects: {
-    * getCourseContent({payload}, {call, put}) {
+    * getCourseContent({ payload }, { call, put }) {
       let data = yield call(courseContent, payload);
       yield put({
         type: 'updateCourseContent',
@@ -86,36 +86,36 @@ export default modelExtend(model, {
         }
       });
     },
-    * favoriteAdd({payload}, {call, put}) {
+    * favoriteAdd({ payload }, { call, put }) {
       let data = yield call(favoriteAdd, payload);
       if (data.Type === 1) {
         message.success(data.Message);
-        yield put({type: 'changeFavoriteId', payload: {FavoriteId: data.Value}});
+        yield put({ type: 'changeFavoriteId', payload: { FavoriteId: data.Value } });
       } else {
         message.error('收藏失败！');
       }
     },
-    * favoriteDelete({payload}, {call, put}) {
+    * favoriteDelete({ payload }, { call, put }) {
       let data = yield call(favoriteDelete, payload);
       if (data.Type === 1) {
         message.success(data.Message);
-        yield put({type: 'changeFavoriteId', payload: {FavoriteId: 0}});
+        yield put({ type: 'changeFavoriteId', payload: { FavoriteId: 0 } });
       } else {
         message.error('取消收藏失败！');
       }
     },
-    * addStudyCourse({payload}, {call, put}) {
+    * addStudyCourse({ payload }, { call, put }) {
       if (payload) {
         let data = yield call(addStudyCourse, payload);
-        if (data.Type == 1) {
-          let playHref = history.createPath({pathname: '/play', query: {courseId: payload.checkValue}});
-          window.open(playHref)
+        if (data.Type === 1) {
+          // let playHref = history.createPath({pathname: '/play', search: `?id=${payload.checkValue}`});
+          // window.open(playHref)
         } else {
           message.error('选课失败！')
         }
       }
     },
-    * getCourseComment({payload}, {call, put}) {
+    * getCourseComment({ payload }, { call, put }) {
       let data = yield call(courseComment, payload);
       yield put({
         type: 'updateState',
@@ -129,7 +129,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * getRelatedCourse({payload}, {call, put}) {
+    * getRelatedCourse({ payload }, { call, put }) {
       let data = yield call(relatedCourse, payload);
       yield put({
         type: 'updateState',
@@ -140,17 +140,18 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      history.listen((location) => {
-        if (location.pathname === "/main/courseDetail") {
-          let id = location.query.id;
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/courseDetail") {
+          dispatch({ type: 'setTitle', payload: { title: '课程详情' } });
+          let id = querySearch(search).id;
           if (id) {
-            dispatch({type: 'getCourseContent', payload: {id}})
-            dispatch({type: 'getCourseComment', payload: {id, page: 1, rows: 10}})
-            dispatch({type: 'getRelatedCourse', payload: {courseId: id, page: 1, rows: 10}})
+            dispatch({ type: 'getCourseContent', payload: { id } })
+            dispatch({ type: 'getCourseComment', payload: { id, page: 1, rows: 10 } })
+            dispatch({ type: 'getRelatedCourse', payload: { courseId: id, page: 1, rows: 10 } })
           }
         }
-      })
+      });
     }
   }
 })

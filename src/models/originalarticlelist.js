@@ -2,14 +2,14 @@
 * 原创文章列表(学员心声)
 * */
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {originalArticleList} from '../services/main'
+import model from './common'
+import { originalArticleList } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'originalArticleList',
   state: {
     originalData: {
-      ListData:[]
+      ListData: []
     },
     pageConfig: {
       current: 1,
@@ -18,15 +18,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updatePollParams(state, {payload}) {
+    updatePollParams(state, { payload }) {
       return {
         ...state,
-        pollParams: {...state.pollParams, ...payload}
+        pollParams: { ...state.pollParams, ...payload }
       }
     },
   },
   effects: {
-    * getOriginalArticleList({payload}, {call, put}) {
+    * getOriginalArticleList({ payload }, { call, put }) {
       let data = yield call(originalArticleList, payload);
       yield put({
         type: 'updateState',
@@ -42,8 +42,13 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch}) {
-      dispatch({type: 'getOriginalArticleList', payload: {page: 1, rows: 10}});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/originalarticlelist") {
+          dispatch({ type: 'setTitle', payload: { title: '学员心声' } });
+        }
+      });
+      dispatch({ type: 'getOriginalArticleList', payload: { page: 1, rows: 10 } });
     }
   }
 });

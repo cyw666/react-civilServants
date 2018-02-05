@@ -2,10 +2,9 @@
  * 班级照片
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-
-import {photoPreview} from '../services/main';
+import model from './common'
+import { photoPreview } from '../services/';
+import { querySearch } from '../utils/utils'
 
 export default modelExtend(model, {
   namespace: 'photoPreview',
@@ -20,15 +19,15 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updatePageOptions(state, {payload}) {
+    updatePageOptions(state, { payload }) {
       return {
         ...state,
-        pageOptions: {...state.pageOptions, ...payload}
+        pageOptions: { ...state.pageOptions, ...payload }
       }
     },
   },
   effects: {
-    * getPhotoPreview({payload}, {call, put, select}) {
+    * getPhotoPreview({ payload }, { call, put, select }) {
       let data = yield call(photoPreview, payload);
       yield put({
         type: 'updateState',
@@ -47,18 +46,19 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let albumId, trainingId;
-      history.listen((location) => {
-        if (location.pathname === "/main/grade/photoPreview") {
-          if (albumId != location.query.albumId || trainingId != location.query.id) {
-            albumId = location.query.albumId;
-            trainingId = location.query.id;
-            dispatch({type: 'getPhotoPreview', payload: {albumId, trainingId}});
-            dispatch({type: 'updateState', payload: {classId: trainingId, albumId: albumId}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/grade/photoPreview") {
+          dispatch({ type: 'setTitle', payload: { title: '班级照片' } });
+          if (albumId != querySearch(search).albumId || trainingId != querySearch(search).id) {
+            albumId = querySearch(search).albumId;
+            trainingId = querySearch(search).id;
+            dispatch({ type: 'getPhotoPreview', payload: { albumId, trainingId } });
+            dispatch({ type: 'updateState', payload: { classId: trainingId, albumId: albumId } });
           }
         }
-      })
+      });
     }
   }
 });

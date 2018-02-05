@@ -3,41 +3,41 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Spin} from 'antd'
-import {Link} from 'dva/router'
+import { Spin } from 'antd'
+import { Link } from 'dva/router'
 import styles from './tmRelatedCourse.less'
 import Img from '../../../components/Img/Img'
 import notCourse from '../../../assets/notCourse.png'
 
-const TmRelatedCourse = ({courseData, loading}) => {
+const TmRelatedCourse = ({ courseData, loading }) => {
   const baseImg = courseData.ImageCourse;
   const relatedCourseList = courseData.ListData && courseData.ListData.map((item, index) => {
     return (
-      <li key={item.Id}>
-        <Link to={{pathname: '/main/courseDetail', query: {id: item.Id}}} title={item.Name} target="_blank"
+      <li key={ item.Id }>
+        <Link to={ { pathname: '/main/courseDetail', search: `?id=${item.Id}` } } title={ item.Name } target="_blank"
               rel="noopener noreferrer">
-          <Img src={`${baseImg}/${item.Img}`} alt="相关课程" errSrc={notCourse}/>
+          <Img src={ `${baseImg}/${item.Img}` } alt="相关课程" errSrc={ notCourse }/>
         </Link>
-        <div className={styles.desc}>
+        <div className={ styles.desc }>
           <p>
             <Link
-              to={{pathname: '/courseDetail', query: {id: item.Id}}}
-              title={item.Name}
+              to={ { pathname: '/main/courseDetail', search: `?id=${item.Id}` } }
+              title={ item.Name }
               target="_blank"
               rel="noopener noreferrer">
-              {item.Name}
+              { item.Name }
             </Link>
           </p>
-          <p><span>讲师：{item.Teacher}</span><span className="red">学分：{item.Credit}分</span></p>
-          <p>时长：{item.Time}小时</p>
+          <p><span>讲师：{ item.Teacher }</span><span className="red">学分：{ item.Credit }分</span></p>
+          <p>时长：{ item.Time }小时</p>
         </div>
       </li>
     )
   })
   return (
-    <div className={styles.tmRelatedCourse}>
-      <div className={styles.title}>相关课程</div>
-      <Spin spinning={loading}>
+    <div className={ styles.tmRelatedCourse }>
+      <div className={ styles.title }>相关课程</div>
+      <Spin spinning={ loading }>
         <ul>
           {
             courseData.ListData.length > 0 ? relatedCourseList :

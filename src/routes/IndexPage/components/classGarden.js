@@ -3,48 +3,51 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Spin, Tabs, Button} from 'antd';
-import {Link} from 'dva/router'
+import { Spin, Tabs, Button } from 'antd';
+import { Link } from 'dva/router'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 import styles from './classGarden.less';
-import {dateFilter, JudgeStatus} from '../../../utils/index'
+import { dateFilter, JudgeStatus } from '../../../utils/index'
 
 const TabPane = Tabs.TabPane;
-const ClassGarden = ({loading, classChange, classCategory, classListData, addClass, activeClassId}) => {
-  const tabPane = classCategory['ListData'].map((item, index) => {
+const ClassGarden = ({ loading, classChange, classCategory, classListData, addClass, activeClassId }) => {
+  const tabPane = classCategory[ 'ListData' ].map((item, index) => {
     return (
-      <TabPane tab={item.text} key={item.id}></TabPane>
+      <TabPane tab={ item.text } key={ item.id }></TabPane>
     )
   });
-  const classList = classListData['ListData'].map((item, index) => {
+  const classList = classListData[ 'ListData' ].map((item, index) => {
     return (
-      <tr key={item.Id}>
-        <td><Link to={{pathname:'/main/grade/classDetail',query:{id:item.Id}}} target="_blank">{item.Name}</Link></td>
-        <td>{dateFilter(item.StartTime, 'yyyy-MM-dd')}~{dateFilter(item.EndTime, 'yyyy-MM-dd')}</td>
-        <td>{item.Address}</td>
+      <tr key={ item.Id }>
+        <td><Link to={ { pathname: '/main/grade/classDetail', search: `?id=${item.Id}` } }
+                  target="_blank">{ item.Name }</Link>
+        </td>
+        <td>{ dateFilter(item.StartTime, 'yyyy-MM-dd') }~{ dateFilter(item.EndTime, 'yyyy-MM-dd') }</td>
+        <td>{ item.Address }</td>
         <td>
           {
-            !item.ApplyStatus ? <Button type="primary" value={item.Id} onClick={() => {
+            !item.ApplyStatus ? <Button type="primary" value={ item.Id } onClick={ () => {
                 addClass(item.Id)
-              }}>点击报名</Button> :
-              item.ApplyStatus === "Normal" ? <Button type="primary" disabled>{JudgeStatus(item.ApplyStatus)}</Button> :
-                <Button type="primary" disabled>{JudgeStatus(item.ApplyStatus)}</Button>
+              } }>点击报名</Button> :
+              item.ApplyStatus === "Normal" ?
+                <Button type="primary" disabled>{ JudgeStatus(item.ApplyStatus) }</Button> :
+                <Button type="primary" disabled>{ JudgeStatus(item.ApplyStatus) }</Button>
           }
         </td>
       </tr>
     )
   });
   return (
-    <div className={styles.classGarden}>
-      <GeneralHead showIcon={true} title="班级园地" url="/main/trainingClass"></GeneralHead>
-      <Spin spinning={loading}>
-        <Tabs activeKey={activeClassId} onChange={(key) => {
+    <div className={ styles.classGarden }>
+      <GeneralHead showIcon={ true } title="班级园地" url="/main/trainingClass"></GeneralHead>
+      <Spin spinning={ loading }>
+        <Tabs activeKey={ activeClassId } onChange={ (key) => {
           classChange(key)
-        }} type="card">
-          {tabPane}
+        } } type="card">
+          { tabPane }
         </Tabs>
-        <div className={styles.classContent}>
-          <table className={styles.table}>
+        <div className={ styles.classContent }>
+          <table className={ styles.table }>
             <thead>
             <tr>
               <th>班级名称</th>
@@ -54,7 +57,7 @@ const ClassGarden = ({loading, classChange, classCategory, classListData, addCla
             </tr>
             </thead>
             <tbody>
-            {classList}
+            { classList }
             </tbody>
           </table>
         </div>

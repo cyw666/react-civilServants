@@ -2,15 +2,13 @@
  * 考试中心
  */
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {message} from 'antd'
-import {createHistory, useQueries} from 'history'
+import model from './common'
+import { message } from 'antd'
+
 import {
   examList,
   exam,
-} from '../services/main';
-
-const history = useQueries(createHistory)()
+} from '../services/';
 
 export default modelExtend(model, {
   namespace: 'testCenter',
@@ -36,15 +34,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateExamParams(state, {payload}) {
+    updateExamParams(state, { payload }) {
       return {
         ...state,
-        examParams: {...state.examParams, ...payload}
+        examParams: { ...state.examParams, ...payload }
       }
     },
   },
   effects: {
-    * getExamList({payload}, {call, put}) {
+    * getExamList({ payload }, { call, put }) {
       let data = yield call(examList, payload);
       yield put({
         type: 'updateState',
@@ -58,23 +56,32 @@ export default modelExtend(model, {
           },
         }
       });
-      yield put({type: 'updateExamParams', payload});
+      yield put({ type: 'updateExamParams', payload });
     },
-    * joinExam({payload}, {call, put}) {
+    * joinExam({ payload }, { call, put }) {
       let data = yield call(exam, payload);
       if (data.Type) {
         //Type存在，意味着不能考试
         message.info(data.Message);
       } else {
-        let examHref = history.createPath({pathname: '/main/exam', query: {id: payload.parameter1}});
+        /*yield put(routerRedux.push({
+          pathname: '/main/exam',
+          search: `?id=${payload.parameter1}`
+        }));*/
+        let examHref = `/main/exam?id=${payload.parameter1}`
         window.open(examHref)
       }
     },
     
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      dispatch({type: 'getExamList', payload: {page: 1, rows: 5, examType: 'UnFinish', title: ''}});
+    setup({ dispatch, history }) {
+      history.listen((location) => {
+        if (location.pathname === "/main/testCenter") {
+          dispatch({ type: 'setTitle', payload: { title: '考试中心' } });
+        }
+      });
+      dispatch({ type: 'getExamList', payload: { page: 1, rows: 5, examType: 'UnFinish', title: '' } });
     }
   }
 });

@@ -1,14 +1,14 @@
 /*
 * 公用model
 * */
-import {antiForgeryToken} from '../services/main';
+import { antiForgeryToken } from '../services/';
 
 const model = {
   state: {
     token: {},
   },
   reducers: {
-    updateState(state, {payload}) {
+    updateState(state, { payload }) {
       return {
         ...state,
         ...payload,
@@ -16,7 +16,7 @@ const model = {
     },
   },
   effects: {
-    * token(action, {call, put}) {
+    * token(action, { call, put }) {
       let data = yield call(antiForgeryToken);
       yield put({
         type: 'updateState',
@@ -25,15 +25,16 @@ const model = {
         }
       });
     },
+    * setTitle({ payload }, { call, put }) {
+      let title = yield payload.title || "干部教育网络学院";
+      window.document.title = title;
+    },
   },
   subscriptions: {
-    getToken({dispatch, history}) {
-      dispatch({type: 'token'});
+    getToken({ dispatch, history }) {
+      dispatch({ type: 'token' });
     }
   }
 }
 
-
-module.exports = {
-  model
-}
+export default model

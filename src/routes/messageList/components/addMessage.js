@@ -3,11 +3,11 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Form, Input, Select, Modal} from 'antd';
+import { Form, Input, Select, Modal } from 'antd';
 
 const FormItem = Form.Item;
-const {TextArea} = Input;
-const {Option} = Select;
+const { TextArea } = Input;
+const { Option } = Select;
 const AddMessage = ({
                       form: {
                         getFieldDecorator,
@@ -30,14 +30,14 @@ const AddMessage = ({
     <div>
       <Modal
         title="添加留言"
-        visible={showModal}
-        onOk={onPlanOk}
-        onCancel={closeModal}
+        visible={ showModal }
+        onOk={ onPlanOk }
+        onCancel={ closeModal }
       >
         <div>
           <form id="studyPlan">
-            <FormItem hasFeedback label={"标题"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
-              {getFieldDecorator('name', {
+            <FormItem hasFeedback label={ "标题" } labelCol={ { span: 5 } } wrapperCol={ { span: 19 } }>
+              { getFieldDecorator('name', {
                 rules: [
                   {
                     required: true,
@@ -45,12 +45,12 @@ const AddMessage = ({
                   },
                 ],
                 initialValue: ""
-              })(<Input placeholder="请输入笔记内容"/>)}
+              })(<Input placeholder="请输入笔记内容"/>) }
             </FormItem>
-            <FormItem hasFeedback label={"分类"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
-              {getFieldDecorator('class', {
+            <FormItem hasFeedback label={ "分类" } labelCol={ { span: 5 } } wrapperCol={ { span: 19 } }>
+              { getFieldDecorator('class', {
                 rules: [
-                  {required: true, message: '请选择分类！',},
+                  { required: true, message: '请选择分类！', },
                 ],
                 initialValue: "Curricula"
               })(
@@ -59,15 +59,15 @@ const AddMessage = ({
                   <Option value="Support">支持服务</Option>
                   <Option value="Platform">平台功能</Option>
                 </Select>
-              )}
+              ) }
             </FormItem>
-            <FormItem hasFeedback label={"说明"} labelCol={{span: 5}} wrapperCol={{span: 19}}>
-              {getFieldDecorator('content', {
+            <FormItem hasFeedback label={ "说明" } labelCol={ { span: 5 } } wrapperCol={ { span: 19 } }>
+              { getFieldDecorator('content', {
                 rules: [
-                  {required: true, min: 1, max: 249, message: '请填写说明，最多249字符！'},
+                  { required: true, min: 1, max: 249, message: '请填写说明，最多249字符！' },
                 ],
                 initialValue: ""
-              })(<TextArea placeholder="请输入说明内容" autosize={{minRows: 4, maxRows: 6}}/>)}
+              })(<TextArea placeholder="请输入说明内容" autosize={ { minRows: 4, maxRows: 6 } }/>) }
             </FormItem>
           </form>
         </div>

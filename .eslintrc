@@ -1,51 +1,14 @@
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb",
-  "rules": {
-    "arrow-body-style": [0],
-    "consistent-return": [0],
-    "generator-star-spacing": [0],
-    "global-require": [1],
-    "import/extensions": [0],
-    "import/no-extraneous-dependencies": [0],
-    "import/no-unresolved": [0],
-    "import/prefer-default-export": [0],
-    "import/newline-after-import": [0],
-    "jsx-a11y/no-static-element-interactions": [0],
-    "no-bitwise": [0],
-    "no-console": [0],
-    "no-cond-assign": [0],
-    "no-else-return": [0],
-    "no-nested-ternary": [0],
-    "no-restricted-syntax": [0],
-    "no-use-before-define": [0],
-    "react/forbid-prop-types": [0],
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "react/jsx-no-bind": [0],
-    "react/self-closing-comp": [0],
-    "react/jsx-curly-spacing": [0],
-    "react/prefer-stateless-function": [0],
-    "react/jsx-space-before-closing": [0],
-    "react/prop-types": [0],
-    "require-yield": [1],
-    "object-curly-spacing": 0,
-    "comma-spacing": [0],
-    "no-trailing-spaces": [0],
-    "linebreak-style": [0],
-    "comma-dangle": [0],
-    "quotes": [0],
-    "block-spacing": [0],
-    "no-multiple-empty-lines": [0],
-    "space-before-blocks": [0],
-    "spaced-comment": [0],
-    "space-before-function-paren": [0],
-    "semi": [0],
-    "no-extra-semi": [0],
-    "arrow-parens": [0]
+  "extends": "umi",
+  "root": true,
+  "globals": {
+    "API": true
   },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+  "rules": {
+    "eqeqeq": 0,
+    "no-useless-concat": 0,
+    "array-callback-return": 0,
+    "no-throw-literal": 0,
+    "no-useless-constructor": 0
   }
 }

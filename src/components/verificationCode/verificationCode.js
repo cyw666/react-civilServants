@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Button} from 'antd'
+import { Button } from 'antd'
 
 class VerificationCode extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class VerificationCode extends React.Component {
     if (!this.lock) {
       let t = this;
       let timer = setInterval(() => {
-        let {second, timerId} = t.state;
+        let { second, timerId } = t.state;
         if (second <= 0) {
           clearInterval(timerId);
           t.setState({
@@ -44,12 +44,12 @@ class VerificationCode extends React.Component {
   }
   
   render() {
-    const {sendCode} = this.props
-    const {text, disabled} = this.state
+    const { sendCode } = this.props
+    const { text, disabled } = this.state
     return (
-      <Button size="large" disabled={disabled} onClick={() => {
+      <Button size="large" disabled={ disabled } onClick={ () => {
         sendCode(this.sendCodeClick.bind(this))
-      }}>{text}</Button>
+      } }>{ text }</Button>
     )
   }
   

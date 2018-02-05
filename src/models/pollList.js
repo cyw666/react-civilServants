@@ -2,16 +2,16 @@
 * 问卷调查列表
 * */
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {pollList} from '../services/main'
+import model from './common'
+import { pollList } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'pollList',
   state: {
     pollListData: {
       Model: {
-        UnfinishModel:[],
-        FinishModel:[],
+        UnfinishModel: [],
+        FinishModel: [],
       },
     },
     pollParams: {
@@ -26,15 +26,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updatePollParams(state, {payload}) {
+    updatePollParams(state, { payload }) {
       return {
         ...state,
-        pollParams: {...state.pollParams, ...payload}
+        pollParams: { ...state.pollParams, ...payload }
       }
     },
   },
   effects: {
-    * getPollList({payload}, {call, put}) {
+    * getPollList({ payload }, { call, put }) {
       let data = yield call(pollList, payload);
       yield put({
         type: 'updateState',
@@ -47,12 +47,18 @@ export default modelExtend(model, {
           }
         }
       });
-      yield put({type: 'updatePollParams', payload})
+      yield put({ type: 'updatePollParams', payload })
     },
   },
   subscriptions: {
-    setup({dispatch}) {
-      dispatch({type: 'getPollList', payload: {page: 1, rows: 10, title: ''}});
+    setup({ dispatch, history }) {
+      history.listen((location) => {
+        if (location.pathname === "/main/pollList") {
+          dispatch({ type: 'setTitle', payload: { title: '问卷调查列表' } });
+        }
+      });
+      dispatch({ type: 'getPollList', payload: { page: 1, rows: 10, title: '' } });
+      
     }
   }
 });

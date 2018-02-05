@@ -1,8 +1,8 @@
 /*考试*/
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-import {examReview} from '../services/main'
+import model from './common'
+import { examReview } from '../services/'
+import { querySearch } from '../utils/utils'
 
 export default modelExtend(model, {
   namespace: 'examReview',
@@ -19,7 +19,7 @@ export default modelExtend(model, {
   },
   reducers: {},
   effects: {
-    * getExamReview({payload}, {call, put, select}) {
+    * getExamReview({ payload }, { call, put, select }) {
       let data = yield call(examReview, payload);
       yield put({
         type: 'updateState',
@@ -30,12 +30,12 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      history.listen((location) => {
-        let parameter1 = location.query.parameter1;
-        let parameter2 = location.query.parameter2;
-        if (location.pathname === '/main/examReview') {
-          dispatch({type: 'getExamReview', payload: {parameter1, parameter2}});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        let query = querySearch(search);
+        if (pathname === '/main/examReview') {
+          dispatch({ type: 'setTitle', payload: { title: '考试结果' } });
+          dispatch({ type: 'getExamReview', payload: query });
         }
       })
     }

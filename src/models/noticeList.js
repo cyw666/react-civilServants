@@ -3,8 +3,8 @@
 * */
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {noticeList} from '../services/main'
+import model from './common'
+import { noticeList } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'noticeList',
@@ -24,15 +24,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateNoticeParams(state, {payload}) {
+    updateNoticeParams(state, { payload }) {
       return {
         ...state,
-        noticeParams: {...state.noticeParams, ...payload}
+        noticeParams: { ...state.noticeParams, ...payload }
       }
     },
   },
   effects: {
-    * getNoticeList({payload}, {call, put}) {
+    * getNoticeList({ payload }, { call, put }) {
       let data = yield call(noticeList, payload);
       yield put({
         type: 'updateState',
@@ -45,12 +45,17 @@ export default modelExtend(model, {
           }
         }
       });
-      yield put({type: 'updateNoticeParams', payload})
+      yield put({ type: 'updateNoticeParams', payload })
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      dispatch({type: 'getNoticeList', payload: {page: 1, rows: 10, search: ''}});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/noticeList") {
+          dispatch({ type: 'setTitle', payload: { title: '通知列表' } });
+          dispatch({ type: 'getNoticeList', payload: { page: 1, rows: 10, search: '' } });
+        }
+      });
     }
   }
 });

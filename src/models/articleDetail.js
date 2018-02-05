@@ -1,12 +1,11 @@
 /**
  * 文章内容
  */
-// import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import pathToRegexp from 'path-to-regexp'
-import {model} from './common'
-import {articleContent, favoriteAdd, favoriteDelete} from '../services/main';
+import { message } from 'antd'
+import queryString from 'query-string'
+import model from './common'
+import { articleContent, favoriteAdd, favoriteDelete, classArticleDetail } from '../services/';
 
 export default modelExtend(model, {
   namespace: 'articleDetail',
@@ -29,24 +28,24 @@ export default modelExtend(model, {
       Url: "",
     },
     breadcrumbItem: [
-      {url: '/indexPage', name: '首页'},
-      {url: '/article', name: '文章列表'},
-      {url: '', name: '文章详情'},
+      { url: '/', name: '首页' },
+      { url: '/main/article', name: '文章列表' },
+      { url: '', name: '文章详情' },
     ]
   },
   reducers: {
-    changeFavoriteId(state, {payload}) {
+    changeFavoriteId(state, { payload }) {
       return {
         ...state,
-        articleDetailData: {...state.articleDetailData, ...payload,},
+        articleDetailData: { ...state.articleDetailData, ...payload, },
       }
     }
   }
   ,
   effects: {
-    * getArticleDetail({payload}, {call, put}) {
+    * getArticleDetail({ payload }, { call, put }) {
       let data = yield call(articleContent, payload);
-      if (data && data.Status == 200) {
+      if (data && data.Status === 200) {
         yield put({
           type: 'updateState',
           payload: {
@@ -55,31 +54,47 @@ export default modelExtend(model, {
         });
       }
     },
-    * favoriteAdd({payload}, {call, put}) {
+    * getClassArticleDetail({ payload }, { call, put }) {
+      let data = yield call(classArticleDetail, payload);
+      if (data && data.Status === 200) {
+        yield put({
+          type: 'updateState',
+          payload: {
+            articleDetailData: data.Data.Model,
+          }
+        });
+      }
+    },
+    * favoriteAdd({ payload }, { call, put }) {
       let data = yield call(favoriteAdd, payload);
       if (data.Type === 1) {
         message.success(data.Message);
-        yield put({type: 'changeFavoriteId', payload: {FavoriteId: data.Value}});
+        yield put({ type: 'changeFavoriteId', payload: { FavoriteId: data.Value } });
       } else {
         message.error('收藏失败！');
       }
     },
-    * favoriteDelete({payload}, {call, put}) {
+    * favoriteDelete({ payload }, { call, put }) {
       let data = yield call(favoriteDelete, payload);
       if (data.Type === 1) {
         message.success(data.Message);
-        yield put({type: 'changeFavoriteId', payload: {FavoriteId: 0}});
+        yield put({ type: 'changeFavoriteId', payload: { FavoriteId: 0 } });
       } else {
         message.error('取消收藏失败！');
       }
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      history.listen((location) => {
-        const match = pathToRegexp('/main/articleDetail/:id').exec(location.pathname);
-        if (match) {
-          dispatch({type: 'getArticleDetail', payload: {id: match[1]}});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/articleDetail") {
+          dispatch({ type: 'setTitle', payload: { title: '新闻详情' } });
+        }
+        let match = queryString.parse(search);
+        if (match.type === "class") {
+          dispatch({ type: 'getClassArticleDetail', payload: { id: match.id } });
+        } else {
+          dispatch({ type: 'getArticleDetail', payload: match });
         }
       })
     }

@@ -1,10 +1,13 @@
+import queryString from 'query-string'
+
 /**
  * 获取cookie
  */
 const getCookie = (name) => {
   var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-  if (arr = document.cookie.match(reg)) {
-    return unescape(arr[2]);
+  arr = document.cookie.match(reg);
+  if (arr) {
+    return unescape(arr[ 2 ]);
   } else {
     return null;
   }
@@ -15,7 +18,7 @@ const getCookie = (name) => {
 const setCookie = (name, value, expiredays) => {
   var exdate = new Date();
   exdate.setDate(exdate.getDate() + expiredays);
-  document.cookie = name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
+  document.cookie = name + "=" + escape(value) + ((expiredays === null) ? "" : ";expires=" + exdate.toGMTString());
 }
 /**
  * 删除cookie
@@ -60,7 +63,7 @@ const dateFilter = (time, format) => {
   if (!time) {
     return
   }
-  time = time.match(/\d+/ig)[0];
+  time = time.match(/\d+/ig)[ 0 ];
   let date = new Date(Number(time));
   var o = {
     "M+": date.getMonth() + 1,                 //月份
@@ -75,7 +78,7 @@ const dateFilter = (time, format) => {
     format = format.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
   for (var k in o)
     if (new RegExp("(" + k + ")").test(format))
-      format = format.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      format = format.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[ k ]) : (("00" + o[ k ]).substr(("" + o[ k ]).length)));
   return format;
 }
 /**
@@ -97,18 +100,20 @@ const wordLimit = (text, num) => {
  * 培训班状态
  */
 const JudgeStatus = (status) => {
-  var outputHtml = "";
+  var outputHtml;
   if (status != "null") {
     switch (status) {
       case "Normal":
-        outputHtml += "已报名";
+        outputHtml = "已报名";
         break;
       case "UnAudit":
-        outputHtml += "等待审核";
+        outputHtml = "等待审核";
         break;
       case "UnApprove":
-        outputHtml += "审核未通过";
+        outputHtml = "审核未通过";
         break;
+      default:
+        outputHtml = "";
     }
   }
   return outputHtml;
@@ -126,14 +131,14 @@ const delHtmlTag = (value) => {
 const queryURL = (name) => {
   let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i')
   let r = window.location.search.substr(1).match(reg)
-  if (r != null) return decodeURI(r[2])
+  if (r != null) return decodeURI(r[ 2 ])
   return null
 }
 //考试总分
 const examAllScore = (arr) => {
   var sum = 0;
   for (var i = 0; i < arr.length; i++) {
-    sum += arr[i].Question.Score;
+    sum += arr[ i ].Question.Score;
   }
   return sum;
 }
@@ -141,7 +146,7 @@ const examAllScore = (arr) => {
 const countIf = (arr) => {
   var count = 0;
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i].UserAnswer == arr[i].Question.Answer) {
+    if (arr[ i ].UserAnswer === arr[ i ].Question.Answer) {
       count++;
     }
   }
@@ -151,7 +156,7 @@ const countIf = (arr) => {
 const rightScore = (arr) => {
   var sum = 0;
   for (var i = 0; i < arr.length; i++) {
-    sum += arr[i].UserScore;
+    sum += arr[ i ].UserScore;
   }
   return sum;
 }
@@ -176,8 +181,8 @@ const formatTime = (seconds) => {
   if (min < 10) {
     min = '0' + min;
   }
-  
-  return time = hour ? (hour + ':' + newMin + ':' + second) : (min + ':' + second);
+  time = hour ? (hour + ':' + newMin + ':' + second) : (min + ':' + second);
+  return time;
 }
 /*全屏*/
 const fullScreen = (docElm) => {
@@ -202,6 +207,11 @@ const exitFullScreen = () => {
     document.webkitExitFullscreen();
   }
 }
+/*退出全屏*/
+const querySearch = (search) => {
+  let match = queryString.parse(search);
+  return match;
+}
 export {
   getCookie,
   setCookie,
@@ -220,4 +230,5 @@ export {
   formatTime,
   fullScreen,
   exitFullScreen,
+  querySearch,
 }

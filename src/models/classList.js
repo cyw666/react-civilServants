@@ -2,8 +2,8 @@
  * 班级列表
  * */
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {noticeList, classList} from '../services/main'
+import model from './common'
+import { classList } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'classList',
@@ -23,15 +23,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateClassParams(state, {payload}) {
+    updateClassParams(state, { payload }) {
       return {
         ...state,
-        classParams: {...state.classParams, ...payload}
+        classParams: { ...state.classParams, ...payload }
       }
     },
   },
   effects: {
-    * getClassList({payload}, {call, put}) {
+    * getClassList({ payload }, { call, put }) {
       let data = yield call(classList, payload);
       yield put({
         type: 'updateState',
@@ -44,12 +44,17 @@ export default modelExtend(model, {
           }
         }
       });
-      yield put({type: 'updateClassParams', payload})
+      yield put({ type: 'updateClassParams', payload })
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      dispatch({type: 'getClassList', payload: {page: 1, rows: 10, search: ''}});
+    setup({ dispatch, history }) {
+      history.listen((location) => {
+        if (location.pathname === '/main/classList') {
+          dispatch({ type: 'setTitle', payload: { title: '班级列表' } });
+        }
+      });
+      dispatch({ type: 'getClassList', payload: { page: 1, rows: 10, search: '' } });
     }
   }
 });

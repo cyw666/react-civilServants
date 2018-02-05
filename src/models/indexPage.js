@@ -1,10 +1,10 @@
 // import key from 'keymaster';
-import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {routerRedux} from 'dva/router'
-import {model} from './common'
-import * as mainService from '../services/main';
-import {getCookie, setCookie, delCookie} from '../utils/index'
+import modelExtend from 'dva-model-extend';
+import { message } from 'antd'
+import { routerRedux } from 'dva/router'
+import model from './common'
+import * as mainService from '../services/';
+import { getCookie, setCookie, delCookie } from '../utils/index'
 
 export default modelExtend(model, {
   namespace: 'indexPage',
@@ -27,7 +27,7 @@ export default modelExtend(model, {
     },
     newsData: {
       ListData: [
-        {Name: '', Description: ''}
+        { Name: '', Description: '' }
       ]
     },
     realTimeData: {
@@ -37,9 +37,7 @@ export default modelExtend(model, {
       ListData: []
     },
     courseCategory: {
-      ListData: [
-        {Id: '', Name: ''}
-      ]
+      ListData: [ { id: '', text: '' } ]
     },
     studySpecialData: {
       ListData: []
@@ -62,30 +60,32 @@ export default modelExtend(model, {
     },
     bookListData: {
       ListData: []
-    }
+    },
+    /*mock js*/
+    tags: null
   },
   reducers: {
-    save(state, {payload: list}) {
-      return {...state, linkData: list}
+    save(state, { payload: list }) {
+      return { ...state, linkData: list }
     },
-    addUserMessage(state, {payload: userMessage}) {
-      return {...state, userMessage: userMessage}
+    addUserMessage(state, { payload: userMessage }) {
+      return { ...state, userMessage: userMessage }
     }
   },
   effects: {
-    * kickOut({payload}, {call, put, select}) {
+    * kickOut({ payload }, { call, put, select }) {
       var data = yield call(mainService.kickOut, payload);
-      if (data.Type == 1) {
+      if (data.Type === 1) {
         //重新登录
         const loginValue = yield select(state => state.indexPage.loginValue);
-        yield put({type: "login", payload: loginValue})
+        yield put({ type: "login", payload: loginValue })
       }
     },
-    * getVerifyCode({payload}, {call, put}) {
+    * getVerifyCode({ payload }, { call, put }) {
       let data = yield call(mainService.getVerifyCode);
-      yield put({type: 'updateState', payload: {codeImg: `data:image/png;base64,${data.img}`}})
+      yield put({ type: 'updateState', payload: { codeImg: `data:image/png;base64,${data.img}` } })
     },
-    * login({payload: loginValue}, {call, put, select}) {
+    * login({ payload: loginValue }, { call, put, select }) {
       try {
         const showCode = yield select(state => state.indexPage.showCode);
         let data;
@@ -94,58 +94,58 @@ export default modelExtend(model, {
         } else {
           data = yield call(mainService.login, loginValue);
         }
-        if (data.Type == 0) {
+        if (data.Type === 0) {
           message.error('账号或密码错误！');
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 1) {
-          yield put({type: 'setUserCookie', payload: loginValue});
-          yield put(routerRedux.push('/main/indexPage'));
-        } else if (data.Type == 2) {
-          yield put({type: 'setUserCookie', payload: loginValue});
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 1) {
+          yield put({ type: 'setUserCookie', payload: loginValue });
+          window.location.reload();
+        } else if (data.Type === 2) {
+          yield put({ type: 'setUserCookie', payload: loginValue });
           message.warning("首次登录，请修改密码！");
           yield put(routerRedux.push('/main/modifyPassword'))
-        } else if (data.Type == 3) {
+        } else if (data.Type === 3) {
           if (window.confirm("帐号在别的地方登录，是否踢出？")) {
-            yield put({type: 'kickOut', payload: {kickUserId: data.Message}});
+            yield put({ type: 'kickOut', payload: { kickUserId: data.Message } });
           }
-        } else if (data.Type == 4) {
+        } else if (data.Type === 4) {
           message.error('此电脑已经有用户登录，您不能用其他帐号再次登录！');
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 5) {
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 5) {
           message.error('平台当前在线人数到达上限，请稍后再试！');
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 6) {
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 6) {
           message.error(data.Message);
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 7) {
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 7) {
           message.error(data.Message);
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 10) {
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 10) {
           message.error("您还不是本平台成员");
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 11) {
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 11) {
           message.error(data.Message);
-          yield put({type: 'getVerifyCode'});
-        } else if (data.Type == 12) {
+          yield put({ type: 'getVerifyCode' });
+        } else if (data.Type === 12) {
           message.error(data.Message);
-          yield put({type: 'getVerifyCode'});
+          yield put({ type: 'getVerifyCode' });
         } else {
           message.warn(data.Message);
-          yield put({type: 'getVerifyCode'});
+          yield put({ type: 'getVerifyCode' });
         }
       } catch (error) {
         throw error;
       }
     },
-    * userMessage(action, {call, put}) {
+    * userMessage(action, { call, put }) {
       let data = yield call(mainService.userMessage);
-      yield put({type: 'addUserMessage', payload: data.Data});
+      yield put({ type: 'addUserMessage', payload: data.Data });
     },
-    * loginOut({payload}, {call, put}) {
+    * loginOut({ payload }, { call, put }) {
       try {
         let data = yield call(mainService.loginOut, payload);
         if (data.Type === 1) {
-          yield put(routerRedux.push('/main/indexPage'));
+          yield put(routerRedux.push('/'));
         } else {
           message.warn(data.Message);
         }
@@ -155,13 +155,13 @@ export default modelExtend(model, {
       }
       
     },
-    * getUserCookie({payload}, {call, put}) {
+    * getUserCookie({ payload }, { call, put }) {
       if (getCookie("RB")) {
         let userCookies = getCookie("RB").split('|');
-        let RB = userCookies[0];
-        let Account = userCookies[1];
-        let PassWord = userCookies[2];
-        let loginValue = {Account, PassWord, 'RememberMe': true};
+        // let RB = userCookies[ 0 ];
+        let Account = userCookies[ 1 ];
+        let PassWord = userCookies[ 2 ];
+        let loginValue = { Account, PassWord, 'RememberMe': true };
         yield put({
           type: 'updateState',
           payload: {
@@ -170,7 +170,7 @@ export default modelExtend(model, {
         });
       }
     },
-    * setUserCookie({payload: values}, {call, put}) {
+    * setUserCookie({ payload: values }, { call, put }) {
       if (values.RememberMe) {
         var rmString = values.RememberMe + '|' + values.Account + '|' + values.PassWord;
         setCookie("RB", rmString, 7);
@@ -188,26 +188,26 @@ export default modelExtend(model, {
         });
       }
     },
-    * getNotice({payload}, {call, put}) {
+    * getNotice({ payload }, { call, put }) {
       let data = yield call(mainService.leftNotice, payload);
-      yield put({type: 'updateState', payload: {noticeData: data.Data}});
+      yield put({ type: 'updateState', payload: { noticeData: data.Data } });
     },
-    * getNews({payload}, {call, put}) {
+    * getNews({ payload }, { call, put }) {
       let data = yield call(mainService.articleList, payload);
-      yield put({type: 'updateState', payload: {newsData: data.Data}});
+      yield put({ type: 'updateState', payload: { newsData: data.Data } });
     },
-    * getRealTimeData({payload}, {call, put}) {
+    * getRealTimeData({ payload }, { call, put }) {
       let data = yield call(mainService.leftRealTimeData, payload);
-      yield put({type: 'updateState', payload: {realTimeData: data.Data}});
+      yield put({ type: 'updateState', payload: { realTimeData: data.Data } });
     },
-    * getCourseList({payload}, {call, put}) {
+    * getCourseList({ payload }, { call, put }) {
       let data = yield call(mainService.courseList, payload);
-      yield put({type: 'updateState', payload: {courseListData: data.Data}});
+      yield put({ type: 'updateState', payload: { courseListData: data.Data } });
     },
-    * getCourseCategory({payload}, {call, put}) {
+    * getCourseCategory({ payload }, { call, put }) {
       let data = yield call(mainService.courseCategory, payload);
-      let defaultId = data.Data.ListData[0].id;
-      let courseList = yield call(mainService.courseList, {rows: 8, channelId: defaultId});
+      let defaultId = data.Data.ListData[ 0 ].id;
+      let courseList = yield call(mainService.courseList, { rows: 8, channelId: defaultId });
       yield put({
         type: 'updateState',
         payload: {
@@ -216,7 +216,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * getStudySpecial({payload}, {call, put}) {
+    * getStudySpecial({ payload }, { call, put }) {
       let data = yield call(mainService.studySpecial, payload);
       yield put({
         type: 'updateState',
@@ -225,10 +225,10 @@ export default modelExtend(model, {
         }
       });
     },
-    * getClassCategory({payload}, {call, put}) {
+    * getClassCategory({ payload }, { call, put }) {
       let data = yield call(mainService.getTrainingClassTypeList, payload);
-      let defaultId = data.Data.ListData[0].id;
-      let classList = yield call(mainService.getClassList, {rows: 6, categoryId: defaultId});
+      let defaultId = data.Data.ListData[ 0 ].id;
+      let classList = yield call(mainService.getClassList, { rows: 6, categoryId: defaultId });
       yield put({
         type: 'updateState',
         payload: {
@@ -238,7 +238,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * getClassList({payload}, {call, put}) {
+    * getClassList({ payload }, { call, put }) {
       let data = yield call(mainService.getClassList, payload);
       yield put({
         type: 'updateState',
@@ -248,7 +248,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * joinClass({payload}, {call, put}) {
+    * joinClass({ payload }, { call, put }) {
       let isLogin = yield call(mainService.authorization);
       if (isLogin.isauth) {
         let data = yield call(mainService.updateTrainingStudentup, payload);
@@ -259,10 +259,10 @@ export default modelExtend(model, {
         }
       } else {
         message.error("请登录");
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       }
     },
-    * getGroupRank({payload}, {call, put}) {
+    * getGroupRank({ payload }, { call, put }) {
       let data = yield call(mainService.leftGroupRank, payload);
       yield put({
         type: 'updateState',
@@ -271,7 +271,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * getRankUser({payload}, {call, put}) {
+    * getRankUser({ payload }, { call, put }) {
       let data = yield call(mainService.rankUserList, payload);
       yield put({
         type: 'updateState',
@@ -280,7 +280,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * getCourseClick({payload}, {call, put}) {
+    * getCourseClick({ payload }, { call, put }) {
       let data = yield call(mainService.courseClickRank, payload);
       yield put({
         type: 'updateState',
@@ -289,7 +289,7 @@ export default modelExtend(model, {
         }
       });
     },
-    * getBookList({payload}, {call, put}) {
+    * getBookList({ payload }, { call, put }) {
       let data = yield call(mainService.bookList, payload);
       yield put({
         type: 'updateState',
@@ -298,8 +298,13 @@ export default modelExtend(model, {
         }
       });
     },
-    * getTags({payload}, {call, put, select}) {
-      let data = yield call(mainService.tags, payload);
+    /*mock js*/
+    * getTags({ payload }, { call, put, select }) {
+      // let data = yield call(mainService.tags, payload);
+      let data = 'tags';
+      yield put({
+        type: 'updateState', payload: { tags: data }
+      });
     },
     
   },
@@ -309,25 +314,26 @@ export default modelExtend(model, {
      dispatch({type: 'add'})
      });
      },*/
-    setup({dispatch, history}) {
-      history.listen(({pathname, query}) => {
-        if (pathname === '/main/indexPage' || pathname === '/main') {
-          dispatch({type: 'getUserCookie'});
-          dispatch({type: 'getVerifyCode'});
-          dispatch({type: 'userMessage'});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname }) => {
+        if (pathname === '/') {
+          dispatch({ type: 'setTitle', payload: { title: '干部教育网络学院-基准' } });
+          dispatch({ type: 'getUserCookie' });
+          dispatch({ type: 'getVerifyCode' });
+          dispatch({ type: 'userMessage' });
         }
       });
-      // dispatch({type: 'getTags'});
-      dispatch({type: 'getRealTimeData'});
-      dispatch({type: 'getCourseCategory', payload: {page: 1, rows: 5}});
-      dispatch({type: 'getStudySpecial', payload: {rows: 3}});
-      dispatch({type: 'getClassCategory', payload: {rows: 3}});
-      dispatch({type: 'getNotice', payload: {rows: 3}});
-      dispatch({type: 'getNews', payload: {rows: 6, categoryCode: 'newsInformation'}});
-      dispatch({type: 'getGroupRank'});
-      dispatch({type: 'getRankUser'});
-      dispatch({type: 'getCourseClick'});
-      dispatch({type: 'getBookList'});
+      dispatch({ type: 'getTags' });
+      dispatch({ type: 'getRealTimeData' });
+      dispatch({ type: 'getCourseCategory', payload: { page: 1, rows: 5 } });
+      dispatch({ type: 'getStudySpecial', payload: { rows: 3 } });
+      dispatch({ type: 'getClassCategory', payload: { rows: 3 } });
+      dispatch({ type: 'getNotice', payload: { rows: 3 } });
+      dispatch({ type: 'getNews', payload: { rows: 6, categoryCode: 'newsInformation' } });
+      dispatch({ type: 'getGroupRank' });
+      dispatch({ type: 'getRankUser' });
+      dispatch({ type: 'getCourseClick' });
+      dispatch({ type: 'getBookList' });
     }
   }
 });

@@ -3,8 +3,8 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Icon} from 'antd';
-import {formatTime, fullScreen, exitFullScreen} from '../../../utils/index'
+import { Icon } from 'antd';
+import { formatTime, fullScreen, exitFullScreen } from '../../../utils/index'
 import styles from './tmPlayMp4.less'
 import volumeOn from '../../../assets/volume-on.png'
 import volumeOff from '../../../assets/volume-off.png'
@@ -45,7 +45,7 @@ class TmPlayMp4 extends React.Component {
     this.timerDuration = setTimeout(() => {
       let duration = Math.round(this.playVideo.duration);
       if (duration) {
-        this.setState({duration});
+        this.setState({ duration });
         clearTimeout(this.timerDuration);
       }
     }, 1000);
@@ -55,13 +55,13 @@ class TmPlayMp4 extends React.Component {
       let location = Math.round(this.state.location);
       if (currentTime < location && currentTime > location - 2 && location < this.state.duration) {
         location++;
-        this.setState({location});
+        this.setState({ location });
       }
-      this.setState({currentTime});
+      this.setState({ currentTime });
     }, 1000);
     //播放结束暂停视频
     this.playVideo.addEventListener("ended", () => {
-      this.setState({isPaused: true});
+      this.setState({ isPaused: true });
     }, false);
     //播放时
     this.playVideo.addEventListener("play", () => {
@@ -112,7 +112,7 @@ class TmPlayMp4 extends React.Component {
       alert("请不要在未播放区域拖动，否则可能丢失进度！");
       this.playVideo.currentTime = this.state.currentTime;
       this.playVideo.pause();
-      this.setState({isPaused: true});
+      this.setState({ isPaused: true });
     }
   }
   
@@ -120,10 +120,10 @@ class TmPlayMp4 extends React.Component {
   toggleVolume() {
     let volume = this.state.volume;
     if (volume > 0) {
-      this.setState({volume: 0});
+      this.setState({ volume: 0 });
       this.playVideo.volume = 0;
     } else {
-      this.setState({volume: this.volumeRange.value});
+      this.setState({ volume: this.volumeRange.value });
       this.playVideo.volume = this.volumeRange.value;
     }
   }
@@ -150,9 +150,9 @@ class TmPlayMp4 extends React.Component {
   //控制条显示
   showControls() {
     if (!this.state.isShowControls) {
-      this.setState({isShowControls: true});
+      this.setState({ isShowControls: true });
       this.showControlsTimer = setTimeout(() => {
-        this.setState({isShowControls: false});
+        this.setState({ isShowControls: false });
         clearTimeout(this.showControlsTimer);
       }, 5000);
     }
@@ -161,7 +161,7 @@ class TmPlayMp4 extends React.Component {
   //控制条隐藏
   hideControls() {
     if (this.state.isShowControls) {
-      this.setState({isShowControls: false});
+      this.setState({ isShowControls: false });
     }
   }
   
@@ -175,97 +175,94 @@ class TmPlayMp4 extends React.Component {
       volume,
       isFullScreen,
       isShowControls,
-      portalId,
-      userId,
-      courseId,
       location,
       url
     } = this.state;
     return (
-      <div className={styles.tmPlayMp4} ref={(tmPlayMp4) => {
+      <div className={ styles.tmPlayMp4 } ref={ (tmPlayMp4) => {
         this.tmPlayMp4 = tmPlayMp4
-      }}>
-        <div className={styles.myplayer}
-             ref={(myplayer) => {
+      } }>
+        <div className={ styles.myplayer }
+             ref={ (myplayer) => {
                this.myplayer = myplayer
-             }}
-             onMouseEnter={this.showControls}
-             onMouseLeave={this.hideControls}
-             onMouseMove={this.showControls}
+             } }
+             onMouseEnter={ this.showControls }
+             onMouseLeave={ this.hideControls }
+             onMouseMove={ this.showControls }
         >
-          <video width={'100%'} height={'100%'} autoPlay
-                 ref={(video) => {
+          <video width={ '100%' } height={ '100%' } autoPlay
+                 ref={ (video) => {
                    this.playVideo = video;
-                 }}>
-            <source src={url} type="video/mp4"/>
+                 } }>
+            <source src={ url } type="video/mp4"/>
             您的浏览器不支持Video标签。
           </video>
           <div className="overlay_component"
-               onClick={this.playPauseClick}
-               onDoubleClick={this.toggleFullScreen}
+               onClick={ this.playPauseClick }
+               onDoubleClick={ this.toggleFullScreen }
           >
             {
               isPaused &&
               <span className="overlay_inner"><Icon type="caret-right"/></span>
             }
           </div>
-          <div className="controls" style={{opacity: isShowControls ? 1 : 0}}>
+          <div className="controls" style={ { opacity: isShowControls ? 1 : 0 } }>
             <div className="playPause_component">
-              <button className="playPause_button" onClick={this.playPauseClick}>
+              <button className="playPause_button" onClick={ this.playPauseClick }>
                 {
                   isPaused ? <Icon type="pause"/> : <Icon type="caret-right"/>
                 }
               </button>
             </div>
             <div className="time_component ">
-              <span className="time_current">{formatTime(currentTime)}</span> /&nbsp;
-              <span className="time_duration">{formatTime(duration)}</span>
+              <span className="time_current">{ formatTime(currentTime) }</span> /&nbsp;
+              <span className="time_duration">{ formatTime(duration) }</span>
             </div>
             <div className="seek_component">
               <div className="seek_track">
                 <div className="seek_buffer"></div>
-                <div className="seek_fill" style={{width: `${currentTime / duration * 100}%`}}></div>
-                <div className="seek_location" style={{left: `${location / duration * 100}%`}}></div>
+                <div className="seek_fill" style={ { width: `${currentTime / duration * 100}%` } }></div>
+                <div className="seek_location" style={ { left: `${location / duration * 100}%` } }></div>
                 <input type="range" step="1" min="0" max="100"
                        orient="horizontal" aria-label="Seek video"
                        className="seek_input" defaultValue="0"
-                       ref={(input) => {
+                       ref={ (input) => {
                          this.seekRange = input
-                       }}
-                       onChange={this.seekRangeChange}
+                       } }
+                       onChange={ this.seekRangeChange }
                 />
               </div>
             </div>
             <div className="volume_component">
-              <button aria-label="Mute video" onClick={this.toggleVolume} className="volume_button" type="button">
+              <button aria-label="Mute video" onClick={ this.toggleVolume } className="volume_button" type="button">
                 {
                   volume > 0 ?
-                    <img src={volumeOn} alt="开"/>
+                    <img src={ volumeOn } alt="开"/>
                     :
-                    <img src={volumeOff} alt="关"/>
+                    <img src={ volumeOff } alt="关"/>
                 }
               </button>
               <div className="volume_slider">
                 <div className="volume_track">
-                  <div className="volume_fill" style={{height: `${volume * 100}%`}}></div>
+                  <div className="volume_fill" style={ { height: `${volume * 100}%` } }></div>
                   <input type="range" step="0.1" min="0" max="1" orient="vertical"
                          aria-label="Change volume"
                          className="volume_input"
-                         ref={(input) => {
+                         ref={ (input) => {
                            this.volumeRange = input
-                         }}
-                         onChange={this.volumeChange}/>
+                         } }
+                         onChange={ this.volumeChange }/>
                 </div>
               </div>
             </div>
             <div className="fullScreen_component">
-              <button aria-label="Mute video" onClick={this.toggleFullScreen} className="fullScreen_button"
+              <button aria-label="Mute video" onClick={ this.toggleFullScreen } className="fullScreen_button"
                       type="button">
                 {
                   isFullScreen ?
-                    <img src={fullScreenExit} alt="退出"/>
+                    <img src={ fullScreenExit } alt="退出"/>
                     :
-                    <img src={fullScreenOn} alt="全屏"/>
+                    <img src={ fullScreenOn } alt="全屏"/>
                 }
               </button>
             </div>

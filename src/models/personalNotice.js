@@ -3,8 +3,8 @@
  * */
 // import key from 'keymaster';
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {noticeUnReadList} from '../services/main'
+import model from './common'
+import { noticeUnReadList } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'personalNotice',
@@ -24,15 +24,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateNoticeParams(state, {payload}) {
+    updateNoticeParams(state, { payload }) {
       return {
         ...state,
-        noticeParams: {...state.noticeParams, ...payload}
+        noticeParams: { ...state.noticeParams, ...payload }
       }
     },
   },
   effects: {
-    * getNoticeList({payload}, {call, put}) {
+    * getNoticeList({ payload }, { call, put }) {
       let data = yield call(noticeUnReadList, payload);
       yield put({
         type: 'updateState',
@@ -45,12 +45,17 @@ export default modelExtend(model, {
           }
         }
       });
-      yield put({type: 'updateNoticeParams', payload})
+      yield put({ type: 'updateNoticeParams', payload })
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      dispatch({type: 'getNoticeList', payload: {page: 1, rows: 10}});
+    setup({ dispatch, history }) {
+      history.listen((location) => {
+        if (location.pathname === '/main/personalNotice') {
+          dispatch({ type: 'setTitle', payload: { title: '个人通知' } });
+        }
+      });
+      dispatch({ type: 'getNoticeList', payload: { page: 1, rows: 10 } });
     }
   }
 });

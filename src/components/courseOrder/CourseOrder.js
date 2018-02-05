@@ -1,11 +1,11 @@
-import React, {Component, Children} from 'react';
+import React, { Component, Children } from 'react';
 import PropTypes from 'prop-types'
 import CourseOrderItem from './CourseOrderItem'
 
 class CourseOrder extends Component {
   constructor(props) {
     super(props);
-    const {activeKey, order, sort} = this.props;
+    const { activeKey, order, sort } = this.props;
     this.state = {
       activeKey: activeKey,
       sort: sort,
@@ -17,13 +17,13 @@ class CourseOrder extends Component {
     let activeKey = this.state.activeKey;
     activeKey = activeKey === key ? '' : key;
     if (!('activeKey' in this.props)) {
-      this.setState({activeKey});
+      this.setState({ activeKey });
     }
     
     let order = this.state.order;
     order = or ? or : order;
     if (!('order' in this.props)) {
-      this.setState({order});
+      this.setState({ order });
     }
     
     let sort = key ? key : activeKey;
@@ -56,7 +56,7 @@ class CourseOrder extends Component {
   render() {
     return (
       <div>
-        {this.getItems()}
+        { this.getItems() }
       </div>
     )
   }
@@ -79,6 +79,7 @@ class CourseOrder extends Component {
       });
     }
   }
+  
   //在重新渲染过程开始前触发的。 这个函数默认返回true，可使React执行更新,来提升速度
   shouldComponentUpdate(nextProps, nextState) {
     return true

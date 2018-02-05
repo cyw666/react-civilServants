@@ -1,6 +1,6 @@
-import {message} from 'antd'
-import {routerRedux} from 'dva/router'
-import {blogroll, authorization, loginLong, loginOut} from '../services/main'
+import { message } from 'antd'
+import { routerRedux } from 'dva/router'
+import { blogroll, loginLong, loginOut } from '../services/'
 
 export default {
   namespace: 'app',
@@ -15,7 +15,7 @@ export default {
     },
   },
   reducers: {
-    updateState(state, {payload}) {
+    updateState(state, { payload }) {
       return {
         ...state,
         ...payload,
@@ -23,9 +23,9 @@ export default {
     },
   },
   effects: {
-    * getBlogroll(action, {call, put}) {
+    * getBlogroll(action, { call, put }) {
       let data = yield call(blogroll);
-      if (data && data.Status == 200) {
+      if (data && data.Status === 200) {
         yield put({
           type: 'updateState',
           payload: {
@@ -35,17 +35,17 @@ export default {
       }
       
     },
-    * getUserInformation({payload}, {call, put}) {
+    * getUserInformation({ payload }, { call, put }) {
       let data = yield call(loginLong);
       if (data && data.Status == 200) {
-        yield put({type: 'updateState', payload: {userInformation: data.Data}});
+        yield put({ type: 'updateState', payload: { userInformation: data.Data } });
       }
     },
-    * loginOut({payload}, {call, put}) {
+    * loginOut({ payload }, { call, put }) {
       try {
         let data = yield call(loginOut, payload);
         if (data.Type === 1) {
-          yield put(routerRedux.push('/main/indexPage'));
+          yield put(routerRedux.push('/'));
         } else {
           message.error(data.Message);
         }
@@ -53,15 +53,14 @@ export default {
       catch (error) {
         throw error;
       }
-      
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      history.listen((location) => {
-        dispatch({type: 'getUserInformation'});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname }) => {
+        dispatch({ type: 'getUserInformation' });
       })
-      dispatch({type: 'getBlogroll'});
+      dispatch({ type: 'getBlogroll' });
     }
   },
 };

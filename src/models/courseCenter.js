@@ -2,15 +2,16 @@
  * 课程中心
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
+import { message } from 'antd'
+import model from './common'
+import { querySearch } from '../utils/utils'
 
 import {
   courseCategory,
   courseList,
   addStudyCourse,
   courseClickRank,
-} from '../services/main';
+} from '../services/';
 
 export default modelExtend(model, {
   namespace: 'courseCenter',
@@ -47,21 +48,21 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updateCourseListParams(state, {payload}) {
+    updateCourseListParams(state, { payload }) {
       return {
         ...state,
-        courseListParams: {...state.courseListParams, ...payload}
+        courseListParams: { ...state.courseListParams, ...payload }
       }
     },
-    updateCheckedList(state, {payload}) {
+    updateCheckedList(state, { payload }) {
       return {
         ...state,
-        checkedList: {...state.checkedList, ...payload}
+        checkedList: { ...state.checkedList, ...payload }
       }
     },
-    initCourseListData(state, {payload}) {
+    initCourseListData(state, { payload }) {
       let courseOptions = payload.map(item => {
-        let option = {label: '', value: item.Id.toString(), disabled: item.Learning >= 0 ? true : false}
+        let option = { label: '', value: item.Id.toString(), disabled: item.Learning >= 0 ? true : false }
         return option
       })
       return {
@@ -72,37 +73,37 @@ export default modelExtend(model, {
         checkAll: false
       }
     },
-    updateCourseListData(state, {payload}) {
+    updateCourseListData(state, { payload }) {
       let courseListData = state.courseListData.map(item => {
-        return Object.assign({}, item, {checked: payload})
+        return Object.assign({}, item, { checked: payload })
       })
       return {
         ...state,
         courseListData: courseListData
       }
     },
-    updateExpanderKeys(state, {payload}) {
+    updateExpanderKeys(state, { payload }) {
       return {
         ...state,
-        ...{expandedKeys: payload}
+        ...{ expandedKeys: payload }
       }
     },
   },
   effects: {
-    * getCourseCategory({payload}, {call, put}) {
+    * getCourseCategory({ payload }, { call, put }) {
       let data = yield call(courseCategory, payload);
       let expandedKeys = [];
-      expandedKeys.push((data.Data.ListData[0].id).toString());
-      yield put({type: 'updateState', payload: {courseCategory: data.Data}});
-      yield put({type: 'updateExpanderKeys', payload: expandedKeys});
+      expandedKeys.push((data.Data.ListData[ 0 ].id).toString());
+      yield put({ type: 'updateState', payload: { courseCategory: data.Data } });
+      yield put({ type: 'updateExpanderKeys', payload: expandedKeys });
     },
-    * getCourseList({payload}, {call, put}) {
+    * getCourseList({ payload }, { call, put }) {
       let data = yield call(courseList, payload);
       yield put({
         type: 'initCourseListData',
         payload: data.Data.ListData,
       });
-      yield put({type: 'updateCourseListParams', payload});
+      yield put({ type: 'updateCourseListParams', payload });
       yield put({
         type: 'updateState',
         payload: {
@@ -116,20 +117,20 @@ export default modelExtend(model, {
         }
       });
     },
-    * addStudyCourse({payload}, {call, put, select}) {
+    * addStudyCourse({ payload }, { call, put, select }) {
       if (payload !== '') {
         let data = yield call(addStudyCourse, payload);
         if (data.Type > 0) {
           message.success(data.Message);
           let courseParams = yield select(state => state.courseCenter.courseListParams);
-          yield put({type: 'getCourseList', payload: courseParams});
+          yield put({ type: 'getCourseList', payload: courseParams });
         }
       } else {
         message.warn("您没有选择可添加的课程！");
       }
       
     },
-    * getCourseRank({payload}, {call, put}) {
+    * getCourseRank({ payload }, { call, put }) {
       let data = yield call(courseClickRank, payload);
       yield put({
         type: 'updateState',
@@ -140,19 +141,20 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      history.listen((location) => {
-        if (location.pathname === "/main/courseCenter") {
-          let channelId = location.query.channelId;
-          if (channelId) {
-            dispatch({type: 'getCourseList', payload: {channelId}});
+    setup({ dispatch, history }) {
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/courseCenter") {
+          dispatch({ type: 'setTitle', payload: { title: '课程中心' } });
+          let query = querySearch(search);
+          if (query) {
+            dispatch({ type: 'getCourseList', payload: query });
           } else {
-            dispatch({type: 'getCourseList'});
+            dispatch({ type: 'getCourseList' });
           }
         }
       })
-      dispatch({type: 'getCourseCategory', payload: {page: '', rows: ''}});
-      dispatch({type: 'getCourseRank', payload: {page: 1, rows: 10}});
+      dispatch({ type: 'getCourseCategory', payload: { page: '', rows: '' } });
+      dispatch({ type: 'getCourseRank', payload: { page: 1, rows: 10 } });
     }
   }
 });

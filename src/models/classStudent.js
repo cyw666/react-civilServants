@@ -1,11 +1,10 @@
 /**
- * 教学计划
+ * 同学名录
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-
-import {classStudent} from '../services/main';
+import model from './common'
+import { querySearch } from '../utils/utils'
+import { classStudent } from '../services/';
 
 export default modelExtend(model, {
   namespace: 'classStudent',
@@ -19,15 +18,15 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updatePageOptions(state, {payload}) {
+    updatePageOptions(state, { payload }) {
       return {
         ...state,
-        pageOptions: {...state.pageOptions, ...payload}
+        pageOptions: { ...state.pageOptions, ...payload }
       }
     },
   },
   effects: {
-    * getClassStudent({payload}, {call, put, select}) {
+    * getClassStudent({ payload }, { call, put, select }) {
       let data = yield call(classStudent, payload);
       yield put({
         type: 'updateState',
@@ -46,17 +45,18 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let id;
-      history.listen((location) => {
-        if (location.pathname === "/main/grade/classStudent") {
-          if (id != location.query.id) {
-            id = location.query.id;
-            dispatch({type: 'getClassStudent', payload: {id}});
-            dispatch({type: 'updateState', payload: {classId: id}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/grade/classStudent") {
+          dispatch({ type: 'setTitle', payload: { title: '同学名录' } });
+          if (id != querySearch(search).id) {
+            id = querySearch(search).id;
+            dispatch({ type: 'getClassStudent', payload: { id } });
+            dispatch({ type: 'updateState', payload: { classId: id } });
           }
         }
-      })
+      });
     }
   }
 });

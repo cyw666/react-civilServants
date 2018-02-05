@@ -1,0 +1,12 @@
+export { default as CourseOrder } from './courseOrder/CourseOrder';
+export { default as Edit } from './edit/edit';
+export { default as Footer } from './Footer/Footer';
+export { default as GeneralHead } from './GeneralHead/GeneralHead';
+export { default as Header } from './Header/Header';
+export { default as Img } from './Img/Img';
+export { default as NavBar } from './NavBar/NavBar';
+export { default as TmCategory } from './tmCategory/tmCategory';
+export { default as TmNavCenter } from './tmNavCenter/tmNavCenter';
+export { default as Upload } from './upload/upload';
+export { default as UserInformation } from './userInformation/userInformation';
+export { default as VerificationCode } from './verificationCode/verificationCode';

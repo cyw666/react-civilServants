@@ -4,7 +4,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Spin, Button} from 'antd';
+import { Spin, Button } from 'antd';
 import styles from './tmArticleCategory.less'
 import GeneralHead from '../../../components/GeneralHead/GeneralHead'
 
@@ -15,18 +15,18 @@ const TmArticleCategory = ({
                            }) => {
   const categoryList = dataList.ListData.map((item, index) => {
     return (
-      <li key={item.Id}><Button type="primary" onClick={() => {
-        searchArticle({categoryId: item.Id, titleNav: item.Name, categoryCode: ''})
-      }}>{item.Name}</Button></li>
+      <li key={ item.Id }><Button type="primary" onClick={ () => {
+        searchArticle({ categoryId: item.Id, titleNav: item.Name, categoryCode: '' })
+      } }>{ item.Name }</Button></li>
     )
   })
   return (
-    <div className={styles.tmArticleCategory}>
-      <GeneralHead showIcon={false} title="文章分类"></GeneralHead>
-      <div className={styles.categoryContent}>
-        <Spin spinning={loading}>
+    <div className={ styles.tmArticleCategory }>
+      <GeneralHead showIcon={ false } title="文章分类"></GeneralHead>
+      <div className={ styles.categoryContent }>
+        <Spin spinning={ loading }>
           <ul>
-            {categoryList}
+            { categoryList }
           </ul>
         </Spin>
       </div>

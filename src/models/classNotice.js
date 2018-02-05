@@ -2,10 +2,9 @@
  * 班级公告
  */
 import modelExtend from 'dva-model-extend'
-import {message} from 'antd'
-import {model} from './common'
-
-import {classNoticeList} from '../services/main';
+import model from './common'
+import { querySearch } from '../utils/utils'
+import { classNoticeList } from '../services/';
 
 export default modelExtend(model, {
   namespace: 'classNoticeList',
@@ -19,15 +18,15 @@ export default modelExtend(model, {
     }
   },
   reducers: {
-    updatePageOptions(state, {payload}) {
+    updatePageOptions(state, { payload }) {
       return {
         ...state,
-        pageOptions: {...state.pageOptions, ...payload}
+        pageOptions: { ...state.pageOptions, ...payload }
       }
     },
   },
   effects: {
-    * getClassNoticeList({payload}, {call, put, select}) {
+    * getClassNoticeList({ payload }, { call, put, select }) {
       let data = yield call(classNoticeList, payload);
       yield put({
         type: 'updateState',
@@ -46,17 +45,18 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
+    setup({ dispatch, history }) {
       let id;
-      history.listen((location) => {
-        if (location.pathname === "/main/grade/classNotice") {
-          if (id != location.query.id) {
-            id = location.query.id;
-            dispatch({type: 'getClassNoticeList', payload: {id}});
-            dispatch({type: 'updateState', payload: {classId: id}});
+      history.listen(({ pathname, search }) => {
+        if (pathname === "/main/grade/classNotice") {
+          dispatch({ type: 'setTitle', payload: { title: '班级公告' } });
+          if (id != querySearch(search).id) {
+            id = querySearch(search).id;
+            dispatch({ type: 'getClassNoticeList', payload: { id } });
+            dispatch({ type: 'updateState', payload: { classId: id } });
           }
         }
-      })
+      });
     }
   }
 });

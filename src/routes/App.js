@@ -1,13 +1,13 @@
 import React from 'react';
-import {connect} from 'dva';
-import {message} from 'antd'
+import { connect } from 'dva';
+import { message } from 'antd'
 import PropTypes from 'prop-types';
+import { renderRoutes } from 'react-router-config'
 import Header from '../components/Header/Header'
 import NavBar from '../components/NavBar/NavBar'
 import Footer from '../components/Footer/Footer'
-import './App.less';
 
-function App({children, app, dispatch}) {
+function App({ children, app, dispatch, route }) {
   const addFavorite = () => {
     let url = window.location;
     let title = document.title;
@@ -38,15 +38,7 @@ function App({children, app, dispatch}) {
       event.target.style.behavior = 'url(#default#homepage)';
       event.target.setHomePage(url);
     } catch (e) {
-      if (window.netscape) {
-        try {
-          netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-        } catch (e) {
-          message.warn("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
-        }
-      } else {
-        message.warn("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【" + url + "】设置为首页。");
-      }
+      message.warn("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【" + url + "】设置为首页。");
     }
   }
   const inputChange = (e) => {
@@ -66,24 +58,25 @@ function App({children, app, dispatch}) {
   }
   return (
     <div>
-      <Header {...headerProps}></Header>
+      <Header { ...headerProps }></Header>
       <NavBar></NavBar>
-      {children}
-      <Footer blogrollData={app.blogrollData}></Footer>
+      { renderRoutes(route.routes) }
+      <Footer blogrollData={ app.blogrollData }></Footer>
     </div>
   );
 }
 
-function mapStateToProps({app, loading}) {
-  return {app, loading};
+function mapStateToProps({ app, loading }) {
+  return { app, loading };
 }
 
 App.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   location: PropTypes.object,
   dispatch: PropTypes.func,
   app: PropTypes.object,
   loading: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
+  route: PropTypes.object
 }
 export default connect(mapStateToProps)(App);

@@ -1,7 +1,7 @@
 /*平台介绍*/
 import modelExtend from 'dva-model-extend'
-import {model} from './common'
-import {collegeInfo} from '../services/main'
+import model from './common'
+import { collegeInfo } from '../services/'
 
 export default modelExtend(model, {
   namespace: 'collegeinfo',
@@ -11,15 +11,15 @@ export default modelExtend(model, {
     },
   },
   reducers: {
-    updateSearchResult(state, {payload}) {
+    updateSearchResult(state, { payload }) {
       return {
         ...state,
-        searchParams: {...state.searchParams, ...payload}
+        searchParams: { ...state.searchParams, ...payload }
       }
     },
   },
   effects: {
-    * getCollegeinfo({payload}, {call, put}) {
+    * getCollegeinfo({ payload }, { call, put }) {
       let data = yield call(collegeInfo, payload);
       yield put({
         type: 'updateState',
@@ -30,8 +30,13 @@ export default modelExtend(model, {
     },
   },
   subscriptions: {
-    setup({dispatch, history}) {
-      dispatch({type: 'getCollegeinfo'});
+    setup({ dispatch, history }) {
+      history.listen((location) => {
+        if (location.pathname === "/main/grade/classTopicList") {
+          dispatch({ type: 'setTitle', payload: { title: '平台介绍' } });
+        }
+      });
+      dispatch({ type: 'getCollegeinfo' });
     }
   }
 });
