@@ -94,7 +94,7 @@ export default modelExtend(model, {
       { name: "排行榜", pathname: "/main/rankList", search: null },
       { name: "专题学习", pathname: "/main/specialLearning", search: null },
       { name: "成果展示", pathname: "/main/resultShow", search: null },
-      { name: "新闻中心", pathname: "/main/main/article", search: null },
+      { name: "新闻中心", pathname: "/main/article", search: null },
     ]
   },
   reducers: {
