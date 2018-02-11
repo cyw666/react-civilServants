@@ -137,7 +137,7 @@ PendingNavDataLoader.propTypes = {
   children: PropTypes.element,
   location: PropTypes.object,
   history: PropTypes.object,
-  route: PropTypes.object,
+  routes: PropTypes.array,
   match: PropTypes.object
 }
 // wrap in withRouter
