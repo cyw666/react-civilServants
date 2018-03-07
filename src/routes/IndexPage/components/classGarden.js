@@ -37,13 +37,12 @@ const ClassGarden = ({ loading, classChange, classCategory, classListData, addCl
       </tr>
     )
   });
+  
   return (
     <div className={ styles.classGarden }>
       <GeneralHead showIcon={ true } title="班级园地" url="/main/trainingClass"></GeneralHead>
       <Spin spinning={ loading }>
-        <Tabs activeKey={ activeClassId } onChange={ (key) => {
-          classChange(key)
-        } } type="card">
+        <Tabs activeKey={ activeClassId } onChange={ (key) => {classChange(key)} } type="card">
           { tabPane }
         </Tabs>
         <div className={ styles.classContent }>
